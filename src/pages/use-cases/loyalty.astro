@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import ToolReview from '../../components/ToolReview.astro';
+import { site, description, pageTitle } from '../../content';
+import { useCaseBySlug } from '../../data/use-cases';
+import { appBySlug } from '../../data/apps';
+
+const uc = useCaseBySlug('loyalty')!;
+const path = '/use-cases/loyalty';
+const title = pageTitle(site, 'use-cases/loyalty');
+const desc = description(site, 'use-cases/loyalty');
+
+const featuredSlugs = ['sequenzy', 'marsello', 'yotpo-email-sms', 'klaviyo', 'omnisend'];
+const featuredApps = featuredSlugs.map((s) => appBySlug(s)!).filter(Boolean);
+
+const comparisonApps = [
+  'sequenzy', 'marsello', 'yotpo-email-sms', 'klaviyo', 'omnisend', 'drip',
+  'privy', 'shopify-email', 'sendlane', 'activecampaign',
+].map((s) => appBySlug(s)!).filter(Boolean);
+
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for loyalty campaigns?',
+    answer: 'Sequenzy ranks first for loyalty email strategy — enrollment timing, points expiration warnings, tier celebration without promo collision. Marsello wins for omnichannel POS plus Shopify loyalty tiers. Yotpo Email & SMS excels when loyalty and reviews share one suite.',
+  },
+  {
+    question: 'When should loyalty enrollment emails send?',
+    answer: 'After second order or first order above AOV threshold — not to one-time discount buyers. Enrollment on second purchase signals habit forming. Premature loyalty pitch to deal-seekers wastes points liability.',
+  },
+  {
+    question: 'Should loyalty emails duplicate promotional sends?',
+    answer: 'No — coordinate calendars. Loyalty tier achievement email should suppress same-day promo blast. Points expiration warning is operational, not promotional discount.',
+  },
+  {
+    question: 'How do loyalty and VIP segments differ?',
+    answer: 'VIP is recognition-based on LTV and behavior; loyalty is program enrollment with points mechanics. Overlap exists — VIP may auto-qualify for top tier. See <a class="link" href="/use-cases/vip-segments">VIP guide</a> for exclusion rules.',
+  },
+  {
+    question: 'What loyalty enrollment rate is realistic?',
+    answer: '40–70% of eligible repeat buyers enroll when email invitation is clear and second-order triggered. Lower if enrollment requires account creation friction.',
+  },
+  {
+    question: 'Can Shopify Email run loyalty campaigns?',
+    answer: 'Manual broadcasts only — no points balance dynamic blocks, tier triggers, or expiration automation. Loyalty requires Marsello, Yotpo, Smile, or platform with loyalty integration.',
+  },
+  {
+    question: 'How do points expiration emails work?',
+    answer: 'Warn at 30 days and 7 days before expiration with clear redemption CTA. Suppress if points already redeemed. Expiration without warning trains customers to ignore program.',
+  },
+  {
+    question: 'Should wholesale accounts get loyalty email?',
+    answer: 'Usually excluded — B2B pricing conflicts with points earning. Segment wholesale in <a class="link" href="/for/b2b-wholesale">B2B guide</a> before loyalty enrollment.',
+  },
+  {
+    question: 'Should loyalty emails include product recommendations?',
+    answer: 'Yes when recommendations use points redemption or earn context — "redeem 500 points on these SKUs" beats generic product grid. Avoid duplicating promotional sale grid same week. Personalize from last purchase category.',
+  },
+  {
+    question: 'How do I sunset inactive loyalty members?',
+    answer: 'Points expiration warnings are the primary sunset mechanism — not deleting accounts. After expiration, reduce email frequency to quarterly program updates until re-engagement or explicit unsubscribe. Wholesale and employee accounts excluded from automated expiration.',
+  },
+  {
+    question: 'What is points liability reporting?',
+    answer: 'Finance tracks outstanding points as deferred revenue — email expiration campaigns affect liability schedule. Coordinate expiration email timing with finance close. Sudden mass expiration without warning creates support spike and brand damage.',
+  },
+  {
+    question: 'Can loyalty work without email platform integration?',
+    answer: 'Manual CSV export of tier changes weekly is fragile — automate via Marsello, Yotpo, or loyalty app webhook to Klaviyo or Sequenzy. Delayed tier celebration email reduces perk impact; immediate send reinforces behavior.',
+  },
+  {
+    question: 'Should loyalty emails reference competitor sales?',
+    answer: 'Never — loyalty is relationship maintenance, not price matching. Reference earned perks, tier progress, and exclusive access instead. Cross-link to <a class="link" href="/use-cases/vip-segments">VIP segments</a> when top-tier members qualify for recognition beyond points.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/use-cases" class="text-sm font-bold text-cyan-300 hover:text-white">← All use cases</a>
+      <p class="badge mt-6">Loyalty</p>
+      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify SMS apps for loyalty campaigns</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Loyalty email is the habit reinforcement layer — points earned notifications, tier upgrades, expiration warnings, and redemption nudges that turn second-time buyers into third-time buyers without another 20% code. When loyalty emails duplicate weekend promos, you train members to ignore both. The right Shopify SMS app syncs points balance, tier status, and redemption deadlines into lifecycle sends with promotional collision control.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        This playbook ranks apps for {uc.job}. We evaluated loyalty platform integration, enrollment timing, points expiration automation, and omnichannel tier sync for POS-plus-Shopify retailers. Loyalty email should feel like recognition, not another promotional slot in the calendar. Programs that email tier milestones without purchase context read like spam even when the subscriber has thousands of points.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps">Full app rankings</a>
+        <a class="btn btn-secondary" href="/use-cases/vip-segments">VIP segments</a>
+        <a class="btn btn-secondary" href="/for/food-and-beverage">Food & beverage</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Top Shopify SMS apps for loyalty"
+      picks={[
+        { label: 'Best overall', tool: 'Sequenzy', reason: 'Loyalty lifecycle playbooks — enrollment timing, expiration warnings, tier celebration, promo collision rules.' },
+        { label: 'Best omnichannel', tool: 'Marsello', reason: 'POS and Shopify unified loyalty tiers with coordinated email campaigns.' },
+        { label: 'Best suite', tool: 'Yotpo Email & SMS', reason: 'Loyalty points in email blocks alongside reviews and SMS when Yotpo loyalty is live.' },
+        { label: 'Best data depth', tool: 'Klaviyo', reason: 'Loyalty app integrations with segment triggers on points earned and tier changed events.' },
+        { label: 'Best fast setup', tool: 'Omnisend', reason: 'Basic loyalty integration emails for SMB with Smile or similar apps.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Three loyalty email scenarios</h2>
+      <p>
+        <strong>Scenario A — Coffee roaster, replenishment plus loyalty.</strong> Sequenzy replenishment email included points balance and earn-double on reorder — 23% higher reorder rate than discount reminder for enrolled members.
+      </p>
+      <p>
+        <strong>Scenario B — Omnichannel home retailer, Marsello tiers.</strong> POS and online purchases unified; tier upgrade email fired immediately with exclusive early access perk. Email collision rule suppressed promo same day. Repeat purchase frequency up 16%.
+      </p>
+      <p>
+        <strong>Scenario C — Beauty brand, Yotpo loyalty.</strong> Points expiration 30-day warning recovered 31% of at-risk points value. Review submission earned bonus points email drove UGC loop per <a class="link" href="/use-cases/reviews-and-ugc">reviews guide</a>.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Execution playbook</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Loyalty operating contract</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2 text-cyan-100">
+        <div><h3 class="font-black text-white">Trigger</h3><p class="mt-2 text-[17px] leading-8">{uc.trigger}</p></div>
+        <div><h3 class="font-black text-white">Timing</h3><p class="mt-2 text-[17px] leading-8">{uc.timing}</p></div>
+      </div>
+      <div class="mt-8"><h3 class="font-black text-white">Exclusions</h3>
+        <ul class="mt-3 space-y-2">{uc.exclusions.map((e) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{e}</li>)}</ul>
+      </div>
+      <div class="mt-8"><h3 class="font-black text-white">Metrics</h3>
+        <ul class="mt-3 space-y-2">{uc.metrics.map((m) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{m}</li>)}</ul>
+      </div>
+    </div>
+
+    <div class="card mb-12 overflow-x-auto">
+      <p class="badge">Comparison table</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">10 Shopify apps for loyalty campaigns</h2>
+      <table class="mt-8 w-full min-w-[720px] text-left text-sm">
+        <thead>
+          <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
+            <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Loyalty fit</th><th class="py-3 pr-4">Pricing</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+          </tr>
+        </thead>
+        <tbody class="text-cyan-100">
+          {comparisonApps.map((app, i) => (
+            <tr class="border-b border-cyan-300/20/8">
+              <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
+              <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
+              <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
+              <td class="py-3">★ {app.rating}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container space-y-12 pb-16">
+    <p class="badge">Detailed reviews</p>
+    <h2 class="font-serif text-4xl font-black text-white">Five apps for loyalty campaigns</h2>
+
+    <ToolReview app={featuredApps[0]} rank={1} badge="SMS-native pick" paragraphs={[
+      'Sequenzy leads loyalty email because points programs fail on communication timing — not points math. Playbooks define enrollment on second order, tier celebration immediate, expiration warnings at 30 and 7 days, redemption nudges on replenishment.',
+      'Promo collision suppression prevents loyalty member receiving "20% off everything" same day as tier upgrade — devalues both messages.',
+      'Works alongside Marsello, Yotpo, Smile — strategy layer when loyalty app handles ledger, email platform handles orchestration.',
+      'Discount-dependent one-time buyers excluded from enrollment — protects points liability and program quality.',
+    ]} />
+
+    <ToolReview app={featuredApps[1]} rank={2} paragraphs={[
+      'Marsello is loyalty-native for omnichannel — POS plus Shopify tier sync, email campaigns triggered on points and tier events without brittle integrations.',
+      'Retailers with showroom purchases need unified tier — online-only email platforms miss half the loyalty story.',
+      'Email depth adequate for loyalty-centric ops; advanced lifecycle may add Sequenzy or Klaviyo alongside.',
+      'Best when loyalty is operational hub, not email-afterthought.',
+    ]} />
+
+    <ToolReview app={featuredApps[2]} rank={3} paragraphs={[
+      'Yotpo loyalty plus email plus reviews creates retention flywheel — earn points for review, redeem on replenishment email.',
+      'Dynamic points balance blocks in templates — no manual merge tags each send.',
+      'Modular pricing — audit cost if only using loyalty email slice of suite.',
+      'Strong for beauty and consumables with habitual purchase patterns.',
+    ]} />
+
+    <ToolReview app={featuredApps[3]} rank={4} paragraphs={[
+      'Klaviyo integrates Smile, LoyaltyLion, Yotpo — custom events on points earned trigger flows with full segmentation power.',
+      'RFM plus loyalty tier boolean segments — Champions in top loyalty tier get different creative than Silver first-time redeemers.',
+      'Integration setup required per loyalty app — flexible once connected.',
+      'Scale choice when loyalty is one input into complex retention graph.',
+    ]} />
+
+    <ToolReview app={featuredApps[4]} rank={5} paragraphs={[
+      'Omnisend basic loyalty integrations cover SMB — enrollment and points emails with Smile common pairing.',
+      'Less tier complexity than Marsello — fine for single-tier points programs.',
+      'Fast deploy for stores adding loyalty to existing Omnisend stack.',
+      'Graduate when tier logic and POS sync matter.',
+    ]} />
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Enrollment gate</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Who gets invited</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Second order minimum, or first order above AOV threshold with full-price component. Exclude heavy discount-only buyers. Invitation email explains earn and redeem mechanics in one screen — not legal terms PDF.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Expiration series</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Save points before they die</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        T-30 days: balance reminder with easy redeem SKUs. T-7 days: urgency without fake scarcity. Suppress if redeemed. Unredeemed expiration hurts program trust — warn responsibly.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <h2 class="font-serif text-4xl font-black text-white">Loyalty is retention not acquisition</h2>
+      <p>Do not pitch loyalty in <a class="link" href="/use-cases/welcome-series">welcome</a> to strangers. Earn enrollment through behavior first. Coordinate with <a class="link" href="/use-cases/discount-strategy">discount strategy</a> — points replace discounts for enrolled members where possible.</p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Points liability</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Finance and loyalty email alignment</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Points are deferred revenue — expiration emails affect liability accounting. Warn finance before aggressive expiration campaigns. Double-points promos need margin approval. Marsello and Yotpo report points outstanding; email cadence should not spike redemptions beyond inventory planning.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Tier downgrade communications matter as much as upgrade — silent demotion erodes trust. Email when customer approaches tier boundary with clear path to retain status.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Referral tie-in</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Loyalty members as acquisition channel</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Enrolled members with high NPS receive referral email after positive <a class="link" href="/use-cases/reviews-and-ugc">review</a> submission — warm moment for ask. Referral bonus points beat discount for referrer and referee on margin. Track referral revenue separately in <a class="link" href="/use-cases/analytics">analytics</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <h2 class="font-serif text-3xl font-black text-white">Quarterly loyalty email audit</h2>
+      <p>Export enrolled members, points liability, redemption rate, and email frequency. Compare repeat purchase frequency enrolled versus eligible non-enrolled — if no lift, enrollment invitation or perks need rework not more email. Check collision log with <a class="link" href="/use-cases/black-friday">BFCM</a> and site-wide promos. Marsello and Yotpo dashboards plus Sequenzy or Klaviyo send logs should tell one coherent story.</p>
+      <p>Tier distribution drift: too many top tier members dilutes exclusivity — tighten qualification. Too few indicates enrollment friction or weak invitation email. A/B invitation timing: post second order versus post first high-AOV order for <a class="link" href="/for/high-aov">high-AOV stores</a>.</p>
+      <p>Document loyalty email decisions in same changelog as <a class="link" href="/use-cases/discount-strategy">discount policy</a> — points and codes should not stack without explicit approval.</p>
+      <p>POS-only loyalty members without email need email capture at enrollment — in-store staff script for email opt-in. Marsello bridges this; email-only platforms miss half the loyalty story without POS integration.</p>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All apps →</a>
+      <a class="link" href="/use-cases/replenishment">Replenishment →</a>
+      <a class="link" href="/for/jewelry">Jewelry →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Loyalty campaigns FAQ" />
+</BaseLayout>

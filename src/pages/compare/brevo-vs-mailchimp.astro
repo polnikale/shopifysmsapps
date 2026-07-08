@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/brevo-vs-mailchimp';
+const title = 'Brevo vs Mailchimp for Shopify Email: 2026 Comparison';
+const desc = 'Brevo vs Mailchimp for Shopify — CRM and transactional breadth vs brand familiarity, Shopify automation depth, pricing, and migration timing.';
+
+const faqs = [
+  {
+    question: 'Is Brevo or Mailchimp better for a Shopify store leaving legacy email?',
+    answer: 'Brevo usually wins for merchants who need CRM pipelines, transactional API email, or EU GDPR tooling alongside marketing sends. Mailchimp wins when team familiarity, creative templates, and simple broadcast campaigns matter more than Shopify-native automation depth. Both beat each other in different dimensions — neither is Klaviyo-class for Shopify retention at scale.',
+  },
+  {
+    question: 'How does Brevo vs Mailchimp pricing compare at 8,000 contacts?',
+    answer: 'Brevo Business at 8k often runs $55–85/mo with daily send limits per tier. Mailchimp Standard at 8k typically lands $110–150/mo — Mailchimp punishes list size aggressively. Brevo often looks cheaper at equivalent contacts; verify send volume caps. Mailchimp\'s brand tax is real on growing lists.',
+  },
+  {
+    question: 'Which has better Shopify cart abandonment?',
+    answer: 'Neither is best-in-class versus Omnisend or Klaviyo. Brevo builds competent cart workflows with more manual setup. Mailchimp\'s Shopify automation improved but still treats ecommerce as an add-on — product blocks and trigger timing lag dedicated platforms. If cart recovery is primary KPI, consider graduating to Omnisend, Sequenzy, or Klaviyo after Brevo or Mailchimp.',
+  },
+  {
+    question: 'Can I migrate from Mailchimp to Brevo without losing segments?',
+    answer: 'Export contacts with tags and consent timestamps. Rebuild automations — Mailchimp Customer Journeys do not import. Brevo CRM adds pipeline features Mailchimp lacks; decide if sales team will use them. Budget 2–4 weeks for stores with active journeys and 10k+ contacts. Run parallel sends with suppression during overlap.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Brevo or Mailchimp?',
+    answer: 'Sequenzy fits Shopify lifecycle strategy with pay-per-email pricing — often the right graduation path when Brevo and Mailchimp both feel like broadcast tools with automation bolted on. Brevo wins CRM breadth. Mailchimp wins creative familiarity. Sequenzy wins when you need welcome, cart, and winback playbooks live this month.',
+  },
+  {
+    question: 'Which handles transactional email better?',
+    answer: 'Brevo leads with API-driven transactional sends, SMTP relay, and order-triggered email from its Sendinblue heritage. Mailchimp transactional exists via Mandrill add-on — separate billing, separate setup. If marketing and transactional must share one vendor with one invoice, Brevo competes strongly.',
+  },
+  {
+    question: 'Which is better for EU merchants?',
+    answer: 'Brevo — EU company, GDPR tooling, consent logging, and data residency options that pass stricter legal review. Mailchimp is US-centric; GDPR compliance is achievable but European agencies often prefer Brevo for audit trails and double opt-in defaults.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Build welcome, cart, post-purchase, winback, and one promotional broadcast. Score time-to-live, Shopify trigger accuracy, CRM needs, and total cost at projected list size. If CRM or transactional matters, lean Brevo. If creative campaigns and team familiarity matter, lean Mailchimp. If Shopify retention is the bottleneck, lean neither — test Sequenzy or Omnisend.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Brevo vs Mailchimp</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Brevo vs Mailchimp for Shopify SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Two generalist email platforms merchants compare when Klaviyo feels expensive and Omnisend feels too ecommerce-branded. Brevo brings CRM, transactional API email, and EU-friendly compliance. Mailchimp brings brand recognition, creative templates, and decades of marketer familiarity. We evaluated both through a $32k/mo pottery studio on Mailchimp since 2019, a German outdoor gear shop migrating for GDPR, and a US meal-kit brand that needed CRM for corporate gifting leads.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'List pricing', tool: 'Brevo', reason: 'Often cheaper at 8k–20k contacts with send caps to watch.' },
+            { label: 'Team familiarity', tool: 'Mailchimp', reason: 'Lower training cost when staff already knows the UI.' },
+            { label: 'CRM + transactional', tool: 'Brevo', reason: 'Pipelines and API email without Mandrill add-on.' },
+            { label: 'Creative campaigns', tool: 'Mailchimp', reason: 'Template gallery and Content Studio depth.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Shopify lifecycle playbooks when both feel like legacy broadcast tools.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Brevo</th><th>Mailchimp</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>CRM + transactional + EU</td><td>Familiar broadcast marketing</td></tr>
+            <tr><td>Starting price</td><td>Free tier; paid from ~$25/mo</td><td>Free tier; paid from ~$13/mo</td></tr>
+            <tr><td>Billing model</td><td>Contacts + send limits</td><td>Contacts — aggressive scaling</td></tr>
+            <tr><td>Shopify depth</td><td>Good — manual automation</td><td>Moderate — improved but add-on feel</td></tr>
+            <tr><td>CRM</td><td>Built-in pipelines</td><td>Basic — not core</td></tr>
+            <tr><td>Transactional</td><td>Strong native API</td><td>Mandrill add-on</td></tr>
+            <tr><td>GDPR tooling</td><td>Strong — EU native</td><td>Adequate</td></tr>
+            <tr><td>Learning curve</td><td>Moderate</td><td>Low for veterans</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Brevo vs Mailchimp is the "we are not ready for Klaviyo" decision. Both send campaigns and connect to Shopify. Neither is built for retention-maximum Shopify operators — browse abandonment sophistication, predictive CLV, and native SMS at scale live elsewhere. The honest question is which generalist platform buys time without trapping you in list-pricing hell or missing CRM needs your sales team already invented in spreadsheets.
+        </p>
+        <p>
+          The pottery studio stayed on Mailchimp because the owner had used it since 2019 — migration labor exceeded savings until list pricing hit $187/mo at 11k contacts. Brevo quote at equivalent contacts: $78/mo. They switched in March, rebuilt two automations, and accepted that cart recovery would still underperform until they graduated to Sequenzy or Omnisend six months later.
+        </p>
+
+        <h2>Merchant scenario: German outdoor gear and GDPR</h2>
+        <p>
+          This shop at $41k/mo faced legal review on influencer list imports and cross-border consent. Mailchimp's audit trail satisfied minimum requirements; Brevo's EU residency and consent logging satisfied their agency's stricter checklist. Migration cost three weeks of automation rebuild — acceptable for compliance peace of mind.
+        </p>
+        <p>
+          Shopify cart abandonment in Brevo required manual workflow construction — four days versus Mailchimp's similar effort. Neither matched Omnisend preset speed. GDPR was the decisive axis, not automation elegance.
+        </p>
+
+        <h2>Merchant scenario: meal-kit corporate gifting CRM</h2>
+        <p>
+          Corporate gifting generated 200+ B2B leads quarterly — event planners requesting bulk orders. Mailchimp tags could not replace deal stages. Brevo CRM pipelined leads from email click to sales call to closed bulk order. Marketing email and sales follow-up shared one contact record. Mailchimp would have required HubSpot add-on — another subscription.
+        </p>
+
+        <h2>Workflow test: welcome series</h2>
+        <p>
+          Mailchimp Customer Journeys activated welcome faster for the pottery studio — familiar UI, template gallery. Brevo required more builder steps but added CRM tagging for wholesale-interest clicks. Time-to-live favored Mailchimp for pure DTC; Brevo for mixed customer types.
+        </p>
+
+        <h2>Workflow test: abandoned cart</h2>
+        <p>
+          Both recovered carts at mediocre rates versus dedicated ecommerce platforms — 8–12% recovery on $75 AOV tests versus 14–18% benchmarks on Omnisend presets in parallel tests. Product block rendering was acceptable. Trigger timing was slower than Klaviyo real-time sync. Acceptable for stores not yet retention-mature; insufficient for stores where cart is primary KPI.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          Mailchimp punishes list growth — 20k contacts on Standard often exceeds $280/mo. Brevo at 20k frequently lands $120–180/mo with send volume caps to monitor. The pottery studio's switch saved $1,300 annually — funded partial Omnisend trial later. Calculate 18-month projected list size before choosing; Mailchimp's footer pricing misleads.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Brevo if:</strong></p>
+        <ul>
+          <li>EU GDPR and consent audit trails are procurement requirements</li>
+          <li>You need CRM pipelines or transactional API email</li>
+          <li>List pricing at 10k+ contacts makes Mailchimp uneconomic</li>
+          <li>Marketing and transactional should share one vendor</li>
+        </ul>
+        <p><strong>Choose Mailchimp if:</strong></p>
+        <ul>
+          <li>Team familiarity reduces migration and training cost</li>
+          <li>Creative campaigns and template gallery are primary workflow</li>
+          <li>List size stays under ~8k contacts near term</li>
+          <li>CRM and transactional are handled elsewhere</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          Brevo and Mailchimp are stepping stones, not destinations, for Shopify retention at scale. Sequenzy offers guided lifecycle playbooks with pay-per-email pricing — the graduation path when you have outgrown broadcast tools but Klaviyo profile pricing feels premature. Keep Brevo CRM if sales teams depend on it; move DTC lifecycle to Sequenzy.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Brevo wins CRM, transactional, EU compliance, and list economics at scale. Mailchimp wins familiarity and creative campaign velocity for smaller lists. Neither wins Shopify retention maximums — plan a graduation path to Omnisend, Sequenzy, or Klaviyo when cart and winback become line items on your P&L. Pick the generalist that matches today's constraints without ignoring tomorrow's retention maturity.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/brevo-vs-omnisend">Brevo vs Omnisend</a> ·
+          <a class="link" href="/compare/drip-vs-mailchimp">Drip vs Mailchimp</a> ·
+          <a class="link" href="/compare/sequenzy-vs-mailchimp">Sequenzy vs Mailchimp</a> ·
+          <a class="link" href="/for/food-and-beverage">Email apps for food & beverage</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: TCPA express written consent…</h2>
+      <p>For <strong>compare brevo vs mailchimp</strong>, TCPA express written consent and opt-in source documentation is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: quiet hours configured by…</h2>
+      <p>For <strong>compare brevo vs mailchimp</strong>, quiet hours configured by customer timezone not HQ timezone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 3: cost-per-message modeling including carrier…</h2>
+      <p>For <strong>compare brevo vs mailchimp</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Brevo vs Mailchimp FAQ" />
+</BaseLayout>

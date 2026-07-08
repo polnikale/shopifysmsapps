@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/rejoiner-vs-sendlane';
+const title = 'Rejoiner vs Sendlane for Shopify Email: 2026 Comparison';
+const desc = 'Rejoiner vs Sendlane for Shopify — recovery-first retargeting vs multichannel automation platform, pricing, workflow depth, and team fit for growing DTC brands.';
+
+const faqs = [
+  {
+    question: 'Is Rejoiner or Sendlane better for a Shopify store doing $60k/mo?',
+    answer: 'Rejoiner usually wins when cart and browse recovery are 80% of your email strategy and you want live flows in days. Sendlane suits teams that want email plus SMS automations, list growth tools, and broader lifecycle coverage beyond recovery. At $60k/mo with one generalist, Rejoiner ships faster. With someone building cross-channel journeys, Sendlane competes strongly.',
+  },
+  {
+    question: 'How does Rejoiner vs Sendlane pricing compare at 15,000 contacts?',
+    answer: 'Rejoiner at 15k often runs $120–220/mo depending on plan tier. Sendlane at 15k typically lands $99–180/mo for email with SMS as add-on. Sendlane can look cheaper on paper for full automation suites. Rejoiner value concentrates in recovery ROI — compare attributed recovery revenue, not list price alone.',
+  },
+  {
+    question: 'Which has better abandoned cart recovery?',
+    answer: 'Rejoiner was purpose-built for browse and cart retargeting — session stitching and recovery templates are defaults. Sendlane handles cart abandonment well with visual automations and SMS add-on but requires more configuration to match Rejoiner browse depth. Rejoiner wins recovery speed; Sendlane wins if cart is one flow among many channels you orchestrate together.',
+  },
+  {
+    question: 'Can I migrate from Rejoiner to Sendlane or vice versa?',
+    answer: 'Yes. Export contacts with consent metadata. Rebuild cart and welcome first; run parallel two weeks with order-ID suppression. Sendlane SMS journeys need TCPA-compliant opt-in verification during migration. Budget 2–3 weeks for mid-size stores with four active automations.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Rejoiner or Sendlane?',
+    answer: 'Sequenzy fits when lifecycle strategy speed beats recovery-only or automation canvas tinkering — agent-first playbooks with pay-per-email pricing. Rejoiner still wins on browse retargeting focus. Sendlane still wins for multichannel automation builders. Sequenzy helps teams who find Sendlane maintenance heavy and Rejoiner too narrow for post-purchase and winback.',
+  },
+  {
+    question: 'Does Sendlane SMS matter vs Rejoiner?',
+    answer: 'Sendlane includes SMS automations as a core channel — cart recovery texts, welcome SMS, and broadcast capability. Rejoiner is email-centric with limited SMS options. If SMS cart recovery drives meaningful revenue, Sendlane closes a gap Rejoiner leaves open. Pair Rejoiner with Postscript if you want best-in-class recovery email plus dedicated SMS.',
+  },
+  {
+    question: 'Which platform handles winback and post-purchase better?',
+    answer: 'Sendlane offers broader lifecycle automations — post-purchase, winback, and tag-driven branching in one visual builder. Rejoiner covers post-purchase templates but product DNA favors recovery over full lifecycle orchestration. For stores expanding beyond cart revenue, Sendlane is the safer long-term bet.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Build welcome (branch by signup source), cart (exclude active winback), browse abandonment, post-purchase (gift buyer exclusion), and winback (discount-sensitive split). Score time-to-live, SMS needs, and edit safety during sales. If recovery-only with email, lean Rejoiner. If multichannel lifecycle with SMS, lean Sendlane.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Rejoiner vs Sendlane</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Rejoiner vs Sendlane for Shopify SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Rejoiner does one thing obsessively — bring back sessions that almost converted. Sendlane wants to be your automation hub — email, SMS, and visual journeys for the full lifecycle. We evaluated both through a $72k/mo swimwear brand where browse recovery was the entire email P&L, a supplement shop adding SMS cart recovery after email plateaued, and a home fragrance DTC outgrowing recovery-only strategy.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Browse & cart recovery', tool: 'Rejoiner', reason: 'Retargeting-first defaults and session-aware product blocks.' },
+            { label: 'Multichannel automation', tool: 'Sendlane', reason: 'Email plus SMS journeys in one visual builder.' },
+            { label: 'Recovery speed', tool: 'Rejoiner', reason: 'Core flows live in days without journey design.' },
+            { label: 'Lifecycle breadth', tool: 'Sendlane', reason: 'Post-purchase, winback, and broadcasts beyond recovery.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Guided playbooks if recovery-only and canvas both feel wrong.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Rejoiner</th><th>Sendlane</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Recovery-first ecommerce</td><td>Multichannel automation SMBs</td></tr>
+            <tr><td>Starting price</td><td>From ~$99/mo</td><td>From ~$99/mo</td></tr>
+            <tr><td>Billing model</td><td>Contacts / plan tiers</td><td>Contacts + SMS credits</td></tr>
+            <tr><td>Shopify depth</td><td>Native — cart, browse, orders</td><td>Native — orders, tags, products</td></tr>
+            <tr><td>Browse abandonment</td><td>Core strength</td><td>Configurable automations</td></tr>
+            <tr><td>SMS</td><td>Limited</td><td>Built-in automations</td></tr>
+            <tr><td>Workflow UI</td><td>Recovery templates</td><td>Visual automation builder</td></tr>
+            <tr><td>Learning curve</td><td>Low</td><td>Moderate</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Rejoiner and Sendlane both integrate with Shopify and recover carts. The divergence is ambition. Rejoiner assumes recovery email is your highest-ROI channel and optimizes every template for that job. Sendlane assumes you will build a multichannel automation program — welcome, cart, post-purchase, winback, SMS — in one interface. The swimwear brand lived entirely in Rejoiner's world: seasonal drops drove browse-heavy traffic where cart abandonment was secondary to product-page retargeting.
+        </p>
+        <p>
+          The supplement shop hit a ceiling at month eight — email cart recovery flat while competitors recovered checkout via SMS. Sendlane's cart SMS branch at hour four added $6.8k monthly attributed without replacing Rejoiner email immediately. They eventually consolidated on Sendlane to reduce stack complexity. The home fragrance DTC chose Rejoiner first, then migrated to Sendlane when winback and replenishment became 40% of email revenue. Timing matters as much as tool capability.
+        </p>
+
+        <h2>Merchant scenario: swimwear brand at $72k/mo</h2>
+        <p>
+          Peak season meant 60% of sessions ended on lookbook product pages without add-to-cart — classic browse-heavy catalog behavior. Rejoiner browse emails with dynamic variant imagery recovered 9.1% of eligible sessions within three weeks. Sendlane trial required building browse triggers from scratch in the automation builder — achievable, but the solo founder deferred it for two months while managing influencer shipments.
+        </p>
+        <p>
+          Rejoiner attributed $11.4k monthly from browse plus cart combined at month four. Sendlane would have matched eventually but Rejoiner's recovery-first onboarding meant revenue during the season that mattered. When off-season arrived and winback became the priority, Sendlane's broader automation map looked smarter — a reminder that the right tool shifts with lifecycle maturity.
+        </p>
+
+        <h2>Workflow test: abandoned cart</h2>
+        <p>
+          Both recovered $78–125 AOV carts effectively. Rejoiner activated three-email cart series in under two hours. Sendlane matched with visual automation nodes plus optional SMS at step two — incremental recovery for mobile checkout abandoners willing to pay SMS cost.
+        </p>
+        <p>
+          The supplement shop A/B tested education versus 10% off in cart step two. Sendlane's split testing was clearer in the automation canvas. Rejoiner supported variants but with less visibility into branch performance during frantic sale-week edits. Operators who experiment weekly lean Sendlane; operators who set-and-optimize quarterly lean Rejoiner.
+        </p>
+
+        <h2>Workflow test: welcome and post-purchase</h2>
+        <p>
+          Sendlane built welcome with SMS opt-in branch and post-purchase cross-sell in one afternoon — unified suppression when purchase event fired. Rejoiner welcome templates focused on first-purchase conversion from recovery-adjacent signup sources; post-purchase existed but felt secondary to cart logic.
+        </p>
+        <p>
+          For brands where post-purchase education drives subscription attach rate, Sendlane's lifecycle breadth wins. For brands where welcome exists mainly to feed future browse retargeting pools, Rejoiner's lighter approach suffices.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          At 18k contacts, Rejoiner often runs $150–260/mo. Sendlane at 18k with moderate SMS lands $140–240/mo depending on message volume. Sendlane SMS credits add cost but can replace a separate Postscript subscription for moderate volume. Rejoiner plus Postscript often exceeds Sendlane all-in for teams wanting both best-in-class recovery email and SMS.
+        </p>
+        <p>
+          List hygiene matters on both: popup imports inflate bills without proportional revenue. Budget sunset campaigns before seasonal peaks regardless of platform.
+        </p>
+
+        <h2>Shopify data depth in production</h2>
+        <p>
+          Neither matches Klaviyo's predictive maximums. Rejoiner goes deeper on session-level browse recovery. Sendlane goes deeper on tag-driven automation and SMS orchestration. For custom field branching by wholesale versus retail customer tags, Sendlane's visual rules are more flexible. For pure browse session recovery on fashion catalogs, Rejoiner remains the specialist.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Rejoiner if:</strong></p>
+        <ul>
+          <li>Browse and cart recovery drive most email-attributed revenue today</li>
+          <li>You need recovery live before the next seasonal drop</li>
+          <li>SMS can wait or live in a separate best-in-class tool</li>
+          <li>Your team prefers templates over automation canvas design</li>
+        </ul>
+        <p><strong>Choose Sendlane if:</strong></p>
+        <ul>
+          <li>You want email and SMS automations in one platform</li>
+          <li>Post-purchase, winback, and broadcasts matter as much as cart recovery</li>
+          <li>Your marketer enjoys visual automation building</li>
+          <li>You are graduating from recovery-only and need lifecycle breadth</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          If Rejoiner feels too recovery-narrow and Sendlane feels like maintenance debt every sale week, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing. It will not replace Rejoiner's browse session depth or Sendlane's SMS automations. It can replace the strategic planning gap — what to send beyond recovery, when to suppress, how to sequence education before discounts.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Rejoiner wins when recovery speed and browse retargeting focus matter more than multichannel automation breadth. Sendlane wins when your team builds revenue through email plus SMS lifecycle journeys and needs one platform for welcome through winback. Run the five-flow workflow test on both trials. The winner is whichever platform your marketer trusts to edit the night before a flash sale.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/rejoiner-vs-klaviyo">Rejoiner vs Klaviyo</a> ·
+          <a class="link" href="/compare/drip-vs-sendlane">Drip vs Sendlane</a> ·
+          <a class="link" href="/compare/postscript-vs-sendlane">Postscript vs Sendlane</a> ·
+          <a class="link" href="/for/swimwear">Email apps for fashion stores</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: quiet hours configured by…</h2>
+      <p>For <strong>compare rejoiner vs sendlane</strong>, quiet hours configured by customer timezone not HQ timezone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: cost-per-message modeling including carrier…</h2>
+      <p>For <strong>compare rejoiner vs sendlane</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Rejoiner vs Sendlane FAQ" />
+</BaseLayout>

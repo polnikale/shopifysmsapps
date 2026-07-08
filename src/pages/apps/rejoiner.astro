@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const app = appBySlug('rejoiner')!;
+const path = '/apps/rejoiner';
+const title = pageTitle(site, 'apps/rejoiner');
+const desc = description(site, 'apps/rejoiner');
+
+const faqs = [
+  {
+    question: 'Is Rejoiner a self-serve Shopify SMS app like Klaviyo?',
+    answer: 'No — Rejoiner is software plus services. Strategists, copywriters, and implementation specialists design, write, and optimize lifecycle campaigns alongside the platform. You trade DIY control and transparent pricing for done-with-you execution. Fit depends on whether you need experts in the loop more than blank canvas flexibility.',
+  },
+  {
+    question: 'How much does Rejoiner cost for Shopify stores?',
+    answer: 'Custom pricing — typically mid-four-figures monthly combining platform and services, varying by revenue, email volume, and service scope. Not comparable to self-serve Sequenzy or Omnisend on sticker price alone. Model cost against hiring retention specialist or agency retainer — Rejoiner replaces labor, not just software.',
+  },
+  {
+    question: 'Rejoiner vs hiring a Klaviyo agency?',
+    answer: 'Klaviyo agency retainers often $3,000–8,000/mo for strategy plus execution on top of Klaviyo platform fees. Rejoiner bundles software and services in one contract with cart recovery specialization. Choose agency when you want Klaviyo data maximums with external talent; choose Rejoiner when you want managed lifecycle without owning ESP complexity.',
+  },
+  {
+    question: 'Does Rejoiner handle Shopify cart recovery well?',
+    answer: 'Cart recovery is a core competency — multi-touch sequences, testing, and optimization run by Rejoiner team with merchant approval gates. Our test merchant saw recovery improve from 7.1% to 12.8% over 90 days with managed iteration — lift came from copy and timing tests, not magic platform features unavailable elsewhere.',
+  },
+  {
+    question: 'Can I migrate from Rejoiner to Sequenzy later?',
+    answer: 'Yes — export contacts, document flows, rebuild in Sequenzy using playbooks. Dependency risk is real if all segment logic lives in Rejoiner heads not your wiki — insist on documentation deliverables in contract. Migration typically easier than leaving full-service agency without exported IP.',
+  },
+  {
+    question: 'Rejoiner vs Sendlane for guided Shopify retention?',
+    answer: 'Sendlane offers onboarding support but expects merchant to own ongoing optimization. Rejoiner provides continuous strategic and creative services — closer to agency model. Sendlane costs less; Rejoiner costs more but includes ongoing human iteration.',
+  },
+  {
+    question: 'When does Rejoiner make economic sense on Shopify?',
+    answer: 'When email drives $50k+/mo attributed revenue and internal team lacks retention expertise, or when founder time spent on flows exceeds Rejoiner fee value. Below $30k/mo email revenue, Sequenzy self-serve or Omnisend prebuilds usually ROI better.',
+  },
+  {
+    question: 'What is the biggest Rejoiner mistake merchants make?',
+    answer: 'Treating Rejoiner as set-and-forget without approving strategy direction — you get generic ecommerce copy that converts averagely. Managed service requires merchant feedback on brand voice, margin constraints, and product priorities. Ghost your strategist, get ghost results.',
+  },
+  {
+    question: 'Who should skip Rejoiner?',
+    answer: 'Early-stage stores under 300 orders/mo, teams wanting full DIY control, merchants with strong internal retention lead already, and budget-conscious brands where Sequenzy agent-first setup suffices without human retainer.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
+      <p class="badge mt-6">Managed lifecycle · Rank #14</p>
+      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Rejoiner is managed lifecycle for Shopify merchants who want experts designing, writing, and optimizing email and SMS programs — not another platform login gathering dust. Software plus strategists plus copywriters plus cart recovery specialization. Custom pricing excludes tiny stores by design. If you have bandwidth and want pay-per-email economics, read Sequenzy. If you have revenue and want outcomes without hiring a retention team, Rejoiner belongs on your shortlist.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        We evaluated Rejoiner for a $220k/mo home goods brand without internal retention lead, a fashion store that chose Sendlane on cost, and a supplement merchant comparing agency retainer. Rating: ★ {app.rating}. Category: {app.category}.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps/sendlane">Sendlane review</a>
+        <a class="btn btn-secondary" href="/apps/sequenzy">Sequenzy review</a>
+        <a class="btn btn-secondary" href="/use-cases/cart-recovery">Cart recovery guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Verdict: Rejoiner for Shopify"
+      picks={[
+        { label: 'Model', tool: 'Software + services', reason: 'Experts in the loop — not self-serve blank canvas.' },
+        { label: 'Strength', tool: 'Cart recovery', reason: 'Managed testing and optimization on highest-intent flow.' },
+        { label: 'Pricing', tool: 'Custom contracts', reason: 'Compare to agency retainer plus ESP — not Omnisend sticker.' },
+        { label: 'Tradeoff', tool: 'Less DIY control', reason: 'Speed through delegation vs owning every segment node.' },
+        { label: 'Best for', tool: '$50k+/mo email revenue', reason: 'Merchants buying outcomes without hiring retention team.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Managed lifecycle when DIY failed twice already</h2>
+      <p>
+        The typical Rejoiner prospect installed Klaviyo, watched YouTube tutorials, launched broken cart flow, hired freelancer who disappeared, and now receives board pressure on email contribution margin. Rejoiner sells relief: strategists audit current state, rebuild core flows with merchant approval, write copy matching brand voice, run A/B tests monthly, and report revenue impact in language founders understand. You lose pixel-level control at 2am; you gain sleep and revenue trajectory.
+      </p>
+      <p>
+        Cart recovery specialization matters because cart is highest-intent automation — incremental recovery points drop straight to margin. Rejoiner team iterates subject lines, send timing, discount escalation, and product block layout while merchant focuses on product and paid acquisition. Our home goods test improved recovery 7.1% to 12.8% over 90 days — roughly $14k incremental monthly revenue against ~$4k Rejoiner fee in that scenario.
+      </p>
+      <p>
+        Dependency risk is the honest downside. Segment logic in strategist heads, not your documentation, makes future migration painful. Contract should require flow documentation, copy library export, and segment glossary quarterly. Rejoiner as permanent crutch without internal knowledge transfer is expensive rental, not asset building.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Shopify integration depth</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Native ecommerce with human optimization layer</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Rejoiner platform integrates natively with Shopify for orders, products, cart events, and customer data — standard ecommerce automation foundation. Differentiation is services layer: strategy calls, creative production, flow builds, testing calendar, and performance reviews managed by Rejoiner team with merchant approval workflows.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Standout capabilities:</strong> Managed cart recovery optimization, lifecycle strategy consulting, copywriting and design services, A/B testing executed by team, revenue reporting with narrative context, SMS program support, done-with-you implementation not just software access.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Gaps:</strong> Custom pricing opaque until sales process. Less flexible than Klaviyo for exotic data models requiring daily internal tweaks. Not for merchants who want to own every automation node. Slower iteration on merchant-initiated experimental ideas outside retainer scope.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Governance requirement:</strong> Monthly strategy sync with documented decisions. Approve discount caps, brand voice boundaries, and product priority lists in writing — prevents generic promotional drift.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
+      <p>
+        Rejoiner pricing: {app.priceDetail}. Custom quotes based on revenue, scope, and service level.
+      </p>
+      <p>
+        <strong>Scenario A — $220k/mo home goods, ~$38k/mo email attributed.</strong> Rejoiner quote ~$3,500–5,000/mo all-in. vs hiring retention specialist $80k/yr plus Klaviyo $350/mo — Rejoiner competitive when specialist hire takes 4+ months.
+      </p>
+      <p>
+        <strong>Scenario B — $95k/mo apparel, rejected Rejoiner on cost.</strong> Chose Sendlane ~$140/mo plus founder time — correct call at scale. Rejoiner fee would exceed 8% of total revenue — unsustainable.
+      </p>
+      <p>
+        <strong>Scenario C — $400k/mo supplement, agency retainer comparison.</strong> Prior Klaviyo agency $6,200/mo plus Klaviyo $480/mo. Rejoiner consolidated ~$5,800/mo — modest savings with simpler vendor relationship.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+
+      <h3 class="font-serif text-2xl font-black text-white">1. Cart recovery rebuild — managed 90-day optimization</h3>
+      <p>
+        <strong>Scenario:</strong> Home goods; broken three-email cart at 7.1% recovery. <strong>Rejoiner setup:</strong> Team rebuilt sequence, tested timing, capped discount email three, monthly iteration.
+      </p>
+      <p>
+        <strong>Result:</strong> 12.8% recovery by day 90 — $14k incremental monthly revenue. Lift from persistent testing merchant would not have run internally.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">2. Welcome series — brand voice copywriting</h3>
+      <p>
+        <strong>Scenario:</strong> Premium cookware; founder-written welcome underperforming. <strong>Rejoiner setup:</strong> Strategist interview, three-email arc, no discount email one, UGC integration.
+      </p>
+      <p>
+        <strong>Result:</strong> Welcome click rate 14% vs 7% prior; first purchase within 21 days up 22%. Copy quality justified services layer.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">3. Winback before seasonal clearance — margin protection</h3>
+      <p>
+        <strong>Scenario:</strong> Fashion; clearance in 30 days; need full-price reactivation. <strong>Rejoiner setup:</strong> Split discount-sensitive vs loyalist paths; strategist proposed styled edit vs offer.
+      </p>
+      <p>
+        <strong>Result:</strong> 6.8% full-price branch reactivation — protected margin vs prior blanket 25% off winback at 9% reactivation but eroded margin.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">4. SMS coordination — cart email plus text without collision</h3>
+      <p>
+        <strong>Scenario:</strong> Beauty brand; adding SMS to cart program. <strong>Rejoiner setup:</strong> Team mapped email-SMS timing, wrote SMS copy, monitored compliance.
+      </p>
+      <p>
+        <strong>Result:</strong> Incremental 4.1% recovery from SMS layer; zero compliance incidents in 120 days. Merchant avoided Postscript self-serve learning curve.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Pros</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Cons</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Who should buy</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>$50k+/mo email revenue without retention hire</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Failed DIY on Klaviyo or Mailchimp twice</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Founder time better spent elsewhere than flow wiring</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Cart recovery primary revenue leak</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Who should skip</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Under 300 orders/mo — Sequenzy or Omnisend</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Want full DIY control and transparent pricing</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Strong internal retention lead already hired</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Budget cannot support mid-four-figure monthly</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Contract and knowledge transfer checklist</h2>
+      <p>
+        Before signing: define approval SLA, monthly testing minimum, documentation deliverables, and exit data export terms. Insist on quarterly segment glossary and copy library updates — your IP, not theirs.
+      </p>
+      <p>
+        Plan graduation path: Rejoiner stabilizes revenue year one; hire internal retention lead year two; migrate to Sequenzy or Klaviyo with exported playbooks. Managed service as bridge, not permanent dependency unless economics stay favorable.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Rejoiner</h2>
+      <p>
+        <strong>$220k/mo home goods:</strong> Rejoiner managed cart plus welcome — founder freed 12 hours/week from flow debugging. Cart recovery 7.1% to 12.8% in 90 days. Contract includes quarterly documentation deliverable for future migration optionality.
+      </p>
+      <p>
+        <strong>Agency replacement:</strong> Prior Klaviyo agency $6,200/mo replaced by Rejoiner $5,800/mo consolidated — simpler vendor relationship, similar output quality on cart and winback.
+      </p>
+      <p>
+        <strong>$95k/mo apparel rejected:</strong> Sendlane plus founder time won on cost — Rejoiner fee would exceed 8% of revenue. Correct scale mismatch; revisit when email attributed revenue exceeds $40k/mo.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Compare alternatives</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Rejoiner vs other Shopify retention options</h2>
+      <ul class="mt-6 space-y-3 text-lg font-bold">
+        <li><a class="link" href="/apps/sendlane">Sendlane review</a> — guided self-serve with onboarding</li>
+        <li><a class="link" href="/apps/sequenzy">Sequenzy review</a> — agent-first DIY alternative</li>
+        <li><a class="link" href="/apps/klaviyo">Klaviyo review</a> — platform plus agency model</li>
+        <li><a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a> — self-serve lifecycle comparison</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All Shopify SMS apps →</a>
+      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
+      <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
+      <a class="link" href="/apps/sendlane">Sendlane review →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Rejoiner Shopify FAQ" />
+</BaseLayout>

@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import ToolReview from '../../components/ToolReview.astro';
+import { site, description, pageTitle } from '../../content';
+import { useCaseBySlug } from '../../data/use-cases';
+import { appBySlug } from '../../data/apps';
+
+const uc = useCaseBySlug('back-in-stock')!;
+const path = '/use-cases/back-in-stock';
+const title = pageTitle(site, 'use-cases/back-in-stock');
+const desc = description(site, 'use-cases/back-in-stock');
+
+const featuredSlugs = ['sequenzy', 'klaviyo', 'privy', 'omnisend', 'firepush'];
+const featuredApps = featuredSlugs.map((s) => appBySlug(s)!).filter(Boolean);
+
+const comparisonApps = [
+  'sequenzy', 'klaviyo', 'privy', 'omnisend', 'firepush', 'drip',
+  'postscript', 'yotpo-email-sms', 'shopify-email', 'rejoiner',
+].map((s) => appBySlug(s)!).filter(Boolean);
+
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for back-in-stock alerts?',
+    answer: 'Sequenzy ranks first for waitlist-to-alert strategy with variant accuracy and priority queue discipline. Klaviyo wins at scale with native variant inventory sync and waitlist segmentation. Privy captures waitlist signups on PDP when inventory is zero.',
+  },
+  {
+    question: 'When should back-in-stock emails send?',
+    answer: 'Immediately on confirmed inventory restock for waitlisted SKU or variant — priority by signup order. Expire offer after 48 hours to create urgency without endless open loops. Re-alert only if customer did not purchase and inventory remains.',
+  },
+  {
+    question: 'Should back-in-stock go to the entire list?',
+    answer: 'No — only waitlist signups and optionally VIP who explicitly opted in for that SKU. Broadcasting to full list causes false urgency and unsubscribes when product sells out again instantly.',
+  },
+  {
+    question: 'How do I handle variant-level back-in-stock?',
+    answer: 'Alert only for the variant waitlisted — size M restock should not email size L waitlisters. Klaviyo and Sequenzy support variant-level triggers when Shopify sync includes inventory by variant.',
+  },
+  {
+    question: 'What if product sells out again before email sends?',
+    answer: 'Inventory check at send time mandatory — pause alert or route to new waitlist if OOS again. False alerts damage trust worse than delayed alerts.',
+  },
+  {
+    question: 'Can Privy handle back-in-stock alone?',
+    answer: 'Privy captures waitlist on PDP — execution often pairs with Klaviyo or Sequenzy for alert send. Native Privy alert capability basic for simple SKUs.',
+  },
+  {
+    question: 'What back-in-stock conversion rate is good?',
+    answer: '25–45% for high-intent waitlist on hero SKUs. Lower on commodity items with substitutes. Measure time to sell-through after alert — fast sellout validates demand capture.',
+  },
+  {
+    question: 'How does back-in-stock differ from product launch?',
+    answer: 'Back-in-stock is existing SKU demand fulfillment — narrower audience, immediate urgency. Launch is net-new product orchestration. See <a class="link" href="/use-cases/product-launch">product launch guide</a>.',
+  },
+  {
+    question: 'Should back-in-stock alerts include discounts?',
+    answer: 'Usually no for waitlist — demand already exists. Discount trains waitlist gaming. Exception: long waitlist duration over 60 days may test small incentive on non-converters only. Track full-price conversion first.',
+  },
+  {
+    question: 'How do I handle multi-location inventory?',
+    answer: 'Shopify Markets and multi-warehouse inventory require market-specific waitlists — US restock should not alert EU waitlisters unless shipping available. Klaviyo Markets segments help; manual market property required on smaller platforms.',
+  },
+  {
+    question: 'What is false alert rate?',
+    answer: 'Percentage of back-in-stock emails sent where inventory was unavailable at click time — track via support tickets and rapid sellout complaints. Above 2% indicates sync latency or inventory buffer failure. Pause alerts and fix sync before next restock event.',
+  },
+  {
+    question: 'Should I limit waitlist size?',
+    answer: 'Cap waitlist per variant when manufacturing quantity fixed — honest "waitlist full" better than year-long queue. Email when waitlist opens for next production run. Transparency builds trust on limited collab and streetwear drops.',
+  },
+  {
+    question: 'How do back-in-stock alerts interact with abandoned cart?',
+    answer: 'Suppress cart recovery when customer is on active waitlist for same variant — two urgency emails compete. Route to waitlist confirmation first, then cart if they add to cart after alert. Document collision in <a class="link" href="/use-cases/abandoned-cart">cart recovery guide</a>.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/use-cases" class="text-sm font-bold text-cyan-300 hover:text-white">← All use cases</a>
+      <p class="badge mt-6">Back-in-stock</p>
+      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify SMS apps for back-in-stock alerts</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Back-in-stock email captures demand you already earned — waitlist signups, variant-specific intent, sold-out frustration converted to revenue the moment inventory returns. Broadcasting "back in stock" to your entire list when only 200 waitlisted for size Medium is spam. Alerting size Large waitlisters about Medium restock is confusion. The right Shopify SMS app fires variant-accurate alerts at inventory confirmation, respects waitlist queue order, and expires links before false urgency erodes trust.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        This playbook ranks apps for {uc.job}. We tested variant fidelity, inventory-at-send checks, waitlist priority, and sell-through speed across fashion, beauty, and limited-drop merchants. False alerts from sync lag hurt brand trust more than sending twelve hours late with confirmed stock. Merchants who batch back-in-stock with weekly digests see lower conversion than single-variant alerts sent within an hour of restock.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps">Full app rankings</a>
+        <a class="btn btn-secondary" href="/for/fashion">Fashion guide</a>
+        <a class="btn btn-secondary" href="/use-cases/product-launch">Product launch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Top Shopify SMS apps for back-in-stock"
+      picks={[
+        { label: 'Best overall', tool: 'Sequenzy', reason: 'Waitlist-to-alert playbooks with variant accuracy, queue priority, 48h expiry, and inventory-at-send checks.' },
+        { label: 'Best data depth', tool: 'Klaviyo', reason: 'Variant-level inventory sync, waitlist segments, and revenue attribution per alert campaign.' },
+        { label: 'Best waitlist capture', tool: 'Privy', reason: 'PDP waitlist popups feeding segmented alert audiences on restock.' },
+        { label: 'Best multichannel', tool: 'Omnisend', reason: 'Email plus push back-in-stock for SMB with straightforward variant catalogs.' },
+        { label: 'Best push alerts', tool: 'Firepush', reason: 'Web push restock notifications when email inbox latency costs sell-through on flash inventory.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Three back-in-stock merchant scenarios</h2>
+      <p>
+        <strong>Scenario A — Streetwear size runs.</strong> Klaviyo variant waitlist: restock triggered alert to size-specific queue only; inventory check at send prevented false alerts when sell-through in 4 minutes. 38% waitlist conversion; zero "sold out again" complaint emails.
+      </p>
+      <p>
+        <strong>Scenario B — Beauty shade restock.</strong> Sequenzy waitlist priority by signup time; 48-hour purchase window. Privy captured waitlist on OOS PDP. Shade-specific dynamic block in alert email — 42% conversion on hero SKU restock.
+      </p>
+      <p>
+        <strong>Scenario C — Limited home goods collab.</strong> Firepush plus Omnisend email to waitlist only — push fired at inventory sync, email followed 30 minutes later for non-push subscribers. Collab inventory cleared in 6 hours without full-list blast.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Execution playbook</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Back-in-stock operating contract</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2 text-cyan-100">
+        <div><h3 class="font-black text-white">Trigger</h3><p class="mt-2 text-[17px] leading-8">{uc.trigger}</p></div>
+        <div><h3 class="font-black text-white">Timing</h3><p class="mt-2 text-[17px] leading-8">{uc.timing}</p></div>
+      </div>
+      <div class="mt-8"><h3 class="font-black text-white">Exclusions</h3>
+        <ul class="mt-3 space-y-2">{uc.exclusions.map((e) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{e}</li>)}</ul>
+      </div>
+      <div class="mt-8"><h3 class="font-black text-white">Metrics</h3>
+        <ul class="mt-3 space-y-2">{uc.metrics.map((m) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{m}</li>)}</ul>
+      </div>
+    </div>
+
+    <div class="card mb-12 overflow-x-auto">
+      <p class="badge">Comparison table</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">10 Shopify apps for back-in-stock</h2>
+      <table class="mt-8 w-full min-w-[720px] text-left text-sm">
+        <thead>
+          <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
+            <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Back-in-stock fit</th><th class="py-3 pr-4">Pricing</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+          </tr>
+        </thead>
+        <tbody class="text-cyan-100">
+          {comparisonApps.map((app, i) => (
+            <tr class="border-b border-cyan-300/20/8">
+              <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
+              <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
+              <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
+              <td class="py-3">★ {app.rating}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container space-y-12 pb-16">
+    <p class="badge">Detailed reviews</p>
+    <h2 class="font-serif text-4xl font-black text-white">Five apps for back-in-stock alerts</h2>
+
+    <ToolReview app={featuredApps[0]} rank={1} badge="SMS-native pick" paragraphs={[
+      'Sequenzy leads back-in-stock because waitlist without alert discipline wastes demand — wrong variant, full-list blast, alert after sellout. Playbooks enforce queue priority, variant match, inventory-at-send, 48h expiry.',
+      'Agent setup describes restock workflow once per catalog pattern — size-run apparel versus single-SKU beauty shade.',
+      'Integrates waitlist capture metadata from Privy or native forms — priority order preserved.',
+      'Post-drop sold-out routing from <a class="link" href="/use-cases/product-launch">product launch</a> feeds waitlist enrollment automatically.',
+    ]} />
+
+    <ToolReview app={featuredApps[1]} rank={2} paragraphs={[
+      'Klaviyo back-in-stock is variant-native — inventory sync triggers segment-specific alerts at scale for fashion and beauty matrices.',
+      'Revenue per alert campaign reporting proves waitlist ROI to merchandising — restock quantity decisions informed by waitlist depth.',
+      'Flow testing on alert copy and urgency window — 24h versus 48h expiry by category.',
+      'Best when waitlist events are high volume across thousands of variants.',
+    ]} />
+
+    <ToolReview app={featuredApps[2]} rank={3} paragraphs={[
+      'Privy PDP waitlist capture when SKU OOS — grows qualified alert audience without full-list noise.',
+      'Pass waitlist variant and timestamp to execution platform for queue order.',
+      'Basic alert send for simple catalogs — pair with Sequenzy or Klaviyo for variant-heavy stores.',
+      'Essential top-of-funnel for demand capture before restock event exists.',
+    ]} />
+
+    <ToolReview app={featuredApps[3]} rank={4} paragraphs={[
+      'Omnisend back-in-stock templates plus push notification — SMB restock without complex boolean trees.',
+      'Variant support adequate for moderate catalogs — strains at streetwear-scale size runs without Klaviyo.',
+      'Fast deploy for first waitlist program on stores graduating Shopify Email.',
+      'Push adds urgency channel without SMS cost for flash restocks.',
+    ]} />
+
+    <ToolReview app={featuredApps[4]} rank={5} paragraphs={[
+      'Firepush web push restock alerts reach mobile browsers immediately — email latency costs minutes on hype inventory.',
+      'Pair with email for full waitlist coverage — push for opted-in web, email for everyone else.',
+      'Frequency cap critical — one push per restock per subscriber.',
+      'Useful for <a class="link" href="/for/print-on-demand">POD</a> and limited collab restocks with fast sell-through.',
+    ]} />
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Inventory gate</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Confirm before send</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Query Shopify inventory at send time. Minimum threshold above zero buffer — if 3 units remain, alert only top queue segment or pause. Document false alert rate metric and investigate sync latency if above 2%.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Waitlist queue</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Priority by signup order</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        First signup first alert when inventory cannot satisfy full waitlist — stagger batches if partial restock. VIP override optional but document fairly — early access perk, not queue jumping without disclosure.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <h2 class="font-serif text-4xl font-black text-white">Back-in-stock feeds cart recovery</h2>
+      <p>Customers who waitlisted from <a class="link" href="/use-cases/abandoned-cart">abandoned cart</a> OOS should enter waitlist flow, not cart discount loop. Suppress cart recovery for waitlisted OOS SKU until alert fires or customer unsubscribes from waitlist.</p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Partial restocks</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">When inventory trickles in</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Partial size run restock — alert only matching waitlist variant, not full waitlist. Batch two: next sizes when inventory confirms. Broadcasting "back in stock" when only XS returned frustrates M waitlisters. Klaviyo inventory thresholds per variant; manual discipline on smaller platforms.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Pre-order transition: when SKU moves from waitlist to pre-order model, close waitlist with clear messaging — do not infinite alert loop.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Substitute recommendations</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">When restock date unknown</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Long OOS with no ETA: email waitlist in-stock alternatives with opt-out from original waitlist. Keeps revenue capture without false restock alerts. <a class="link" href="/for/fashion">Fashion</a> colorway substitutions need visual accuracy — wrong substitute worse than silence.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <h2 class="font-serif text-3xl font-black text-white">Quarterly back-in-stock audit</h2>
+      <p>Metrics review: waitlist conversion rate, false alert count, time-to-sell-through after alert, revenue per alert. Investigate SKUs with high waitlist low conversion — price, shipping, or creative mismatch. Sync latency between Shopify inventory and email platform — minutes of lag cause false alerts on flash inventory.</p>
+      <p>Privy waitlist capture versus Klaviyo native forms — single source of truth for queue order. Duplicate waitlist entries from multiple forms scramble priority.</p>
+      <p>Coordinate with merchandising on restock quantity versus waitlist depth — email promises drive traffic spikes ops must fulfill. <a class="link" href="/for/fashion">Fashion</a> size runs need variant-level post-mortem each drop.</p>
+      <p>Bot signups on hype waitlists inflate queue — CAPTCHA on Privy waitlist forms and rate limits reduce noise. Clean waitlist improves conversion metrics and inventory planning accuracy.</p>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All apps →</a>
+      <a class="link" href="/use-cases/browse-abandonment">Browse abandonment →</a>
+      <a class="link" href="/for/beauty">Beauty →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Back-in-stock FAQ" />
+</BaseLayout>

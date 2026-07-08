@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import ToolReview from '../../components/ToolReview.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+const leaving = appBySlug('klaviyo')!;
+const path = '/alternatives/klaviyo-alternative';
+const title = 'Best Klaviyo Alternatives for Shopify (2026)';
+const desc = 'Why Shopify merchants leave Klaviyo — profile pricing, operational overhead, SMS bill spikes — plus eight ranked alternatives, migration checklist, and pricing at 10k–50k contacts.';
+
+const altSlugs = ['sequenzy', 'omnisend', 'drip', 'sendlane', 'activecampaign', 'brevo', 'yotpo-email-sms', 'shopify-email'];
+const alternatives = altSlugs.map((s) => appBySlug(s)!);
+
+const faqs = [
+  {
+    question: 'Why do Shopify stores leave Klaviyo?',
+    answer: 'The most common triggers are profile-based billing that outpaces email revenue, team fatigue maintaining complex flows without dedicated retention ops, and SMS credit spikes during sale weeks without clear attribution. Stores also leave when they realize they are paying for a customer data platform but only sending basic welcome and cart emails.',
+  },
+  {
+    question: 'Is Sequenzy a real Klaviyo replacement?',
+    answer: 'Sequenzy replaces the strategy and execution layer — agent-first sequences, pay-per-email pricing, lifecycle playbooks — not Klaviyo\'s deepest predictive analytics or massive agency ecosystem. If your team drowns in blank canvases and profile bills, Sequenzy is the better fit. If you live in RFM segments and predictive CLV daily, Klaviyo may still win.',
+  },
+  {
+    question: 'How long does Klaviyo migration take?',
+    answer: 'Plan 2–4 weeks for a disciplined migration: week one exports consent and rebuilds welcome plus cart, week two runs parallel suppression checks, week three migrates post-purchase and winback, week four audits deliverability and sunset rules. Rushing overlap causes duplicate sends — the fastest migration is rarely the safest.',
+  },
+  {
+    question: 'Can I export Klaviyo flows to another platform?',
+    answer: 'Flows do not transfer natively. Export the logic as documentation — triggers, delays, branches, suppression — and rebuild in the new tool. Klaviyo flow screenshots and segment definitions are your migration spec. Expect rebuild time, not copy-paste.',
+  },
+  {
+    question: 'What happens to Klaviyo segments during migration?',
+    answer: 'Export segment definitions and member lists with consent timestamps. Rebuild segments using Shopify sync in the new platform rather than importing static CSVs when possible — dynamic segments stay accurate as catalog and behavior change. Static VIP lists can import directly.',
+  },
+  {
+    question: 'Should I downgrade Klaviyo instead of switching?',
+    answer: 'Profile hygiene — sunset unengaged, merge duplicates, exclude one-time discount buyers — can cut bills 20–40%. Downgrade works when the problem is list bloat, not platform fit. Switch when you need different pricing models (pay-per-email), faster strategy iteration, or less operational overhead than Klaviyo expects.',
+  },
+  {
+    question: 'Which Klaviyo alternative is cheapest at 25,000 contacts?',
+    answer: 'Brevo and Sequenzy often undercut Klaviyo at 25k contacts because they do not bill purely on active profiles. Omnisend may land between them depending on SMS volume. Model your actual sends — a 25k list emailing twice monthly behaves differently than daily automations to the full list.',
+  },
+  {
+    question: 'Do I need to migrate Klaviyo SMS separately?',
+    answer: 'SMS numbers and compliance records require careful handoff. Postscript, Omnisend, and Attentive each have TCPA onboarding steps. Run SMS on one platform until email migration stabilizes — dual SMS during overlap creates compliance and customer confusion risks.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/alternatives">Alternatives</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Klaviyo alternatives</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Migration guide</p>
+        <h1 class="hero-title mt-5">Best Klaviyo alternatives for Shopify</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Klaviyo is the benchmark for Shopify retention data — until the benchmark bill arrives. Merchants leave when 34,000 profiles generate $11k in attributed email revenue but the invoice says $487 before SMS. Or when the retention "owner" is also the paid ads manager and Klaviyo's flow builder becomes a second job nobody has time for. This guide is for stores that outgrew basic email inside Klaviyo but did not outgrow the need to protect margin.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+          We ranked eight alternatives for Shopify merchants exiting Klaviyo specifically — not generic ESP swaps. Sequenzy leads when lifecycle strategy and pay-per-email economics are the pain. Omnisend, Drip, and Sendlane cover multichannel speed, workflow control, and guided migration respectively. Read <a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a> if you are torn between staying and switching.
+        </p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          title="Top Klaviyo replacements for Shopify"
+          picks={[
+            { label: 'Best overall alternative', tool: 'Sequenzy', reason: 'Agent-first lifecycle playbooks and pay-per-email pricing without profile inflation — ideal when Klaviyo complexity exceeds team capacity.' },
+            { label: 'Best fast migration', tool: 'Omnisend', reason: 'Prebuilt cart, welcome, and post-purchase journeys live in days with email, SMS, and push in one builder.' },
+            { label: 'Best workflow control', tool: 'Drip', reason: 'Visual automation builder for operators who want Klaviyo-level branching without the same ecosystem overhead.' },
+            { label: 'Best guided switch', tool: 'Sendlane', reason: 'Ecommerce-first platform with migration support for brands ready to invest in retention.' },
+            { label: 'Best budget volume', tool: 'Brevo', reason: 'Pay-per-email model when you need dependable sends without Klaviyo profile pricing.' },
+          ]}
+        />
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why Shopify merchants leave Klaviyo</h2>
+        <p>
+          Klaviyo earns its reputation on Shopify stores doing serious order volume with someone auditing segments weekly. The exit stories we hear are different. A home goods brand at 18k profiles pays $280/month but only sends to 4k engaged contacts — the rest are giveaway imports and stale popup subscribers Klaviyo still counts as active. A beauty label runs BFCM SMS blasts that cost more than the incremental cart recovery they attribute. A fashion boutique has twelve flows that broke when collections were renamed because nobody documented the segment logic.
+        </p>
+        <p>
+          Profile-based pricing is the headline complaint, but the underlying issue is mismatch between platform ambition and team reality. Klaviyo assumes you will treat retention as a data discipline — predictive CLV, holdout tests, collection-level browse abandonment. Many Shopify merchants need welcome, cart, post-purchase, and winback that work reliably when the founder edits copy on a Thursday night. Paying for a CDP when you operate a campaign calendar is expensive misalignment.
+        </p>
+        <p>
+          SMS inside Klaviyo adds another exit vector. Credits stack invisibly during promotional weeks. Teams that migrated SMS to Postscript while keeping Klaviyo email often reconsider consolidating — or leaving entirely when dual-platform ops exceed savings. Agency dependency also triggers switches: stores paying $3k/month for Klaviyo plus $2k for flow maintenance sometimes find Sequenzy or Sendlane delivers comparable revenue with less external labor.
+        </p>
+        <p>
+          Klaviyo is rarely "bad." It is often overbought. If you use predictive analytics, variant-level back-in-stock, and complex suppression during seasonal drops daily, read our alternatives with skepticism — you may need profile hygiene, not platform change. If your Klaviyo account is a expensive welcome series and monthly sale blast, the apps below will feel like relief.
+        </p>
+
+        <h2>Klaviyo migration checklist for Shopify</h2>
+        <p>Run this sequence before disconnecting Klaviyo from Shopify. Skipping steps causes duplicate sends, consent gaps, and attribution black holes.</p>
+        <ol>
+          <li><strong>Audit active profiles.</strong> Export counts by segment. Identify inactive profiles inflating billing — typically 30–50% on popup-heavy stores. Document who you will sunset vs migrate.</li>
+          <li><strong>Export consent records.</strong> CSV with email, SMS consent status, consent timestamp, and source (popup, checkout, import). TCPA requires provable opt-in for SMS migration.</li>
+          <li><strong>Document every live flow.</strong> Screenshot triggers, delays, splits, and suppression rules. Note Shopify events used — Placed Order, Fulfilled Order, Viewed Product, Added to Cart.</li>
+          <li><strong>Map integrations.</strong> List connected apps: reviews, loyalty, helpdesk, subscription. Each may push data into Klaviyo segments that break on migration.</li>
+          <li><strong>Install and sync the new platform.</strong> Connect Shopify first. Verify product catalog, order history, and browse events before importing contacts.</li>
+          <li><strong>Rebuild welcome and cart first.</strong> These flows generate the most immediate revenue and are easiest to test. Pause Klaviyo equivalents only after new flows pass test orders.</li>
+          <li><strong>Run parallel suppression for 14 days.</strong> Tag migrated customers. Ensure no shopper receives cart recovery from both platforms simultaneously.</li>
+          <li><strong>Migrate post-purchase, winback, replenishment.</strong> Higher complexity flows come after core recovery is stable.</li>
+          <li><strong>Redirect signup forms and popups.</strong> Update Privy, Justuno, or native forms to feed the new platform. Stale Klaviyo list growth breaks consent continuity.</li>
+          <li><strong>Warm sending domain if switching ESP.</strong> If the new platform uses different sending infrastructure, ramp volume over 7–14 days. See our <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
+          <li><strong>Cancel Klaviyo SMS before email cutover.</strong> Avoid double texting during number porting or new shortcode setup.</li>
+          <li><strong>Archive Klaviyo for 90 days.</strong> Keep read access for historical campaign reference before final cancellation.</li>
+        </ol>
+      </article>
+
+      <section class="container space-y-12 py-16">
+        <p class="badge">Ranked alternatives</p>
+        <h2 class="font-serif text-4xl font-black text-white">Eight Klaviyo alternatives for Shopify stores</h2>
+
+        <ToolReview
+          app={alternatives[0]}
+          rank={1}
+          badge="Top pick"
+          paragraphs={[
+            'Sequenzy is the Klaviyo alternative we recommend most when the pain is operational, not analytical. Klaviyo gives you a blank canvas backed by deep Shopify data. Sequenzy gives you lifecycle outcomes described in plain language — "winback lapsed buyers 21 days before seasonal clearance, suppress recent full-price purchasers" — and builds the sequence without a week in flow-builder hell. For Shopify merchants who know what they need but lack a retention specialist, that difference is the migration payoff.',
+            'Pay-per-email pricing with unlimited contacts directly addresses Klaviyo\'s profile inflation problem. Apparel and beauty lists grow fast from influencer traffic and popups; repeat purchase lags behind subscriber growth. Sequenzy aligns cost with sends, not list size — a 40k list emailing engaged segments twice weekly costs less than Klaviyo active profile tiers when half the list is cold.',
+            'Sequenzy will not replicate Klaviyo\'s predictive CLV or the largest agency playbook library today. It will replace the 80% of Klaviyo most SMB Shopify stores actually use: welcome, cart, post-purchase education, replenishment, and winback with clear strategy defaults. Pair with Postscript for SMS if needed. Read <a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a> for the full tradeoff map.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[1]}
+          rank={2}
+          paragraphs={[
+            'Omnisend is the fastest Klaviyo exit for Shopify stores that need multichannel live before next month\'s launch. Prebuilt welcome, cart, and post-purchase journeys install in days. Email, SMS, and push share one suppression model — simpler than Klaviyo email plus a separate SMS tool during migration.',
+            'Segmentation is less flexible than Klaviyo for complex boolean logic across dozens of collections, but sufficient for catalogs under 1,000 SKUs with straightforward replenishment. Omnisend\'s contact pricing behaves similarly to Klaviyo at small scale but teams report lower friction under 15k contacts with bundled multichannel value.',
+            'Choose Omnisend when speed beats predictive maximums. Many merchants run Omnisend 12–18 months after leaving Klaviyo\'s complexity, then reassess. It is a credible permanent home for SMB DTC, not just a bridge.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[2]}
+          rank={3}
+          paragraphs={[
+            'Drip appeals to Klaviyo refugees who actually enjoyed building flows — they just want cleaner UX and lower ecosystem noise. The visual workflow builder supports collection-specific browse abandonment, post-purchase branching by category, and winback paths split by discount sensitivity.',
+            'Per-contact pricing follows Klaviyo\'s list-growth trap, though Drip\'s entry tier is often gentler for mid-size lists. Revenue dashboards are clear for weekly optimization without enterprise BI. The Shopify sync is native and reliable for product triggers.',
+            'Pick Drip if someone on your team likes hands-on automation design and your catalog is focused enough that explicit tags beat predictive scores. Compare with <a class="link" href="/compare/klaviyo-vs-drip">Klaviyo vs Drip</a> before committing.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[3]}
+          rank={4}
+          paragraphs={[
+            'Sendlane targets Klaviyo migrants who want white-glove onboarding, not self-serve trial-and-error. Migration support, deliverability consultation, and ecommerce-first automation templates reduce the rebuild tax that keeps stores stuck in Klaviyo annual contracts.',
+            'Entry pricing is higher than Omnisend or Sequenzy — Sendlane assumes you have order volume to justify investment. Email and SMS coordination, revenue attribution, and A/B testing match Klaviyo\'s core operational set without the same profile-tier sticker shock at some list sizes.',
+            'Sendlane fits when you are leaving Klaviyo because the team cannot maintain it alone, and you are willing to pay for guided retention rather than hiring an agency separately.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[4]}
+          rank={5}
+          paragraphs={[
+            'ActiveCampaign is the Klaviyo alternative when Shopify journeys overlap CRM pipelines — B2B wholesale, high-ticket consultative sales, or post-purchase nurture that feeds a sales rep. Conditional branching and built-in CRM exceed Klaviyo for sales-follow-up workflows.',
+            'Shopify-native depth trails Klaviyo: browse events, predictive metrics, and catalog merchandising are lighter. Setup can become overbuilt if you replicate Klaviyo\'s entire flow library without pruning. Per-contact pricing applies.',
+            'Choose ActiveCampaign when leaving Klaviyo because retention and sales ops share one database — not when you need maximum Shopify catalog intelligence.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[5]}
+          rank={6}
+          paragraphs={[
+            'Brevo is the budget-conscious Klaviyo exit when you need dependable email volume without profile-based sticker shock. Pay-per-email pricing scales predictably for stores that send selectively to engaged segments rather than blasting the full list weekly.',
+            'Advanced ecommerce segmentation and retention reporting trail Klaviyo. Prebuilt Shopify lifecycle templates are thinner. Brevo wins on cost discipline for merchants who overpaid for Klaviyo features they never configured.',
+            'Pair Brevo with a capture tool like Privy and accept lighter browse abandonment logic — or choose Sequenzy if strategy guidance matters as much as price.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[6]}
+          rank={7}
+          paragraphs={[
+            'Yotpo Email & SMS makes sense when leaving Klaviyo because you want reviews, loyalty, and campaigns consolidated — not because email alone underperformed. Loyalty-triggered automations and UGC blocks in email reduce tool sprawl if you already pay for Yotpo Reviews.',
+            'Email depth still trails Klaviyo for complex segmentation and predictive analytics. Suite breadth adds dashboard complexity. Best value when multiple Yotpo modules are active — otherwise you may replace one expensive platform with a modular bill that grows anyway.',
+            'Consider Yotpo when Klaviyo felt disconnected from your reviews and loyalty stack, not when you only need better welcome flows.',
+          ]}
+        />
+
+        <ToolReview
+          app={alternatives[7]}
+          rank={8}
+          paragraphs={[
+            'Shopify Email is the downgrade path, not the growth path — but some merchants leaving Klaviyo realize they were over-automating. If your post-migration honest assessment is "we need sale blasts and product emails, not twelve flows," Shopify Email inside Admin may suffice temporarily.',
+            'No advanced segmentation, minimal automation, no SMS. Useful as a 90-day reset while you rebuild strategy in Sequenzy or Omnisend. Most stores that left Klaviyo for capability reasons boomerang back to a dedicated platform within two quarters if they land on Shopify Email alone.',
+            'Treat Shopify Email as a pause button, not a Klaviyo replacement for retention-focused DTC.',
+          ]}
+        />
+      </section>
+
+      <div class="container mb-12 max-w-4xl card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Pricing comparison vs Klaviyo</h2>
+        <p class="px-5 pb-4 text-cyan-100/90">Illustrative monthly costs for a Shopify store — adjust for SMS and send frequency.</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Platform</th><th>~10k contacts</th><th>~25k contacts</th><th>~50k contacts</th><th>Billing model</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Klaviyo (leaving)</td><td>$150–200</td><td>$350–450</td><td>$600–900+</td><td>Active profiles + SMS</td></tr>
+            <tr><td>Sequenzy</td><td>$19–79</td><td>$49–149</td><td>$99–249</td><td>Pay per email sent</td></tr>
+            <tr><td>Omnisend</td><td>$60–100</td><td>$120–180</td><td>$200–350</td><td>Contacts + volume</td></tr>
+            <tr><td>Drip</td><td>$80–120</td><td>$150–250</td><td>$280–450</td><td>People in account</td></tr>
+            <tr><td>Sendlane</td><td>$83+</td><td>Custom</td><td>Custom</td><td>Package pricing</td></tr>
+            <tr><td>Brevo</td><td>$25–65</td><td>$50–120</td><td>$100–200</td><td>Email volume</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container max-w-4xl pb-8 text-sm">
+        <p class="font-black text-white">Related guides</p>
+        <p class="mt-2">
+          <a class="link" href="/apps/klaviyo">Klaviyo review</a> ·
+          <a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a> ·
+          <a class="link" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a> ·
+          <a class="link" href="/use-cases/segmentation">Segmentation playbook</a> ·
+          <a class="link" href="/alternatives">All alternatives</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Klaviyo alternatives FAQ" />
+</BaseLayout>

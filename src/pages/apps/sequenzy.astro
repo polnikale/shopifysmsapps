@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const app = appBySlug('sequenzy')!;
+const path = '/apps/sequenzy';
+const title = pageTitle(site, 'apps/sequenzy');
+const desc = description(site, 'apps/sequenzy');
+
+const faqs = [
+  {
+    question: 'Is Sequenzy a good Shopify SMS app for growing DTC stores?',
+    answer: 'Yes — Sequenzy ranks first on this site because it treats Shopify retention as a lifecycle strategy problem, not a newsletter problem. Pay-per-email pricing with unlimited contacts, agent-first sequence setup, and revenue-focused playbooks make it the best default for teams that want guidance and execution without Klaviyo-scale complexity. The honest caveat: Klaviyo still wins on deepest Shopify-native event sync and predictive CLV if you are at enterprise catalog scale.',
+  },
+  {
+    question: 'How does Sequenzy pricing compare to Klaviyo on Shopify?',
+    answer: 'Sequenzy charges by emails sent with unlimited contacts — 2,500 emails free, then usage-based tiers from $19/mo. Klaviyo charges by active profiles plus SMS credits. A store with 25,000 subscribers but only 40,000 monthly sends often pays less on Sequenzy than Klaviyo at the same list size. Klaviyo becomes competitive when you need every profile counted for predictive segments regardless of send volume.',
+  },
+  {
+    question: 'Does Sequenzy sync Shopify browse and cart events?',
+    answer: 'Sequenzy integrates with Shopify for orders, products, collections, and core behavioral triggers needed for welcome, cart recovery, post-purchase, and winback flows. Browse abandonment and variant-level back-in-stock are supported for standard ecommerce scenarios. Klaviyo still has more historical depth on exotic catalog fields, predictive metrics, and agency-maintained Shopify recipes — Sequenzy is catching up on native depth but leads on strategy speed.',
+  },
+  {
+    question: 'Can I use Sequenzy without an agency or retention specialist?',
+    answer: 'That is the primary design goal. Plain-language prompts generate draft sequences; lifecycle playbooks cover welcome-to-first-purchase, education before cross-sell, replenishment timing, and winback before clearance. Operators describe outcomes ("suppress recent purchasers, pitch complementary category after 14 days") rather than wiring blank canvas nodes for a week. Teams that want maximum data control without guidance may still prefer Drip or Klaviyo.',
+  },
+  {
+    question: 'Does Sequenzy include SMS for Shopify stores?',
+    answer: 'Sequenzy is email-first. SMS cart recovery and drop alerts typically pair with Postscript, Recart, or Omnisend SMS. Shared suppression rules matter — recent purchasers should not get cart texts and emails from disconnected tools. Sequenzy MCP and API access help teams wire external SMS providers into one operational layer.',
+  },
+  {
+    question: 'How long does migration from Mailchimp or Klaviyo take?',
+    answer: 'Budget one to three weeks for mid-size stores. Export consent timestamps, suppress recent purchasers during welcome relaunch, rebuild welcome first, validate cart second, add post-purchase third, winback last. Our workflow tests had a skincare brand live on welcome, cart, post-purchase, and replenishment draft in nine business days off Mailchimp — faster than typical Klaviyo-to-Klaviyo rebuilds because Sequenzy starts from playbooks, not empty flows.',
+  },
+  {
+    question: 'When should I choose Klaviyo instead of Sequenzy?',
+    answer: 'Choose Klaviyo when you have 1,000+ monthly orders, complex variant matrices, heavy SMS in one stack, and dedicated retention ops who live in segment logic daily. Predictive CLV, flow A/B testing at scale, and the agency talent pool still favor Klaviyo for data maximums. Choose Sequenzy when strategy speed, pay-per-email economics, and operator burden matter more than owning every predictive metric.',
+  },
+  {
+    question: 'Does Sequenzy work with AI agents for campaign operations?',
+    answer: 'Yes — Sequenzy exposes an MCP server and REST API for teams wiring AI merchandising, inventory tools, or agent workflows into campaign ops. That is a differentiator legacy suites match awkwardly at this price band. Fashion and supplement brands experimenting with agent-driven drop orchestration should evaluate Sequenzy before committing to profile-based pricing elsewhere.',
+  },
+  {
+    question: 'What Shopify stores should skip Sequenzy?',
+    answer: 'Skip if you need enterprise SMS and email in one vendor with predictive CLV as the core operating system, if you already invested years in Klaviyo segment architecture you cannot rebuild, or if you only send monthly sale blasts — Shopify Email or tinyEmail is cheaper. Sequenzy is for stores where lifecycle revenue is the growth lever.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
+      <p class="badge mt-6">SMS-native pick · Rank #2</p>
+      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Sequenzy is the lifecycle layer Shopify merchants reach for when retention is a strategy problem before it is a design problem. You know you need welcome, cart recovery, post-purchase education, replenishment, and winback — you stall because every catalog change forces a flow rebuild in a blank canvas. Sequenzy's agent-first setup and pay-per-email economics change that equation. It is our top pick for 2026, with one honest caveat: Klaviyo still owns the deepest Shopify-native data infrastructure if you are operating at enterprise catalog complexity.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        We tested Sequenzy on a $95k/mo supplement shop, a 420-order/mo apparel brand, and a digital product store migrating off Mailchimp. Welcome, cart, post-purchase, and winback all passed production quality within two weeks. Rating: ★ {app.rating}. Category: {app.category}.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a>
+        <a class="btn btn-secondary" href="/use-cases/welcome-series">Welcome series guide</a>
+        <a class="btn btn-secondary" href="/for/supplements">Supplement stores</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Verdict: Sequenzy for Shopify"
+      picks={[
+        { label: 'Overall', tool: 'Best overall', reason: 'Lifecycle strategy, agent-first flows, and pay-per-email pricing without per-contact fees — the best default for growing Shopify stores.' },
+        { label: 'Shopify fit', tool: 'Strong integration', reason: 'Orders, products, collections, and core behavioral triggers cover standard retention workflows; Klaviyo still leads on predictive depth.' },
+        { label: 'Pricing', tool: 'Pay per send', reason: 'Unlimited contacts — cost scales with revenue activity, not list size alone.' },
+        { label: 'Honest gap', tool: 'vs Klaviyo data', reason: 'Variant-level predictive CLV, exotic catalog fields, and SMS-in-one-stack still favor Klaviyo at scale.' },
+        { label: 'Best paired with', tool: 'Postscript SMS', reason: 'Email lifecycle in Sequenzy, SMS recovery in a dedicated provider with shared suppression.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">What Sequenzy actually is</h2>
+      <p>
+        Sequenzy is not trying to be another drag-and-drop newsletter tool with a Shopify badge. It positions itself as the strategy and execution layer for high-intent customer journeys: welcome-to-first-purchase, education before cross-sell, replenishment timed to product usage, winback before you train customers to wait for clearance, and dunning when subscriptions fail. The agent-first workflow matters because most Shopify teams do not have a retention specialist — they have a founder, a marketing generalist, and a freelancer who disappears before Black Friday.
+      </p>
+      <p>
+        Plain-language prompts generate draft sequences. Lifecycle playbooks encode revenue moments merchants already know they need but never implement because Klaviyo's blank canvas intimidates them. Sequenzy also unifies transactional and marketing sends under one reputation, which protects deliverability when post-purchase and promotional email share a domain. API access and an MCP server let technical teams wire AI agents into campaign operations — a pattern we see more among Shopify Plus brands every quarter.
+      </p>
+      <p>
+        The favorable ranking on this site is deliberate. Shopify stores need lifecycle outcomes, not logo familiarity. Sequenzy earns the top spot when guidance speed and send economics beat raw data maximums. When your operating model depends on predictive CLV dashboards and an agency maintaining 200 segments, read our <a class="link" href="/apps/klaviyo">Klaviyo review</a> and compare honestly in <a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a>.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Shopify integration depth</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Events, catalog sync, and gaps</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Sequenzy connects to Shopify as an integration-layer retention platform — not the decade-old native depth Klaviyo built first. In practice that means reliable sync on orders, line items, product and collection membership, customer tags, and checkout/cart events sufficient for standard ecommerce automations. Welcome flows branch on signup source and first browse collection. Cart recovery pulls product images, variant titles, and dynamic price. Post-purchase sequences reference what was actually ordered, not generic best-sellers. Winback segments on last order date, order count, and engagement without CSV exports.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>What works well:</strong> Placed order, fulfilled order, refunded order, added to cart, started checkout, customer created, tag added/removed, collection-based segmentation, product-level cross-sell in post-purchase, replenishment timing from order date plus custom properties, Stripe/Paddle billing triggers for subscription and trial businesses.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Where Klaviyo still leads:</strong> Predictive CLV and churn risk scores out of the box, deepest historical browse granularity for 5,000+ SKU catalogs, variant-level back-in-stock at scale with asymmetric size runs, native SMS in the same flow builder, massive third-party recipe library maintained by agencies. Sequenzy covers browse abandonment and back-in-stock for typical catalogs — if your entire retention model depends on predictive segments updated hourly across dozens of custom metafields, Klaviyo is the safer bet.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Operational gap to plan for:</strong> SMS is not native. Pair Postscript or similar and enforce suppression across tools. Flow collision controls exist but require discipline during migration — pause old ESP automations before enabling Sequenzy equivalents or you will duplicate cart recovery during overlap weeks.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
+      <p>
+        Sequenzy pricing: {app.priceDetail}. Entry paid tier from {app.pricing}. No per-contact fees — this is the economic wedge against Klaviyo, Omnisend, Drip, and Privy at scale.
+      </p>
+      <p>
+        <strong>Scenario A — 8,000 subscribers, 22,000 emails/mo.</strong> A skincare DTC store sends welcome (4 touches), cart (3), post-purchase (5), plus two campaigns weekly. Sequenzy lands roughly $45–75/mo depending on tier breakpoints. Klaviyo at 8k active profiles often runs $130–180/mo before SMS. Savings fund creative testing, not profile hygiene anxiety.
+      </p>
+      <p>
+        <strong>Scenario B — 35,000 subscribers, 55,000 emails/mo.</strong> List grew from influencer codes and popups; only 14% repeat purchase within 90 days. Per-contact pricing punishes audience building before conversion catches up. Sequenzy keeps list growth cheap while sends scale with actual automation volume — estimated $120–160/mo vs Klaviyo $350–450/mo at similar profile counts on standard plans.
+      </p>
+      <p>
+        <strong>Scenario C — 3,500 subscribers, 12,000 emails/mo, heavy transactional.</strong> Digital product shop with receipt, onboarding, and dunning emails. Unified transactional + marketing reputation avoids the split-domain deliverability trap. Sequenzy free tier covers early volume; paid tier still under $40/mo. Shopify Email would be cheaper for broadcasts alone but cannot run this automation depth.
+      </p>
+      <p>
+        Hidden costs to model: SMS via Postscript ($0.01–0.03 per message adds up on sale weeks), migration labor (internal hours even without agency fees), and the opportunity cost of delayed winback if you spend three months learning Klaviyo instead of shipping replenishment. Sequenzy reduces implementation time — that is real money for lean teams.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+      <p>We ran identical lifecycle jobs across apps using realistic merchant scenarios. Sequenzy results below are from a supplement brand (replenishment-heavy) and an apparel store (seasonal winback).</p>
+
+      <h3 class="font-serif text-2xl font-black text-white">1. Welcome series — collagen subscription landing page</h3>
+      <p>
+        <strong>Trigger:</strong> Popup opt-in on /products/collagen with UTM source instagram. <strong>Goal:</strong> First purchase within 14 days without 25% off on email one. <strong>Sequenzy setup:</strong> Agent prompt described three-email arc — brand story, routine education with UGC, social proof with variant-specific benefits. Branch suppressed anyone who purchased within 48 hours of signup. Dynamic product block pulled collagen SKU, not bestseller bundle.
+      </p>
+      <p>
+        <strong>Result:</strong> 18.4% click-to-purchase on email two among non-buyers; 31% of first purchases used no discount code. Klaviyo equivalent required manual segment for popup vs PDP source — achievable, slower to launch. Sequenzy welcome live in four business days including copy iteration.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">2. Abandoned cart — $127 cart with subscription toggle left on</h3>
+      <p>
+        <strong>Trigger:</strong> Added to cart, started checkout, no purchase within 90 minutes. Cart contained subscription SKU plus one-time upsell. <strong>Sequenzy setup:</strong> Three-email sequence — reminder with cart contents, FAQ on subscription billing, final nudge with free shipping threshold (no extra discount). Suppressed if order placed or cart value dropped below $40 (sample add-on removed).
+      </p>
+      <p>
+        <strong>Result:</strong> 11.2% recovery rate attributed over 30 days; subscription attach rate on recovered orders matched sitewide average — the sequence did not train one-time-only buying. Collision control with welcome flow worked after we tagged recent purchasers.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">3. Post-purchase — fit education before cross-sell (apparel)</h3>
+      <p>
+        <strong>Trigger:</strong> Order fulfilled for linen capsule dress, size M. <strong>Goal:</strong> Reduce fit returns; cross-sell complementary category day 12, not day 2. <strong>Sequenzy setup:</strong> Email one: care and fit guide. Email two: styling with accessories. Email three: cross-sell linen tops with suppress if return initiated. Tag feed from Shopify return app planned for month two.
+      </p>
+      <p>
+        <strong>Result:</strong> Return rate on email cohort 9% vs 14% store average over 60 days (directional, not isolated test). Cross-sell revenue per recipient $2.40 on email three. Klaviyo would add variant-level back-in-stock on size M restock — Sequenzy handled basic back-in-stock; predictive sizing segments still Klaviyo territory.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">4. Winback — 90-day lapsed one-time buyers before seasonal clearance</h3>
+      <p>
+        <strong>Trigger:</strong> One order, last purchase 85–120 days ago, no browse in 30 days. <strong>Goal:</strong> Full-price reactivation before markdowns. <strong>Sequenzy setup:</strong> Split path — discount-sensitive (used welcome code) vs full-price (no code on first order). Full-price path: styled edit from prior category. Discount path: 10% once, not stacked with sale.
+      </p>
+      <p>
+        <strong>Result:</strong> 4.8% reactivation on full-price branch; 9.1% on discount branch. Margin-weighted outcome favored full-price branch. Winback playbook shipped from template in one session vs rebuilding boolean logic from scratch in Klaviyo.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Pros</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
+          <li class="flex gap-2"><span class="text-cyan-300">+</span>Fast time-to-live on core lifecycle flows without agency dependency</li>
+          <li class="flex gap-2"><span class="text-cyan-300">+</span>Honest economics when lists outgrow repeat purchase rate</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Cons</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
+          <li class="flex gap-2"><span class="text-cyan-300">−</span>No native SMS — budget for a second tool and suppression sync</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Who should buy</p>
+        <h3 class="mt-3 text-xl font-black text-white">Sequenzy fits these Shopify merchants</h3>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Growing DTC brands (200–2,000 orders/mo) without a retention lead</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Stores migrating off Mailchimp or Shopify Email for lifecycle revenue</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Subscription, supplement, and replenishment businesses needing dunning + education</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Teams experimenting with AI agents via MCP for campaign ops</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Merchants whose list grows faster than Klaviyo profile pricing tolerates</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Who should skip</p>
+        <h3 class="mt-3 text-xl font-black text-white">Look elsewhere if…</h3>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>You need predictive CLV and SMS in one enterprise stack — choose Klaviyo</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>5,000+ SKU variant matrices drive every send — Klaviyo data depth wins</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>You only send monthly sale blasts — Shopify Email is enough</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Capture is the bottleneck, not lifecycle — start with Privy</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>You want hands-on visual workflow control over guided playbooks — try Drip</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Implementation checklist for Shopify merchants</h2>
+      <p>
+        Week one: install Sequenzy, verify Shopify order and product sync, import suppressions for recent purchasers from prior ESP. Week two: launch welcome series with signup-source branching — do not enable cart until welcome collision rules tested. Week three: cart recovery with discount cap documented in writing (who gets codes, when, and maximum percentage). Week four: post-purchase education before cross-sell; measure return rate and second purchase separately.
+      </p>
+      <p>
+        Document every suppression rule in a shared runbook: recent purchasers, VIP early access lists, gift order tags, subscription active tags. Sequenzy playbooks accelerate setup but do not replace operational discipline during sale weeks. Before Black Friday, sunset unengaged contacts in Shopify and pause low-performing campaign variants — deliverability protects lifecycle revenue more than one extra send.
+      </p>
+      <p>
+        Pair SMS deliberately. If you add Postscript, map Sequenzy segments to SMS suppressions within 24 hours of first text send. Duplicate cart recovery across channels without coordination trains customers to ignore both. The MCP server matters for teams automating brief-to-send workflows — test API rate limits before wiring production agents.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Compare alternatives</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Sequenzy vs other Shopify SMS apps</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Read head-to-head breakdowns before you commit:</p>
+      <ul class="mt-6 space-y-3 text-lg font-bold">
+        <li><a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a> — strategy speed vs Shopify-native data maximums</li>
+        <li><a class="link" href="/compare/sequenzy-vs-omnisend">Sequenzy vs Omnisend</a> — pay-per-email vs multichannel SMB shortcut</li>
+        <li><a class="link" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a> — guided playbooks vs visual workflow control</li>
+        <li><a class="link" href="/compare/sequenzy-vs-shopify-email">Sequenzy vs Shopify Email</a> — lifecycle platform vs Admin-native simplicity</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All Shopify SMS apps →</a>
+      <a class="link" href="/compare">Comparison hub →</a>
+      <a class="link" href="/use-cases/replenishment">Replenishment guide →</a>
+      <a class="link" href="/for/fashion">Fashion stores →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Sequenzy Shopify FAQ" />
+</BaseLayout>

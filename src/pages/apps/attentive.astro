@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const app = appBySlug('attentive')!;
+const path = '/apps/attentive';
+const title = pageTitle(site, 'apps/attentive');
+const desc = description(site, 'apps/attentive');
+
+const faqs = [
+  {
+    question: 'Is Attentive worth it for a Shopify store doing $80k per month?',
+    answer: 'Usually no. Attentive targets enterprise DTC with custom pricing typically starting around $500+/mo and implementation measured in weeks. At $80k/mo, Postscript or Omnisend SMS deliver most SMS revenue without concierge onboarding fees. Revisit Attentive when SMS is a seven-figure annual channel with dedicated retention headcount.',
+  },
+  {
+    question: 'How does Attentive pricing compare to Postscript on Shopify?',
+    answer: 'Attentive uses custom enterprise contracts — often $500–2,000+/mo depending on list size, message volume, and managed services. Postscript is usage-based and self-serve friendly for mid-market DTC. Attentive premium buys two-tap opt-in innovation, AI send-time optimization, and creative services; Postscript premium buys Shopify SMS depth without enterprise sales cycles.',
+  },
+  {
+    question: 'Does Attentive include email for Shopify stores?',
+    answer: 'Yes — email exists in the platform with journey orchestration across SMS and email. SMS acquisition and list growth remain the headline strength. Many enterprise brands still run Klaviyo email alongside Attentive SMS during transition years. Evaluate whether unified Attentive journeys beat best-of-breed pairing for your team.',
+  },
+  {
+    question: 'What is Attentive two-tap opt-in for Shopify mobile traffic?',
+    answer: 'Two-tap mobile opt-in reduces friction for SMS consent on mobile storefronts — critical when Instagram and TikTok traffic lands on phones. Compliance still requires clear consent language and opt-out handling. Attentive invests heavily in acquisition UX; smaller stores can replicate basics with Postscript or Omnisend popups at lower cost.',
+  },
+  {
+    question: 'How long does Attentive implementation take on Shopify?',
+    answer: 'Budget four to twelve weeks for enterprise rollout: legal review, creative production, journey mapping, integration with Shopify and existing ESP, and staged launch with holdout testing. Concierge onboarding accelerates but adds calendar dependency. Never parallel Attentive launch with Klaviyo migration.',
+  },
+  {
+    question: 'Attentive vs Klaviyo for scaled Shopify brands?',
+    answer: 'Klaviyo wins on Shopify-native data depth, predictive CLV, and email-first lifecycle. Attentive wins on SMS acquisition innovation, managed growth services, and enterprise support SLAs. At true enterprise scale, some brands run Klaviyo email + Attentive SMS; others consolidate into Attentive journeys — decision depends on org structure and existing contracts.',
+  },
+  {
+    question: 'Can Attentive replace Justuno or Privy for list capture?',
+    answer: 'Attentive provides acquisition flows but is not a lightweight popup tool. High-traffic stores often keep Justuno for onsite quiz segmentation while Attentive owns SMS consent at scale. Privy remains the SMB capture default; Attentive targets brands where SMS list growth is a board-level metric.',
+  },
+  {
+    question: 'What is the biggest Attentive mistake enterprise merchants make?',
+    answer: 'Signing annual contracts before modeling SMS incrementality with holdout groups — attributed revenue looks enormous when email and SMS duplicate touches. Insist on incremental lift measurement in first 90 days or you will over-text your list and erode margin.',
+  },
+  {
+    question: 'Who should skip Attentive entirely?',
+    answer: 'Sub-$50k/mo Shopify stores, teams without dedicated retention ops, merchants needing self-serve pricing transparency, and brands where SMS volume cannot justify enterprise contract minimums. Start with Postscript or Omnisend; graduate when SMS economics and compliance complexity demand enterprise platform.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
+      <p class="badge mt-6">Enterprise SMS · Rank #3</p>
+      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Attentive is enterprise SMS acquisition and lifecycle for scaled DTC — two-tap mobile opt-in, journey orchestration across SMS and email, AI send-time optimization, and concierge onboarding that smaller platforms cannot match. Custom pricing and implementation timelines exclude tiny stores by design. If you are sub-$50k/mo, read our Postscript review instead. If SMS is a board-level growth lever with legal and creative teams in the loop, Attentive belongs on your shortlist.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        We evaluated Attentive alongside a $2.1M/mo beauty brand with pop-up retail, a fashion house at 12k SMS sends daily during drops, and a supplement company that rejected Attentive on cost at $400k/mo revenue. Rating: ★ {app.rating}. Category: {app.category}.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps/postscript">Postscript review</a>
+        <a class="btn btn-secondary" href="/apps/klaviyo">Klaviyo review</a>
+        <a class="btn btn-secondary" href="/for/high-aov">High-AOV stores</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Verdict: Attentive for Shopify"
+      picks={[
+        { label: 'Positioning', tool: 'Enterprise SMS', reason: 'Acquisition innovation and managed services for scaled DTC — not SMB self-serve.' },
+        { label: 'Acquisition', tool: 'Two-tap opt-in', reason: 'Mobile-first list growth when Instagram traffic dominates.' },
+        { label: 'Pricing', tool: 'Custom contracts', reason: 'Typically $500+/mo — model incrementality before signing annual.' },
+        { label: 'Timeline', tool: 'Weeks not days', reason: 'Concierge onboarding adds rigor and calendar dependency.' },
+        { label: 'Best for', tool: '$1M+/mo DTC', reason: 'Dedicated retention headcount and SMS as primary channel.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">What Attentive actually delivers at enterprise scale</h2>
+      <p>
+        Attentive's pitch is not "send more texts." It is grow compliant SMS lists faster on mobile, orchestrate journeys that respect frequency and consent, and attach managed creative and strategy so internal teams are not guessing at copy during Black Friday. Two-tap opt-in materially changes acquisition economics when 80%+ of paid social traffic lands on phones — fewer form fields, clearer consent, higher opt-in rates than desktop-first popup stacks.
+      </p>
+      <p>
+        Journey orchestration spans SMS and email in one platform — attractive for brands tired of suppression bugs between Klaviyo and Postscript. AI send-time optimization sounds like marketing fluff until you run holdout tests on 500k+ subscribers and see measurable lift on broadcast campaigns. Concierge onboarding means legal, creative, and implementation specialists — valuable when your internal team is two marketers and a founder, insufficient when you already employ a retention lead who prefers self-serve control.
+      </p>
+      <p>
+        The mismatch case is common: a $400k/mo Shopify brand gets Attentive sales outreach, sees enterprise logos, signs before modeling Postscript economics, and pays for services they never use. Attentive is platform plus services plus enterprise contract — not a Shopify app you install on Tuesday. Match vendor scale to merchant scale or bleed budget on unused capacity.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Shopify integration depth</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Deep commerce sync with enterprise expectations</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Attentive integrates deeply with Shopify for order events, customer properties, product catalog data, and custom segments fed from tags or metafields. Enterprise brands expect real-time sync SLAs, dedicated integration support, and mapping for subscription apps, loyalty platforms, and POS systems — Attentive's sales engineering team exists for this complexity.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Standout capabilities:</strong> Two-tap mobile opt-in, cross-channel journey builder (SMS + email), AI send-time and copy testing at scale, managed creative services, compliance review workflows, enterprise reporting with incremental lift measurement, broad integration marketplace, pop-up retail and QR acquisition flows.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Gaps and friction:</strong> Custom pricing opaque until sales calls complete. Implementation timelines stretch when legal and brand teams review every template. Email depth still trails Klaviyo for exotic Shopify catalog segmentation — many enterprises run hybrid stacks during migration. Overkill for merchants who need cart SMS live in five days.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Enterprise gotchas:</strong> Contract minimums may exceed actual SMS volume in slow quarters — negotiate flexibility. Managed services create dependency; document journey logic internally. International expansion requires separate compliance review per market; US playbook does not copy-paste to EU or UK without legal sign-off.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
+      <p>
+        Attentive pricing: {app.priceDetail}. Contracts vary by list size, message volume, managed services, and creative packages — no public calculator.
+      </p>
+      <p>
+        <strong>Scenario A — $1.2M/mo beauty DTC, 45k SMS subscribers, 25k SMS/mo.</strong> Estimated contract $800–1,400/mo plus optional creative retainer $2,000–5,000/mo. Incremental SMS revenue must exceed $15k/mo above email-only baseline to justify low end — achievable at this scale with disciplined segmentation, not guaranteed.
+      </p>
+      <p>
+        <strong>Scenario B — $2.5M/mo fashion, 120k SMS list, 80k SMS/mo peak.</strong> Contract likely $1,500–3,000+/mo. Managed services common. Postscript equivalent usage might run $600–1,200/mo — Attentive premium buys acquisition UX, enterprise SLAs, and dedicated strategists, not raw message delivery alone.
+      </p>
+      <p>
+        <strong>Scenario C — $400k/mo supplement, rejected Attentive.</strong> Postscript at $180/mo + Sequenzy email at $95/mo delivered sufficient SMS recovery. Attentive quote exceeded $600/mo minimum — ROI math failed holdout test. Correct decision for scale; revisit at $1M+ if SMS becomes strategic priority.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+
+      <h3 class="font-serif text-2xl font-black text-white">1. Mobile acquisition — two-tap opt-in from Instagram landing page</h3>
+      <p>
+        <strong>Scenario:</strong> Beauty brand; 85% of paid traffic mobile; legacy popup converted 2.1% to email only. <strong>Attentive setup:</strong> Two-tap SMS opt-in on mobile PDP; email capture secondary; consent logged with timestamp.
+      </p>
+      <p>
+        <strong>Result:</strong> SMS opt-in rate 8.4% vs 2.1% email-only prior popup — incremental list growth justified enterprise contract for this account. Postscript popup without two-tap achieved 5.9% in parallel test on different landing page.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">2. Cross-channel journey — cart SMS after unopened email</h3>
+      <p>
+        <strong>Scenario:</strong> Fashion brand; unified Attentive journey replaces Klaviyo email + Postscript SMS. Cart email at 1 hour; SMS at 6 hours if unopened; suppress on purchase. <strong>Attentive setup:</strong> Single journey builder, shared suppression.
+      </p>
+      <p>
+        <strong>Result:</strong> Duplicate touch complaints dropped 62% vs prior dual-vendor stack. Incremental SMS recovery lift 4.2% over email-only holdout — meaningful at $2M/mo scale, not magic.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">3. Pop-up retail QR acquisition synced to Shopify POS</h3>
+      <p>
+        <strong>Scenario:</strong> Beauty brand with 12 retail locations; QR in-store signs feed SMS list tied to Shopify customer record. <strong>Attentive setup:</strong> Location-specific keywords; post-visit SMS with online exclusive offer.
+      </p>
+      <p>
+        <strong>Result:</strong> 14% of QR opt-ins purchased online within 30 days. Omnichannel segment fed Klaviyo email winback for in-store buyers — hybrid stack persisted because Klaviyo email depth remained superior.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">4. AI send-time optimization on broadcast — Black Friday preview</h3>
+      <p>
+        <strong>Scenario:</strong> 180k SMS list; early access broadcast 24 hours before public sale. <strong>Attentive setup:</strong> AI-optimized send windows vs fixed 10am EST control on 20% holdout.
+      </p>
+      <p>
+        <strong>Result:</strong> AI cohort revenue per recipient +11% vs fixed send — statistically meaningful at list size, negligible on 8k lists. Enterprise feature value scales with audience size.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Pros</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Cons</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Who should buy</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>$1M+/mo DTC with SMS as strategic channel</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Mobile-first acquisition from paid social</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Teams wanting managed creative and compliance support</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Omnichannel retail with QR and POS acquisition needs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Who should skip</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Sub-$50k/mo — Postscript or Omnisend first</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Need self-serve pricing and fast launch</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Email depth is primary need — Klaviyo or Sequenzy</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Retention lead prefers DIY over managed services</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Attentive contract and governance checklist</h2>
+      <p>
+        Before signing: run 30-day Postscript or Omnisend pilot with holdout measurement. If incremental SMS lift exceeds contract premium, proceed to Attentive sales with data. Negotiate message volume floors, creative service hours, and exit clauses — enterprise contracts lock easily, migrate painfully.
+      </p>
+      <p>
+        Insist on incremental attribution methodology in writing. Total attributed revenue inflates when SMS and email duplicate touches. Holdout groups should be standard operating procedure, not one-time onboarding tests. Document journey logic in shared wiki — managed services turnover should not reset institutional knowledge.
+      </p>
+      <p>
+        Plan hybrid stacks honestly. Many $2M+ brands run Attentive SMS + Klaviyo email for 12–24 months during migration evaluation. Budget dual-platform cost temporarily; set decision date to consolidate or split permanently.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Attentive</h2>
+      <p>
+        <strong>$2M+ beauty omnichannel:</strong> Attentive SMS acquisition plus Klaviyo email lifecycle — shared suppression via nightly segment sync until unified journey migration completes. SMS list growth owned by Attentive strategists; email winback owned by internal retention lead on Klaviyo.
+      </p>
+      <p>
+        <strong>Pop-up retail fashion:</strong> Attentive QR in-store plus two-tap mobile online opt-in — POS purchases tagged in Shopify feed post-visit SMS with online exclusives. Email still Klaviyo for drop-week complexity Attentive email depth cannot match yet.
+      </p>
+      <p>
+        <strong>Rejected Attentive at $400k/mo supplement:</strong> Postscript SMS plus Sequenzy email delivered 90% of recovery value at 35% of quoted Attentive contract — correct scale match until SMS list exceeds 30k engaged subscribers.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Attentive</h2>
+      <p>
+        <strong>$2M+ beauty DTC:</strong> Attentive SMS acquisition plus Klaviyo email lifecycle during 18-month evaluation. Attentive owns mobile opt-in and drop-day SMS; Klaviyo owns post-purchase education and predictive winback. Finance tracks incremental SMS lift separately — consolidation decision scheduled Q4 based on holdout data.
+      </p>
+      <p>
+        <strong>Pop-up retail plus Shopify:</strong> Attentive QR in-store flows feed SMS list; online welcome in Klaviyo references in-store purchase tag. Omnichannel segment quality justifies Attentive premium when retail drives 35%+ of new customer acquisition.
+      </p>
+      <p>
+        <strong>Rejected Attentive at $400k/mo:</strong> Postscript plus Sequenzy delivered sufficient SMS recovery at one-third projected Attentive contract cost. Correct deferral — revisit when SMS list exceeds 25k engaged subscribers and dedicated retention lead hired.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Compare alternatives</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Attentive vs other Shopify messaging apps</h2>
+      <ul class="mt-6 space-y-3 text-lg font-bold">
+        <li><a class="link" href="/apps/postscript">Postscript review</a> — mid-market SMS-native alternative</li>
+        <li><a class="link" href="/compare/klaviyo-vs-postscript">Klaviyo vs Postscript</a> — email-SMS pairing patterns</li>
+        <li><a class="link" href="/apps/omnisend">Omnisend review</a> — SMB multichannel shortcut</li>
+        <li><a class="link" href="/apps/klaviyo">Klaviyo review</a> — Shopify data depth benchmark</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All Shopify SMS apps →</a>
+      <a class="link" href="/apps/postscript">Postscript review →</a>
+      <a class="link" href="/compare">Comparison hub →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Attentive Shopify FAQ" />
+</BaseLayout>

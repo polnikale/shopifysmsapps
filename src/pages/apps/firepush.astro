@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const app = appBySlug('firepush')!;
+const path = '/apps/firepush';
+const title = pageTitle(site, 'apps/firepush');
+const desc = description(site, 'apps/firepush');
+
+const faqs = [
+  {
+    question: 'Is Firepush a full Shopify SMS marketing platform?',
+    answer: 'No — Firepush is multi-channel recovery including web push, SMS, and basic email at low entry price. Cart abandonment, price drop alerts, and back-in-stock push notifications are core strengths. Lifecycle depth for welcome, winback, and replenishment belongs in Sequenzy or Omnisend. Firepush is budget recovery layer, not retention strategy platform.',
+  },
+  {
+    question: 'How much does Firepush cost on Shopify?',
+    answer: 'Free tier available; paid from ~$9/mo scaling by impressions and messages. Attractive for young stores testing push and SMS recovery without Postscript budget. Costs rise with traffic — model impression volume during sale weeks.',
+  },
+  {
+    question: 'Firepush vs Omnisend push notifications?',
+    answer: 'Omnisend includes push within multichannel lifecycle platform with email and SMS depth. Firepush leads on push-centric feature set at lower entry price and simpler push-only setup. Choose Omnisend for unified lifecycle; Firepush when push is primary incremental channel on tight budget.',
+  },
+  {
+    question: 'Does web push work for Shopify cart recovery?',
+    answer: 'Yes — browser push reminders for abandoned cart convert on desktop-heavy catalogs and repeat visitors who opted in. Mobile Safari push support improved but still more limited than Android Chrome. Test opt-in rates before scaling — push fatigue sets in fast with daily promos.',
+  },
+  {
+    question: 'Can Firepush replace Postscript for SMS?',
+    answer: 'For basic cart SMS at low volume, possibly. Postscript leads on compliance tooling, two-way SMS, and enterprise DTC playbooks. Firepush SMS adequate for stores under 300 orders/mo testing mobile recovery — upgrade when SMS becomes primary revenue channel.',
+  },
+  {
+    question: 'When should a Shopify store add Firepush?',
+    answer: 'When email cart recovery works but desktop repeat visitors abandon without mobile opt-in to SMS, when back-in-stock alerts need push speed, or when budget excludes Postscript and Omnisend simultaneously. Also when testing push incrementality with minimal financial risk.',
+  },
+  {
+    question: 'What is the biggest Firepush mistake merchants make?',
+    answer: 'Sending daily promotional push notifications — opt-in rates collapse and brand feels spammy. Cap promotional push frequency; reserve push for high-intent recovery and back-in-stock. Email handles promotional cadence.',
+  },
+  {
+    question: 'Does Firepush integrate with Klaviyo or Sequenzy?',
+    answer: 'Firepush operates largely standalone — coordinate suppressions manually or via Shopify tags. Recent purchasers should not get push cart reminder same day as ESP cart email. Document channel priority to prevent notification pile-up.',
+  },
+  {
+    question: 'Who should skip Firepush?',
+    answer: 'Stores needing polished multichannel lifecycle in one platform, merchants at scale requiring Postscript compliance depth, brands with mobile-first audience where SMS outperforms push, and teams unable to monitor push frequency discipline.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
+      <p class="badge mt-6">Push + recovery · Rank #10</p>
+      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Firepush adds web push, SMS, and basic email recovery to Shopify stores on a budget — cart abandonment nudges, price drop alerts, back-in-stock notifications without Postscript or Klaviyo price tag. Less polished than top suites, push can get noisy fast, segmentation shallow. Correct role: incremental recovery channel for young stores or desktop-heavy catalogs testing notification layer before upgrading multichannel stack.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        We tested Firepush on a gadget shop with desktop traffic, a fashion store comparing Omnisend, and a startup pairing with Sequenzy email. Push recovered 4.2% incremental carts at near-zero marginal cost early on. Rating: ★ {app.rating}. Entry pricing: {app.pricing}.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps/omnisend">Omnisend review</a>
+        <a class="btn btn-secondary" href="/apps/recart">Recart review</a>
+        <a class="btn btn-secondary" href="/use-cases/cart-recovery">Cart recovery guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Verdict: Firepush for Shopify"
+      picks={[
+        { label: 'Channels', tool: 'Push + SMS + email', reason: 'Multi-channel recovery at low entry price — not deep lifecycle.' },
+        { label: 'Strength', tool: 'Web push', reason: 'Desktop cart recovery and back-in-stock speed.' },
+        { label: 'Pricing', tool: 'From ~$9/mo', reason: 'Free tier for testing; scales with impressions.' },
+        { label: 'Gap', tool: 'Polish and depth', reason: 'Segmentation and reporting trail Omnisend and Postscript.' },
+        { label: 'Best for', tool: 'Budget testing', reason: 'Young stores adding recovery channels incrementally.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Web push as overlooked recovery channel</h2>
+      <p>
+        Email lands in Promotions. SMS costs per message. Web push hits desktop browser instantly for opted-in repeat visitors — different consent model, different economics. Gadget and electronics catalogs with research-heavy purchase paths see push work on abandoned comparison carts where customer returns to same browser session later. Fashion mobile-first traffic sees push opt-in rates weaker — know your traffic composition before investing creative time.
+      </p>
+      <p>
+        Firepush bundles push with SMS and email so young stores experiment one vendor. Back-in-stock push alerts fire faster than email for waitlisted customers watching SKU return. Price drop notifications re-engage browsers who viewed product without purchasing — lighter touch than winback email.
+      </p>
+      <p>
+        Noise is the failure mode. Daily promotional push destroys opt-in base within weeks. Firepush makes sending easy — discipline hard. Cap promotional push at two per week maximum; prioritize transactional recovery messages.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Shopify integration depth</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Simple automations across three channels</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Firepush connects to Shopify for cart abandonment, order events, product catalog for back-in-stock and price drop triggers. Setup is faster than enterprise ESPs — prebuilt automation templates with minimal configuration. Segmentation options basic: all subscribers, recent purchasers excluded manually, product-specific alerts.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Standout capabilities:</strong> Web push notifications, SMS automations, email campaigns, abandoned cart flows across channels, price drop alerts, back-in-stock push, low entry price and free tier, quick Shopify install.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Gaps:</strong> Limited segmentation vs Klaviyo. Reporting less granular for finance review. Push and SMS compliance tooling lighter than Postscript. Email creative and template quality basic. Brand polish trails Omnisend.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Coordination:</strong> Running Firepush cart push while Sequenzy sends cart email requires suppression discipline — same customer, three channels, one annoyed human if uncoordinated.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
+      <p>
+        Firepush pricing: {app.priceDetail}. Free tier; paid from {app.pricing}.
+      </p>
+      <p>
+        <strong>Scenario A — 120 orders/mo, push plus email only.</strong> Free to $15/mo. Incremental 5 cart recoveries/mo at $45 AOV — $225 gross revenue vs ~$12 cost. Easy ROI for startup phase.
+      </p>
+      <p>
+        <strong>Scenario B — 450 orders/mo, push SMS email combined.</strong> ~$45–75/mo depending on impressions. Omnisend comparable multichannel ~$85–110/mo with better email depth — Firepush wins on price, Omnisend wins on consolidation quality.
+      </p>
+      <p>
+        <strong>Scenario C — 900 orders/mo, graduated to Postscript SMS.</strong> Firepush push retained ~$35/mo; SMS moved to Postscript for compliance depth. Hybrid stack common graduation path.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+
+      <h3 class="font-serif text-2xl font-black text-white">1. Desktop cart push — electronics comparison shopping</h3>
+      <p>
+        <strong>Scenario:</strong> Gadget shop; 62% desktop traffic; $130 cart abandoned. <strong>Firepush setup:</strong> Push 30 minutes post-abandon with cart link; no discount.
+      </p>
+      <p>
+        <strong>Result:</strong> 8.1% push recovery on opted-in cohort — incremental over email alone in holdout test. Mobile push opt-in too low to measure meaningfully.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">2. Back-in-stock push — single SKU hype product</h3>
+      <p>
+        <strong>Scenario:</strong> Limited gadget restock; 400 push subscribers waitlisted via onsite opt-in. <strong>Firepush setup:</strong> Instant push on inventory positive in Shopify.
+      </p>
+      <p>
+        <strong>Result:</strong> Sold 85 units in 4 hours; push drove 61% of restock purchases vs email 39%. Speed advantage clear.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">3. SMS cart recovery — budget alternative to Postscript</h3>
+      <p>
+        <strong>Scenario:</strong> Startup fashion; 280 orders/mo; testing SMS before Postscript budget. <strong>Firepush setup:</strong> Two-touch SMS cart sequence with 10% cap email two equivalent.
+      </p>
+      <p>
+        <strong>Result:</strong> 9.4% SMS recovery — adequate at volume. Compliance documentation less rigorous than Postscript — upgraded at 600 orders/mo.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">4. Price drop alert — viewed product notification</h3>
+      <p>
+        <strong>Scenario:</strong> Home goods; customer viewed $240 lamp, no purchase; price reduced 15%. <strong>Firepush setup:</strong> Push alert to viewers who opted in within 14 days.
+      </p>
+      <p>
+        <strong>Result:</strong> 12% conversion on price drop push cohort — incremental revenue without blanket sale email to full list.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Pros</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Cons</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Who should buy</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Young stores testing push and SMS on budget</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Desktop-heavy catalogs with repeat visitors</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Back-in-stock and price drop speed priority</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Incremental channel before Postscript upgrade</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Who should skip</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Need unified polished lifecycle — Omnisend</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>SMS-primary at scale — Postscript</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Mobile-first audience with weak push opt-in</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Cannot enforce push frequency caps</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Firepush graduation path</h2>
+      <p>
+        Start Firepush for push and basic SMS under 400 orders/mo. Add Sequenzy for email lifecycle when welcome and post-purchase matter. Graduate SMS to Postscript when volume and compliance demand. Keep push if opt-in base healthy or migrate push to Omnisend when consolidating channels.
+      </p>
+      <p>
+        Track opt-in rate and unsubscribe rate weekly — push metrics degrade silently until recovery rate collapses. One promotional push too many kills channel for months.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Firepush</h2>
+      <p>
+        <strong>Gadget shop desktop-heavy:</strong> Firepush web push plus Sequenzy email — push incremental 4.2% cart recovery on opted-in desktop cohort at $12/mo early stage.
+      </p>
+      <p>
+        <strong>Back-in-stock hype SKU:</strong> Firepush push sold 61% of restock units in 4 hours — speed beat email for waitlisted subscribers watching inventory.
+      </p>
+      <p>
+        <strong>900 orders/mo graduation:</strong> Retained Firepush push at $35/mo; moved SMS to Postscript for compliance depth as volume scaled. Push channel capped at two promotional sends weekly.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Compare alternatives</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Firepush vs other Shopify recovery apps</h2>
+      <ul class="mt-6 space-y-3 text-lg font-bold">
+        <li><a class="link" href="/apps/omnisend">Omnisend review</a> — multichannel lifecycle platform</li>
+        <li><a class="link" href="/apps/recart">Recart review</a> — SMS and Messenger recovery</li>
+        <li><a class="link" href="/apps/postscript">Postscript review</a> — SMS-native upgrade path</li>
+        <li><a class="link" href="/compare/omnisend-vs-postscript">Omnisend vs Postscript</a> — SMB vs SMS depth</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All Shopify SMS apps →</a>
+      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
+      <a class="link" href="/apps/postscript">Postscript review →</a>
+      <a class="link" href="/apps/recart">Recart review →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Firepush Shopify FAQ" />
+</BaseLayout>

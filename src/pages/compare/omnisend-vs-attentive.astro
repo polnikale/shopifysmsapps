@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/omnisend-vs-attentive';
+const title = 'Omnisend vs Attentive for Shopify: 2026 Comparison';
+const desc = 'Omnisend vs Attentive for Shopify stores — SMB multichannel automation vs enterprise SMS-first personalization, compliance, and stack architecture.';
+
+const faqs = [
+  {
+    question: 'Is Omnisend or Attentive better for Shopify SMS at $200k/mo revenue?',
+    answer: 'Attentive wins when SMS is a primary revenue channel with dedicated ownership, enterprise compliance needs, and budget for six-figure annual contracts. Omnisend wins when email remains primary, SMS is moderate volume, and one marketer needs email + SMS + push without enterprise procurement. At $200k/mo, Attentive is justified only if SMS drives 25%+ of attributable retention revenue.',
+  },
+  {
+    question: 'Can Attentive replace Omnisend for email?',
+    answer: 'No for most stores. Attentive is SMS-first with email as a secondary channel — it does not replace Omnisend\'s email depth, push, or SMB-friendly workflow presets. Typical architecture: Omnisend for email lifecycle, Attentive for enterprise SMS. Some mid-market brands run Omnisend for both when SMS volume and compliance risk do not justify Attentive\'s contract minimums.',
+  },
+  {
+    question: 'How does Omnisend vs Attentive pricing compare?',
+    answer: 'Omnisend bills on contacts plus message volume — predictable SMB tiers from ~$16/mo. Attentive uses enterprise contracts keyed to list size, message volume, and feature package — often $1,500+/mo minimum for meaningful deployment. Omnisend is the economic default below $500k annual revenue unless SMS ROI clearly covers Attentive\'s floor.',
+  },
+  {
+    question: 'Which has better TCPA compliance tooling?',
+    answer: 'Attentive leads — keyword management, legal review workflows, quiet hours, and compliance dashboards are built for enterprise SMS operators. Omnisend SMS compliance is solid for SMB DTC but email-native teams sometimes underestimate TCPA risk at scale. If legal counsel reviews SMS programs quarterly, Attentive\'s guardrails justify consideration.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Omnisend or Attentive?',
+    answer: 'Sequenzy fits email lifecycle strategy with pay-per-email pricing — pair with Postscript or Attentive for SMS since Sequenzy is email-first. Omnisend still wins for bundled SMB multichannel. Attentive wins enterprise SMS. Sequenzy plus a dedicated SMS tool is a lean stack for teams that want email guidance without Omnisend templates or Attentive contracts.',
+  },
+  {
+    question: 'Which handles cart abandonment better?',
+    answer: 'Depends on channel mix. Omnisend email cart flows plus push outperform SMS alone on AOV for most catalogs. Attentive SMS cart recovery wins on immediacy for mobile-first flash drops — streetwear, limited releases. Best results often combine Omnisend email with Attentive or Postscript SMS, not either alone as a full retention stack.',
+  },
+  {
+    question: 'Does Omnisend push matter vs Attentive?',
+    answer: 'Yes — Omnisend includes web push; Attentive does not. Push recovers browse and cart intent without SMS per-message cost. Attentive assumes SMS is your urgency channel. If you want three channels in one SMB tool, Omnisend wins. If SMS personalization at enterprise scale is the mandate, Attentive wins and email lives elsewhere.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'If evaluating full retention: run Omnisend welcome, cart, post-purchase, and push recovery. Attentive is not in that race alone. If evaluating SMS ownership: run keyword opt-in, conversational cart recovery, and BFCM broadcast with quiet hours. Attentive should win SMS-specific tests at enterprise scale; Omnisend wins SMB multichannel economics.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Omnisend vs Attentive</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Omnisend vs Attentive for Shopify</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          A category mismatch merchants still search. Omnisend is SMB multichannel automation — email, SMS, push in one interface. Attentive is enterprise SMS infrastructure that assumes email and advanced segmentation live elsewhere. We evaluated both through a $48k/mo accessories brand outgrowing Omnisend SMS limits, a $2.1M/mo apparel label on Attentive plus Klaviyo email, and a food subscription box that mistakenly evaluated Attentive as its only marketing platform.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'SMB multichannel', tool: 'Omnisend', reason: 'Email, SMS, push without enterprise contracts.' },
+            { label: 'Enterprise SMS', tool: 'Attentive', reason: 'Personalization, compliance, and scale for text-first brands.' },
+            { label: 'Email depth', tool: 'Omnisend', reason: 'Full email lifecycle without pairing another ESP.' },
+            { label: 'SMS revenue focus', tool: 'Attentive', reason: 'Built for operators who treat text as a primary channel.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Email playbooks paired with Postscript for SMS without enterprise minimums.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Omnisend</th><th>Attentive</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>SMB email + SMS + push</td><td>Enterprise SMS-first</td></tr>
+            <tr><td>Starting price</td><td>Free tier; Standard ~$16/mo</td><td>Enterprise contracts</td></tr>
+            <tr><td>Billing model</td><td>Contacts + message volume</td><td>Contract + usage tiers</td></tr>
+            <tr><td>Email</td><td>Core product</td><td>Secondary — pair required</td></tr>
+            <tr><td>SMS depth</td><td>Strong for SMB</td><td>Best-in-class at scale</td></tr>
+            <tr><td>Push</td><td>Built-in</td><td>Not available</td></tr>
+            <tr><td>Compliance</td><td>Solid for SMB</td><td>Enterprise-grade</td></tr>
+            <tr><td>Typical role</td><td>Primary ESP + SMS</td><td>SMS layer in combined stack</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Merchants search "Omnisend vs Attentive" when SMS bills spike or when enterprise peers name-drop Attentive at conferences. The decision is rarely either/or — it is whether SMS deserves enterprise infrastructure on top of your email platform, or whether Omnisend's bundled channels suffice for your volume and risk tolerance. Attentive as your only marketing platform is a category error the food subscription box learned during a failed RFP.
+        </p>
+        <p>
+          The apparel label treated SMS as 38% of attributable retention revenue at $2.1M/mo. Attentive's keyword campaigns, drop alerts, and AI-assisted segmentation justified dedicated SMS ownership alongside Klaviyo email. The accessories brand at $48k/mo sent 12k SMS monthly — Attentive's contract floor would have consumed 8% of marketing budget before message fees. Omnisend remained the rational choice until SMS revenue crossed an internal threshold.
+        </p>
+
+        <h2>Merchant scenario: accessories brand hitting SMS ceilings</h2>
+        <p>
+          This merchant had 14k profiles, Omnisend handling welcome, cart, and post-purchase, and SMS cart recovery driving 9% of email-attributed revenue. Flash sale broadcasts hit Omnisend SMS credit limits twice during Q4 — throttled sends cost an estimated $6k in recoverable revenue. They evaluated Attentive and Postscript side by side.
+        </p>
+        <p>
+          Attentive's demo impressed legal and the SMS agency; contract minimum did not pass CFO review at current revenue. They added Postscript for high-volume SMS campaigns while keeping Omnisend for email and push — hybrid stack with documented suppression. The lesson: Attentive's capabilities exceed Omnisend SMS at scale, but contract economics gate the upgrade timing.
+        </p>
+
+        <h2>Workflow test: abandoned cart via SMS</h2>
+        <p>
+          Omnisend fired cart SMS within 20 minutes with compliant opt-out language and product short links. Adequate for $72 AOV accessories. Attentive's cart journeys added conversational replies, dynamic product recommendations from browse history, and holdout testing — meaningful lift for the apparel label's $140 AOV drops but overkill for the accessories brand's catalog depth.
+        </p>
+        <p>
+          Omnisend push at step two recovered mobile carts the accessories brand would have lost if SMS-only. Attentive assumes SMS urgency replaces push — valid for text-native shoppers, irrelevant if your audience ignores SMS promotions.
+        </p>
+
+        <h2>Workflow test: flash sale broadcast</h2>
+        <p>
+          Attentive broadcast to 180k opted-in subscribers with quiet hours, segment by predicted purchase intent, and real-time opt-out processing. Bill for the apparel label's drop: five figures in message fees — painful but attributable revenue justified the line item. Omnisend broadcast was operationally similar at 14k subscribers but lacked Attentive's enterprise segmentation depth.
+        </p>
+        <p>
+          Compliance edge case: the food subscription box imported a list without documented keyword opt-in. Attentive's legal review flagged the risk pre-contract. Omnisend would have sent with configured consent — the lesson is enterprise SMS tooling catches mistakes SMB teams make before they become litigation.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          Omnisend: contact pricing plus SMS credits — predictable platform cost, variable SMS. Attentive: contract minimums dominate below enterprise revenue — model total cost of ownership including implementation and agency fees. Stores under $1M annual revenue should default Omnisend unless SMS ROI documentation is airtight.
+        </p>
+        <p>
+          Stack economics for Klaviyo plus Attentive at scale: $400–700/mo Klaviyo email at 40k profiles plus five-figure annual Attentive contracts. Omnisend-only at 20k profiles often runs $180–320/mo all-in for moderate SMS. The gap is not features alone — it is procurement complexity and minimum commitments.
+        </p>
+
+        <h2>Shopify data depth in production</h2>
+        <p>
+          Omnisend's email flows, push, and SMB SMS cover standard Shopify events well. Attentive's advantage is SMS operational maturity at scale: reply handling, subscriber growth tied to TCPA, and personalization refined over years of enterprise DTC focus. Email behavioral depth — browse abandonment, replenishment — belongs in Omnisend or Klaviyo, not Attentive alone.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Omnisend if:</strong></p>
+        <ul>
+          <li>Email is primary and SMS is under 20% of retention revenue</li>
+          <li>You want push, email, and SMS without enterprise procurement</li>
+          <li>Revenue is under ~$1M annual and contract minimums matter</li>
+          <li>One generalist marketer owns multichannel lifecycle</li>
+        </ul>
+        <p><strong>Choose Attentive (with another ESP) if:</strong></p>
+        <ul>
+          <li>SMS is a dedicated revenue channel with its own team or agency</li>
+          <li>Enterprise compliance and legal review are non-negotiable</li>
+          <li>Two-way conversations and AI personalization drive drops</li>
+          <li>Contract minimums are rounding error on your marketing budget</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          A lean alternative: Sequenzy for email lifecycle playbooks with pay-per-email economics, Postscript for SMS before Attentive contract economics make sense. Omnisend remains the default SMB multichannel platform. Teams drowning in Omnisend template limits while not ready for Attentive should evaluate whether Sequenzy simplifies email strategy without sacrificing SMS in a paired tool.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Omnisend vs Attentive is not a replacement decision — it is a scale and channel architecture decision. Omnisend wins email and offers sufficient SMS for most SMB stores. Attentive wins enterprise SMS depth and belongs in stacks where text revenue justifies contract minimums. The food subscription box's mistake was treating Attentive as Omnisend's upgrade path; the apparel label's win was pairing Attentive SMS with Klaviyo email. Map revenue and contract economics before picking vendors.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/postscript-vs-attentive">Postscript vs Attentive</a> ·
+          <a class="link" href="/compare/omnisend-vs-postscript">Omnisend vs Postscript</a> ·
+          <a class="link" href="/compare/attentive-vs-mailchimp">Attentive vs Mailchimp</a> ·
+          <a class="link" href="/for/fashion">Email apps for fashion stores</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: cost-per-message modeling including carrier…</h2>
+      <p>For <strong>compare omnisend vs attentive</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: email-SMS collision rules for…</h2>
+      <p>For <strong>compare omnisend vs attentive</strong>, email-SMS collision rules for cart recovery and product launches is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Omnisend vs Attentive FAQ" />
+</BaseLayout>

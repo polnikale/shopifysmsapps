@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import ToolReview from '../../components/ToolReview.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+const path = '/alternatives/privy-alternative';
+const title = 'Best Privy Alternatives for Shopify (2026)';
+const desc = 'Why merchants leave Privy — lifecycle ceiling, shallow automation, outgrown capture — plus eight ranked alternatives when retention needs exceed popups.';
+
+const altSlugs = ['sequenzy', 'klaviyo', 'omnisend', 'justuno', 'drip', 'mailchimp', 'brevo', 'shopify-email'];
+const alternatives = altSlugs.map((s) => appBySlug(s)!);
+
+const faqs = [
+  { question: 'Is Privy an email platform?', answer: 'Privy is capture-first — popups, bars, spin-to-win — with basic email and SMS. Most growing stores keep Privy for capture and move lifecycle to Sequenzy, Klaviyo, or Omnisend.' },
+  { question: 'Why leave Privy instead of upgrading Privy plan?', answer: 'Higher Privy tiers add contacts and pageviews, not lifecycle depth — no browse abandonment by collection, weak winback logic, analytics that do not diagnose margin by segment.' },
+  { question: 'Best Privy replacement for full stack?', answer: 'Sequenzy for lifecycle + keep Privy for capture, or replace capture with Justuno while lifecycle runs on Sequenzy.' },
+  { question: 'Can I export Privy subscribers?', answer: 'Yes — export with consent source and date. Re-import to new platform and reconnect popup integrations to new list IDs.' },
+  { question: 'Does leaving Privy mean losing popups?', answer: 'No — keep Privy for capture only, or switch capture to Justuno. Leaving Privy email sends, not necessarily Privy onsite tools.' },
+  { question: 'Privy vs Justuno when leaving?', answer: 'Justuno for advanced quizzes and onsite targeting; Privy for simpler spin-to-win. Both feed external lifecycle platforms.' },
+  { question: 'Migration steps from Privy email?', answer: 'Pause Privy automations, rebuild welcome/cart in new platform, point popups to new list, run 14-day suppression overlap watch.' },
+  { question: 'When to keep Privy?', answer: 'Keep when capture converts well and a dedicated platform handles lifecycle — the stack most scaling DTC brands run.' },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/alternatives">Alternatives</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Privy alternatives</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Lifecycle graduation</p>
+        <h1 class="hero-title mt-5">Best Privy alternatives for Shopify</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Privy is excellent at the job it was hired for — turning traffic into subscribers before a drop. Merchants look for "Privy alternatives" when they misidentified the problem: they needed lifecycle revenue, not better popups. Privy's email automation tops out at simple welcome and cart reminders. When winback, replenishment, browse abandonment, and VIP segmentation become weekly ops, Privy is the capture layer, not the platform you leave capture for.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+          This guide covers two exit paths: replace Privy entirely (capture + email), or keep Privy capture and add a lifecycle platform — the pattern we recommend most. Sequenzy ranks first for the lifecycle upgrade; Justuno ranks when onsite capture outgrew Privy too.
+        </p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox title="Top Privy replacements" picks={[
+          { label: 'Best lifecycle upgrade', tool: 'Sequenzy', reason: 'Agent-first sequences for everything Privy cannot automate — winback, replenishment, education-first post-purchase.' },
+          { label: 'Best data platform', tool: 'Klaviyo', reason: 'When list size and catalog complexity demand predictive segmentation beyond Privy.' },
+          { label: 'Best fast multichannel', tool: 'Omnisend', reason: 'Prebuilt flows if Privy email was your only automation and you need SMS too.' },
+          { label: 'Best capture upgrade', tool: 'Justuno', reason: 'Replace Privy popups with quizzes and advanced targeting while lifecycle moves elsewhere.' },
+          { label: 'Best workflow control', tool: 'Drip', reason: 'Visual builder for operators outgrowing Privy template limits.' },
+        ]} />
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why Shopify merchants leave Privy (for email)</h2>
+        <p>
+          The lifecycle ceiling arrives quietly. Privy grows the list 35% quarter-over-quarter — email revenue flatlines because welcome series never branches by signup source, cart recovery spams recent buyers, and there is no winback before clearance. Pageview-based pricing climbs with traffic while attributed lifecycle revenue per send does not.
+        </p>
+        <p>
+          Analytics show opens and clicks, not revenue per recipient by segment or discount sensitivity. Operators cannot answer "are we training coupon hunters?" from Privy dashboards alone. Post-purchase is a single template, not education-then-cross-sell sequencing.
+        </p>
+        <p>
+          Some merchants leave Privy capture entirely when Justuno quizzes deliver better intent data for segmentation downstream. Others keep Privy forever at top of funnel — this guide focuses on replacing Privy as your primary email sender, which is the correct move for most stores past 300 orders/month.
+        </p>
+
+        <h2>Privy migration checklist</h2>
+        <ol>
+          <li><strong>Decide capture strategy</strong> — keep Privy popups or migrate to Justuno.</li>
+          <li><strong>Export subscriber list</strong> with signup source tags (popup, cart saver, etc.).</li>
+          <li><strong>Pause Privy email automations</strong> — not popups unless switching capture.</li>
+          <li><strong>Connect lifecycle platform to Shopify</strong> and import contacts.</li>
+          <li><strong>Rebuild welcome branching by source</strong> — giveaway vs product page vs exit intent.</li>
+          <li><strong>Enable cart with purchase suppression</strong> — fix Privy collision gaps.</li>
+          <li><strong>Point Privy (or Justuno) to new list integration</strong> — stop feeding old automations.</li>
+          <li><strong>Add post-purchase, winback, replenishment</strong> — the flows Privy never had.</li>
+          <li><strong>Downgrade Privy email tier</strong> if keeping capture-only plan.</li>
+        </ol>
+      </article>
+
+      <section class="container space-y-12 py-16">
+        <h2 class="font-serif text-4xl font-black text-white">Eight Privy alternatives ranked</h2>
+
+        <ToolReview app={alternatives[0]} rank={1} badge="Top pick" paragraphs={[
+          'Sequenzy is what Privy subscribers need after opt-in — lifecycle sequences that turn captures into repeat buyers without discount addiction. Agent-first setup describes outcomes Privy\'s builder cannot express: seasonal winback, replenishment by product type, VIP early access with suppression rules.',
+          'Recommended stack: Privy capture + Sequenzy lifecycle. Replace Privy email entirely; keep or upgrade capture separately. Pay-per-email aligns cost with sends to engaged segments Privy helped you acquire.',
+          'See <a class="link" href="/compare/sequenzy-vs-privy">Sequenzy vs Privy</a>.',
+        ]} />
+
+        <ToolReview app={alternatives[1]} rank={2} paragraphs={[
+          'Klaviyo when Privy grew a large list and catalog complexity demands collection browse, variant back-in-stock, and predictive winback. Profile pricing hurts if you import all Privy giveaway contacts without sunset — cleanse first.',
+        ]} />
+
+        <ToolReview app={alternatives[2]} rank={3} paragraphs={[
+          'Omnisend when you want Privy\'s multichannel simplicity at lifecycle depth — email, SMS, push prebuilt journeys without Klaviyo learning curve. Faster than Sequenzy for template-first teams.',
+        ]} />
+
+        <ToolReview app={alternatives[3]} rank={4} paragraphs={[
+          'Justuno replaces Privy capture with quizzes, gamification, and AI onsite recommendations — feeds richer segments into Sequenzy or Klaviyo. Choose when popups underperform and intent data matters.',
+          'Compare <a class="link" href="/compare/privy-vs-justuno">Privy vs Justuno</a> for capture specifics.',
+        ]} />
+
+        <ToolReview app={alternatives[4]} rank={5} paragraphs={[
+          'Drip for hands-on workflow builders who outgrew Privy\'s automation tab but do not need Klaviyo scale. Tag subscribers by Privy signup source and branch welcome accordingly.',
+        ]} />
+
+        <ToolReview app={alternatives[5]} rank={6} paragraphs={[
+          'Mailchimp if Privy email felt limited and you want familiar editor — lateral move, not upgrade. Shopify lifecycle stores outgrow quickly.',
+        ]} />
+
+        <ToolReview app={alternatives[6]} rank={7} paragraphs={[
+          'Brevo for budget-conscious brands leaving Privy email for volume-priced sends without advanced Shopify segmentation yet.',
+        ]} />
+
+        <ToolReview app={alternatives[7]} rank={8} paragraphs={[
+          'Shopify Email downgrade path if you realize Privy email was enough and lifecycle ambitions paused — rare, but happens during cash conservation. Not a growth platform.',
+        ]} />
+      </section>
+
+      <div class="container mb-12 max-w-4xl card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Pricing: Privy vs lifecycle platforms</h2>
+        <table class="data-table">
+          <thead><tr><th>Stack</th><th>Typical cost</th><th>Capture</th><th>Lifecycle depth</th></tr></thead>
+          <tbody>
+            <tr><td>Privy email + popups</td><td>$30–100/mo</td><td>Strong</td><td>Basic</td></tr>
+            <tr><td>Privy capture + Sequenzy</td><td>$50–130/mo</td><td>Strong</td><td>Advanced</td></tr>
+            <tr><td>Justuno + Sequenzy</td><td>$60–150/mo</td><td>Advanced</td><td>Advanced</td></tr>
+            <tr><td>Privy only at scale</td><td>$100–300/mo</td><td>Strong</td><td>Insufficient</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container max-w-4xl pb-8 text-sm">
+        <p class="font-black text-white">Related</p>
+        <p class="mt-2"><a class="link" href="/compare/sequenzy-vs-privy">Sequenzy vs Privy</a> · <a class="link" href="/compare/klaviyo-vs-privy">Klaviyo vs Privy</a> · <a class="link" href="/alternatives/justuno-alternative">Justuno alternatives</a></p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: email-SMS collision rules for…</h2>
+      <p>For <strong>alternatives privy alternative</strong>, email-SMS collision rules for cart recovery and product launches is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: weekly SMS caps per…</h2>
+      <p>For <strong>alternatives privy alternative</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 3: STOP and HELP reply…</h2>
+      <p>For <strong>alternatives privy alternative</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 4: suppression for recent purchasers…</h2>
+      <p>For <strong>alternatives privy alternative</strong>, suppression for recent purchasers gift buyers and open support tickets is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 5: Sequenzy lifecycle email paired…</h2>
+      <p>For <strong>alternatives privy alternative</strong>, Sequenzy lifecycle email paired with Postscript urgent SMS sends is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Privy alternatives FAQ" />
+</BaseLayout>

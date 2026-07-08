@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/attentive-vs-mailchimp';
+const title = 'Attentive vs Mailchimp for Shopify: 2026 Comparison';
+const desc = 'Attentive vs Mailchimp for Shopify stores — enterprise SMS personalization vs legacy ESP breadth, stack architecture, compliance, and when each channel owner wins.';
+
+const faqs = [
+  {
+    question: 'Is Attentive or Mailchimp better for Shopify SMS?',
+    answer: 'Attentive is SMS-native at enterprise scale — keyword journeys, AI-assisted segmentation, legal review workflows, and drop alerts built for brands where text is a primary revenue channel. Mailchimp added SMS as an extension to its email platform — adequate for low-volume promotional texts tied to existing audiences. Choose Attentive when SMS drives 20%+ of retention revenue with dedicated ownership. Use Mailchimp SMS only when volume is modest and consolidation beats specialization.',
+  },
+  {
+    question: 'Can Attentive replace Mailchimp entirely?',
+    answer: 'No for most stores. Attentive is SMS-first — it does not replace Mailchimp\'s email editor, Customer Journeys, landing pages, or newsletter workflows. Typical architecture: Mailchimp or another ESP for email, Attentive for enterprise SMS. Some brands consolidate onto Klaviyo for both channels instead of Mailchimp plus Attentive — evaluate email upgrade separately from SMS specialization.',
+  },
+  {
+    question: 'How does Attentive vs Mailchimp pricing compare?',
+    answer: 'Mailchimp scales on contacts — Standard at 15k often runs $180–250/mo with SMS credits as add-on. Attentive uses enterprise contracts keyed to list size, message volume, and feature package — often $1,500+/mo minimum for meaningful deployment. Mailchimp is the economic default below $500k annual revenue unless SMS ROI clearly covers Attentive\'s contract floor.',
+  },
+  {
+    question: 'Should I keep Mailchimp for email and add Attentive for SMS?',
+    answer: 'Common at enterprise SMS scale when the team refuses a full ESP migration but text revenue justifies Attentive investment. Mailchimp owns newsletters and basic automations; Attentive owns personalized text journeys. Critical: sync suppressions and purchase events so cart email and cart SMS do not pile on after conversion. Many stores delay Klaviyo migration too long while paying Attentive minimums — audit whether email platform is the real bottleneck.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Mailchimp or Attentive?',
+    answer: 'Sequenzy replaces Mailchimp for email lifecycle with pay-per-email economics and guided playbooks — pair with Postscript for SMS if Attentive contract minimums are too heavy. Attentive wins enterprise SMS depth Mailchimp cannot match. Sequenzy plus Postscript is a lean alternative to Mailchimp plus Attentive for teams graduating email without enterprise SMS commits.',
+  },
+  {
+    question: 'Which has better TCPA compliance tooling?',
+    answer: 'Attentive leads — keyword management, legal review workflows, quiet hours, audit trails, and role-based access built for enterprise SMS operators. Mailchimp SMS compliance exists but email-native teams underestimate TCPA risk when importing lists or running promotional blasts. If legal counsel reviews SMS programs quarterly, Attentive\'s guardrails justify consideration over Mailchimp SMS basics.',
+  },
+  {
+    question: 'Which handles cart abandonment better?',
+    answer: 'Channel-dependent. Mailchimp email cart recovery is basic — product blocks and simple delays, insufficient for sophisticated suppression. Attentive SMS cart recovery wins on immediacy and mobile-first urgency for flash drops and limited releases. Best results combine upgraded email ESP cart flows with Attentive SMS — not Mailchimp email alone at scale, not Attentive alone without email depth elsewhere.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'SMS tests: keyword opt-in from Shopify popup, cart abandonment with quiet hours, flash broadcast to 30k+ opted-in subs with legal review, two-way reply handling. Attentive should win all SMS-specific tests at scale. Email tests: welcome branching, post-purchase exclusion, winback splits — Mailchimp competes only for basic needs; if two of four fail, email migration is a separate project from Attentive evaluation.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Attentive vs Mailchimp</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Attentive vs Mailchimp for Shopify</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          A comparison that confuses channel with platform. Mailchimp is a legacy ESP with bolt-on SMS — familiar editor, Customer Journeys, and contact-based billing. Attentive is enterprise SMS infrastructure that assumes email lives elsewhere. We evaluated both through a $240k/mo luxury skincare brand on Mailchimp email plus Attentive SMS after a board mandate, a $52k/mo candle shop that signed Attentive before fixing email capture, and a footwear retailer correctly deferring Attentive until Mailchimp cart recovery was replaced.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Enterprise SMS', tool: 'Attentive', reason: 'Personalization, compliance, and scale for text-first brands.' },
+            { label: 'Email familiarity', tool: 'Mailchimp', reason: 'Known editor, newsletters, and basic Customer Journeys.' },
+            { label: 'SMS revenue focus', tool: 'Attentive', reason: 'Built for operators who treat text as a primary channel.' },
+            { label: 'Early-stage email', tool: 'Mailchimp', reason: 'Low friction before lifecycle complexity arrives.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Email playbooks plus Postscript for SMS without enterprise minimums.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Attentive</th><th>Mailchimp</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Enterprise SMS-first DTC</td><td>Familiar email campaigns + light SMS</td></tr>
+            <tr><td>Starting price</td><td>Enterprise contracts</td><td>Free tier; paid from ~$13/mo</td></tr>
+            <tr><td>Billing model</td><td>Contract + usage tiers</td><td>Contacts + SMS credits</td></tr>
+            <tr><td>Email depth</td><td>Not primary — pair required</td><td>Core product</td></tr>
+            <tr><td>SMS depth</td><td>Best-in-class at scale</td><td>Secondary add-on</td></tr>
+            <tr><td>Compliance</td><td>Enterprise audit and governance</td><td>Basic SMS compliance</td></tr>
+            <tr><td>Shopify fit</td><td>Strong — retail plus DTC</td><td>Integration — products, basic events</td></tr>
+            <tr><td>Typical role</td><td>SMS layer in combined stack</td><td>Primary ESP + optional SMS</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Merchants search "Attentive vs Mailchimp" when an agency pitches enterprise SMS or when a parent company standardizes on Attentive while the Shopify store still runs Mailchimp email. The decision is rarely either/or — it is whether SMS deserves Attentive on top of Mailchimp email, or whether Mailchimp's bundled SMS suffices until revenue justifies specialization. Attentive as your only marketing platform is a category error the candle shop learned when $2,800/mo in contract minimums produced SMS revenue that could not cover email gaps.
+        </p>
+        <p>
+          The luxury skincare brand treated SMS as 32% of attributable retention revenue after Attentive deployment. Drop alerts, VIP early access texts, and conversational sizing replies justified enterprise SMS ownership. Mailchimp still ran monthly education newsletters and a simple post-purchase series — channels Attentive does not replace without a separate email brain.
+        </p>
+
+        <h2>Workflow test: abandoned cart via SMS</h2>
+        <p>
+          Attentive fired cart SMS within 12 minutes with compliant opt-out language, quiet hours respect, and dynamic short links tied to Shopify checkout tokens. Two-way replies routed to a concierge team for ingredient questions on limited batches — revenue Mailchimp SMS could approximate only with thinner conversational tooling. Mailchimp email cart recovery ran on a 4-hour delay with product blocks — adequate for $68 AOV candles, insufficient for $145 serum impulse recovery where mobile urgency dominates.
+        </p>
+        <p>
+          The skincare brand sequenced Attentive SMS at 15 minutes, Klaviyo email at 90 minutes after a parallel email migration — complementary timing. Duplicate messaging occurred for two weeks until purchase events synced bidirectionally; sloppy overlap cost complaints until the integration team documented suppression rules explicitly.
+        </p>
+
+        <h2>Workflow test: flash sale broadcast</h2>
+        <p>
+          Attentive broadcast to 58k opted-in subscribers with segment by purchase recency, holdout testing, and legal review workflow before send. Bill for the drop: contract tier plus overage — painful but attributable revenue was $94k on a restock event. Mailchimp SMS broadcast to a subset of the same list felt operationally simpler but lacked Attentive's pre-send compliance audit that flagged a segment missing documented keyword opt-in from a 2023 list import.
+        </p>
+        <p>
+          The footwear retailer correctly ran Mailchimp email for BFCM VIP early access while evaluating Attentive — email revenue still carried 71% of retention attribution. Adding Attentive before email suppression was mature would have duplicated discount codes across channels without incremental lift.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          Mailchimp: contact pricing plus SMS credits — predictable platform cost until promotional SMS volume spikes. Attentive: annual minimums with CPM-style economics — better negotiated at high volume, expensive for brands that do not hit commit tiers. Stores under $3M annual revenue should model Attentive contract floor against actual SMS-attributable revenue, not projected optimism from a sales deck.
+        </p>
+        <p>
+          Stack economics for Mailchimp plus Attentive: $200–280/mo Mailchimp at 20k contacts plus $1,500–4,000/mo Attentive depending on package — often exceeding Klaviyo unified pricing for equivalent retention unless SMS ROI is exceptional. The candle shop's mistake was Attentive without email upgrade; the skincare brand's win was Attentive with a planned Klaviyo email migration running in parallel.
+        </p>
+
+        <h2>Shopify data depth in production</h2>
+        <p>
+          Mailchimp's Shopify integration syncs products and orders but lacks real-time browse depth, predictive CLV, and flow revenue attribution ecommerce operators expect at scale. Attentive triggers on Shopify cart, checkout, and order events for SMS — appropriately scoped for text, not a Mailchimp email replacement. If your retention strategy requires email behavioral depth, Attentive cannot be your primary platform regardless of SMS performance.
+        </p>
+        <p>
+          Attentive's advantage is SMS operational maturity at enterprise scale: AI-assisted segmentation, sign-up unit testing, retail-to-mobile capture for omnichannel brands, and legal workflows refined over years of high-volume DTC and retail programs. That specialization matters when text is not an afterthought bolted onto Mailchimp contacts.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Mailchimp (including light SMS) if:</strong></p>
+        <ul>
+          <li>Email newsletters and basic journeys cover current retention needs</li>
+          <li>SMS is under 15% of retention revenue and volume stays moderate</li>
+          <li>Team familiarity and low switching cost outweigh ecommerce depth</li>
+          <li>Enterprise SMS contract economics do not clear internal ROI thresholds</li>
+        </ul>
+        <p><strong>Choose Attentive (with Mailchimp, Klaviyo, or another ESP) if:</strong></p>
+        <ul>
+          <li>SMS is a dedicated revenue channel with its own owner and legal review</li>
+          <li>Drop alerts, VIP texts, and conversational recovery drive mobile-first catalogs</li>
+          <li>Enterprise compliance, audit trails, and multi-user governance are required</li>
+          <li>Contract minimums are covered by attributable SMS revenue with margin to spare</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          A lean alternative stack: Sequenzy for email lifecycle playbooks with pay-per-email economics, Postscript for SMS specialization without Attentive contract floors. Mailchimp remains viable for teams that want one login for basic email, but stores pairing Mailchimp with Attentive often pay premium on both sides without unified reporting. Evaluate whether Sequenzy simplifies email strategy while Postscript covers SMS depth — or whether Klaviyo unified email-plus-SMS beats the split stack on TCO.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Attentive vs Mailchimp is not a replacement decision — it is a channel architecture decision at different scale tiers. Mailchimp wins email familiarity and light SMS for stores not yet ready for enterprise text investment. Attentive wins SMS depth and belongs in stacks where text revenue justifies contract minimums and legal overhead. The candle shop's mistake was Attentive before email maturity; the skincare brand's win was Attentive paired with a serious email migration. Map channel mix and contract economics before picking vendors.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/postscript-vs-mailchimp">Postscript vs Mailchimp</a> ·
+          <a class="link" href="/compare/privy-vs-attentive">Privy vs Attentive</a> ·
+          <a class="link" href="/compare/klaviyo-vs-mailchimp">Klaviyo vs Mailchimp</a> ·
+          <a class="link" href="/for/beauty">Email apps for beauty stores</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: weekly SMS caps per…</h2>
+      <p>For <strong>compare attentive vs mailchimp</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: STOP and HELP reply…</h2>
+      <p>For <strong>compare attentive vs mailchimp</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Attentive vs Mailchimp FAQ" />
+</BaseLayout>

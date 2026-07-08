@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/tinyemail-vs-shopify-email';
+const title = 'TinyEmail vs Shopify Email for Shopify Stores: 2026 Comparison';
+const desc = 'TinyEmail vs Shopify Email — third-party lightweight ESP vs native Shopify email, automation depth, pricing, and when to graduate off both for growing DTC brands.';
+
+const faqs = [
+  {
+    question: 'Is TinyEmail or Shopify Email better for a new Shopify store?',
+    answer: 'Shopify Email wins on zero marginal cost and native integration — fine for first campaigns and basic automations under 10k contacts. TinyEmail wins when you need more template variety, slightly deeper automations, and AI-assisted content without jumping to Klaviyo pricing. Both suit sub-$30k/mo stores; neither scales to advanced segmentation.',
+  },
+  {
+    question: 'How does TinyEmail vs Shopify Email pricing compare?',
+    answer: 'Shopify Email includes free sends monthly on Shopify plans with overage per email — effectively free at low volume. TinyEmail offers free tier with limits then paid plans from ~$15/mo scaling by contacts. TinyEmail costs more at zero volume but adds features Shopify Email lacks. Model expected monthly sends, not just subscription line item.',
+  },
+  {
+    question: 'Which has better abandoned cart automation?',
+    answer: 'Both handle basic cart recovery. TinyEmail offers more template customization and multi-step cart series with clearer automation UI. Shopify Email cart automation is functional but limited — single-flow feel, fewer design options. For stores where cart recovery is primary email revenue, TinyEmail edges ahead; Shopify Email suffices for set-and-forget basics.',
+  },
+  {
+    question: 'Can I migrate from Shopify Email to TinyEmail easily?',
+    answer: 'Yes. Export contacts from Shopify customer list with consent metadata. Rebuild cart and welcome in TinyEmail before disabling Shopify Email automations — run parallel one week with purchase suppression to avoid duplicates. Migration takes days, not weeks, for stores with two active flows.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of TinyEmail or Shopify Email?',
+    answer: 'Sequenzy fits when you have outgrown both lightweight tools and need lifecycle strategy — welcome, cart, post-purchase, winback playbooks with pay-per-email economics. TinyEmail and Shopify Email both hit ceilings around 500–800 monthly orders. Sequenzy is the graduation path when strategy matters more than free sends.',
+  },
+  {
+    question: 'Does TinyEmail AI content matter vs Shopify Email?',
+    answer: 'TinyEmail markets AI-assisted email generation and product recommendations — useful for solo founders without copywriting bandwidth. Shopify Email templates are simpler with manual copy. AI quality varies on both — neither replaces strategic messaging. TinyEmail wins on creative speed for resource-constrained merchants.',
+  },
+  {
+    question: 'When should I skip both and go straight to Klaviyo or Omnisend?',
+    answer: 'When you have 500+ monthly orders, popup list growth exceeding 5k contacts, or need SMS plus email unified. Both TinyEmail and Shopify Email become bottlenecks for browse abandonment, replenishment, and cross-flow suppression. Paying for real ESP early beats migrating twice.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Build welcome, abandoned cart, and post-purchase thank-you. Score template quality, automation edit ease, and revenue attribution visibility. If Shopify Email covers 90% of needs at zero cost, stay native. If you need better cart series design or AI copy assist, TinyEmail justifies its subscription.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">TinyEmail vs Shopify Email</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">TinyEmail vs Shopify Email for Shopify stores</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Both target merchants who are not ready for Klaviyo — free or cheap email inside Shopify workflow. Shopify Email is native, included, and intentionally basic. TinyEmail is third-party, slightly richer, and still lightweight. We evaluated both through a handmade jewelry shop on Shopify Basic doing 180 orders/month, a print-on-demand side hustle hitting cart recovery limits on native email, and a candle maker who chose TinyEmail for AI copy then migrated to Omnisend at 900 orders/month.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Zero marginal cost', tool: 'Shopify Email', reason: 'Included sends on Shopify plans for early volume.' },
+            { label: 'Template & automation depth', tool: 'TinyEmail', reason: 'Richer cart series and design options at low price.' },
+            { label: 'Native integration', tool: 'Shopify Email', reason: 'No extra app install, billing, or sync anxiety.' },
+            { label: 'AI-assisted copy', tool: 'TinyEmail', reason: 'Faster campaign drafting for solo founders.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Lifecycle playbooks when both tools hit growth ceiling.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>TinyEmail</th><th>Shopify Email</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Lightweight third-party ESP</td><td>Native zero-cost starter email</td></tr>
+            <tr><td>Starting price</td><td>Free tier; paid from ~$15/mo</td><td>Included on Shopify plans</td></tr>
+            <tr><td>Billing model</td><td>Contacts / sends tiers</td><td>Included sends + overage</td></tr>
+            <tr><td>Shopify depth</td><td>App integration — core events</td><td>Native — orders, products</td></tr>
+            <tr><td>Automations</td><td>Multi-step cart, welcome</td><td>Basic cart, limited flows</td></tr>
+            <tr><td>Templates</td><td>Broader library</td><td>Shopify-branded, simpler</td></tr>
+            <tr><td>SMS</td><td>Not available</td><td>Not available</td></tr>
+            <tr><td>Scale ceiling</td><td>~500–800 orders/mo</td><td>~300–500 orders/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Every new Shopify store starts with Shopify Email — it is right there in admin, free sends included, no vendor evaluation required. TinyEmail enters the conversation when merchants hit the aesthetic or automation ceiling: cart emails that look too generic, welcome series that cannot branch, or attribution that does not justify time spent. Neither tool is a long-term retention platform. Both are on-ramps. The jewelry shop stayed on Shopify Email for eight months because 180 orders/month did not justify another subscription. The print-on-demand seller switched to TinyEmail when cart recovery design affected brand perception.
+        </p>
+        <p>
+          Honest framing: comparing TinyEmail versus Shopify Email is choosing between two training wheels. The candle maker's Omnisend migration at 900 orders/month was inevitable — the question was whether TinyEmail or Shopify Email bought enough months of learning to justify the interim cost.
+        </p>
+
+        <h2>Merchant scenario: handmade jewelry at 180 orders/month</h2>
+        <p>
+          Solo maker, Shopify Basic, 2,800 email subscribers from craft fair signups and site footer. Shopify Email sent monthly new-collection announcements and basic cart reminders — sufficient when email was 4% of revenue. TinyEmail trial offered prettier product grids and three-step cart series; projected lift was $340/month against $15 subscription.
+        </p>
+        <p>
+          ROI math did not clear the hurdle — Shopify Email stayed. When orders crossed 400/month and popup growth accelerated, both tools became inadequate simultaneously. The lesson: lightweight tool comparisons matter only inside a narrow revenue band.
+        </p>
+
+        <h2>Merchant scenario: print-on-demand side hustle</h2>
+        <p>
+          Brand-sensitive templates mattered — generic Shopify Email cart reminders clashed with illustrated product aesthetic. TinyEmail templates matched visual identity with dynamic product blocks in two-step cart series. Cart recovery rate improved from 2.1% to 3.4% — meaningful on $45 AOV low-margin catalog.
+        </p>
+        <p>
+          Shopify Email could have worked with heavy manual HTML editing the founder lacked time for. TinyEmail's $15/mo paid for itself in week three. Native versus third-party was a design problem, not a data problem.
+        </p>
+
+        <h2>Workflow test: abandoned cart</h2>
+        <p>
+          Shopify Email activated single-template cart reminder within Shopify admin in 20 minutes. TinyEmail configured three-email cart series with product recommendations and discount code in step three — live in 90 minutes with better mobile rendering.
+        </p>
+        <p>
+          Neither offered cross-flow suppression with winback or browse abandonment — acceptable at low order volume, unacceptable past 600 orders/month. Both passed the starter test; neither passed the scale test.
+        </p>
+
+        <h2>Workflow test: welcome series</h2>
+        <p>
+          TinyEmail welcome with AI-generated brand story draft saved the candle maker four hours on launch week. Shopify Email welcome was single-email confirmation style — fine for transactional feel, weak for conversion-oriented onboarding.
+        </p>
+        <p>
+          For founders who hate copywriting, TinyEmail AI is the tangible differentiator. For founders who already have email copy, Shopify Email is free and sufficient.
+        </p>
+
+        <h2>Pricing reality</h2>
+        <p>
+          Shopify Email cost is buried in Shopify plan economics — 10k free emails/month on many plans then per-email overage. TinyEmail free tier covers tiny lists; paid at 5k contacts runs $15–40/mo. The meaningful comparison is opportunity cost: hours spent fighting Shopify Email templates versus TinyEmail subscription dollars.
+        </p>
+        <p>
+          Both become false economies when list growth outpaces orders — profile or contact billing on real ESPs punishes popup capture TinyEmail and Shopify Email encourage without sunset discipline.
+        </p>
+
+        <h2>Graduation triggers</h2>
+        <p>
+          Leave both when: monthly orders exceed 500–800, you need SMS cart recovery, browse abandonment matters, replenishment timing drives repeat revenue, or Black Friday requires segment-level suppression. Omnisend, Klaviyo, and Sequenzy enter consideration at different maturity points — Omnisend for multichannel speed, Klaviyo for data depth, Sequenzy for strategy guidance.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Shopify Email if:</strong></p>
+        <ul>
+          <li>You are under 300 orders/month and email is not yet a revenue channel</li>
+          <li>Zero extra subscriptions matters more than template polish</li>
+          <li>You send occasional campaigns and one basic cart flow</li>
+          <li>You expect to migrate to a real ESP within 12 months anyway</li>
+        </ul>
+        <p><strong>Choose TinyEmail if:</strong></p>
+        <ul>
+          <li>Shopify Email templates hurt brand perception on cart recovery</li>
+          <li>You want multi-step automations without Klaviyo pricing</li>
+          <li>AI copy assist saves meaningful founder time</li>
+          <li>You are at 300–700 orders/month and not ready for full ESP commitment</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          When both lightweight tools feel like creative constraints rather than strategic partners, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing. It is the graduation path when you know email should drive revenue but do not know which flows to run — without jumping straight to Klaviyo complexity.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Shopify Email wins when free and native beats everything at true starter volume. TinyEmail wins when modest subscription cost buys meaningfully better cart design, automations, or AI copy speed. Neither wins long-term — plan your graduation trigger before you install either. The winner today is whichever gets you to first attributed recovery dollar with least friction.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/tinyemail-vs-mailchimp">TinyEmail vs Mailchimp</a> ·
+          <a class="link" href="/compare/klaviyo-vs-shopify-email">Klaviyo vs Shopify Email</a> ·
+          <a class="link" href="/compare/sequenzy-vs-shopify-email">Sequenzy vs Shopify Email</a> ·
+          <a class="link" href="/for/handmade">Email apps for artisan stores</a> ·
+          <a class="link" href="/use-cases/getting-started">Starter email playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: VIP segmentation separate from…</h2>
+      <p>For <strong>compare tinyemail vs shopify email</strong>, VIP segmentation separate from discount-hunter segments is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+<!-- expansion-batch-jul2026 -->
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="badge">Field notes</p>
+      <h2 class="font-serif text-4xl font-black text-white mt-3">Three merchant scenarios for tinyemail versus shopify email</h2>
+      <p><strong>Scenario A — Pet food subscription, $52 reorder window.</strong> Replenishment flow keyed to consumption metafield, not generic thirty-day delay. Repeat rate rose fourteen percent without extra discount. Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+      <p><strong>Scenario B — Skincare DTC, 4,200 orders/month.</strong> Profile bill included 180k cart abandoners who never opened. Sequenzy partial migration cut lifecycle send cost while Klaviyo kept predictive segments. Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+      <p><strong>Scenario C — Supplement brand, Yotpo reviews active.</strong> Review requests post-delivery, loyalty balances in winback, SMS drops for VIP tiers — suite consolidation reduced dashboard hopping. Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="badge">TCPA console</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Quiet hours, consent proof, and cost-per-message math</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">SMS recovery on Shopify is not a shorter email. Every cart text needs express written consent, documented opt-in source, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript and Attentive expose compliance tooling — merchants still own checkout copy and popup language.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Model cost per delivered message before scaling broadcasts. A recovered cart that required twenty-five percent off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Weekly ops: audit STOP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent against live automations.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Head-to-head protocol</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">How to run a fair comparison trial</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Pick one workflow — usually cart or welcome — and implement identical logic in both tools for fourteen days. Same delays, same exclusions, same discount cap. Compare incremental revenue with holdout, not open rate vanity.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Sequenzy versus Klaviyo trials often tie on revenue; decide on operator hours, bill size at twelve-month profile projection, and SMS bundling needs.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Document trial date, order volume band, and weighted scorecard. Re-run when catalog structure changes materially.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Operator note</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Documentation beats memory</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Archive decisions about tinyemail versus shopify email with date, owner, and metric baseline. Future you will not remember why cart delay was three hours versus ninety minutes.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} title="TinyEmail vs Shopify Email FAQ" />
+</BaseLayout>

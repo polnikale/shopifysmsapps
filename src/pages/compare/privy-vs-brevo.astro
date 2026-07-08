@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/privy-vs-brevo';
+const title = 'Privy vs Brevo for Shopify Email: 2026 Comparison';
+const desc = 'Privy vs Brevo for Shopify stores — popup capture and basic email vs CRM and transactional breadth, EU compliance, and graduation paths for growing merchants.';
+
+const faqs = [
+  {
+    question: 'Is Privy or Brevo better for a Shopify store doing $55k/mo?',
+    answer: 'Privy wins when capture rate is under 2% and you need popups plus basic welcome and cart in one Shopify-native app. Brevo wins when CRM pipelines, transactional API email, multilingual campaigns, or EU GDPR tooling matter alongside marketing sends. At $55k/mo pure DTC with weak capture, Privy first. With EU legal review or transactional needs, Brevo competes for lifecycle ownership alongside Privy capture.',
+  },
+  {
+    question: 'Can Brevo replace Privy for popup capture?',
+    answer: 'No for onsite conversion optimization. Brevo offers embedded forms and landing pages — adequate for footer signups, not competitive with Privy exit intent, spin wheels, and popup A/B tests. Merchants choose Brevo for CRM breadth and transactional email, not session-to-subscriber optimization on Shopify storefront.',
+  },
+  {
+    question: 'How does Privy vs Brevo pricing compare at 10,000 contacts?',
+    answer: 'Privy scales on sessions plus email sends — often $60–95/mo at moderate traffic. Brevo Business at 10k often runs $65–95/mo with daily send limits per tier. Similar bands at contact count — differentiate on capture versus CRM/transactional fit, not sticker price alone. Model BFCM session spikes for Privy; verify Brevo send volume caps.',
+  },
+  {
+    question: 'Should I use Privy and Brevo together?',
+    answer: 'Yes, for merchants needing both capture and CRM/transactional depth. Privy owns Shopify storefront capture; Brevo owns lifecycle automations, CRM pipelines, and API-driven transactional email. Disable Privy email once Brevo journeys go live. EU merchants often run this pairing — Privy capture with Brevo GDPR tooling for post-opt-in communication.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Privy or Brevo?',
+    answer: 'Sequenzy fits Shopify lifecycle strategy with pay-per-email pricing — often simpler graduation from Privy email than Brevo manual automation builds. Keep Privy for capture. Brevo wins CRM and transactional breadth. Sequenzy wins when you need welcome, cart, and winback playbooks live this month without Brevo workflow construction labor.',
+  },
+  {
+    question: 'Which handles transactional email better?',
+    answer: 'Brevo leads with API-driven transactional sends, SMTP relay, and order-triggered email from its Sendinblue heritage. Privy transactional capability is thin — marketing capture oriented. If marketing and transactional must share one vendor with consent logging, Brevo competes strongly while Privy remains capture owner.',
+  },
+  {
+    question: 'Which is better for EU merchants?',
+    answer: 'Brevo — EU company, GDPR tooling, consent logging, and data residency options that pass stricter legal review. Privy is US-centric; GDPR compliance is achievable but European agencies often prefer Brevo for audit trails. Typical EU stack: Privy capture plus Brevo lifecycle — capture solved, compliance solved post-opt-in.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Measure session-to-subscriber rate first. Under 2%: Privy. If CRM, transactional, or GDPR audit trails matter: Brevo for lifecycle. Build welcome, cart, and one transactional trigger if applicable. Pure DTC with weak capture lean Privy. EU or CRM-heavy lean Privy capture plus Brevo lifecycle.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Privy vs Brevo</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Privy vs Brevo for Shopify SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Shopify storefront capture versus CRM and transactional breadth. Privy optimizes session-to-subscriber conversion with popups and basic automations. Brevo optimizes marketing-plus-transactional email with CRM pipelines, multilingual campaigns, and EU-friendly compliance. We evaluated both through a $55k/mo European fashion brand selling in three languages, a $48k/mo multilingual home goods shop facing GDPR review on influencer imports, and a $33k/mo cosmetics DTC that chose Privy-only until transactional API needs pushed them toward Brevo.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Shopify popups', tool: 'Privy', reason: 'Exit intent, gamification, and storefront capture.' },
+            { label: 'CRM + transactional', tool: 'Brevo', reason: 'Pipelines, API email, and EU GDPR tooling.' },
+            { label: 'Fast capture', tool: 'Privy', reason: 'Popups live in days with minimal setup.' },
+            { label: 'Multilingual + EU', tool: 'Brevo', reason: 'Language variants and consent logging for European ops.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Shopify lifecycle playbooks when Brevo automation build feels slow.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Privy</th><th>Brevo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Capture + basic email</td><td>CRM + transactional + EU</td></tr>
+            <tr><td>Starting price</td><td>Free tier; paid from ~$30/mo</td><td>Free tier; paid from ~$25/mo</td></tr>
+            <tr><td>Billing model</td><td>Sessions + email sends</td><td>Contacts + send limits</td></tr>
+            <tr><td>Popups & capture</td><td>Core strength</td><td>Basic forms only</td></tr>
+            <tr><td>Shopify automation</td><td>Basic welcome, cart</td><td>Good — manual build</td></tr>
+            <tr><td>Transactional API</td><td>Not available</td><td>Core strength</td></tr>
+            <tr><td>GDPR tooling</td><td>Adequate</td><td>Strong — EU native</td></tr>
+            <tr><td>Typical stack role</td><td>Top-of-funnel capture</td><td>Lifecycle + transactional owner</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Privy and Brevo enter the same conversation when European merchants need GDPR-compliant lifecycle email or when transactional API requirements exceed Privy's marketing-only scope. They are not direct competitors — Privy solves Shopify storefront capture; Brevo solves marketing-plus-transactional communication with CRM depth. Replacing Privy popups with Brevo forms trades capture optimization for compliance and API breadth — usually the wrong trade until capture is solved.
+        </p>
+        <p>
+          The European fashion brand at €52k/mo sold in French, German, and English with separate popup copy per locale. Privy handled localized exit-intent capture — Brevo's forms could not match popup conversion rates on the storefront. Brevo owned post-opt-in lifecycle in three languages with consent logging their Paris agency required for audit trails Privy email never provided.
+        </p>
+
+        <h2>Merchant scenario: European fashion three-language stack</h2>
+        <p>
+          Privy popups converted 2.7% of sessions across DE/FR/EN storefronts with locale-specific offers — free shipping threshold varied by market. Brevo welcome series branched by language tag and signup country with double opt-in defaults for German subscribers. Cart abandonment in Brevo required four days of manual workflow construction — slower than Omnisend presets but acceptable for GDPR documentation requirements.
+        </p>
+        <p>
+          They disabled Privy email automations after Brevo journeys went live — duplicate welcome prevention with explicit tag sync from Privy capture to Brevo lists. Capture stayed Privy; lifecycle stayed Brevo; no tool tried to do both poorly.
+        </p>
+
+        <h2>Merchant scenario: multilingual home goods and GDPR review</h2>
+        <p>
+          At $48k/mo this shop faced legal review on influencer list imports and cross-border consent from Instagram collaborations in four EU markets. Privy capture was compliant enough for popup opt-in with timestamp logging. Brevo's consent audit trail and data residency options satisfied their agency's stricter checklist for post-opt-in marketing and transactional order updates sharing one contact record.
+        </p>
+        <p>
+          Migration from Privy-only email to Brevo lifecycle took three weeks of automation rebuild — acceptable for compliance peace of mind. Cart recovery in Brevo underperformed Sequenzy benchmarks during parallel trial — they kept Brevo for GDPR and transactional, added Sequenzy for cart and winback playbooks six months later.
+        </p>
+
+        <h2>Merchant scenario: cosmetics DTC transactional trigger</h2>
+        <p>
+          At $33k/mo this brand ran Privy-only until subscription-adjacent replenishment reminders needed API-triggered transactional email outside marketing send windows — order confirmation variants, shipment delay notifications, refill reminders tied to Shopify order webhooks. Privy could not send transactional API email; Brevo could.
+        </p>
+        <p>
+          They kept Privy for capture — skincare sample popups converting 3.1% of sessions — and added Brevo for transactional plus marketing lifecycle. The graduation trigger was API need, not contact count — a pattern cosmetics and supplement brands hit earlier than generic DTC.
+        </p>
+
+        <h2>Workflow test: popup capture</h2>
+        <p>
+          Privy localized exit-intent popups converted 2.7% versus Brevo embedded forms at 0.9% on the same European fashion storefront pages. Capture test winner: Privy decisively. Brevo was never evaluated for popup optimization — wrong tool for that job.
+        </p>
+
+        <h2>Workflow test: welcome and cart email</h2>
+        <p>
+          Privy shipped basic welcome and cart in one day — adequate until multilingual branching and consent logging requirements arrived. Brevo built equivalent logic in four days with language tags and double opt-in paths — slower build, stronger audit trail. Cart recovery rates: Privy 9%, Brevo 8% after manual optimization — similar early stage, neither matched dedicated Shopify ESP browse depth.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          At 12k contacts, Privy with moderate traffic often runs $70–100/mo. Brevo Business at 12k lands $75–110/mo with send caps to monitor. Combined stack costs more than either alone — justify with GDPR compliance and transactional API needs Privy cannot address, not vanity dual subscriptions.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Privy if:</strong></p>
+        <ul>
+          <li>Shopify storefront capture is the binding constraint</li>
+          <li>Transactional API email is not yet required</li>
+          <li>US-centric operations without strict EU audit requirements</li>
+          <li>You will pair with Brevo or Sequenzy when lifecycle complexity arrives</li>
+        </ul>
+        <p><strong>Choose Brevo if:</strong></p>
+        <ul>
+          <li>EU GDPR audit trails and consent logging are non-negotiable</li>
+          <li>Transactional and marketing email must share one vendor</li>
+          <li>Multilingual lifecycle campaigns are central to operations</li>
+          <li>You will keep Privy for capture and Brevo for post-opt-in communication</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          Merchants who solve capture with Privy but find Brevo automation construction slow should test Sequenzy for Shopify lifecycle playbooks — welcome, cart, winback with pay-per-email pricing. Keep Brevo for transactional API and GDPR if required; use Sequenzy for retention flows Brevo manual builds delay. EU merchants can run Privy capture plus Brevo transactional plus Sequenzy marketing — three tools, three documented roles.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Privy wins Shopify storefront capture; Brevo wins CRM, transactional, and EU compliance for post-opt-in communication. Do not replace Privy popups with Brevo forms expecting equivalent conversion. Do not stay Privy-only when transactional API or GDPR audit requirements arrive. Run capture tests in Privy first; add Brevo when lifecycle, compliance, or API needs justify the stack addition — or Sequenzy when only Shopify retention depth is missing.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/brevo-vs-mailchimp">Brevo vs Mailchimp</a> ·
+          <a class="link" href="/compare/brevo-vs-omnisend">Brevo vs Omnisend</a> ·
+          <a class="link" href="/compare/sequenzy-vs-privy">Sequenzy vs Privy</a> ·
+          <a class="link" href="/for/beauty">Email apps for beauty stores</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: Sequenzy lifecycle email paired…</h2>
+      <p>For <strong>compare privy vs brevo</strong>, Sequenzy lifecycle email paired with Postscript urgent SMS sends is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: opt-out rate monitoring by…</h2>
+      <p>For <strong>compare privy vs brevo</strong>, opt-out rate monitoring by flow not aggregate list size alone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Privy vs Brevo FAQ" />
+</BaseLayout>

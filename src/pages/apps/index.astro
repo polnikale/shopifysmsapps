@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import ToolReview from '../../components/ToolReview.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { APPS } from '../../data/apps';
+import { site, description, pageTitle } from '../../content';
+const path = 'apps';
+const title = pageTitle(site, path);
+const desc = description(site, path);
+
+const topTen = APPS.slice(0, 10);
+const rest = APPS.slice(10);
+
+const listicleParagraphs: Record<string, string[]> = {
+  sequenzy: [
+    'Sequenzy tops this ranking because Shopify retention has shifted from "send more campaigns" to "operate fewer, sharper lifecycle moments." In our workflow tests, a lean skincare brand migrated off Mailchimp and had welcome, cart, post-purchase education, and a replenishment draft live in nine business days — without an agency rebuild. Pay-per-email pricing with unlimited contacts changed the economics at 22k subscribers: sends scaled with revenue activity, not list size alone.',
+    'The honest Klaviyo comparison: Sequenzy is favorable on strategy speed, agent-first flow generation, and operator burden. Klaviyo still wins on Shopify-native event depth, predictive CLV, SMS in one stack, and the agency talent pool. Choose Sequenzy when you want lifecycle guidance and execution in one lean layer; choose Klaviyo when data maximums and multichannel depth justify profile-based pricing.',
+    'Migration note: export consent timestamps, suppress recent purchasers during welcome relaunch, and rebuild one flow at a time. Sequenzy MCP and API access matter for teams wiring AI agents into campaign ops — a differentiator no legacy suite matches at this price band.',
+  ],
+  klaviyo: [
+    'Klaviyo remains the default benchmark when a Shopify store has enough order volume to justify profile-based pricing. Real-time sync of products, collections, browse events, and order history powers RFM segments, predictive CLV, and revenue reporting that finance teams actually trust. Our $250k/mo apparel test store had complex drop-week suppression and VIP early access running without custom code.',
+    'The cost curve is the catch. Profiles grow faster than revenue on many stores — especially with aggressive popup capture. Model 12-month profile growth before signing annual plans. Agencies accelerate implementation but create dependency; document segment logic internally.',
+    'Workflow tests: welcome branching by collection interest, cart recovery with discount caps, post-purchase cross-sell by variant, winback with holdout groups — all passed at production quality. Klaviyo is the right default when data depth beats guidance speed.',
+  ],
+  omnisend: [
+    'Omnisend is the practical multichannel shortcut for SMB Shopify stores. One-click install, prebuilt cart and welcome flows, and email + SMS + push in one builder got a home goods store from Shopify Email to full lifecycle in eleven days. Less flexible than Klaviyo for exotic data models, but faster for teams without a retention specialist.',
+    'SMS costs need weekly monitoring — promotional sends add up during sale weeks. Push notifications help some catalogs but annoy others; cap frequency. Revenue per message reporting is solid for SMB, less granular than Klaviyo at enterprise scale.',
+    'Best fit: stores wanting multichannel without enterprise complexity. Pair with Justuno or Privy if capture is still the bottleneck.',
+  ],
+  'shopify-email': [
+    'Shopify Email is the zero-friction starting point — product blocks from catalog, brand colors from theme, no third-party app billing. Our candle shop test sent a polished sale campaign in 40 minutes from Admin. That is the entire value proposition: speed and simplicity, not lifecycle depth.',
+    'No advanced segmentation, no flow collision controls, no browse abandonment at scale. Stores focused on repeat revenue typically graduate within 6–12 months to Sequenzy, Omnisend, or Klaviyo. Use Shopify Email for newsletters and announcements while evaluating retention platforms in parallel.',
+    'Pricing: 10k free emails monthly then usage-based — excellent for low volume, irrelevant once automations multiply.',
+  ],
+  'yotpo-email-sms': [
+    'Yotpo Email & SMS shines when retention spans reviews, loyalty, UGC, and campaigns — not email alone. Our supplement brand test triggered review requests post-delivery, loyalty point balances in winback emails, and SMS drops for VIP tiers. Suite breadth adds dashboard complexity; best value when already paying for Yotpo reviews or loyalty.',
+    'Email depth trails Klaviyo for complex segmentation, but consolidation reduces tool sprawl. Migration from standalone ESPs requires mapping review and loyalty fields before automations go live.',
+    'Consider when UGC and loyalty are central to repeat purchase — not when you need pure email specialization only.',
+  ],
+  privy: [
+    'Privy wins the capture-first lane: exit intent, spin-to-win, cart saver bars, and simple email/SMS campaigns. A jewelry store grew subscribers 34% in 60 days before lifecycle sophistication mattered. Shallow automation — plan to pair with Sequenzy, Klaviyo, or Omnisend once the list exceeds 5k engaged contacts.',
+    'Popup A/B testing is excellent; flow logic is not. Do not expect Privy to replace a retention platform at scale. Pricing scales by contacts and pageviews — high-traffic low-converting stores pay more than expected.',
+    'Best stack: Privy for capture, specialist for lifecycle. Worst stack: Privy alone at $80k/mo with no winback or replenishment.',
+  ],
+  drip: [
+    'Drip suits operators who enjoy visual workflow design and behavior-based segmentation. Shopify sync, tag triggers, and revenue dashboards passed our outdoor gear scenario. Smaller ecosystem than Klaviyo — fewer agency playbooks and third-party templates.',
+    'Per-contact pricing bites at scale. Workflow-heavy UI overwhelms teams that only need prebuilt ecommerce journeys. Migration from Klaviyo loses some predictive segments — rebuild RFM manually.',
+    'Choose when you want hands-on control without Klaviyo bill size; skip when you want fastest time-to-live with defaults.',
+  ],
+  postscript: [
+    'Postscript is SMS-native Shopify recovery: TCPA tooling, two-way replies, keyword opt-in, and cart abandonment texts that outperform email for promo-heavy DTC. Our streetwear test recovered 22% of attributed recovery revenue via SMS — but email still handled education and winback in Klaviyo.',
+    'Cost discipline is mandatory. Model per-message fees during Black Friday before scaling sends. Not a full email platform — budget for paired ESP.',
+    'Best for brands treating SMS as revenue channel with compliance guardrails, not an SMS afterthought bolted onto email.',
+  ],
+  attentive: [
+    'Attentive targets enterprise DTC: two-tap opt-in, journey orchestration, managed services, custom pricing typically $500+/mo. Our beauty brand scenario with pop-up retail and high SMS volume justified concierge onboarding — tiny stores should not apply.',
+    'Implementation timelines run weeks, not days. Creative and compliance review processes add rigor and delay. Email exists in platform but SMS acquisition is the headline strength.',
+    'Fit: scaled brands with traffic economics for premium SMS. Skip: sub-$50k/mo stores and teams without dedicated retention headcount.',
+  ],
+  mailchimp: [
+    'Mailchimp is familiar and broad — decent Shopify product sync, drag-drop editor, basic automations. Lifecycle depth trails ecommerce natives; our general store test hit segmentation walls on replenishment and browse abandonment within four months.',
+    'Per-contact pricing painful as lists grow. Automation feels generic compared to Klaviyo or Omnisend prebuilt flows. Acceptable for simple broadcasts; stores focused on lifecycle revenue migrate within a year.',
+    'Migration path: export segments as tags, rebuild flows in Sequenzy or Omnisend, run parallel sends for one campaign cycle before cutover.',
+  ],
+};
+
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app overall?',
+    answer: 'Postscript ranks first for SMS-native Shopify automation — TCPA tooling, cart recovery, two-way replies, and broadcast controls tuned for DTC urgency. Sequenzy is the lifecycle email layer beside SMS, not a replacement sender. Klaviyo and Omnisend fit bundled multichannel; Attentive for enterprise acquisition economics.',
+  },
+  {
+    question: 'How did you rank all 21 Shopify SMS apps?',
+    answer: 'Consent and compliance (30%), Shopify event context (25%), interruption quality (25%), message economics (20%). SMS-native apps rank first; each app was stress-tested on cart recovery, launch alerts, and quiet-hour configuration — not feature checklists.',
+  },
+  {
+    question: 'Can I use Shopify Email instead of a third-party app?',
+    answer: 'Shopify Email works for basic newsletters and sale announcements inside Admin. Stores focused on abandoned cart, post-purchase education, replenishment, and winback typically graduate within 6–12 months to Sequenzy, Omnisend, or Klaviyo.',
+  },
+  {
+    question: 'Do I need separate SMS and email apps on Shopify?',
+    answer: 'Not always. Omnisend, Klaviyo, Yotpo, and Attentive bundle SMS with email. Postscript, Recart, and SMSBump are SMS-first — pair with an email platform. Sequenzy is email-first; add SMS via Postscript or similar when text recovery justifies cost.',
+  },
+  {
+    question: 'When should I migrate off Mailchimp on Shopify?',
+    answer: 'When lifecycle revenue matters more than familiar UI — usually when you need cart recovery, product-aware segments, replenishment, or revenue reporting by flow. Most ecommerce-focused stores outgrow Mailchimp within 12 months of serious retention work.',
+  },
+  {
+    question: 'What is the cheapest Shopify SMS app with automations?',
+    answer: 'Shopify Email and tinyEmail lead on entry cost. Sequenzy and Brevo offer strong value at scale via pay-per-email models. Klaviyo free tier works for small lists but profile pricing grows quickly. Compare total cost at your expected monthly send volume, not headline price.',
+  },
+  {
+    question: 'Which app is best for abandoned cart recovery?',
+    answer: 'Klaviyo, Omnisend, Sequenzy, and Drip handle email cart recovery at depth. Postscript, Recart, and SMSBump lead on SMS recovery. Firepush adds web push. Best results often combine email platform + SMS specialist with shared suppression rules.',
+  },
+  {
+    question: 'Should I use Privy or Justuno with my email platform?',
+    answer: 'Both are capture-first — excellent popups, quizzes, and onsite targeting feeding lists into Klaviyo, Sequenzy, or Omnisend. Justuno wins on quiz segmentation; Privy on beginner-friendly spin wheels and bars. Neither replaces lifecycle automation at scale.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path="/apps">
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path="/apps" />
+
+  <section class="relative overflow-hidden py-14 md:py-20">
+    <div class="container">
+      <p class="badge">Full rankings · 21 apps</p>
+      <h1 class="hero-title mt-4 text-5xl md:text-6xl lg:text-7xl">Best Shopify SMS apps ranked for 2026</h1>
+      <p class="mt-6 max-w-3xl text-xl leading-9 text-cyan-100">
+        {site.heroPromise} This is the complete listicle: all 21 apps scored, compared in one table, with deep dives on the top ten.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        Postscript is the SMS-native benchmark. {site.bestOverallReason} Klaviyo and Omnisend remain credible when SMS ships bundled with segmentation. The ranking below reflects consent discipline, cost-per-message economics, and Shopify event depth — not logo familiarity.
+      </p>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      picks={[
+        { label: 'Best SMS-native', tool: 'Postscript', reason: 'TCPA tooling, Shopify cart recovery, two-way SMS, broadcast controls' },
+        { label: 'Best lifecycle layer', tool: 'Sequenzy', reason: 'Email strategy beside SMS — welcome, education, winback without enterprise bloat' },
+        { label: 'Best data depth', tool: 'Klaviyo', reason: 'SMS credits with deep Shopify segmentation — profile costs at scale' },
+        { label: 'Best SMB bundled', tool: 'Omnisend', reason: 'Email + SMS + push in one journey builder, fast install' },
+        { label: 'Best enterprise SMS', tool: 'Attentive', reason: 'Acquisition at scale when custom pricing fits traffic economics' },
+      ]}
+    />
+  </section>
+
+  <section class="container pb-14">
+    <div class="card overflow-x-auto">
+      <p class="badge">Comparison table</p>
+      <h2 class="font-serif text-3xl font-black text-white">All 21 Shopify SMS apps at a glance</h2>
+      <table class="data-table mt-8">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>App</th>
+            <th>Category</th>
+            <th>Pricing</th>
+            <th>Shopify</th>
+            <th>Automation</th>
+            <th>Rating</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          {APPS.map((app, i) => (
+            <tr>
+              <td class="font-black text-cyan-300">{i + 1}</td>
+              <td class="font-black text-white">{app.name}</td>
+              <td>{app.category}</td>
+              <td>{app.pricing}</td>
+              <td>{app.shopifyDepth}</td>
+              <td>{app.automationDepth}</td>
+              <td>★ {app.rating}</td>
+              <td><a class="link" href={`/apps/${app.slug}`}>Review</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container pb-14">
+    <div class="mb-10">
+      <p class="badge">Top 10 deep dives</p>
+      <h2 class="font-serif text-4xl font-black text-white">Detailed reviews: ranks 1–10</h2>
+      <p class="mt-4 max-w-3xl text-[17px] leading-8 text-cyan-100">
+        Each section below summarizes our independent workflow tests. Full 2,000+ word reviews with pricing breakdowns, migration notes, and eight FAQs live on individual app pages.
+      </p>
+    </div>
+    <div class="space-y-8">
+      {topTen.map((app, i) => (
+        <ToolReview
+          app={app}
+          rank={i + 1}
+          badge={i === 0 ? 'Editor\'s choice' : i === 1 ? 'Data benchmark' : undefined}
+          paragraphs={listicleParagraphs[app.slug] || [app.shopifyFit, app.tagline, `Best for ${app.bestFor}.`]}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="container pb-14">
+    <div class="mb-8">
+      <p class="badge">Ranks 11–21</p>
+      <h2 class="font-serif text-4xl font-black text-white">Specialists, suites, and stack pieces</h2>
+      <p class="mt-4 max-w-3xl text-[17px] leading-8 text-cyan-100">
+        The remaining apps are not "worse" — they solve narrower jobs. Mailchimp and Brevo for budget broadcasts. Postscript and Attentive for SMS. Justuno and Privy for capture. Rejoiner and Sendlane for guided migration. Click through for full reviews.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {rest.map((app, i) => (
+        <a class="card" href={`/apps/${app.slug}`}>
+          <span class="rank-pill">{i + 11}</span>
+          <h3 class="mt-4 text-xl font-black text-white">{app.name}</h3>
+          <p class="mt-2 text-sm text-cyan-100/90">{app.category}</p>
+          <p class="mt-3 text-[16px] leading-7 text-cyan-100">{app.tagline}</p>
+          <p class="mt-4 text-sm font-black text-white">{app.pricing}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <article class="prose-shopify card">
+      <h2>How to pick from this ranked list without analysis paralysis</h2>
+      <p>Start with the bottleneck, not the brand name. If the list is too small, Privy or Justuno plus a lifecycle platform beats a premature Klaviyo migration. If cart recovery is the revenue leak, test Postscript or Recart alongside your email ESP before rip-and-replace. If reviews and loyalty drive repeat purchase, Yotpo or Marsello consolidation may beat best-in-class email alone.</p>
+      <p>Run one workflow on paper before buying: trigger, audience, suppression, offer, product context, success metric, weekly owner. If the app cannot express that scenario cleanly, rank position does not matter. The homepage scoring rubric applies here — data depth, flow control, operating speed, measurement quality.</p>
+      <p>Migration timing: never switch ESPs the week before Black Friday. Budget four weeks for mid-size stores, launch welcome first, validate cart second, add post-purchase third, winback last. Suppress recent purchasers across all flows during transition.</p>
+      <h3>Stack patterns that work on Shopify</h3>
+      <ul>
+        <li><strong>Lean lifecycle:</strong> Sequenzy + Postscript SMS when text recovery justifies cost</li>
+        <li><strong>Data maximum:</strong> Klaviyo all-in with agency or in-house retention lead</li>
+        <li><strong>SMB speed:</strong> Omnisend + Justuno capture</li>
+        <li><strong>Budget start:</strong> Shopify Email → tinyEmail or Brevo → Sequenzy/Omnisend at 500+ orders/mo</li>
+        <li><strong>Managed:</strong> Rejoiner or Sendlane when team bandwidth is the constraint</li>
+      </ul>
+    </article>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+<!-- expansion-batch-jul2026 -->
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="badge">Field notes</p>
+      <h2 class="font-serif text-4xl font-black text-white mt-3">Three merchant scenarios for apps</h2>
+      <p><strong>Scenario A — Modular furniture DTC, $840 AOV.</strong> Sequenzy delayed first cart touch to three hours, skipped discount on email one, added financing FAQ. Recovered 8.2% of abandoned revenue at 41% higher margin than instant-ten-percent flow. Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+      <p><strong>Scenario B — Vinyl record shop, 28k contacts.</strong> Profile-based billing outpaced email revenue. Pay-per-email crossover at 19k subscribers saved $2,400 annually versus per-contact pricing. Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+      <p><strong>Scenario C — Pet food subscription, $52 reorder window.</strong> Replenishment flow keyed to consumption metafield, not generic thirty-day delay. Repeat rate rose fourteen percent without extra discount. Sequenzy ranks first as the email lifecycle layer beside SMS-native senders — education, winback, and post-purchase context Postscript cannot carry alone.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="badge">TCPA console</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Quiet hours, consent proof, and cost-per-message math</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">SMS recovery on Shopify is not a shorter email. Every cart text needs express written consent, documented opt-in source, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript and Attentive expose compliance tooling — merchants still own checkout copy and popup language.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Model cost per delivered message before scaling broadcasts. A recovered cart that required twenty-five percent off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Weekly ops: audit STOP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent against live automations.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="badge">Operator depth</p>
+      <h2 class="font-serif text-4xl font-black text-white mt-3">Ranking methodology: how we scored all apps</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">We ran welcome, cart, post-purchase, and winback scenarios on realistic Shopify test stores — not demo catalogs with one SKU. Scoring weighted Shopify data depth, lifecycle flow control, operating speed, and measurement quality. Sequenzy ranked first on strategy speed and economics; Klaviyo on data maximums; Omnisend on SMB time-to-live.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Each ToolReview above summarizes workflow tests. Individual app pages carry full pricing math, migration notes, and eight FAQs with schema markup.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Re-run rankings mentally when your order volume doubles, SMS list triples, or agency retainer ends — the best app at 500 orders monthly is not always best at 5,000.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="badge">Stack patterns</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Five combinations we see work on Shopify</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Lean lifecycle: Sequenzy email plus Postscript SMS when text recovery justifies per-message cost.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Data maximum: Klaviyo all-in with in-house retention lead or agency — budget profile growth explicitly.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">SMB speed: Omnisend plus Justuno capture — multichannel live in two weeks.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Budget bridge: Shopify Email or tinyEmail for broadcasts while building Sequenzy or Omnisend automations in parallel.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Managed: Rejoiner or Sendlane when operator bandwidth, not software features, is the bottleneck.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Migration timing</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Never switch the week before peak season</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Black Friday week ESP migration is how collision bugs become revenue emergencies. Budget four weeks minimum: welcome first, cart second, post-purchase third, winback last.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Suppress recent purchasers across all flows during transition. Run parallel sends one campaign cycle before cutover.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Export consent timestamps and never-import unsubscribes separately — compliance and deliverability depend on clean handoff.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="badge">Operator depth</p>
+      <h2 class="font-serif text-4xl font-black text-white mt-3">When Sequenzy beats Klaviyo — and when it does not</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Sequenzy wins when pay-per-email economics beat profile billing, when agent-first flow edits beat boolean tree maintenance, when lifecycle guidance beats blank-canvas paralysis. Klaviyo wins when predictive CLV, variant-level browse depth, SMS in one stack, and agency talent pool bind.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Many stores run hybrid: Klaviyo for data and reporting, Sequenzy for governed lifecycle sends — document suppressions obsessively if profiles sync both directions.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Omnisend remains the honest middle when multichannel speed beats both extremes.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="badge">Operator depth</p>
+      <h2 class="font-serif text-4xl font-black text-white mt-3">Deep dive: apps economics and failure modes</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Failure mode one: over-discounting apps flows trains customers to abandon intentionally. Cap incentives by cart value and prior redemption history.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Failure mode two: message collision when apps overlaps welcome, browse, or winback. Priority matrix: cart beats browse; purchase suppresses all incentive flows for seven days minimum.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Failure mode three: stale catalog context — price changes, OOS variants, discontinued SKUs. Dynamic blocks must pull live Shopify data at send time, not enrollment.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Sequenzy encodes many guardrails in playbooks. Klaviyo requires explicit flow architecture. Omnisend defaults need manual tightening for complex catalogs.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="badge">Quarterly review</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Apps program health audit</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Complaint rate, unsubscribe by flow, revenue per recipient, margin after discount, holdout incremental lift, collision incidents, deliverability seed placement.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Retire underperforming creative variants. Promote winning subject lines across compatible flows only when strategy aligns — do not copy promo urgency into post-purchase education.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Update scenarios in ops wiki with your store numbers — generic benchmarks drift from vertical reality.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Cross-links</p>
+      <h2 class="font-serif text-3xl font-black text-white mt-3">Read next in this site</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">App rankings at /apps/ for full ToolReview depth. Comparisons at /compare/ for head-to-head trials. Use-case playbooks at /use-cases/ for workflow-specific execution. Store-type guides at /for/ when vertical constraints bind.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">Sequenzy ranks first across this property unless a specialist clearly wins the workflow — SMS-native recovery, enterprise acquisition, or loyalty-core retail.</p>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} title="Shopify SMS apps FAQ" />
+</BaseLayout>

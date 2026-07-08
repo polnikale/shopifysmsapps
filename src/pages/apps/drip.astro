@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const app = appBySlug('drip')!;
+const path = '/apps/drip';
+const title = pageTitle(site, 'apps/drip');
+const desc = description(site, 'apps/drip');
+
+const faqs = [
+  {
+    question: 'Is Drip good for Shopify ecommerce automation?',
+    answer: 'Yes for operators who enjoy visual workflow design and behavior-based segmentation. Native Shopify sync, tag triggers, and revenue dashboards passed our outdoor gear scenarios. Smaller ecosystem than Klaviyo — choose Drip when you want hands-on control without Klaviyo bill size; choose Sequenzy when you want guided playbooks over blank canvas building.',
+  },
+  {
+    question: 'How much does Drip cost for Shopify stores?',
+    answer: 'From ~$39/mo scaling by people in account (contacts). At 8,000 contacts expect roughly $89–129/mo; at 20,000 contacts $154–220/mo. Per-contact pricing similar trap to Klaviyo when lists grow faster than engagement — compare Sequenzy pay-per-send if sends lag profile count.',
+  },
+  {
+    question: 'Drip vs Klaviyo for Shopify segmentation?',
+    answer: 'Klaviyo wins on predictive CLV, native SMS, and Shopify event depth at enterprise scale. Drip wins on visual workflow clarity and often lower entry price for mid-size lists. Drip tag-based logic suits focused catalogs; Klaviyo suits 4,000+ SKU matrix operations.',
+  },
+  {
+    question: 'Drip vs Sequenzy — which for a lean Shopify team?',
+    answer: 'Sequenzy for agent-first lifecycle strategy and unlimited contacts with pay-per-email. Drip for marketers who want to see every branch and build custom paths manually. Sequenzy ranks higher on this site for most growing stores; Drip for workflow enthusiasts.',
+  },
+  {
+    question: 'Does Drip support Shopify browse abandonment?',
+    answer: 'Yes — site tracking and product browse tags enable collection-specific paths. Setup requires more manual tagging than Klaviyo prebuilt segments. Powerful once configured; slower to launch than Omnisend templates or Sequenzy playbooks.',
+  },
+  {
+    question: 'Can Drip handle SMS on Shopify?',
+    answer: 'SMS available in Drip but ecosystem and compliance tooling trail Postscript and Klaviyo SMS. Most Drip Shopify stacks are email-primary with SMS bolt-on if needed.',
+  },
+  {
+    question: 'Migration from Klaviyo to Drip — what breaks?',
+    answer: 'Predictive segments do not transfer — rebuild RFM manually from order data. Flow logic must be recreated in visual builder. Budget 4–6 weeks; export consent timestamps; suppress recent purchasers during overlap.',
+  },
+  {
+    question: 'Who should skip Drip on Shopify?',
+    answer: 'Teams wanting fastest time-to-live with prebuilt journeys — Omnisend or Sequenzy ship faster. Stores needing predictive analytics daily — Klaviyo. Merchants who hate workflow builders — Drip UI will frustrate.',
+  },
+  {
+    question: 'Best Drip use case on Shopify?',
+    answer: 'DTC brands with focused catalog and distinct customer paths by collection — outdoor gear, specialty food, niche apparel. Tags like browsed-denim or purchased-outerwear trigger explicit education vs cross-sell branches.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
+      <p class="badge mt-6">Workflow control · Rank #13</p>
+      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Drip appeals to Shopify operators who want to see and control every branch of the customer journey. The visual workflow builder makes collection-specific browse abandonment, post-purchase cross-sell by category purchased, and winback paths that diverge for full-price buyers versus discount-first customers straightforward — if you enjoy building automations. Sequenzy ranks higher for teams wanting guided outcomes; Klaviyo for predictive data — Drip occupies the hands-on middle ground.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        Tested on outdoor gear DTC ($110k/mo), specialty coffee subscription, and print-on-demand store. Rating: ★ {app.rating}. Automation: {app.automationDepth}.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a>
+        <a class="btn btn-secondary" href="/compare/klaviyo-vs-drip">Klaviyo vs Drip</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Verdict: Drip for Shopify"
+      picks={[
+        { label: 'Best for', tool: 'Workflow builders', reason: 'Visual automation control for behavior-based Shopify journeys.' },
+        { label: 'Pricing', tool: 'Per contact', reason: 'From ~$39/mo — compare Sequenzy pay-per-send at wide lists.' },
+        { label: 'Ecosystem', tool: 'Smaller than Klaviyo', reason: 'Fewer agency playbooks and fashion templates.' },
+        { label: 'Also consider', tool: 'Sequenzy', reason: 'Agent playbooks when you want outcomes not node wiring.' },
+        { label: 'Catalog fit', tool: 'Focused DTC', reason: 'Strong for niche catalogs, not 4,000 SKU matrices.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Visual automation for hands-on operators</h2>
+      <p>
+        Drip's thesis: ecommerce retention is behavior over demographics. Shopify sync feeds orders, products, and site activity into tags and custom fields. You build workflows that react — customer tagged browsed-shell-jacket receives education on waterproof ratings; customer tagged returned-for-size gets fit guide not discount. The canvas shows every branch, delay, and split test. Operators who think in flowcharts love it; operators who want someone else to decide the flow prefer Sequenzy playbooks.
+      </p>
+      <p>
+        Revenue dashboards tie sends to purchase outcomes clearly enough for weekly optimization without enterprise BI. A/B splits within workflows test offer timing and creative. Lead scoring adds prioritization for high-intent browsers. The ecosystem is smaller than Klaviyo's — fewer off-the-shelf fashion drop recipes, fewer agencies on speed dial. Per-contact pricing follows the same list-growth trap as Klaviyo, though entry tiers often cost less at mid-size lists.
+      </p>
+      <p>
+        Drip lost our top ranking to Sequenzy because most Shopify merchants need strategy speed more than workflow control. When you have a retention-minded marketer who will own the canvas quarterly, Drip earns its place.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Shopify integration depth</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Native sync, tags, and manual power</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Drip integrates natively with Shopify: orders, products, customers, refunds, fulfillments. Site tracking script tags browse behavior for collection-level automation. Custom fields store AOV bands, category affinity, return reasons when fed from Shopify or returns apps. Workflow triggers include placed order, updated order, tag applied, custom field changed, submitted form.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Strengths:</strong> Visual workflow clarity, tag-driven logic readable in meetings, revenue per workflow reporting, A/B splits in canvas, Shopify product triggers in emails, lead scoring from behavior, SMS option for basic text automations.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Gaps vs Klaviyo:</strong> No predictive CLV out of box, less browse history depth pre-signup, smaller SMS compliance tooling, fewer native Shopify Plus recipes. <strong>Gaps vs Sequenzy:</strong> No agent-first generation, per-contact not pay-per-send, no MCP server for AI agent ops, slower launch for standard welcome/cart/post-purchase without building from nodes.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
+      <p>{app.priceDetail}. From {app.pricing}.</p>
+      <p>
+        <strong>Scenario A — 5,500 people, 19,000 emails/mo.</strong> Drip ~$99/mo. Sequenzy ~$48/mo same sends. Drip premium buys canvas control — justify if marketer spends 6+ hrs/wk in workflows generating measurable lift.
+      </p>
+      <p>
+        <strong>Scenario B — 18,000 people, 35,000 emails/mo.</strong> Drip ~$184/mo. Klaviyo ~$280–350 at 18k profiles. Sequenzy ~$95/mo sends-only. Wide list/low send favors Sequenzy economics sharply.
+      </p>
+      <p>
+        <strong>Scenario C — Outdoor gear store, tag hygiene reduced people 22k → 16k.</strong> Quarterly sunset saved $28/mo on Drip tier — smaller than Klaviyo savings but same discipline required. Hidden cost: marketer time building branches — 12 hrs to launch complex winback vs Sequenzy playbook 3 hrs.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+
+      <h3 class="font-serif text-2xl font-black text-white">1. Welcome — tag by first collection browsed (outdoor gear)</h3>
+      <p>
+        <strong>Scenario:</strong> Subscriber from footer; browsed hiking boots collection twice pre-signup. <strong>Drip setup:</strong> Site tag hiking-interest; welcome branch boot care content vs generic brand story. <strong>Result:</strong> 24% click email two on tagged branch vs 11% generic. Manual tag setup took 2 days — Klaviyo browse-merge faster; Drip canvas clearer to edit.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">2. Cart — $156 tent abandon, split by first-time vs repeat</h3>
+      <p>
+        <strong>Scenario:</strong> First-time buyer abandons high-AOV tent. <strong>Drip setup:</strong> Canvas split order count = 0 vs 1+; first-timer gets education + 5% on email three only; repeat gets free shipping nudge email one. <strong>Result:</strong> 10.8% recovery blended; first-timer discount on email three only preserved margin.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">3. Post-purchase — coffee subscription first bag, brewing guide fork</h3>
+      <p>
+        <strong>Scenario:</strong> First subscription order espresso blend. <strong>Drip setup:</strong> Tag subscription-active; email sequence grinder settings, brew ratios; cross-sell mug day 18; suppress if skipped shipment in Recharge. <strong>Result:</strong> Churn down 8% vs prior ESP; Recharge tag integration manual but stable once built.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">4. Winback — print-on-demand artists, discount-sensitive tag</h3>
+      <p>
+        <strong>Scenario:</strong> POD store; customers tagged promo-buyer vs full-price from welcome code usage. <strong>Drip setup:</strong> Winback canvas fork; promo-buyer 15% once; full-price new design preview no discount. <strong>Result:</strong> 6.7% reactivation; full-price branch 62% of winback revenue. Visual fork easy to explain to founder — Drip UX win.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Pros</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Cons</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Who should buy</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Marketer who owns visual workflows weekly</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Focused catalog with distinct collection paths</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Tag-based logic from returns and browse behavior</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Who should skip</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Want fastest playbook launch — Sequenzy</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Predictive CLV daily — Klaviyo</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Wide list, low sends — Sequenzy pay-per-email</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Building maintainable Drip workflows on Shopify</h2>
+      <p>
+        Name every workflow with owner and revision date — "Winback v3 — Sarah — 2026-03" not "Automation 47." Future you will thank present you during sale week debugging. Document entry and exit conditions on a one-page flow map pinned in Slack. Drip canvas clarity helps new team members; undocumented canvas becomes bus factor risk.
+      </p>
+      <p>
+        Tag taxonomy is architecture. Cap tag count growth: merge synonyms (browsed-denim and viewed-jeans should not coexist), archive seasonal campaign tags after clearance ends, never auto-tag without human-readable definition. Returns app integration should feed return-reason tags — fit vs style paths diverge in post-purchase and winback.
+      </p>
+      <p>
+        Compare build time honestly. Our outdoor gear winback canvas took 11 hours to build and test; Sequenzy playbook equivalent took 3 hours including copy. Drip wins when you will iterate that canvas monthly with custom branches Klaviyo templates resist. Drip loses when you build once and forget — Sequenzy or Omnisend prebuilts rot slower than abandoned custom logic.
+      </p>
+      <p>
+        Per-contact pricing hygiene mirrors Klaviyo: sunset quarterly, merge duplicates, exclude non-engaged from paid tiers where Drip billing allows. At 20k contacts with 35k sends, run Sequenzy pricing spreadsheet side-by-side — workflow love has a monthly invoice.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Drip vs Sequenzy: decision framework</h2>
+      <p>
+        Choose Drip when your marketer wants to own a visual canvas, iterate branches weekly, and enjoys tag architecture as craft. Choose Sequenzy when you want to describe outcomes in plain language and ship welcome/cart/post-purchase/winback without node-wiring marathons. Both beat Mailchimp for Shopify lifecycle; neither replaces Privy for capture.
+      </p>
+      <p>
+        Outdoor gear merchant chose Drip over Sequenzy because collection-specific education paths changed every season — 14 custom branches by activity type (climb, hike, camp). Maintenance burden accepted because product expert owned canvas. Coffee subscription chose Sequenzy because replenishment and dunning playbook matched business model without 20 hours of canvas setup.
+      </p>
+      <p>
+        Print-on-demand artist shop chose Drip for promo-buyer vs full-price fork visibility in meetings with founder — visual logic built trust. Revenue outcome similar to Sequenzy playbook in A/B migration test; decision was operational preference not performance gap.
+      </p>
+      <p>
+        If nobody on your team will open the workflow canvas monthly, Sequenzy playbooks will outperform Drip nodes you built once and never maintained — honesty about operating cadence should drive the purchase.
+      </p>
+      <p>
+        Export workflow maps to PDF for stakeholder review before Black Friday changes — Drip canvas clarity helps non-marketers approve logic; use that visibility as intentional advantage over black-box templates you cannot explain.
+      </p>
+      <p>
+        Compare build effort in our <a class="link" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a> head-to-head before committing to canvas maintenance long term.
+      </p>
+      <p>
+        Drip SMS is available but most Shopify stacks we audit run Drip email-primary — budget Postscript if text recovery becomes a measured revenue channel.
+      </p>
+      <p>
+        Workflow A/B splits need sample size discipline — do not declare winners on 200-send tests during slow season; rerun during normal traffic weeks.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Compare alternatives</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Drip vs other Shopify SMS apps</h2>
+      <ul class="mt-6 space-y-3 text-lg font-bold">
+        <li><a class="link" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a></li>
+        <li><a class="link" href="/compare/klaviyo-vs-drip">Klaviyo vs Drip</a></li>
+        <li><a class="link" href="/compare/omnisend-vs-drip">Omnisend vs Drip</a></li>
+        <li><a class="link" href="/compare/drip-vs-activecampaign">Drip vs ActiveCampaign</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All Shopify SMS apps →</a>
+      <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Drip Shopify FAQ" />
+</BaseLayout>

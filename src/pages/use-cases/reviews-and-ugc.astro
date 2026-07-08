@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import ToolReview from '../../components/ToolReview.astro';
+import { site, description, pageTitle } from '../../content';
+import { useCaseBySlug } from '../../data/use-cases';
+import { appBySlug } from '../../data/apps';
+
+const uc = useCaseBySlug('reviews-and-ugc')!;
+const path = '/use-cases/reviews-and-ugc';
+const title = pageTitle(site, 'use-cases/reviews-and-ugc');
+const desc = description(site, 'use-cases/reviews-and-ugc');
+
+const featuredSlugs = ['sequenzy', 'yotpo-email-sms', 'klaviyo', 'omnisend', 'drip'];
+const featuredApps = featuredSlugs.map((s) => appBySlug(s)!).filter(Boolean);
+
+const comparisonApps = [
+  'sequenzy', 'yotpo-email-sms', 'klaviyo', 'omnisend', 'drip',
+  'shopify-email', 'privy', 'marsello', 'sendlane', 'brevo',
+].map((s) => appBySlug(s)!).filter(Boolean);
+
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for reviews and UGC in campaigns?',
+    answer: 'Yotpo Email & SMS ranks highest when reviews and UGC are native to your stack — dynamic review blocks, review request flows, visual UGC in browse and cart. Sequenzy ranks first for lifecycle strategy integrating social proof timing across post-purchase, browse, and winback. Klaviyo wins with flexible integrations to multiple review apps.',
+  },
+  {
+    question: 'When should review request emails send?',
+    answer: 'After delivery plus 5–7 days for most physical goods — product experienced, return window considered. High-return SKUs delay until return window closes. Digital products: 3–5 days after access granted.',
+  },
+  {
+    question: 'How do I use UGC in browse abandonment?',
+    answer: 'Pull customer photos and quotes for viewed SKU into browse email one — proof before discount. Requires review app integration or Yotpo native blocks. Skip if product has fewer than five quality reviews.',
+  },
+  {
+    question: 'Should review requests go to gift recipients?',
+    answer: 'Request reviews from product users when known — gift purchasers may forward request to recipients via separate flow. Branch gift orders in post-purchase per <a class="link" href="/use-cases/post-purchase">post-purchase guide</a>.',
+  },
+  {
+    question: 'How do negative reviews affect email strategy?',
+    answer: 'Monitor negative review triggers — suppress promotional email to complainants until support resolves. Route to service content, not cross-sell. Yotpo and Klaviyo integrations can segment by review sentiment when configured.',
+  },
+  {
+    question: 'Can Shopify Email collect reviews?',
+    answer: 'No native review request automation — manual campaigns only. Review collection requires Yotpo, Judge.me, Okendo, or similar integrated with lifecycle platform.',
+  },
+  {
+    question: 'What review submission rate should I expect?',
+    answer: '8–15% for optimized post-delivery requests with product context. Higher on passionate niches (pet, hobby); lower on commodity SKUs. Multi-touch reminder at day 14 acceptable; day 3 and day 5 spam hurts.',
+  },
+  {
+    question: 'How does UGC improve winback?',
+    answer: 'Winback email featuring new reviews since lapse outperforms generic product grids — shows social momentum customer missed. Dynamic "12 new reviews on favorites" block personalizes proof.',
+  },
+  {
+    question: 'Should I incentivize reviews with discounts?',
+    answer: 'Policy-sensitive — small incentive for honest review may be acceptable; conditioning review on positive outcome is not. Check review platform and FTC guidance. Points via loyalty program cleaner than one-time code for positive-only reviews.',
+  },
+  {
+    question: 'How do video reviews fit email?',
+    answer: 'Thumbnail linking to PDP video review or hosted UGC — strong for beauty and pet. Yotpo visual UGC supports; ensure mobile-friendly thumbnail size. Do not autoplay video in email — client support poor.',
+  },
+  {
+    question: 'What review star threshold for email social proof?',
+    answer: 'Minimum four-star average and five written reviews before featuring SKU in browse or cart proof blocks — below threshold use brand-level proof or education. Displaying 3.2 stars hurts more than no stars.',
+  },
+  {
+    question: 'How do I respond to negative reviews in email?',
+    answer: 'Do not feature negative review in marketing email — route customer to support via transactional follow-up if recent negative review detected. Suppress promotional sends 14 days post-negative unless support resolved ticket.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/use-cases" class="text-sm font-bold text-cyan-300 hover:text-white">← All use cases</a>
+      <p class="badge mt-6">Reviews & UGC</p>
+      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify SMS apps for reviews and UGC</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Reviews in email are not decoration — they are objection handlers at the moment of highest skepticism. Browse abandonment with customer photos beats a coupon for a skincare researcher. Post-purchase review requests timed after delivery beat day-one asks that arrive before the package. The right Shopify SMS app pulls live review and UGC data into dynamic blocks across lifecycle workflows, not siloed review requests in a separate tool nobody reads.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        This playbook ranks apps for {uc.job}. We tested review block freshness, request timing logic, negative review suppression, and UGC placement in browse and winback — not star-count vanity widgets.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps">Full app rankings</a>
+        <a class="btn btn-secondary" href="/use-cases/post-purchase">Post-purchase</a>
+        <a class="btn btn-secondary" href="/for/beauty">Beauty guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Top Shopify SMS apps for reviews & UGC"
+      picks={[
+        { label: 'Best lifecycle strategy', tool: 'Sequenzy', reason: 'Social proof timing across post-purchase, browse, winback, and launch — proof before discount discipline.' },
+        { label: 'Best native UGC', tool: 'Yotpo Email & SMS', reason: 'Review requests, visual UGC blocks, and loyalty in one retention suite.' },
+        { label: 'Best integration flexibility', tool: 'Klaviyo', reason: 'Connects to Yotpo, Judge.me, Okendo — dynamic review blocks in any flow.' },
+        { label: 'Best fast setup', tool: 'Omnisend', reason: 'Review app integrations and product blocks for SMB proof-forward emails.' },
+        { label: 'Best workflow control', tool: 'Drip', reason: 'Branch on review-submitted tag to suppress redundant asks and trigger thank-you.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Three reviews & UGC scenarios</h2>
+      <p>
+        <strong>Scenario A — Clean beauty, low review density early.</strong> Sequenzy browse emails used brand founder video until SKUs hit 8 reviews; then switched to UGC blocks. Review submission rate 11% with delivery+7 request versus 4% with day-2 ask.
+      </p>
+      <p>
+        <strong>Scenario B — Pet accessories, photo-heavy UGC.</strong> Yotpo visual UGC in cart recovery outperformed discount email by 18% revenue per send on skeptical first-time buyers. Review request post-delivery+5 with pet photo prompt doubled photo review rate.
+      </p>
+      <p>
+        <strong>Scenario C — Home goods, Klaviyo + Okendo.</strong> Winback email dynamic block "47 new reviews this month" reactivated 6.2% lapsed segment. Negative review within 14 days suppressed promo — support outreach instead.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Execution playbook</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Reviews & UGC operating contract</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2 text-cyan-100">
+        <div><h3 class="font-black text-white">Trigger</h3><p class="mt-2 text-[17px] leading-8">{uc.trigger}</p></div>
+        <div><h3 class="font-black text-white">Timing</h3><p class="mt-2 text-[17px] leading-8">{uc.timing}</p></div>
+      </div>
+      <div class="mt-8"><h3 class="font-black text-white">Exclusions</h3>
+        <ul class="mt-3 space-y-2">{uc.exclusions.map((e) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{e}</li>)}</ul>
+      </div>
+      <div class="mt-8"><h3 class="font-black text-white">Metrics</h3>
+        <ul class="mt-3 space-y-2">{uc.metrics.map((m) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{m}</li>)}</ul>
+      </div>
+    </div>
+
+    <div class="card mb-12 overflow-x-auto">
+      <p class="badge">Comparison table</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">10 Shopify apps for reviews & UGC</h2>
+      <table class="mt-8 w-full min-w-[720px] text-left text-sm">
+        <thead>
+          <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
+            <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Reviews/UGC fit</th><th class="py-3 pr-4">Pricing</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+          </tr>
+        </thead>
+        <tbody class="text-cyan-100">
+          {comparisonApps.map((app, i) => (
+            <tr class="border-b border-cyan-300/20/8">
+              <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
+              <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
+              <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
+              <td class="py-3">★ {app.rating}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container space-y-12 pb-16">
+    <p class="badge">Detailed reviews</p>
+    <h2 class="font-serif text-4xl font-black text-white">Five apps for reviews and UGC</h2>
+
+    <ToolReview app={featuredApps[0]} rank={1} badge="SMS-native pick" paragraphs={[
+      'Sequenzy leads reviews strategy because collecting reviews is not the job — deploying proof at decision moments is. Playbooks place UGC in browse and cart before discounts, review asks after delivery window, fresh review counts in winback.',
+      'Minimum review threshold logic prevents empty star widgets — fallback to education content until density sufficient.',
+      'Negative review suppression and support routing documented — not blasting promos to angry customers.',
+      'Integrates with review apps via Shopify ecosystem; Yotpo native suite competes when all-in-one consolidation preferred.',
+    ]} />
+
+    <ToolReview app={featuredApps[1]} rank={2} paragraphs={[
+      'Yotpo is the native UGC email champion — review request flows, visual galleries in campaigns, loyalty tie-in when customer reviews earn points.',
+      'Segment by review status: no review, photo review submitted, repeat reviewer — different lifecycle paths.',
+      'Suite cost justified when reviews, loyalty, SMS already Yotpo — modular audit if email-only need.',
+      'Best for beauty, pet, and home goods where photo proof drives conversion.',
+    ]} />
+
+    <ToolReview app={featuredApps[2]} rank={3} paragraphs={[
+      'Klaviyo flexibility connects multiple review platforms — dynamic blocks pull live rating and snippet into any flow template.',
+      'Flow testing: UGC-forward versus product-only cart email — measure margin and conversion, not clicks alone.',
+      'Custom events from review apps trigger suppression and thank-you sequences.',
+      'Requires integration setup — more flexible, less turnkey than Yotpo native.',
+    ]} />
+
+    <ToolReview app={featuredApps[3]} rank={4} paragraphs={[
+      'Omnisend review app integrations cover SMB needs — Judge.me and others with product blocks in automations.',
+      'Prebuilt post-purchase review request journey deploys fast — verify timing matches return policy.',
+      'UGC depth less rich than Yotpo visual galleries — adequate for text review forward emails.',
+      'Practical for stores starting proof-forward email without suite migration.',
+    ]} />
+
+    <ToolReview app={featuredApps[4]} rank={5} paragraphs={[
+      'Drip tags review-submitted and review-requested — explicit workflow control over ask frequency and follow-up thank-you.',
+      'Canvas shows when customers receive redundant review asks from overlapping flows — audit-friendly.',
+      'UGC blocks require integration or manual embed — less native than Yotpo.',
+      'Strong for operators managing review logic alongside custom automation branches.',
+    ]} />
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Proof placement map</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Where UGC belongs</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Browse email one: customer photo + quote. Cart email two: star rating aggregate. Post-purchase: review ask only. Winback: new reviews since lapse. Launch: early reviewer quotes if available. Replenishment: skip — convenience CTA wins.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Review ask creative</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Product-specific requests</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Name the SKU purchased. Ask one question — fit, effectiveness, ease. Mobile one-tap star link. Photo prompt for visual categories. Align with <a class="link" href="/use-cases/email-design">email design</a> single-product layout.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <h2 class="font-serif text-4xl font-black text-white">Reviews feed acquisition loops</h2>
+      <p>More reviews improve <a class="link" href="/use-cases/browse-abandonment">browse</a> and <a class="link" href="/use-cases/welcome-series">welcome</a> conversion — compound returns on proof infrastructure. Prioritize collection before scaling paid traffic.</p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">Review gating ethics</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Do not suppress honest negative reviews</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Pre-send surveys that route happy customers to public review and unhappy to private feedback violate platform policies and customer trust when discovered. Ask all customers for honest review; handle negatives with service response. Email can link to review page uniformly — product quality fixes follow from negative data.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        High-return SKUs: delay review ask until return window closes — premature reviews from customers who will return skew social proof.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="card">
+      <p class="badge">UGC rights</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Customer photo usage in email</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Yotpo and similar platforms include usage rights in review terms — verify before featuring UGC in <a class="link" href="/use-cases/email-design">email campaigns</a>. Credit customer handle when possible — increases authenticity. UGC in <a class="link" href="/use-cases/product-launch">launch</a> emails needs faster rights clearance than evergreen browse content.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <h2 class="font-serif text-3xl font-black text-white">Quarterly review program audit</h2>
+      <p>Review submission rate by SKU category, photo review percentage, negative review response time. Shift review ask timing if returns cluster after premature asks.</p>
+      <p>UGC usage in <a class="link" href="/use-cases/browse-abandonment">browse</a> and <a class="link" href="/use-cases/abandoned-cart">cart</a>: click-through lift versus control — prove proof investment.</p>
+      <p>Yotpo modular cost versus Klaviyo integration plus dedicated review app — annual stack review when review email is only Yotpo touchpoint.</p>
+      <p>Review syndication to Google Shopping and meta fields improves onsite conversion — email can reference star rating consistency with PDP. Mismatched stars between email and PDP destroys trust faster than no stars.</p>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All apps →</a>
+      <a class="link" href="/use-cases/loyalty">Loyalty →</a>
+      <a class="link" href="/for/pet-products">Pet products →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Reviews & UGC FAQ" />
+</BaseLayout>

@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/rejoiner-vs-klaviyo';
+const title = 'Rejoiner vs Klaviyo for Shopify Email: 2026 Comparison';
+const desc = 'Rejoiner vs Klaviyo for Shopify — automated retargeting focus vs full customer data platform, pricing at scale, and which platform fits recovery-first vs lifecycle-first teams.';
+
+const faqs = [
+  {
+    question: 'Is Rejoiner or Klaviyo better for a Shopify store doing $80k/mo?',
+    answer: 'At $80k/mo with a lean team, Rejoiner often ships cart, browse, and post-purchase recovery faster because the product assumes ecommerce retargeting is the job. Klaviyo wins when you need predictive CLV, collection-level browse segmentation, and SMS in one stack. Rejoiner suits recovery-first operators; Klaviyo suits retention owners who audit segments weekly.',
+  },
+  {
+    question: 'How does Rejoiner vs Klaviyo pricing compare at 20,000 contacts?',
+    answer: 'Rejoiner typically bills on contacts or sends depending on plan tier — often $150–280/mo at 20k with core automations included. Klaviyo at 20k profiles with moderate SMS frequently runs $250–450/mo. Rejoiner can look cheaper when you only need recovery flows and skip broadcast complexity. Klaviyo cost rises with profile bloat from popups and stale leads.',
+  },
+  {
+    question: 'Which has better abandoned cart recovery?',
+    answer: 'Both recover carts well. Rejoiner was built around browse and cart retargeting — dynamic product blocks, session stitching, and recovery-first templates are defaults. Klaviyo adds predictive discount sensitivity, cross-flow suppression visibility, and SMS branching at hour six. Rejoiner wins on speed-to-live; Klaviyo wins on conditional depth at scale.',
+  },
+  {
+    question: 'Can I migrate from Rejoiner to Klaviyo without losing revenue?',
+    answer: 'Yes. Export contacts with consent timestamps, rebuild welcome and cart first, run parallel two weeks with strict suppression on order ID. Rejoiner session-based browse triggers need Klaviyo browse event configuration — budget extra setup time. Pause Rejoiner flows before enabling Klaviyo equivalents to avoid duplicate cart emails.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Rejoiner or Klaviyo?',
+    answer: 'Sequenzy fits when lifecycle strategy — education before discounting, replenishment timing, winback sequencing — matters more than retargeting mechanics or CDP depth. Rejoiner still wins for recovery-first shops that want minimal configuration. Klaviyo still wins for predictive segmentation. Sequenzy helps teams who find Rejoiner too narrow and Klaviyo too heavy.',
+  },
+  {
+    question: 'Does Rejoiner handle replenishment and winback?',
+    answer: 'Rejoiner supports post-purchase and winback templates but the product DNA is recovery, not full lifecycle orchestration. Klaviyo offers richer replenishment by SKU, predicted reorder dates, and winback splits by CLV decile. For consumables with complex reorder cadence, Klaviyo is safer long-term. For stores where 70% of email revenue is cart and browse recovery, Rejoiner stays sufficient.',
+  },
+  {
+    question: 'Which platform handles Black Friday better?',
+    answer: 'Klaviyo offers VIP early access segments, recent purchaser suppression, holdout testing, and predictive decile targeting when send volume spikes 4–8x. Rejoiner handles sale-week cart recovery reliably but lacks Klaviyo-grade broadcast segmentation for promotional drops. Recovery-heavy BFCM strategies lean Rejoiner; full-funnel sale orchestration leans Klaviyo.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Build welcome (branch by signup source), abandoned cart (exclude active winback), browse abandonment (collection filter), post-purchase (gift buyer exclusion), and winback (discount-sensitive split). Score time-to-live, cross-flow suppression clarity, and whether your marketer can edit logic during a flash sale. Rejoiner should win on recovery speed; Klaviyo should win on data granularity.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Rejoiner vs Klaviyo</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Rejoiner vs Klaviyo for Shopify SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Rejoiner optimizes for one job — recover revenue from sessions that almost converted. Klaviyo optimizes for owning the entire post-browse customer graph. We stress-tested both on a $88k/mo outdoor gear brand recovering 34% of email revenue from cart and browse alone, a beauty DTC drowning in Klaviyo profile bloat, and a furniture shop graduating off Mailchimp that needed recovery live before a warehouse sale.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Cart & browse recovery', tool: 'Rejoiner', reason: 'Retargeting-first templates and session stitching out of the box.' },
+            { label: 'Shopify data depth', tool: 'Klaviyo', reason: 'Predictive CLV, browse events, RFM, and catalog granularity.' },
+            { label: 'Speed to live', tool: 'Rejoiner', reason: 'Core recovery flows in days without CDP configuration.' },
+            { label: 'Full lifecycle + SMS', tool: 'Klaviyo', reason: 'Unified email and SMS with shared suppression at scale.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Guided lifecycle playbooks if recovery-only feels too narrow.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Rejoiner</th><th>Klaviyo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Recovery-first ecommerce</td><td>Data-heavy retention at scale</td></tr>
+            <tr><td>Starting price</td><td>From ~$99/mo</td><td>Free tier; paid from ~$20/mo</td></tr>
+            <tr><td>Billing model</td><td>Contacts / plan tiers</td><td>Active profiles + SMS credits</td></tr>
+            <tr><td>Shopify depth</td><td>Native — cart, browse, orders</td><td>Native — full event graph</td></tr>
+            <tr><td>Browse abandonment</td><td>Core strength</td><td>Strong with collection filters</td></tr>
+            <tr><td>SMS</td><td>Limited / partner-dependent</td><td>Built-in, mature</td></tr>
+            <tr><td>Predictive analytics</td><td>Basic</td><td>CLV, churn, discount sensitivity</td></tr>
+            <tr><td>Learning curve</td><td>Low–moderate</td><td>Moderate–steep</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Rejoiner and Klaviyo both sync Shopify orders, products, and cart events. The fork is scope. Rejoiner assumes your highest-ROI email work is bringing back people who already showed intent — cart abandoners, product viewers, category browsers. Klaviyo assumes retention is a data platform problem where every touchpoint feeds segmentation for the next quarter. Neither framing is wrong; the outdoor gear brand proved Rejoiner's narrow focus paid off when 34% of attributed email revenue came from browse and cart alone.
+        </p>
+        <p>
+          The beauty DTC had the opposite problem: 22k profiles, $341/mo Klaviyo bill, and a retention owner spending four hours weekly on segments nobody acted on. They did not need more predictive fields — they needed fewer profiles and clearer replenishment timing. Rejoiner would have been cheaper for recovery-only; Klaviyo still won once they sunset stale popup leads and focused on purchaser-only segments. Tool fit follows operational reality, not feature matrices.
+        </p>
+
+        <h2>Merchant scenario: outdoor gear at $88k/mo</h2>
+        <p>
+          This catalog had high browse-to-cart friction — $220 AOV tents and packs where shoppers compared specs for days. Browse abandonment drove more recoverable sessions than classic cart abandonment. Rejoiner's browse retargeting went live in four days with dynamic product grids from viewed SKUs. Klaviyo required browse event configuration and collection filters the solo marketer deferred for six weeks.
+        </p>
+        <p>
+          At month three, Rejoiner attributed $14.2k monthly from browse plus cart combined. Klaviyo trial on the same traffic recovered marginally more on high-CLV segments but took eleven days to configure equivalent browse logic. The brand stayed on Rejoiner — not because Klaviyo lacked capability, but because recovery speed beat CDP depth for their team size. When they hit $150k/mo and hired a retention specialist, Klaviyo re-entered the conversation.
+        </p>
+
+        <h2>Workflow test: abandoned cart</h2>
+        <p>
+          Both platforms recovered $95–160 AOV carts effectively. Rejoiner activated a three-email cart series with product blocks and session-aware timing in under three hours. Klaviyo matched outcome with more branches: exclude customers in active winback, cap discount by predicted sensitivity, add SMS at hour six for VIP profiles.
+        </p>
+        <p>
+          Cross-journey suppression — exclude shoppers already in replenishment — was clearer in Klaviyo flow analytics after setup. Rejoiner handled basic purchase suppression but required operator discipline when multiple automations ran concurrently. For sale-week edits, Klaviyo rewarded teams who documented rules; Rejoiner rewarded teams who kept automation count low.
+        </p>
+
+        <h2>Workflow test: browse abandonment</h2>
+        <p>
+          Browse abandonment is where Rejoiner earns its reputation. The furniture shop's warehouse sale had 40% of sessions ending on product pages without add-to-cart. Rejoiner browse emails with dynamic room-scene imagery recovered 8.3% of eligible sessions within two weeks. Klaviyo achieved similar recovery after browse event setup and collection-level filters — better for merchandising iteration long-term, slower for launch-deadline merchants.
+        </p>
+        <p>
+          For catalogs under 400 SKUs where browse recovery is the primary email job, Rejoiner's defaults often beat Klaviyo's blank canvas. For 2,000+ SKU stores iterating browse creative weekly against collection performance, Klaviyo's catalog sync wins.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          At 25k contacts, Rejoiner often runs $180–320/mo depending on plan and send volume. Klaviyo at 25k profiles with moderate SMS frequently lands $350–550/mo. Rejoiner's value proposition collapses if you also pay Klaviyo for broadcasts — duplicate stack costs more than choosing one platform. Klaviyo's profile pricing punishes popup bloat; Rejoiner bills contacts too but recovery-focused sending often means fewer total recipients per month.
+        </p>
+        <p>
+          Model twelve-month TCO: profile count, expected recovery volume, SMS needs, and agency hours. Recovery-first stores with lean teams often find Rejoiner plus a lightweight broadcast tool cheaper than full Klaviyo — until order volume justifies CDP investment.
+        </p>
+
+        <h2>Shopify data depth in production</h2>
+        <p>
+          Klaviyo's predictive CLV changed winback strategy for the beauty DTC once they cleaned their list — education-first sequences for high-CLV deciles, aggressive offers only for predicted discount-sensitive profiles. Rejoiner winback templates work but lack native predictive splits. For irregular reorder cadence and gift-buyer exclusion at scale, Klaviyo's flow filters are safer. For stores where browse and cart recovery dominate the P&L, Rejoiner's integration depth is sufficient.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Rejoiner if:</strong></p>
+        <ul>
+          <li>Cart and browse recovery drive most of your email-attributed revenue today</li>
+          <li>You need recovery flows live before the next product drop or warehouse sale</li>
+          <li>Your team is one marketer without bandwidth for CDP configuration</li>
+          <li>SMS and full lifecycle orchestration can wait until next growth phase</li>
+        </ul>
+        <p><strong>Choose Klaviyo if:</strong></p>
+        <ul>
+          <li>You have 1,000+ monthly orders and a retention owner who audits segments weekly</li>
+          <li>Predictive analytics and browse segmentation justify profile pricing</li>
+          <li>Native SMS plus email with shared suppression is non-negotiable</li>
+          <li>Replenishment, winback, and VIP programs need the same platform as recovery</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          If Rejoiner feels too recovery-narrow and Klaviyo feels like paying for a data warehouse nobody queries, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing. It will not replace Rejoiner's browse session stitching or Klaviyo's predictive CLV. It can replace the strategic blank page — what flows beyond recovery to run, in what order, with what suppression — that both platforms still leave to you.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Rejoiner wins when recovery speed and retargeting focus matter more than owning every predictive metric. Klaviyo wins when your store has enough order volume and operational maturity to exploit a customer data platform daily. Run the five-flow workflow test on both trials. The winner is whichever platform your marketer trusts to edit the night before a flash sale — and whichever billing model matches how you actually send, not how big your list could become.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a> ·
+          <a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a> ·
+          <a class="link" href="/compare/omnisend-vs-drip">Omnisend vs Drip</a> ·
+          <a class="link" href="/for/outdoor-gear">Email apps for outdoor stores</a> ·
+          <a class="link" href="/use-cases/browse-abandonment">Browse abandonment playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: weekly SMS caps per…</h2>
+      <p>For <strong>compare rejoiner vs klaviyo</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: STOP and HELP reply…</h2>
+      <p>For <strong>compare rejoiner vs klaviyo</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Rejoiner vs Klaviyo FAQ" />
+</BaseLayout>

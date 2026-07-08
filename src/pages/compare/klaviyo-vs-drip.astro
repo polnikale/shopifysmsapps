@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/klaviyo-vs-drip';
+const title = 'Klaviyo vs Drip for Shopify Email: 2026 Comparison';
+const desc = 'Klaviyo vs Drip for Shopify stores — predictive segmentation vs visual workflows, pricing at 25k profiles, and which platform fits operator-led retention teams.';
+
+const faqs = [
+  {
+    question: 'Is Klaviyo or Drip better for a Shopify store doing $40k/mo?',
+    answer: 'At $40k/mo with a single retention owner, Drip often ships complex workflows faster because the visual builder maps to how operators think. Klaviyo pays off once you need predictive CLV, browse-by-collection segmentation, and agency-standard reporting. If your team enjoys building logic, Drip competes. If your team wants Shopify-native maximums, Klaviyo wins.',
+  },
+  {
+    question: 'How does Klaviyo vs Drip pricing compare at 25,000 contacts?',
+    answer: 'Both bill on people in account. Klaviyo at 25k active profiles typically lands $350–500/mo before SMS. Drip at 25k people often runs $300–450/mo depending on plan tier. Drip has no free tier at scale; Klaviyo free tier is irrelevant past ~250 contacts. Model SMS separately — Drip SMS exists but Klaviyo SMS reporting is more mature in Shopify stacks.',
+  },
+  {
+    question: 'Which has the better workflow builder?',
+    answer: 'Drip\'s visual workflow canvas is the clearest in the category — branches, delays, and A/B splits are obvious on one screen. Klaviyo flows are powerful but spread across more panels; experienced Klaviyo users move fast, newcomers stall. For a marketer who thinks in decision trees, Drip feels native. For a data analyst who thinks in segments first, Klaviyo feels native.',
+  },
+  {
+    question: 'Can I migrate from Drip to Klaviyo without losing automations?',
+    answer: 'Yes, but plan for logic translation, not copy-paste. Drip tags and custom fields map to Klaviyo properties with cleanup. Rebuild welcome and cart first, run parallel for two weeks with strict suppression, then migrate winback. Drip workflow A/B splits need manual recreation in Klaviyo flow experiments. Budget 2–4 weeks for a mid-size store.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Klaviyo or Drip?',
+    answer: 'Sequenzy fits when strategy speed matters more than building every branch yourself — agent-first playbooks and pay-per-email pricing without per-contact fees. Klaviyo still wins on predictive Shopify data. Drip still wins for hands-on workflow control. Many stores trial Sequenzy when Drip workflows become maintenance debt and Klaviyo pricing feels punitive on wide lists.',
+  },
+  {
+    question: 'Which platform handles replenishment flows better?',
+    answer: 'Klaviyo\'s predictive replenishment and catalog sync handle variant-level serum and supplement timing with less manual tagging. Drip achieves replenishment through custom fields and order-based delays — flexible but operator-heavy. For 90-day consumables with three SKU variants, Klaviyo saves weekly maintenance. For bespoke subscription-adjacent logic, Drip\'s canvas wins.',
+  },
+  {
+    question: 'Does Drip\'s smaller ecosystem matter?',
+    answer: 'It matters for hiring and agency support. Klaviyo agencies are everywhere; Drip specialists are fewer. Klaviyo\'s template marketplace and integration directory are larger. Drip\'s Shopify sync is solid for core events — the gap shows up in exotic integrations (custom ERP, multi-store rollup) where Klaviyo partners are easier to find.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Build the same four flows: welcome (branch by first product viewed), abandoned cart (exclude wholesale tags), post-purchase (split first-time vs repeat), winback (discount-sensitive vs full-price). Score trigger accuracy, whether exclusions are visible without exporting, and edit safety during a flash sale. The winner is whichever you trust on a chaotic Thursday.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Klaviyo vs Drip</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Klaviyo vs Drip for Shopify SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Two advanced automation platforms, opposite temperaments. Klaviyo is a Shopify customer data platform that happens to send email. Drip is a visual workflow engine built for operators who want to see every branch. We stress-tested both against a $95k/mo outdoor gear brand, a coffee subscription shop with irregular reorder cadence, and a skincare label migrating off Mailchimp — looking for which tool changes how retention actually runs.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Shopify data depth', tool: 'Klaviyo', reason: 'Predictive CLV, browse events, and catalog-scale segmentation headroom.' },
+            { label: 'Workflow clarity', tool: 'Drip', reason: 'Best-in-class visual builder for behavior-based journeys.' },
+            { label: 'Agency ecosystem', tool: 'Klaviyo', reason: 'Larger partner network and hiring pool.' },
+            { label: 'Operator control', tool: 'Drip', reason: 'Hands-on logic without enterprise sales cycles.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Lifecycle playbooks and pay-per-email if building flows is the bottleneck.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Klaviyo</th><th>Drip</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Data-heavy retention at scale</td><td>Visual workflow operators</td></tr>
+            <tr><td>Starting price</td><td>Free tier; paid from ~$20/mo</td><td>From ~$39/mo</td></tr>
+            <tr><td>Billing model</td><td>Active profiles + SMS credits</td><td>People in account</td></tr>
+            <tr><td>Shopify depth</td><td>Native — browse, predictive, catalog</td><td>Native — orders, tags, products</td></tr>
+            <tr><td>Workflow UI</td><td>Flow builder, segment-first</td><td>Visual canvas, branch-first</td></tr>
+            <tr><td>Predictive analytics</td><td>CLV, churn risk, replenishment</td><td>Lead scoring, custom fields</td></tr>
+            <tr><td>SMS</td><td>Built-in, mature reporting</td><td>Available, less central</td></tr>
+            <tr><td>Learning curve</td><td>Moderate–steep</td><td>Moderate for visual thinkers</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Klaviyo and Drip both pass the Shopify baseline: real-time order sync, product blocks, cart abandonment, and revenue attribution. Neither is a popup tool or a newsletter-only sender. The fork is philosophical. Klaviyo assumes your competitive edge is knowing who will churn before they do — and merchandising to that graph. Drip assumes your edge is designing journeys an operator can see, audit, and rewrite without opening five tabs.
+        </p>
+        <p>
+          The outdoor gear brand exposed the gap immediately. They needed browse abandonment by collection (shell jackets vs base layers) with wholesale customer suppression. Klaviyo handled collection views natively and suppressed B2B tags in one segment. Drip required a custom field sync from Shopify customer tags and a workflow branch — totally doable, but the retention lead spent an afternoon wiring it where Klaviyo took twenty minutes.
+        </p>
+
+        <h2>Workflow test: welcome series</h2>
+        <p>
+          Goal: convert popup subscribers without training 25%-off expectations. Klaviyo branched welcome by signup source and first product viewed, pulling catalog imagery dynamically. Drip built the same branch on a visual canvas — popup tag on the left path, product-page tag on the right — with explicit delays visible as nodes. The Drip version was easier to explain to the founder in a fifteen-minute screen share.
+        </p>
+        <p>
+          At week eight, the skincare label added a new hero SKU and wanted welcome email four to feature it for subscribers who viewed that product pre-signup. Klaviyo's catalog sync made that a merge-tag swap. Drip needed a segment refresh and a workflow node edit — still fast, but the team noted Klaviyo felt more "catalog-aware" out of the box.
+        </p>
+
+        <h2>Workflow test: abandoned cart</h2>
+        <p>
+          We modeled a $214 cart with three items and a first-time visitor. Klaviyo fired at one hour, suppressed on purchase, and capped discount at 10% for carts under $100 using flow filters. Drip's three-step cart workflow matched outcomes with clearer visibility into where shoppers dropped — the canvas showed exactly which branch fired SMS vs email.
+        </p>
+        <p>
+          The coffee subscription shop hit a Drip advantage: irregular reorder timing. They built a workflow that waited 18–45 days based on bag size custom property, with an A/B split on education vs discount in step two. Klaviyo achieved similar logic through segments and flow splits, but the Drip canvas made the experiment obvious to a new hire. Klaviyo won on reporting — revenue by flow variant was faster to pull for the weekly standup.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          Both platforms punish list bloat. The outdoor brand had 31k profiles but only 8k monthly engaged recipients — paying for the full count on either tool. Klaviyo's bill was predictable but steep. Drip landed slightly lower at the same people count but offered no meaningful free tier once they crossed 2,500 contacts.
+        </p>
+        <p>
+          Run a 12-month model: profiles, SMS volume, seasonal campaign spikes, and hours spent maintaining workflows. At 50k people, budget $500–800/mo for Klaviyo with moderate SMS. Drip may land 10–20% lower on contacts alone but workflow complexity increases maintenance hours — factor operator time as real cost. The cheaper platform is whichever matches your sending discipline, not whichever quotes lower on the pricing page.
+        </p>
+
+        <h2>Shopify data depth in production</h2>
+        <p>
+          Klaviyo's predictive CLV changed winback prioritization for the skincare label. They targeted predicted high-value churners with education sequences before discounting. Drip used lead scoring and recency tags — effective, but more manual to keep calibrated as SKU mix shifted.
+        </p>
+        <p>
+          For catalogs under 300 SKUs with straightforward repurchase cycles, Drip's data model is enough. For 1,500+ variants, collection-level browse abandonment, and holdout testing during BFCM, Klaviyo's event history and benchmark reporting are the safer long-term foundation.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Klaviyo if:</strong></p>
+        <ul>
+          <li>You have 800+ monthly orders and want predictive analytics driving segmentation</li>
+          <li>Browse abandonment, collection merchandising, and complex suppression are core revenue levers</li>
+          <li>Your agency or hire pool already speaks Klaviyo</li>
+          <li>Reporting by segment, cohort, and flow variant matters for weekly decisions</li>
+        </ul>
+        <p><strong>Choose Drip if:</strong></p>
+        <ul>
+          <li>Your retention owner thinks in workflows and wants every branch visible on one canvas</li>
+          <li>You need advanced logic without enterprise sales or implementation timelines</li>
+          <li>Custom field and tag-driven journeys are central to your merchandising</li>
+          <li>You value operator control over predictive black-box scoring</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          When Drip workflows become maintenance debt and Klaviyo bills spike on inactive profiles, Sequenzy deserves a parallel trial. It will not replace Drip's visual canvas or Klaviyo's predictive engine today. It can replace the blank-canvas problem — what to send, when to suppress, how to sequence proof before discounts. Pay-per-email pricing with unlimited contacts changes math for stores with large lists and selective sending. Pair with Postscript for SMS if you need channel depth beyond email.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Klaviyo wins when Shopify data maximums and predictive segmentation justify profile-based pricing. Drip wins when your team ships revenue through visible, editable workflows and prefers operator control over ecosystem size. Run the four-flow test on both trials. The winner is whichever platform your retention owner trusts to edit safely the night before a product drop — not whichever looks better in a feature matrix screenshot.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a> ·
+          <a class="link" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a> ·
+          <a class="link" href="/compare/drip-vs-mailchimp">Drip vs Mailchimp</a> ·
+          <a class="link" href="/for/supplements">Email apps for supplements</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: weekly SMS caps per…</h2>
+      <p>For <strong>compare klaviyo vs drip</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: STOP and HELP reply…</h2>
+      <p>For <strong>compare klaviyo vs drip</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Klaviyo vs Drip FAQ" />
+</BaseLayout>

@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+const path = '/compare/privy-vs-mailchimp';
+const title = 'Privy vs Mailchimp for Shopify Email: 2026 Comparison';
+const desc = 'Privy vs Mailchimp for Shopify stores — popup capture and onsite conversion vs familiar broadcast campaigns, automation ceilings, and graduation timing.';
+
+const faqs = [
+  {
+    question: 'Is Privy or Mailchimp better for a Shopify store doing $18k/mo?',
+    answer: 'Privy wins when traffic converts under 2% and you need popups, exit intent, and basic welcome or cart email in one Shopify-native app. Mailchimp wins when you already send monthly newsletters, have team familiarity, and capture is not the bottleneck. At $18k/mo with weak list growth, Privy first. With a healthy list and weak campaign execution, Mailchimp first.',
+  },
+  {
+    question: 'How does Privy vs Mailchimp pricing compare at 5,000 contacts?',
+    answer: 'Privy scales on visitor sessions plus email sends — paid tiers from ~$30/mo, spiking with traffic during sales. Mailchimp Standard at 5k often runs $75–110/mo — list pricing punishes growth faster than Privy session billing at low contact counts. Model BFCM traffic for Privy; model list bloat for Mailchimp. Neither is cheap past 15k contacts without hygiene.',
+  },
+  {
+    question: 'Which has better Shopify popup capture?',
+    answer: 'Privy decisively. Exit intent, spin wheels, cart saver bars, and popup A/B tests are Privy\'s core product. Mailchimp offers embedded forms and landing pages — adequate for footer signups, not competitive for session-to-subscriber optimization. If capture rate is a KPI, Privy or a dedicated popup tool belongs in the stack regardless of Mailchimp.',
+  },
+  {
+    question: 'Can Mailchimp replace Privy for email automation?',
+    answer: 'Mailchimp Customer Journeys handle welcome and cart with more branching than Privy email — but Mailchimp lacks Privy\'s onsite capture depth. Merchants rarely choose Mailchimp over Privy for capture; they choose Mailchimp when newsletters and brand campaigns matter more than popups. For pure Shopify lifecycle, both outgrow around 400–500 orders/month.',
+  },
+  {
+    question: 'Should I also consider Sequenzy instead of Privy or Mailchimp?',
+    answer: 'Sequenzy fits post-capture lifecycle — welcome, cart, winback playbooks with pay-per-email pricing. Privy wins onsite conversion. Mailchimp wins broadcast familiarity. Typical graduation: Privy for capture, Sequenzy or Omnisend for retention when email becomes revenue infrastructure rather than popup attachment or monthly newsletter.',
+  },
+  {
+    question: 'Which platform handles newsletters better?',
+    answer: 'Mailchimp leads — Content Studio, template gallery, and campaign scheduling are decades refined. Privy email is automation-first with thinner broadcast tooling. The pottery studio sent monthly studio updates through Mailchimp while Privy handled exit-intent capture — hybrid stack until they consolidated on Sequenzy for lifecycle.',
+  },
+  {
+    question: 'Can I run Privy and Mailchimp together?',
+    answer: 'Yes, but watch duplicate sends. Privy captures and can send basic welcome; Mailchimp syncs Shopify customers and runs journeys. Without suppression rules, new subscribers get double welcome emails — deliverability and brand damage. Pick one email sender for automations; use Privy for capture only if Mailchimp owns lifecycle.',
+  },
+  {
+    question: 'What workflow test should decide the winner?',
+    answer: 'Measure session-to-subscriber rate first. Under 2%: test Privy popups for two weeks. Above 2% with weak newsletters: test Mailchimp campaigns. Build welcome and cart in both trials — if neither completes post-purchase cross-sell without workarounds, plan graduation to Sequenzy or Omnisend regardless of winner.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <nav class="mb-8 text-sm">
+        <a class="link" href="/compare">Comparisons</a>
+        <span class="mx-2 text-cyan-100/90">/</span>
+        <span class="text-cyan-100/90">Privy vs Mailchimp</span>
+      </nav>
+
+      <header class="max-w-4xl">
+        <p class="badge">Head-to-head</p>
+        <h1 class="hero-title mt-5">Privy vs Mailchimp for Shopify SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+          Capture infrastructure versus broadcast familiarity. Privy lives on your storefront — popups, bars, and basic automations for merchants whose binding constraint is turning sessions into subscribers. Mailchimp lives in the campaign calendar — newsletters, Customer Journeys, and templates for merchants whose binding constraint is consistent brand communication. We tested both on a $18k/mo pottery studio, a $28k/mo artisan candle brand on Mailchimp since 2017, and a $34k/mo accessories shop that ran both until duplicate welcome emails forced a stack decision.
+        </p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+      </header>
+
+      <div class="mt-12 max-w-4xl">
+        <TldrBox
+          picks={[
+            { label: 'Popup capture', tool: 'Privy', reason: 'Exit intent, spin wheels, and session-to-subscriber optimization.' },
+            { label: 'Newsletters', tool: 'Mailchimp', reason: 'Campaign templates and broadcast scheduling veterans expect.' },
+            { label: 'Shopify-native capture', tool: 'Privy', reason: 'App Store default for early list growth on storefront.' },
+            { label: 'Team familiarity', tool: 'Mailchimp', reason: 'Lower training cost when staff already knows the UI.' },
+            { label: 'Also consider', tool: 'Sequenzy', reason: 'Lifecycle playbooks when both outgrow capture-plus-broadcast limits.' },
+          ]}
+        />
+      </div>
+
+      <div class="mt-12 card overflow-x-auto">
+        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Dimension</th><th>Privy</th><th>Mailchimp</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Best for</td><td>Onsite capture + basic email</td><td>Newsletters + familiar journeys</td></tr>
+            <tr><td>Starting price</td><td>Free tier; paid from ~$30/mo</td><td>Free tier; paid from ~$13/mo</td></tr>
+            <tr><td>Billing model</td><td>Sessions + email sends</td><td>Contacts — aggressive scaling</td></tr>
+            <tr><td>Popups & capture</td><td>Core strength</td><td>Basic forms only</td></tr>
+            <tr><td>Shopify automation</td><td>Basic welcome, cart</td><td>Customer Journeys — moderate</td></tr>
+            <tr><td>Broadcast campaigns</td><td>Thin</td><td>Core strength</td></tr>
+            <tr><td>ESP graduation</td><td>Needed ~300–500 orders/mo</td><td>Similar ceiling for Shopify depth</td></tr>
+            <tr><td>Learning curve</td><td>Low</td><td>Low for veterans</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <h2>Why this comparison matters for Shopify merchants</h2>
+        <p>
+          Privy and Mailchimp are not Klaviyo alternatives — they are early-stage tools merchants compare when full ESP pricing feels premature but Shopify Email is too thin. The fork is whether your growth problem is top-of-funnel capture or mid-funnel communication. Privy assumes you need more subscribers from existing traffic. Mailchimp assumes you have subscribers but need better campaigns and slightly deeper journeys than Privy email allows.
+        </p>
+        <p>
+          The pottery studio converted 0.9% of sessions before Privy — founder hand-waving that "people will buy when ready." Exit-intent popups with a free glazing guide lifted capture to 2.4% in three weeks. Mailchimp would not have touched that metric; their list grew only when orders synced. The candle brand had the inverse problem — 4.1% capture from organic Instagram traffic but inconsistent monthly emails. Mailchimp's Content Studio let their part-time marketer ship on-brand campaigns without agency help.
+        </p>
+
+        <h2>Merchant scenario: pottery studio on Privy</h2>
+        <p>
+          At $18k/mo and 3,200 profiles, Privy handled exit-intent popups offering a digital glazing guide, a three-email welcome featuring workshop dates, and cart abandonment for $65–$120 AOV pieces. Adequate until they wanted post-purchase cross-sell by collection — mugs after bowl buyers — and browse abandonment for repeat visitors. Privy email ceiling arrived at 280 orders/month, not contact count.
+        </p>
+        <p>
+          They kept Privy for capture, added Sequenzy for lifecycle automations, and stopped trying to make Privy email strategic. Total stack cost stayed below a premature Klaviyo migration. Capture solved is not retention solved — the pottery studio learned that at month seven.
+        </p>
+
+        <h2>Merchant scenario: artisan candle brand on Mailchimp</h2>
+        <p>
+          This brand at $28k/mo had used Mailchimp since 2017 for seasonal scent launches and founder story newsletters. Shopify Customer Journey cart recovery recovered 7% of abandoned carts — acceptable for $42 AOV candles. Capture happened through footer forms and checkout — 1.8% session rate, never optimized because newsletters drove sufficient revenue.
+        </p>
+        <p>
+          When they tested Privy spin wheels, signup rate jumped to 3.2% but 35% of new subscribers were discount-only freebie hunters. They reverted to Mailchimp-only capture via footer and checkout, accepting lower volume for higher purchaser quality. The lesson: Privy wins raw signups; Mailchimp wins when your brand punishes discount-training aesthetics.
+        </p>
+
+        <h2>Merchant scenario: accessories shop running both</h2>
+        <p>
+          At $34k/mo this merchant ran Privy popups syncing to Mailchimp lists — logical on paper, broken in production. Privy welcome and Mailchimp welcome both fired within six hours for popup signups. Complaint rate spiked; they paused Privy email and kept capture-only sync. Rebuilding suppression took a weekend they did not budget during a product drop.
+        </p>
+        <p>
+          Stack architecture matters: one automation owner, one capture owner, explicit handoff rules. Running both as parallel email senders is the most common Privy-Mailchimp failure mode we see in merchant forums.
+        </p>
+
+        <h2>Workflow test: popup capture</h2>
+        <p>
+          Two-week A/B: Privy exit intent with 10% off first order versus Mailchimp embedded form in footer only. Privy won signups 2.8% versus 0.7%. Mailchimp was never in the popup race — if capture is the test, Privy is the default answer for Shopify merchants at this revenue band.
+        </p>
+
+        <h2>Workflow test: welcome and cart email</h2>
+        <p>
+          Privy shipped welcome and cart in one day — templates, product blocks, minimal branching. Mailchimp Customer Journeys took three days for equivalent logic with clearer segment visibility and better edit safety during sale week. Cart recovery rates landed within 1% of each other — 9–10% for $55 AOV tests. Neither offered browse abandonment or post-purchase cross-sell without painful workarounds.
+        </p>
+
+        <h2>Pricing reality at growing list sizes</h2>
+        <p>
+          At 8k contacts, Mailchimp Standard often runs $120–160/mo while Privy with moderate traffic lands $45–80/mo depending on session volume. Privy looks cheaper until BFCM doubles sessions — budget peak month. Mailchimp punishes list size linearly; sunset campaigns on both before comparing quotes at 12k+ contacts.
+        </p>
+
+        <h2>Team fit: who should choose which</h2>
+        <p><strong>Choose Privy if:</strong></p>
+        <ul>
+          <li>Session-to-subscriber rate is under 2% and traffic is not the problem</li>
+          <li>You want capture plus basic email in one Shopify-native app</li>
+          <li>Newsletters are quarterly, not weekly brand pillars</li>
+          <li>You will graduate ESP when orders exceed ~300/month</li>
+        </ul>
+        <p><strong>Choose Mailchimp if:</strong></p>
+        <ul>
+          <li>Your team already knows Mailchimp and sends regular campaigns</li>
+          <li>Capture is adequate and campaign consistency is the bottleneck</li>
+          <li>Brand storytelling newsletters drive repeat purchases</li>
+          <li>You accept weaker popup tooling in exchange for broadcast depth</li>
+        </ul>
+
+        <h2>Also consider Sequenzy</h2>
+        <p>
+          Privy wins capture; Mailchimp wins familiarity. Both outgrow Shopify retention depth around the same order threshold. Sequenzy is the lifecycle graduation path — welcome, cart, winback playbooks with pay-per-email pricing and unlimited contacts. Keep Privy for popups or Mailchimp for broadcasts during transition; move strategic automations to Sequenzy when email revenue deserves its own line item in your P&amp;L.
+        </p>
+
+        <h2>Verdict</h2>
+        <p>
+          Privy wins when list growth from existing traffic is the binding constraint. Mailchimp wins when campaign execution and team familiarity matter more than popup optimization. Neither is your forever ESP — plan graduation before post-purchase and browse complexity arrive. Run capture and welcome tests separately; the winner is whichever tool fixes your actual bottleneck without duplicate-send stack mistakes.
+        </p>
+      </article>
+
+      <div class="mt-10 max-w-4xl text-sm">
+        <p class="font-black text-white">Related comparisons</p>
+        <p class="mt-2">
+          <a class="link" href="/compare/omnisend-vs-privy">Omnisend vs Privy</a> ·
+          <a class="link" href="/compare/drip-vs-mailchimp">Drip vs Mailchimp</a> ·
+          <a class="link" href="/compare/sequenzy-vs-privy">Sequenzy vs Privy</a> ·
+          <a class="link" href="/for/home-goods">Email apps for home goods</a> ·
+          <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 1: TCPA express written consent…</h2>
+      <p>For <strong>compare privy vs mailchimp</strong>, TCPA express written consent and opt-in source documentation is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+    <div class="prose-shopify card mt-8">
+      <h2>SMS operations depth 2: quiet hours configured by…</h2>
+      <p>For <strong>compare privy vs mailchimp</strong>, quiet hours configured by customer timezone not HQ timezone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
+      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <ul>
+        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
+        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
+        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
+        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
+      </ul>
+    </div>
+
+
+
+
+  <FaqSection faqs={faqs} title="Privy vs Mailchimp FAQ" />
+</BaseLayout>

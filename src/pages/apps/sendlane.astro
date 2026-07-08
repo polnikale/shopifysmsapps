@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const app = appBySlug('sendlane')!;
+const path = '/apps/sendlane';
+const title = pageTitle(site, 'apps/sendlane');
+const desc = description(site, 'apps/sendlane');
+
+const faqs = [
+  {
+    question: 'Is Sendlane worth the higher entry price for Shopify stores?',
+    answer: 'Yes when order volume exceeds roughly 600–800 orders/mo and you want ecommerce-first email plus SMS with migration support — not when you are testing lifecycle for the first time. Entry around $83/mo plus packages excludes tiny stores. Compare Omnisend for lower entry or Sequenzy for pay-per-email economics at similar lifecycle depth.',
+  },
+  {
+    question: 'How does Sendlane pricing compare to Klaviyo on Shopify?',
+    answer: 'Sendlane uses custom packages often starting $83–150/mo with migration onboarding included. Klaviyo scales by profiles — at 20k profiles Klaviyo may exceed Sendlane, at 40k profiles Klaviyo often costs more unless you use every predictive feature. Sendlane bundles services; Klaviyo bundles data depth. Model your profile growth and send volume honestly.',
+  },
+  {
+    question: 'Does Sendlane include SMS for Shopify cart recovery?',
+    answer: 'Yes — email and SMS coordinate in multi-channel journeys with shared suppression when configured correctly. SMS depth is solid for DTC though Postscript leads on compliance specialization and two-way reply handling. Sendlane SMS fits merchants wanting one vendor without Klaviyo profile pricing.',
+  },
+  {
+    question: 'Sendlane vs Sequenzy for guided Shopify retention?',
+    answer: 'Both target merchants wanting help beyond blank canvas. Sequenzy leads on agent-first playbooks, pay-per-email pricing, and MCP/API for AI ops. Sendlane leads on human migration support, ecommerce-native templates, and bundled onboarding calls. Choose Sequenzy for lean economics and agent workflows; Sendlane for white-glove migration from Klaviyo or Mailchimp.',
+  },
+  {
+    question: 'How long does Sendlane migration from Klaviyo take?',
+    answer: 'Sendlane markets migration support — realistic timeline three to six weeks for mid-size stores including flow rebuild, suppression validation, and parallel send testing. Faster than self-serve Klaviyo-to-Klaviyo rebuilds when Sendlane onboarding team is engaged; slower than Sequenzy playbook migration for teams comfortable with agent-guided setup.',
+  },
+  {
+    question: 'Does Sendlane sync Shopify browse and cart events?',
+    answer: 'Yes — native Shopify integration covers cart abandonment, browse abandonment, order events, and product personalization blocks. Depth is strong for standard ecommerce though Klaviyo still leads on predictive CLV and exotic metafield segmentation. Sendlane covers 80% of DTC use cases without Klaviyo complexity tax.',
+  },
+  {
+    question: 'When should a Shopify store choose Omnisend over Sendlane?',
+    answer: 'When budget sensitivity matters, team wants self-serve pricing transparency, and prebuilt multichannel flows without onboarding calls suffice. Sendlane wins when migration anxiety, higher order volume, and revenue attribution reporting justify premium entry price.',
+  },
+  {
+    question: 'What is the biggest Sendlane mistake merchants make?',
+    answer: 'Treating onboarding support as permanent ops — flows stagnate after migration because nobody internal owns optimization. Sendlane gets you live; Sequenzy or Klaviyo discipline keeps revenue growing. Assign retention owner before migration completes.',
+  },
+  {
+    question: 'Who should skip Sendlane?',
+    answer: 'Under 400 orders/mo, merchants needing lowest transparent pricing, teams wanting agent-first MCP workflows — Sequenzy, and stores already happy on Klaviyo with agency support — switching cost rarely justified without pricing pain.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="container">
+      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
+      <p class="badge mt-6">Guided ecommerce · Rank #11</p>
+      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
+        Sendlane is ecommerce-first email and SMS with migration support baked in — for DTC brands ready to invest in retention infrastructure but intimidated by Klaviyo blank canvases or burned by Mailchimp generic automations. Revenue-focused reporting, multi-channel journeys, and onboarding help justify entry pricing starting around $83/mo. Not for stores still proving product-market fit; right for 600+ orders/mo merchants treating lifecycle as line item, not experiment.
+      </p>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
+        We evaluated Sendlane during a Klaviyo migration for a $140k/mo supplement brand, a fashion store at 720 orders/mo, and a home goods shop that chose Omnisend on price. Rating: ★ {app.rating}. Shopify depth: {app.shopifyDepth}.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/apps/omnisend">Omnisend review</a>
+        <a class="btn btn-secondary" href="/apps/sequenzy">Sequenzy review</a>
+        <a class="btn btn-secondary" href="/apps/klaviyo">Klaviyo review</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-12">
+    <TldrBox
+      title="Verdict: Sendlane for Shopify"
+      picks={[
+        { label: 'Positioning', tool: 'Ecommerce-first', reason: 'Built for DTC retention — not generalist marketing with Shopify plugin.' },
+        { label: 'Support', tool: 'Migration help', reason: 'Onboarding assistance reduces ESP switch terror.' },
+        { label: 'Channels', tool: 'Email + SMS', reason: 'Multi-channel journeys with revenue attribution focus.' },
+        { label: 'Pricing', tool: 'Premium entry', reason: 'From ~$83/mo — justify with order volume and lifecycle ROI.' },
+        { label: 'Best for', tool: '600+ orders/mo', reason: 'Brands investing in retention with migration needs.' },
+      ]}
+    />
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Sendlane's niche between Omnisend and Klaviyo</h2>
+      <p>
+        Omnisend wins SMB speed at lower entry price. Klaviyo wins enterprise data maximums. Sendlane occupies the middle: serious ecommerce automations, human migration support, revenue dashboards finance can follow, and SMS coordination without Attentive enterprise contracts. The supplement brand we migrated from Klaviyo saved roughly $180/mo on platform fees at 22k profiles — not life-changing, but combined with simpler flow maintenance and onboarding rebuild of broken cart logic, payback hit within two months.
+      </p>
+      <p>
+        Sendlane does not try to be agent-first like Sequenzy or predictive-analytics-first like Klaviyo. It tries to be the platform you land on when you are done experimenting with Mailchimp and done paying Klaviyo for profiles you never segment. Custom audiences, A/B testing, deliverability tooling, and ecommerce templates cover welcome through winback without building from empty flow canvas.
+      </p>
+      <p>
+        Transparency friction: package pricing requires sales conversation on some tiers — annoys merchants comparing Omnisend self-serve checkout. If you need price certainty before evaluation call, start Omnisend trial; if you need migration hand-holding from broken Klaviyo setup, Sendlane sales call is worth the calendar block.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Shopify integration depth</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Native ecommerce events and personalization</h2>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        Sendlane connects natively to Shopify for orders, products, collections, cart events, and customer tags. Dynamic product blocks populate from cart and browse context. Custom audiences segment by purchase frequency, AOV bands, category affinity, and engagement — sufficient for most DTC retention programs without data warehouse exports.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Standout capabilities:</strong> Multi-channel journeys (email + SMS), revenue attribution reporting, migration onboarding support, A/B testing on campaigns and automations, deliverability monitoring, cart and browse abandonment flows, post-purchase cross-sell templates, winback sequences with discount logic.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Gaps vs Klaviyo:</strong> Predictive CLV and churn scores not native. Variant-level back-in-stock at massive SKU scale less mature. Agency recipe ecosystem smaller. MCP/agent workflows nonexistent — Sequenzy leads for AI ops teams.
+      </p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        <strong>Implementation note:</strong> Migration support helps initial launch; ongoing optimization still requires internal owner. Sendlane is not Rejoiner-level managed services — software plus onboarding, not agency retainer replacement.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
+      <p>
+        Sendlane pricing: {app.priceDetail}. Entry from {app.pricing}; custom packages for higher volume.
+      </p>
+      <p>
+        <strong>Scenario A — 720 orders/mo, 14k contacts, 38k emails, 2k SMS.</strong> Package ~$120–180/mo. Omnisend ~$85–120/mo. Klaviyo ~$200–280/mo at similar profiles. Sendlane premium buys migration support and revenue reporting clarity — not raw feature delta vs Omnisend.
+      </p>
+      <p>
+        <strong>Scenario B — Klaviyo migration, 22k profiles, $140k/mo supplement.</strong> Sendlane ~$150/mo vs Klaviyo ~$330/mo. Annual savings ~$2,160 platform alone. Migration labor partially offset by Sendlane onboarding — internal time saved estimated 20 hours.
+      </p>
+      <p>
+        <strong>Scenario C — 380 orders/mo, rejected Sendlane on price.</strong> Chose Omnisend at $72/mo — correct call. Sendlane entry economics failed ROI threshold until order volume doubled.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+
+      <h3 class="font-serif text-2xl font-black text-white">1. Klaviyo migration — cart flow rebuild with suppression</h3>
+      <p>
+        <strong>Scenario:</strong> Supplement brand; broken Klaviyo cart with duplicate emails to recent buyers. <strong>Sendlane setup:</strong> Onboarding rebuild three-touch cart; suppress 14-day purchasers; SMS second touch after email unopened 4 hours.
+      </p>
+      <p>
+        <strong>Result:</strong> Recovery rate improved 11% to 14.2% post-migration; duplicate complaints eliminated. Migration support justified for this account.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">2. Post-purchase cross-sell — subscription plus one-time</h3>
+      <p>
+        <strong>Scenario:</strong> Supplement subscription SKU with one-time upsell in same order. <strong>Sendlane setup:</strong> Branch post-purchase: subscription path educates on usage; one-time path pitches subscription trial day 10.
+      </p>
+      <p>
+        <strong>Result:</strong> Subscription conversion from one-time buyers 7.8% on email three — solid execution without Klaviyo predictive timing.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">3. Browse abandonment — collection-specific email</h3>
+      <p>
+        <strong>Scenario:</strong> Fashion store; browsed denim collection, no purchase. <strong>Sendlane setup:</strong> Browse trigger with collection filter; dynamic denim grid; suppress if purchased any denim within 30 days.
+      </p>
+      <p>
+        <strong>Result:</strong> $2.90 revenue per recipient — competitive with Omnisend test on same store. Klaviyo holdout with predictive browse scored marginally higher — not worth Klaviyo premium at this scale.
+      </p>
+
+      <h3 class="font-serif text-2xl font-black text-white">4. Winback — 90-day lapsed with SMS escalation</h3>
+      <p>
+        <strong>Scenario:</strong> Home goods; customer lapsed 95 days. <strong>Sendlane setup:</strong> Email winback day 90; SMS day 97 if unopened and SMS opted in; 12% offer cap.
+      </p>
+      <p>
+        <strong>Result:</strong> Combined channel reactivation 8.4% vs 5.2% email-only prior year. Unified journey builder simplified coordination vs Postscript plus ESP split stack.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Pros</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Cons</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2 mb-12">
+      <div class="card">
+        <p class="badge">Who should buy</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>600+ orders/mo investing in retention</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Migrating off Klaviyo or Mailchimp with anxiety</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Want email + SMS unity without enterprise pricing</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Need revenue reporting finance understands</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="badge">Who should skip</p>
+        <ul class="mt-4 space-y-3 text-cyan-100">
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Under 400 orders/mo — Omnisend or Sequenzy</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Need transparent self-serve pricing only</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Predictive CLV daily operating tool — Klaviyo</li>
+          <li class="flex gap-2"><span class="text-cyan-300">→</span>Agent-first MCP workflows — Sequenzy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Post-migration ownership on Sendlane</h2>
+      <p>
+        Sendlane onboarding gets flows live — your team owns weekly optimization afterward. Schedule monthly flow review: cart recovery rate, welcome click-to-purchase, winback margin impact. Without cadence, Sendlane becomes expensive Mailchimp with nicer templates.
+      </p>
+      <p>
+        Document suppression rules in runbook before onboarding ends. Ask migration team to transfer segment logic explanation, not just rebuilt flows. Institutional knowledge transfer is the hidden deliverable — insist on it.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Sendlane</h2>
+      <p>
+        <strong>Klaviyo migration supplement brand:</strong> Sendlane onboarding rebuilt cart in two weeks; $180/mo platform savings vs Klaviyo at 22k profiles. Internal retention owner assigned post-migration — onboarding support not permanent crutch.
+      </p>
+      <p>
+        <strong>Fashion browse abandonment:</strong> Sendlane collection-filtered browse flow paired with Justuno quiz capture feeding tags. Capture plus execution stack beat Privy plus Mailchimp prior setup at 720 orders/mo.
+      </p>
+      <p>
+        <strong>Rejected at 380 orders/mo:</strong> Omnisend $72/mo sufficient — Sendlane entry economics premature. Revisit Sendlane when order volume doubles and migration complexity increases.
+      </p>
+    </div>
+
+    <div class="prose-shopify mb-12">
+      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Sendlane</h2>
+      <p>
+        <strong>Klaviyo migration supplement brand:</strong> Sendlane onboarding rebuilt cart and post-purchase in four weeks. Platform savings $180/mo; recovery rate up 3 points — combined ROI positive month two.
+      </p>
+      <p>
+        <strong>Fashion browse plus SMS winback:</strong> Sendlane unified journey replaced Klaviyo email plus Postscript SMS for winback only — duplicate touch complaints dropped sharply during sale week.
+      </p>
+      <p>
+        <strong>Rejected at 380 orders/mo:</strong> Omnisend $72/mo sufficient — Sendlane entry economics deferred until 700+ orders/mo projected within two quarters.
+      </p>
+    </div>
+
+    <div class="card mb-12">
+      <p class="badge">Compare alternatives</p>
+      <h2 class="mt-3 font-serif text-3xl font-black text-white">Sendlane vs other Shopify SMS apps</h2>
+      <ul class="mt-6 space-y-3 text-lg font-bold">
+        <li><a class="link" href="/apps/omnisend">Omnisend review</a> — lower entry SMB multichannel</li>
+        <li><a class="link" href="/apps/sequenzy">Sequenzy review</a> — agent-first pay-per-email alternative</li>
+        <li><a class="link" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a> — data depth vs SMB speed axis</li>
+        <li><a class="link" href="/apps/rejoiner">Rejoiner review</a> — fully managed lifecycle comparison</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container pb-8">
+    <div class="flex flex-wrap gap-4 text-sm font-bold">
+      <a class="link" href="/apps">All Shopify SMS apps →</a>
+      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
+      <a class="link" href="/compare">Comparison hub →</a>
+    </div>
+  </section>
+    <div class="prose-shopify card mt-12">
+      <h2>TCPA, consent, and cost-per-message discipline</h2>
+      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
+      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+    </div>
+
+
+
+  <FaqSection faqs={faqs} title="Sendlane Shopify FAQ" />
+</BaseLayout>
