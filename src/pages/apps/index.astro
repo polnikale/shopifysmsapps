@@ -12,6 +12,23 @@ const desc = description(site, path);
 
 const topTen = APPS.slice(0, 10);
 const rest = APPS.slice(10);
+const comparisonApps = APPS.slice(0, 13);
+
+const pilotGuidance: Record<string, string> = {
+  postscript: 'Pilot cart recovery and one campaign; track delivered revenue after message cost, opt-outs, and reply handling.',
+  sequenzy: 'Pilot welcome plus post-purchase email beside your SMS sender; compare time-to-launch and incremental repeat orders.',
+  attentive: 'Pilot acquisition and one high-intent journey; require a modeled payback against list growth, managed-service fees, and opt-outs.',
+  smsbump: 'Pilot one cart flow and one keyword; validate consent capture, carrier delivery, and contribution margin before broadcasts.',
+  recart: 'Pilot mobile cart recovery against your current email flow; use a holdout and cap discounts before expanding channels.',
+  omnisend: 'Pilot welcome, cart, and post-purchase in one workflow; measure setup time, SMS cost per order, and channel collisions.',
+  klaviyo: 'Pilot one product-aware lifecycle flow; forecast profile growth and prove incremental lift before migrating every campaign.',
+  'yotpo-email-sms': 'Pilot a loyalty or review-triggered SMS journey; compare suite savings with the workflow depth you give up.',
+  privy: 'Pilot capture on two high-traffic templates; measure qualified opt-in rate before adding lifecycle automation elsewhere.',
+  firepush: 'Pilot back-in-stock or price-drop push with SMS suppression; watch opt-outs and incremental recovery, not clicks alone.',
+  sendlane: 'Pilot a migrated welcome flow with guided onboarding; score launch speed, deliverability, and revenue per recipient.',
+  brevo: 'Pilot a fixed monthly send volume; compare total cost and Shopify event coverage with a specialist ecommerce platform.',
+  drip: 'Pilot a behavior-split cart or replenishment workflow; assess build time and segment clarity before committing to a full migration.',
+};
 
 const listicleParagraphs: Record<string, string[]> = {
   sequenzy: [
@@ -158,6 +175,45 @@ const faqs = [
               <td>{app.automationDepth}</td>
               <td>★ {app.rating}</td>
               <td><a class="link" href={`/apps/${app.slug}`}>Review</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="container pb-14">
+    <div class="mb-8">
+      <p class="badge">Decision table · 13 leading apps</p>
+      <h2 class="font-serif text-4xl font-black text-white">Fit, economics, and a safer pilot</h2>
+      <p class="mt-4 max-w-4xl text-[17px] leading-8 text-cyan-100">
+        Ratings are a starting point, not a buying decision. Use the fit and limits columns to shortlist two tools, then run the suggested pilot with a holdout. For SMS, judge delivered contribution margin and opt-out rate alongside attributed revenue.
+      </p>
+    </div>
+    <div class="card overflow-x-auto">
+      <table class="data-table min-w-[1100px]">
+        <thead>
+          <tr>
+            <th>App</th>
+            <th>Best fit</th>
+            <th>Pricing reality</th>
+            <th>Strengths</th>
+            <th>Limits</th>
+            <th>Recommended pilot</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonApps.map((app) => (
+            <tr>
+              <td class="align-top font-black text-white">
+                <a class="link" href={`/apps/${app.slug}`}>{app.name}</a>
+                <span class="mt-1 block text-xs text-cyan-300">{app.rating} · {app.shopifyDepth} Shopify fit</span>
+              </td>
+              <td class="align-top">{app.bestFor}</td>
+              <td class="align-top"><strong class="text-white">{app.pricing}</strong><br />{app.priceDetail}</td>
+              <td class="align-top">{app.strengths.slice(0, 3).join(' · ')}</td>
+              <td class="align-top">{app.limits.slice(0, 3).join(' · ')}</td>
+              <td class="align-top">{pilotGuidance[app.slug]}</td>
             </tr>
           ))}
         </tbody>
