@@ -1,7 +1,9 @@
-# Shopify SMS Apps
+# shopifysmsapps.com
 
-Agent-readable SMS-app selection guide for Shopify teams.
+This site publishes Shopify email marketing and automation guides. Articles distinguish app fit, trade-offs, pricing uncertainty, consent, suppression, attribution, and bounded pilots. Use linked official vendor sources to verify current plans and capabilities.
 
-Start with the message job—cart recovery, launch, replenishment, or post-purchase—and verify that the tool can prove consent, honor opt-outs, separate marketing from operational messages, and synchronize purchase state. Price messages, carrier fees, seats, integrations, and compliance work together.
+## Scope
 
-Use official sources for current pricing and features. Measure incremental behavior and margin alongside delivery, opt-out, complaint, and frequency data. A focused comparison names two products; a listicle is a broader shortlist.
+- Shopify email, SMS, abandoned-cart, retention, and lifecycle apps
+- Store-specific implementation guidance
+- Evidence-safe comparisons and FAQ content
