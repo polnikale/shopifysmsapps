@@ -21,4 +21,192 @@ const tools=[
 ];
 const audienceInsight=`For ${topic.audience}, SMS should earn its interruption with timely context, explicit permission, and a measurable job. For ${topic.goal}, compare exposed subscribers with an eligible holdout after message fees, carrier fees, discounts, refunds, and opt-out costs.`;
 ---
-<BaseLayout title={`${title} | Shopify SMS Apps`} description={`A source-linked shortlist of Shopify SMS apps for ${topic.goal} for ${topic.audience}.`}><article class="py-12 md:py-20"><div class="container max-w-5xl"><a href="/" class="text-sm text-neutral-500 mb-5 inline-block">← Shopify SMS app guide</a><h1 class="section-title">{title}</h1><p class="section-description">SMS requires explicit consent, clear opt-out handling, quiet hours, useful timing, and a margin-aware offer strategy.</p><div class="my-8 p-6 rounded-xl bg-accent/10 border border-accent/20"><h2 class="text-2xl font-bold text-white mb-3">Decision summary</h2><p class="text-neutral-300">{audienceInsight}</p></div><h2>Shortlist by SMS operating fit</h2><div class="overflow-x-auto"><table><thead><tr><th>App</th><th>Best for</th><th>Pros</th><th>Cons</th><th>Pricing</th></tr></thead><tbody>{tools.map((tool,i)=><tr><td>{i+1}. <a href={tool.url} rel="nofollow">{tool.name}</a></td><td>{tool.best}</td><td>{tool.pros}</td><td>{tool.cons}</td><td>{tool.price}</td></tr>)}</tbody></table></div>{tools.map((tool,i)=><section class="my-10"><h2>{i+1}. {tool.name}: {tool.best}</h2><p><strong>Best for:</strong> {tool.detail}</p><p><strong>Pros, cons, and pricing:</strong> The advantage is {tool.pros}; the constraint is {tool.cons}. {tool.price}. Review the <a href={tool.url} rel="nofollow">official {tool.name} source</a> before treating any plan or feature as current.</p><div class="overflow-x-auto"><table><tbody><tr><th>Pros</th><td>{tool.pros}</td></tr><tr><th>Cons</th><td>{tool.cons}</td></tr><tr><th>Bounded pilot</th><td>{tool.pilot}</td></tr></tbody></table></div></section>)}<h2>Shopify SMS QA map</h2><div class="overflow-x-auto"><table><thead><tr><th>Permission</th><th>Message job</th><th>Control</th></tr></thead><tbody><tr><td>Documented opt-in source and current consent</td><td>One timely, useful message with clear opt-out</td><td>Quiet hours, opt-out suppression, and carrier audit</td></tr><tr><td>Margin, inventory, and frequency constraints</td><td>Qualified conversion or service outcome</td><td>Attribution, costs, discounts, complaints, and app access</td></tr></tbody></table></div><h2>FAQ</h2><h3>What should a Shopify SMS pilot include?</h3><p>One permissioned audience, one message job, a clear opt-out, quiet-hour rules, purchaser suppression, an owner for replies, and a holdout or baseline. Report incremental profit, not clicks alone.</p><h3>Should SMS and email share a frequency cap?</h3><p>They should share a customer-level contact policy even when the channels have separate operational owners. Otherwise a customer can receive an email and SMS for the same state without anyone seeing the collision.</p><p class="text-neutral-400">Related reading: <a href="/use-cases/index">Shopify messaging use cases</a>, <a href="/guides/consent-compliance">consent and compliance</a>, <a href="/guides/flow-collision-prevention">flow collision prevention</a>, and <a href="/alternatives">SMS alternatives</a>.</p></div></article></BaseLayout>
+<BaseLayout title={`${title} | Shopify SMS Apps`} description={`A source-linked shortlist of Shopify SMS apps for ${topic.goal} for ${topic.audience}.`}>
+<article class="py-12 md:py-20">
+<div class="container max-w-5xl">
+<a href="/" class="text-sm text-neutral-500 mb-5 inline-block">← Shopify SMS app guide</a>
+<h1 class="section-title">{title}</h1>
+<p class="section-description">SMS requires explicit consent, clear opt-out handling, quiet hours, useful timing, and a margin-aware offer strategy.</p>
+<div class="my-8 p-6 rounded-xl bg-accent/10 border border-accent/20">
+<h2 class="text-2xl font-bold text-white mb-3">Decision summary</h2>
+<p class="text-neutral-300">{audienceInsight}</p>
+</div>
+<h2>Shortlist by SMS operating fit</h2>
+<div class="overflow-x-auto">
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Best for</th>
+<th>Pros</th>
+<th>Cons</th>
+<th>Pricing</th>
+</tr>
+</thead>
+<tbody>{tools.map((tool,i)=>
+<tr>
+<td>{i+1}. <a href={tool.url} rel="nofollow">{tool.name}</a>
+</td>
+<td>{tool.best}</td>
+<td>{tool.pros}</td>
+<td>{tool.cons}</td>
+<td>{tool.price}</td>
+</tr>)}</tbody>
+</table>
+</div>{tools.map((tool,i)=>
+<section class="my-10">
+<h2>{i+1}. {tool.name}: {tool.best}</h2>
+<p>
+<strong>Best for:</strong> {tool.detail}</p>
+<p>
+<strong>Pros, cons, and pricing:</strong> The advantage is {tool.pros}; the constraint is {tool.cons}. {tool.price}. Review the <a href={tool.url} rel="nofollow">official {tool.name} source</a> before treating any plan or feature as current.</p>
+<div class="overflow-x-auto">
+<table>
+<tbody>
+<tr>
+<th>Pros</th>
+<td>{tool.pros}</td>
+</tr>
+<tr>
+<th>Cons</th>
+<td>{tool.cons}</td>
+</tr>
+<tr>
+<th>Bounded pilot</th>
+<td>{tool.pilot}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>)}<h2>Shopify SMS QA map</h2>
+<p>
+Use this map as a pre-launch checklist: every row is a failure mode that shows up as a complaint, a carrier filter, or a negative margin month rather than as a dashboard alert. Assign each row a named owner before the first broadcast, and re-verify the consent and suppression rows whenever the stack changes.
+</p>
+<div class="overflow-x-auto">
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Message job</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documented opt-in source and current consent</td>
+<td>One timely, useful message with clear opt-out</td>
+<td>Quiet hours, opt-out suppression, and carrier audit</td>
+</tr>
+<tr>
+<td>Margin, inventory, and frequency constraints</td>
+<td>Qualified conversion or service outcome</td>
+<td>Attribution, costs, discounts, complaints, and app access</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Consent, TCPA, and state privacy rules</h2>
+<p>
+Every promotional text your store sends needs express written consent tied to a specific phone number, a disclosure of message types and frequency, and a retrievable record of the opt-in event. Under the TCPA and state privacy laws such as CCPA/CPRA, Colorado, Virginia, and Washington, the store — not the app — carries the liability for consent evidence, STOP latency, and quiet-hour enforcement.
+</p>
+<p>
+Before enabling SMS for {topic.audience.toLowerCase()}, verify four things in the tool you choose: consent is stored separately from email consent with source and timestamp; STOP suppresses across every flow within seconds; HELP routes to a readable reply; and quiet hours resolve to the recipient's local time zone. Purchase history never substitutes for SMS permission — a buyer who gave an email at checkout has not consented to texts.
+</p>
+<p>
+If your existing consent ledger cannot prove source, timestamp, and message-type scope, re-permission with a keyword campaign and an unambiguous disclosure instead of importing the audience on hope. That week of slower growth buys a consent artifact that survives carrier filtering and complaint review.
+</p>
+
+<h2>Purchaser suppression and flow collisions</h2>
+<p>
+The most damaging SMS failure is not a bad message — it is a mistimed one. A cart reminder after checkout completes, a winback text the day a renewal charges, or a launch alert sent to a customer with an open support ticket each burn trust and invite opt-outs. Build a suppression matrix before you build flows: which events exit a journey instantly (order created, subscription renewed), which delay it (refund pending), and which branch it (gift buyer vs. the buyer themself).
+</p>
+<p>
+Then coordinate channels. If email and SMS both run cart recovery, one channel owns the first hour and the other becomes a documented fallback at 4–24 hours, with no duplicated offer inside a single intent window. Write the rule down; unowned defaults always collide eventually.
+</p>
+
+<h2>Margin math: what each text actually earns</h2>
+<p>
+Work an example before you scale. A $100 order at 55% gross margin, a 15% recovery discount, a three-touch cart flow at roughly $0.17 per message (segments plus carrier surcharge) leaves about $40 of contribution per recovered order. Swap in 25% off or MMS creative and the same flow earns closer to $25. Attribution dashboards will happily report the $100; only margin math tells you whether the program paid.
+</p>
+<p>
+Track per flow: cost per delivered message, discount cost per incremental order, opt-outs per 100 delivered messages, and the 90-day repeat rate of the recovered cohort. Keep a holdout so "attributed revenue" never stands in for "incremental profit," and pause any flow whose opt-out rate rises without a matching contribution gain.
+</p>
+
+<h2>App costs and pricing: what to verify before you commit</h2>
+<p>
+SMS app pricing is a moving target. Plan names, contact tiers, per-message rates, MMS premiums, carrier surcharges, and regional availability all change, and vendor pricing pages do not always show overage terms or number-verification fees. Treat every number you read — including on this page — as a buying-model note, not a quote, and check the official pricing page of each shortlisted tool for current terms.
+</p>
+<p>
+Request a written twelve-month estimate at your real volume: monthly sends, average segments per message, MMS share, expected list growth, and the countries you will text. Ask separately about onboarding fees, premium integrations, seat limits, and what happens to billing during a seasonal spike. For the full framework, see the <a href="/guides/pricing">SMS pricing guide</a>; for consent mechanics, the <a href="/guides/consent">consent guide</a> and <a href="/guides/tcpa">TCPA primer</a>; and for timing rules, <a href="/guides/quiet-hours">quiet hours</a>.
+</p>
+
+<h2>Negotiation and vendor checklist before you sign</h2>
+<p>
+SMS vendors expect procurement questions at volume, so ask them. Request written confirmation of: per-message and MMS rates at your peak-month volume, carrier surcharge pass-throughs, whether undelivered or attempted messages bill, overage thresholds, seat and integration limits, onboarding and migration fees, data export on exit, and cancellation notice. A vendor that will not put these in writing has answered the question.
+</p>
+<p>
+Ask, too, what the vendor's support includes at your plan tier: response times during a carrier incident, whether a human reviews consent configurations, and who owns fixing a misfiring trigger. Recovery and launch windows are exactly when misfires are most expensive.
+</p>
+<p>
+Run the same negotiation with two finalists and let the written estimates compete. The differences usually appear in the second year — overage pricing, add-on features you assumed were included, and support response times during a launch or a carrier incident — not in the first invoice.
+</p>
+
+<h2>Decision table by store situation</h2>
+<div class="overflow-x-auto">
+<table>
+<thead>
+<tr>
+<th>If your constraint is…</th>
+<th>Prioritize</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMS urgency and replies</td>
+<td>Postscript, SMSBump, Recart</td>
+<td>SMS-native recovery and campaign workflows</td>
+</tr>
+<tr>
+<td>Deep commerce segmentation</td>
+<td>Klaviyo, Drip, Sendlane</td>
+<td>Shopify events feeding email and SMS eligibility</td>
+</tr>
+<tr>
+<td>Low-commitment testing</td>
+<td>Brevo, Mailchimp, Omnisend</td>
+<td>Free tiers and accessible campaign operations</td>
+</tr>
+<tr>
+<td>Lifecycle planning beside SMS</td>
+<td>Sequenzy, Customer.io</td>
+<td>Sequenzy plans email lifecycle while a dedicated SMS provider sends texts; Customer.io suits event-rich technical teams</td>
+</tr>
+<tr>
+<td>Support-aware suppression</td>
+<td>Gorgias, Recharge</td>
+<td>Ticket and subscription state pausing mistimed outreach</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>FAQ</h2>
+<h3>What should a Shopify SMS pilot include?</h3>
+<p>One permissioned audience, one message job, a clear opt-out, quiet-hour rules, purchaser suppression, an owner for replies, and a holdout or baseline. Report incremental profit, not clicks alone.</p>
+<h3>Should SMS and email share a frequency cap?</h3>
+<p>They should share a customer-level contact policy even when the channels have separate operational owners. Otherwise a customer can receive an email and SMS for the same state without anyone seeing the collision.</p>
+<h3>Is the pricing in this guide guaranteed?</h3>
+<p>No. Plan names, contact tiers, per-message rates, and regional SMS availability change, and this page links each tool's official source for current terms. Request a written twelve-month estimate at your real volume before forecasting.</p>
+<h3>How many SMS flows should a store start with?</h3>
+<p>One or two. Cart recovery with purchaser suppression and a winback or replenishment reminder for repeatable products cover most of the value. Add launch alerts, back-in-stock, and VIP campaigns only after opt-out rates and margin math clear your thresholds for the first flows.</p>
+<h3>Do I need a separate SMS provider if I already have an email tool?</h3>
+<p>Often yes. Email-first platforms can plan and time the lifecycle, but carrier compliance, keyword acquisition, reply handling, and regional number provisioning usually belong with a dedicated SMS sender. Pair the two deliberately with a documented consent and collision map rather than forcing one tool to do both jobs poorly.</p>
+<h3>What quiet hours should a Shopify SMS program run?</h3>
+<p>A common starting window is 8 a.m. to 9 p.m. in the recipient's local time zone, tightened for time-sensitive industries and adjusted for state-level telemarketing rules. What matters operationally is that the window resolves per recipient — not per store — and that scheduled broadcasts are re-checked against the window at send time, not at schedule time.</p>
+<h3>How do I measure whether SMS is actually working?</h3>
+<p>Compare a held-out cohort against the messaged cohort and report incremental orders, incremental contribution margin after discounts and messaging fees, opt-out rate, and the 90-day repeat rate of the messaged cohort. If the platform cannot support a holdout or the increments do not clear your margin threshold, reduce frequency before you reduce spend.</p>
+<p class="text-neutral-400">Related reading: <a href="/use-cases">Shopify messaging use cases</a>, <a href="/guides/consent">consent and compliance</a>, <a href="/guides/email-sms-coordination">email/SMS coordination</a>, and <a href="/alternatives">SMS alternatives</a>.</p>
+</div>
+</article>
+</BaseLayout>

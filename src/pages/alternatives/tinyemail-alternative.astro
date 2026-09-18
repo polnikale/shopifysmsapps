@@ -7,16 +7,206 @@ const path = '/alternatives/tinyemail-alternative';
 const title = pageTitle(site, 'alternatives/tinyemail-alternative');
 const desc = description(site, 'alternatives/tinyemail-alternative');
 const tools = [
-  { name: 'Postscript', best: 'SMS-native Shopify cart and lifecycle messaging', pros: 'SMS workflows, replies, and consent-oriented operations', cons: 'Email lifecycle may need a separate platform', price: 'Verify current message and platform pricing', source: 'https://postscript.io/' },
-  { name: 'Attentive', best: 'Larger brands with a dedicated SMS growth program', pros: 'Managed SMS acquisition and segmentation depth', cons: 'May exceed a smaller team’s operating needs', price: 'Verify current contract and messaging pricing', source: 'https://www.attentive.com/pricing' },
-  { name: 'Omnisend', best: 'SMB stores wanting bundled email, SMS, and push', pros: 'Fast multichannel ecommerce workflows', cons: 'Channel costs and collision rules need governance', price: 'Verify current contact and channel pricing', source: 'https://www.omnisend.com/pricing/' },
-  { name: 'Klaviyo', best: 'Stores coordinating SMS with detailed email and product behavior', pros: 'Rich Shopify events across email and SMS', cons: 'Profile pricing and consent complexity can grow', price: 'Verify current contact and feature pricing', source: 'https://www.klaviyo.com/pricing' },
-  { name: 'Sequenzy', best: 'Email lifecycle beside a specialist SMS sender', pros: 'Focused welcome, education, post-purchase, and winback sequences', cons: 'Not a direct SMS replacement; validate the handoff', price: 'Verify current plan and integration coverage', source: 'https://sequenzy.io/' },
+  {
+    name: 'Postscript',
+    best: 'SMS-native Shopify cart and lifecycle messaging',
+    pros: 'SMS workflows, replies, and consent-oriented operations',
+    cons: 'Email lifecycle may need a separate platform',
+    price: 'Verify current message and platform pricing',
+    source: 'https://postscript.io/',
+  },
+  {
+    name: 'Attentive',
+    best: 'Larger brands with a dedicated SMS growth program',
+    pros: 'Managed SMS acquisition and segmentation depth',
+    cons: 'May exceed a smaller team’s operating needs',
+    price: 'Verify current contract and messaging pricing',
+    source: 'https://www.attentive.com/pricing',
+  },
+  {
+    name: 'Omnisend',
+    best: 'SMB stores wanting bundled email, SMS, and push',
+    pros: 'Fast multichannel ecommerce workflows',
+    cons: 'Channel costs and collision rules need governance',
+    price: 'Verify current contact and channel pricing',
+    source: 'https://www.omnisend.com/pricing/',
+  },
+  {
+    name: 'Klaviyo',
+    best: 'Stores coordinating SMS with detailed email and product behavior',
+    pros: 'Rich Shopify events across email and SMS',
+    cons: 'Profile pricing and consent complexity can grow',
+    price: 'Verify current contact and feature pricing',
+    source: 'https://www.klaviyo.com/pricing',
+  },
+  {
+    name: 'Sequenzy',
+    best: 'Email lifecycle beside a specialist SMS sender',
+    pros: 'Focused welcome, education, post-purchase, and winback sequences',
+    cons: 'Not a direct SMS replacement; validate the handoff',
+    price: 'Verify current plan and integration coverage',
+    source: 'https://sequenzy.io/',
+  },
 ];
 const faqs = [
-  { question: 'Why replace TinyEmail for Shopify SMS?', answer: 'Common reasons include unclear message economics, insufficient quiet-hour or consent controls, weak Shopify event context, or a need to separate SMS urgency from email lifecycle education.' },
-  { question: 'Can email permission be reused for SMS?', answer: 'No. Treat SMS consent separately. Preserve opt-in source, timestamp, message type, opt-outs, quiet hours, and suppression state.' },
-  { question: 'How should I migrate?', answer: 'Export and validate consent first, rebuild cart recovery, test STOP handling and quiet hours, then add launch, replenishment, and winback flows with a collision calendar.' },
+  {
+    question: 'Why replace TinyEmail for Shopify SMS?',
+    answer: 'Common reasons include unclear message economics, insufficient quiet-hour or consent controls, weak Shopify event context, or a need to separate SMS urgency from email lifecycle education.',
+  },
+  {
+    question: 'Can email permission be reused for SMS?',
+    answer: 'No. Treat SMS consent separately. Preserve opt-in source, timestamp, message type, opt-outs, quiet hours, and suppression state.',
+  },
+  {
+    question: 'How should I migrate?',
+    answer: 'Export and validate consent first, rebuild cart recovery, test STOP handling and quiet hours, then add launch, replenishment, and winback flows with a collision calendar.',
+  },
+  {
+    question: 'How does SMS margin math change which tool I pick?',
+    answer: 'Model contribution margin per recovered order: gross margin minus discount depth, per-message platform and carrier fees, MMS premiums, and the opt-out cost of higher frequency. A platform with a higher monthly fee but lower per-message cost can win the margin math at your volume, so model twelve months of sends, not the first invoice.',
+  },
+  {
+    question: 'What SMS costs hide behind low app pricing?',
+    answer: 'Per-segment message fees, MMS markups, carrier surcharges, long-code or toll-free verification, keyword shortcodes, and overage tiers. Ask each vendor to quote your actual send mix — segments per message, MMS share, and monthly volume — in writing before you forecast.',
+  },
+  {
+    question: 'Do I need to re-consent existing SMS subscribers?',
+    answer: 'If the consent record can be exported with source, timestamp, and message-type scope, most stores can carry it forward. If the record is incomplete, re-permission with a keyword campaign and a clear disclosure rather than assuming a purchase or email opt-in grants SMS permission.',
+  },
+  {
+    question: 'Should SMS and email be on the same platform?',
+    answer: 'Not necessarily. Bundled platforms simplify the builder; specialist stacks put consent and carrier compliance with the channel that carries the risk. What matters is a documented suppression and collision map either way — see our email/SMS coordination guide.',
+  },
 ];
 ---
-<BaseLayout title={title} description={desc} site={site} path={path}><ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} /><main class="container py-14 md:py-20"><a href="/alternatives" class="link text-sm">← All alternatives</a><p class="badge mt-6">Shopify SMS migration</p><h1 class="hero-title mt-5 max-w-5xl">Best TinyEmail alternatives for Shopify SMS</h1><p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">The best TinyEmail replacement depends on whether you need an SMS-native sender, a bundled email-and-SMS platform, or a dedicated email lifecycle layer beside SMS. Do not choose by logo alone: compare consent, quiet hours, message economics, and Shopify event fidelity.</p><section class="mt-12 max-w-5xl overflow-x-auto rounded-2xl border border-white/[0.08]"><table class="w-full text-left"><thead><tr><th>Platform</th><th>Best fit</th><th>Pros</th><th>Tradeoff</th></tr></thead><tbody>{tools.map((tool, i) => <tr class={i === 0 ? 'highlight-row' : ''}><td class="font-semibold text-white">{tool.name}</td><td>{tool.best}</td><td>{tool.pros}</td><td>{tool.cons}</td></tr>)}</tbody></table></section><article class="prose-shopify mt-14 max-w-4xl"><h2>Why merchants replace TinyEmail for SMS</h2><p>SMS is a scarce interruption channel, not a shorter email. A cart reminder, launch alert, replenishment text, and service message need different timing, consent expectations, and suppression rules. The migration should begin by mapping those message classes and deciding which platform owns each one.</p><p>Model total cost as platform fee plus carrier or message fee plus discount cost and operator time. A text that needs a deep coupon to convert may reduce contribution margin even when an attribution dashboard reports revenue. Compare incremental orders, opt-outs, complaints, and full-price repeat behavior.</p><h2>Platform notes</h2>{tools.map((tool, i) => <section><h3>{i + 1}. {tool.name}</h3><p><strong>Best for:</strong> {tool.best}. <strong>Pros:</strong> {tool.pros}. <strong>Cons:</strong> {tool.cons}. <strong>Pricing:</strong> {tool.price}. Review the <a href={tool.source} target="_blank" rel="noopener noreferrer">official source</a> and include message volume, contacts, seats, consent tooling, and integration work.</p><table><tbody><tr><th>Consent test</th><td>Can the team prove opt-in source and timestamp, honor STOP, enforce quiet hours, and preserve exclusions?</td></tr><tr><th>Collision test</th><td>Can the stack prevent the same offer arriving by SMS and email in the same intent window?</td></tr></tbody></table></section>)}<h2>Migration checklist</h2><ol><li>Export SMS consent, opt-outs, timestamps, source, quiet-hour settings, segments, templates, and live flows.</li><li>Do not import email-only contacts into SMS.</li><li>Rebuild cart recovery first and test purchase exits, STOP behavior, and quiet hours.</li><li>Add launch, replenishment, and winback paths only after consent and suppression QA.</li><li>Measure incremental orders, cost per incremental order, opt-outs, complaints, discount depth, and repeat quality.</li></ol><h2>Verdict</h2><p>Choose Postscript for SMS-native Shopify operations, Attentive for a managed large-scale SMS program, Omnisend for bundled multichannel workflows, Klaviyo for deep email-and-SMS commerce behavior, and Sequenzy when email lifecycle should remain a deliberate layer beside SMS. The safest migration is the one that improves ownership and consent visibility, not merely the one that changes the sender.</p></article><FaqSection faqs={faqs} /><p class="mt-12 text-slate-300">Continue with <a class="link" href="/apps">app profiles</a>, <a class="link" href="/compare">comparisons</a>, and <a class="link" href="/guides">SMS operator guides</a>.</p></main></BaseLayout>
+<BaseLayout title={title} description={desc} site={site} path={path}>
+<ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+<main class="container py-14 md:py-20">
+<a href="/alternatives" class="link text-sm">← All alternatives</a>
+<p class="badge mt-6">Shopify SMS migration</p>
+<h1 class="hero-title mt-5 max-w-5xl">Best TinyEmail alternatives for Shopify SMS</h1>
+<p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">The best TinyEmail replacement depends on whether you need an SMS-native sender, a bundled email-and-SMS platform, or a dedicated email lifecycle layer beside SMS. Do not choose by logo alone: compare consent, quiet hours, message economics, and Shopify event fidelity.</p>
+<section class="mt-12 max-w-5xl overflow-x-auto rounded-2xl border border-white/[0.08]">
+<table class="w-full text-left">
+<thead>
+<tr>
+<th>Platform</th>
+<th>Best fit</th>
+<th>Pros</th>
+<th>Tradeoff</th>
+</tr>
+</thead>
+<tbody>{tools.map((tool, i) => <tr class={i === 0 ? 'highlight-row' : ''}>
+<td class="font-semibold text-white">{tool.name}</td>
+<td>{tool.best}</td>
+<td>{tool.pros}</td>
+<td>{tool.cons}</td>
+</tr>)}</tbody>
+</table>
+</section>
+<article class="prose-shopify mt-14 max-w-4xl">
+<h2>Why merchants replace TinyEmail for SMS</h2>
+<p>SMS is a scarce interruption channel, not a shorter email. A cart reminder, launch alert, replenishment text, and service message need different timing, consent expectations, and suppression rules. The migration should begin by mapping those message classes and deciding which platform owns each one.</p>
+<p>Model total cost as platform fee plus carrier or message fee plus discount cost and operator time. A text that needs a deep coupon to convert may reduce contribution margin even when an attribution dashboard reports revenue. Compare incremental orders, opt-outs, complaints, and full-price repeat behavior.</p>
+<h2>Platform notes</h2>{tools.map((tool, i) => <section>
+<h3>{i + 1}. {tool.name}</h3>
+<p>
+<strong>Best for:</strong> {tool.best}. <strong>Pros:</strong> {tool.pros}. <strong>Cons:</strong> {tool.cons}. <strong>Pricing:</strong> {tool.price}. Review the <a href={tool.source} target="_blank" rel="noopener noreferrer">official source</a> and include message volume, contacts, seats, consent tooling, and integration work.</p>
+<table>
+<tbody>
+<tr>
+<th>Consent test</th>
+<td>Can the team prove opt-in source and timestamp, honor STOP, enforce quiet hours, and preserve exclusions?</td>
+</tr>
+<tr>
+<th>Collision test</th>
+<td>Can the stack prevent the same offer arriving by SMS and email in the same intent window?</td>
+</tr>
+</tbody>
+</table>
+</section>)}<h2>Consent, TCPA, and state rules during a TinyEmail migration</h2>
+<p>
+SMS consent is not a checkbox you inherit. Under the TCPA and state privacy laws such as CCPA/CPRA, Colorado, Virginia, and Washington's My Health My Data regime, every promotional text needs express written consent tied to the phone number, a clear disclosure of message types and frequency, and a machine-readable record of the opt-in event. When you leave TinyEmail, export the consent ledger — source URL or keyword, timestamp, IP or carrier evidence where available, and every opt-out — before you disconnect the account.
+</p>
+<p>
+Do not map email subscribers into SMS audiences "because they bought something." Purchase creates a business relationship, not SMS permission. A shared pattern that survives audits: keep consent state in one system of record, have the SMS provider read it, and suppress any subscriber whose consent source, timestamp, or message-type scope cannot be proven. Honor STOP globally within seconds, route HELP to a human-readable reply, and enforce quiet hours by the recipient's local time zone, not the store's.
+</p>
+<p>
+If you operate in or market to states with stricter rules, re-permission rather than assume. A keyword campaign ("text SHOP to 55588") with an unambiguous disclosure rebuilds a defensible list in weeks and gives you a consent artifact that survives both carrier filtering and litigation review. For a fuller walkthrough, see the <a class="link" href="/guides/consent">SMS consent guide</a> and the <a class="link" href="/guides/tcpa">TCPA primer</a>.
+</p>
+
+<h2>Purchaser suppression and flow collisions</h2>
+<p>
+The most expensive SMS mistake is a cart reminder sent after checkout completed. Every platform in this comparison can suppress recent purchasers; the differences are where the suppression is configured, how fast the purchase event propagates, and whether gift buyers and subscription renewals are treated separately. During migration, build a suppression matrix before rebuilding flows: which events exit a flow instantly (order created), which delay it (refund pending), and which branch it (subscription renewal vs. one-time purchase).
+</p>
+<p>
+Then coordinate with email. If TinyEmail was running cart email and Postscript runs cart SMS, define a collision rule: SMS first for opted-in shoppers within the first hour, email as the fallback at 4–24 hours, and no duplicated offer inside the same window. Document it. The <a class="link" href="/guides/email-sms-coordination">email/SMS coordination guide</a> covers the suppression map in detail, and <a class="link" href="/guides/quiet-hours">quiet hours</a> covers timing enforcement.
+</p>
+
+<h2>Margin math: what a recovered cart actually earns</h2>
+<p>
+Attribution dashboards report revenue; contribution margin is what pays for the app. Work an example: a recovered cart with $120 AOV, 55% gross margin, a 15% discount code, $0.03 per delivered SMS segment (say 3 segments), and a $0.08 carrier surcharge. Gross profit is $66; the discount costs $18; messaging costs roughly $0.17 per message and a typical cart flow sends three touches. Before platform fees the flow earns about $47.55 per recovered order — healthy. Now the same recovery with 25% off and MMS creative drops it near $33, and a two-message-per-day frequency that raises opt-outs by a point taxes every future flow.
+</p>
+<p>
+Track four numbers per flow: cost per delivered message (platform + carrier + MMS), discount cost per incremental order, opt-out rate per 100 delivered messages, and repeat-purchase rate of the recovered cohort at 90 days. If a competitor's "cheaper" pricing hides per-message minimums or MMS markups, the margin math will surface it faster than a pricing page. Keep a holdout cohort so "attributed" never substitutes for "incremental."
+</p>
+
+<h2>Decision table: which TinyEmail replacement fits which store</h2>
+<table>
+<thead>
+<tr><th>If your constraint is…</th><th>Shortlist</th><th>Why</th><th>Validate first</th></tr>
+</thead>
+<tbody>
+<tr><td>SMS urgency and replies</td><td>Postscript</td><td>SMS-native workflows close to Shopify events</td><td>Message economics at your volume</td></tr>
+<tr><td>Managed enterprise program</td><td>Attentive</td><td>Acquisition tooling and service model</td><td>Contract terms and true program cost</td></tr>
+<tr><td>One multichannel builder</td><td>Omnisend</td><td>Email, SMS, and push in one visual editor</td><td>Channel costs and collision rules</td></tr>
+<tr><td>Commerce data depth</td><td>Klaviyo</td><td>Shopify events feeding email and SMS</td><td>Profile growth and consent complexity</td></tr>
+<tr><td>Email lifecycle beside SMS</td><td>Sequenzy</td><td>Pay-per-email lifecycle planning while a dedicated SMS provider sends texts</td><td>Integration handoff and attribution path</td></tr>
+</tbody>
+</table>
+
+<h2>Matchup notes</h2>
+<h3>TinyEmail to Postscript</h3>
+<p>The cleanest swap when SMS was the job all along. Rebuild cart recovery first, verify keyword opt-ins carried over, and re-establish quiet hours before adding broadcasts. Expect email lifecycle to need a companion platform.</p>
+<h3>TinyEmail to Klaviyo</h3>
+<p>Best when segmentation depth was the real gap. Export TinyEmail consent and engagement history, cap synced profiles during the pilot, and model active-profile cost for twelve months — the platform fee is rarely the number that surprises anyone.</p>
+<h3>TinyEmail to Omnisend</h3>
+<p>Fastest path to a live multichannel stack. The trade is less headroom for unusual suppression logic, so write the collision rules down rather than trusting defaults.</p>
+<h3>TinyEmail to Sequenzy</h3>
+<p>Not an SMS swap — Sequenzy is email-first. It fits when TinyEmail's email lifecycle was the strong part and SMS should move to a dedicated provider. Pair the two deliberately: urgent, consented texts from the SMS vendor; education, proof, and replenishment education from Sequenzy. Validate the current integration and handoff in a pilot before committing, and check the <a class="link" href="/apps/sequenzy">Sequenzy profile</a> for scope.</p>
+
+<h2>Migration checklist</h2>
+<ol>
+<li>Export SMS consent, opt-outs, timestamps, source, quiet-hour settings, segments, templates, and live flows.</li>
+<li>Do not import email-only contacts into SMS.</li>
+<li>Rebuild cart recovery first and test purchase exits, STOP behavior, and quiet hours.</li>
+<li>Add launch, replenishment, and winback paths only after consent and suppression QA.</li>
+<li>Measure incremental orders, cost per incremental order, opt-outs, complaints, discount depth, and repeat quality.</li>
+</ol>
+<h2>Total cost of ownership beyond the app fee</h2>
+<p>
+The line item most merchants forget is operator time. SMS programs require reply handling, weekly opt-out reviews, quarterly consent-language audits, and someone who can pause a flow during a carrier incident. A bundled platform that saves an hour a week may beat a cheaper specialist for a one-person team, while a two-person retention team may want the specialist's controls. Price the hours alongside the invoice.
+</p>
+<table>
+<thead>
+<tr><th>Cost line</th><th>What to model</th><th>Typical blind spot</th></tr>
+</thead>
+<tbody>
+<tr><td>Platform fee</td><td>Base plan plus tier thresholds at 2× current volume</td><td>Overage pricing after a strong launch</td></tr>
+<tr><td>Messaging fees</td><td>Segments, MMS share, carrier surcharges, number verification</td><td>MMS creative assumed to price like SMS</td></tr>
+<tr><td>Offer cost</td><td>Discount depth required to convert SMS cohorts</td><td>Deeper coupons eroding full-price repeat</td></tr>
+<tr><td>Compliance work</td><td>Consent audits, STOP/HELP routing, quiet-hour config</td><td>Assuming defaults match state rules</td></tr>
+<tr><td>Migration cost</td><td>Rebuild hours, parallel-run overlap, QA orders</td><td>Rushed cutover duplicating cart touches</td></tr>
+</tbody>
+</table>
+<p>
+For deeper pricing mechanics across the category, the <a class="link" href="/guides/pricing">SMS pricing guide</a> walks through usage-based, contact-based, and enterprise contract models with pilot designs for each.
+</p>
+
+<h2>Verdict</h2>
+<p>Choose Postscript for SMS-native Shopify operations, Attentive for a managed large-scale SMS program, Omnisend for bundled multichannel workflows, Klaviyo for deep email-and-SMS commerce behavior, and Sequenzy when email lifecycle should remain a deliberate layer beside SMS. The safest migration is the one that improves ownership and consent visibility, not merely the one that changes the sender.</p>
+</article>
+<FaqSection faqs={faqs} />
+<p class="mt-12 text-slate-300">Continue with <a class="link" href="/apps">app profiles</a>, <a class="link" href="/compare">comparisons</a>, and <a class="link" href="/guides">SMS operator guides</a>.</p>
+</main>
+</BaseLayout>

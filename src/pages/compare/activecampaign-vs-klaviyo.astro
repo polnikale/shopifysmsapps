@@ -12,13 +12,201 @@ const faqs = [
   { question: 'Which is better for Shopify email?', answer: 'Klaviyo fits stores that need deep catalog and event segmentation. ActiveCampaign fits teams that need broader CRM-linked branching and sales automation. Run the same welcome, cart, post-purchase, replenishment, and win-back tests in both.' },
   { question: 'How should pricing be compared?', answer: 'Model active profiles or contacts, email sends, SMS volume, seats, feature tiers, and seasonal peaks for twelve months. The cheaper starting plan is not necessarily cheaper once the store runs the required workflows.' },
   { question: 'Can a store use both?', answer: 'It can, but shared ownership must be explicit. Decide which platform sends each email and SMS job, synchronize consent and purchase suppression, and prevent duplicate cart or post-purchase touches.' },
+  { question: 'How do TCPA and state consent rules affect this choice?', answer: 'Both platforms can support compliant SMS, but the store owns consent evidence, disclosure copy, STOP latency, and quiet hours. Verify in a pilot that opt-outs propagate in seconds and that SMS consent is stored separately from email consent with its source and timestamp.' },
+  { question: 'Which platform has better SMS margin economics?', answer: 'Message and carrier costs are similar because they pass through either way. The margin difference comes from discount depth each platform requires to convert, profile or contact billing at scale, and seats. Run identical flows with a holdout and compare incremental contribution margin after all fees and discounts.' },
 ];
 ---
 <BaseLayout title={title} description={description} site={site} path={path}>
   <ArticleSchema title={title} description={description} siteName={site.name} domain={site.domain} path={path} />
-  <section class="py-14 md:py-20"><div class="container max-w-5xl"><nav class="mb-8 text-sm"><a class="link" href="/compare">Comparisons</a><span class="mx-2">/</span><span>ActiveCampaign vs Klaviyo</span></nav>
-    <header class="max-w-4xl"><p class="editorial-kicker">Head-to-head · Shopify email and SMS</p><h1 class="hero-title mt-5">ActiveCampaign vs Klaviyo for Shopify</h1><p class="mt-7 text-xl leading-9 text-slate-700">Both platforms can appear in a Shopify SMS shortlist, but they begin from different centers of gravity. ActiveCampaign is CRM and automation first; Klaviyo is commerce data and retention first. The right choice depends on whether the store’s hardest problem is account-aware branching or product-and-order-aware messaging.</p><p class="mt-5 text-lg leading-8 text-slate-700">This page evaluates the pair through consent, catalog events, cart recovery, post-purchase timing, replenishment, win-back, reporting, and the operator time required to safely change a journey before a launch.</p></header>
-    <div class="mt-10 card overflow-x-auto"><h2 class="px-5 py-4 font-serif text-2xl font-black text-slate-950">Comparison at a glance</h2><table class="data-table"><thead><tr><th>Dimension</th><th>ActiveCampaign</th><th>Klaviyo</th></tr></thead><tbody><tr><td>Core strength</td><td>CRM-linked branching and sales automation</td><td>Shopify events, catalog, segmentation, and retention</td></tr><tr><td>SMS fit</td><td>Useful when SMS is part of a wider automation</td><td>Useful when SMS needs commerce behavior and product context</td></tr><tr><td>Cart recovery</td><td>Conditional logic and account-aware follow-up</td><td>Deep behavioral and catalog segmentation</td></tr><tr><td>Pricing lens</td><td>Contacts, tier, seats, and features</td><td>Active profiles, sends, SMS, and features</td></tr><tr><td>Main risk</td><td>CRM complexity for a pure ecommerce team</td><td>Profile growth and operational complexity at scale</td></tr></tbody></table></div>
-    <article class="prose-shopify mt-14 max-w-4xl"><h2>ActiveCampaign’s strongest Shopify use case</h2><p>ActiveCampaign makes the most sense when a Shopify store has more than a consumer lifecycle. Wholesale inquiries, sales-assisted accounts, membership stages, and manual follow-up can share a record with marketing automation. A cart reminder can branch by account status instead of applying the same discount to every buyer.</p><p>That flexibility requires governance. Define identity, consent, purchase exits, SMS permissions, and the owner of every branch before adding more conditions. ActiveCampaign is powerful when the team will maintain the system; it is expensive operationally when no one owns the data model.</p><h2>Klaviyo’s strongest Shopify use case</h2><p>Klaviyo is strongest when product, catalog, browse, order, and customer behavior should shape the next email or text. A replenishment flow can use product-specific timing, a VIP message can reflect value and category, and a cart flow can distinguish a first-time buyer from a repeat customer without building a separate CRM process.</p><p>The trade-off is profile and channel discipline. More event depth creates more opportunities for stale data, duplicate flows, and rising profile cost. Review event freshness, consent source, frequency caps, and purchaser suppression before expanding beyond the first few journeys.</p><h2>SMS workflow test</h2><p>Test a cart flow with a customer opted into SMS and email. The first message should solve an objection without assuming a discount. Verify quiet hours, STOP handling, channel preference, and suppression after purchase. Then compare incremental contribution, not the dashboard’s combined attributed revenue.</p><table><thead><tr><th>SMS check</th><th>ActiveCampaign question</th><th>Klaviyo question</th></tr></thead><tbody><tr><td>Consent</td><td>Is SMS permission stored separately from email?</td><td>Is consent source and region available to the flow?</td></tr><tr><td>Collision</td><td>Can CRM and cart branches share one frequency rule?</td><td>Can email and SMS share a clear priority and cap?</td></tr><tr><td>Purchase exit</td><td>How quickly does the order event stop the journey?</td><td>Does the purchaser event suppress every related message?</td></tr><tr><td>Reporting</td><td>Can sales-assisted outcomes be separated from SMS?</td><td>Can incremental margin be tested against a holdout?</td></tr></tbody></table><h2>Email workflow test</h2><p>Rebuild welcome, cart, post-purchase, replenishment, and win-back in both platforms with the same audience rules. Score setup time, event accuracy, edit safety, purchaser suppression, and reporting. A platform that produces a higher attributed number but cannot explain who received which channel is not the winner.</p><h2>Pricing and total cost</h2><p>Build a twelve-month model with contacts or profiles, email sends, SMS volume, seats, implementation time, and peak-season growth. ActiveCampaign can justify its cost when CRM handoffs change conversion or productivity. Klaviyo can justify its cost when catalog and behavioral segmentation produce measurable incremental retention. Include discount margin and support load in both cases.</p><h2>Who should choose which?</h2><p><strong>Choose ActiveCampaign</strong> when CRM stages, sales follow-up, B2B or membership logic, and flexible branching are load-bearing. <strong>Choose Klaviyo</strong> when Shopify data depth, product-aware segmentation, and coordinated email/SMS retention are load-bearing.</p><p><strong>Use both only with a written ownership map.</strong> Assign each welcome, cart, post-purchase, replenishment, win-back, and promotional job to one sender. Synchronize consent, order ID, purchase state, and suppression before peak season.</p><h2>90-day pilot</h2><table><thead><tr><th>Phase</th><th>Test</th><th>Evidence</th></tr></thead><tbody><tr><td>Weeks 1–2</td><td>Consent, identity, event and purchase exits</td><td>Inbox timeline with zero duplicate sends</td></tr><tr><td>Weeks 3–6</td><td>Cart and post-purchase journeys</td><td>Incremental contribution and complaint rate</td></tr><tr><td>Weeks 7–12</td><td>Replenishment, win-back, and peak edit</td><td>Maintenance time, margin, and repeat order</td></tr></tbody></table><h2>Verdict</h2><p>ActiveCampaign wins when Shopify lifecycle work must share a CRM and sales process. Klaviyo wins when commerce data and coordinated email/SMS retention are the priority. Choose from the five-workflow pilot, not from a generic “best Shopify SMS app” ranking.</p></article>
-  </div></section><FaqSection faqs={faqs} title="ActiveCampaign vs Klaviyo FAQ" />
+  <section class="py-14 md:py-20">
+<div class="container max-w-5xl">
+<nav class="mb-8 text-sm">
+<a class="link" href="/compare">Comparisons</a>
+<span class="mx-2">/</span>
+<span>ActiveCampaign vs Klaviyo</span>
+</nav>
+    <header class="max-w-4xl">
+<p class="editorial-kicker">Head-to-head · Shopify email and SMS</p>
+<h1 class="hero-title mt-5">ActiveCampaign vs Klaviyo for Shopify</h1>
+<p class="mt-7 text-xl leading-9 text-slate-700">Both platforms can appear in a Shopify SMS shortlist, but they begin from different centers of gravity. ActiveCampaign is CRM and automation first; Klaviyo is commerce data and retention first. The right choice depends on whether the store’s hardest problem is account-aware branching or product-and-order-aware messaging.</p>
+<p class="mt-5 text-lg leading-8 text-slate-700">This page evaluates the pair through consent, catalog events, cart recovery, post-purchase timing, replenishment, win-back, reporting, and the operator time required to safely change a journey before a launch.</p>
+</header>
+    <div class="mt-10 card overflow-x-auto">
+<h2 class="px-5 py-4 font-serif text-2xl font-black text-slate-950">Comparison at a glance</h2>
+<table class="data-table">
+<thead>
+<tr>
+<th>Dimension</th>
+<th>ActiveCampaign</th>
+<th>Klaviyo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core strength</td>
+<td>CRM-linked branching and sales automation</td>
+<td>Shopify events, catalog, segmentation, and retention</td>
+</tr>
+<tr>
+<td>SMS fit</td>
+<td>Useful when SMS is part of a wider automation</td>
+<td>Useful when SMS needs commerce behavior and product context</td>
+</tr>
+<tr>
+<td>Cart recovery</td>
+<td>Conditional logic and account-aware follow-up</td>
+<td>Deep behavioral and catalog segmentation</td>
+</tr>
+<tr>
+<td>Pricing lens</td>
+<td>Contacts, tier, seats, and features</td>
+<td>Active profiles, sends, SMS, and features</td>
+</tr>
+<tr>
+<td>Main risk</td>
+<td>CRM complexity for a pure ecommerce team</td>
+<td>Profile growth and operational complexity at scale</td>
+</tr>
+</tbody>
+</table>
+</div>
+    <article class="prose-shopify mt-14 max-w-4xl">
+<h2>ActiveCampaign’s strongest Shopify use case</h2>
+<p>ActiveCampaign makes the most sense when a Shopify store has more than a consumer lifecycle. Wholesale inquiries, sales-assisted accounts, membership stages, and manual follow-up can share a record with marketing automation. A cart reminder can branch by account status instead of applying the same discount to every buyer.</p>
+<p>That flexibility requires governance. Define identity, consent, purchase exits, SMS permissions, and the owner of every branch before adding more conditions. ActiveCampaign is powerful when the team will maintain the system; it is expensive operationally when no one owns the data model.</p>
+<h2>Klaviyo’s strongest Shopify use case</h2>
+<p>Klaviyo is strongest when product, catalog, browse, order, and customer behavior should shape the next email or text. A replenishment flow can use product-specific timing, a VIP message can reflect value and category, and a cart flow can distinguish a first-time buyer from a repeat customer without building a separate CRM process.</p>
+<p>The trade-off is profile and channel discipline. More event depth creates more opportunities for stale data, duplicate flows, and rising profile cost. Review event freshness, consent source, frequency caps, and purchaser suppression before expanding beyond the first few journeys.</p>
+<h2>SMS workflow test</h2>
+<p>Test a cart flow with a customer opted into SMS and email. The first message should solve an objection without assuming a discount. Verify quiet hours, STOP handling, channel preference, and suppression after purchase. Then compare incremental contribution, not the dashboard’s combined attributed revenue.</p>
+<table>
+<thead>
+<tr>
+<th>SMS check</th>
+<th>ActiveCampaign question</th>
+<th>Klaviyo question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consent</td>
+<td>Is SMS permission stored separately from email?</td>
+<td>Is consent source and region available to the flow?</td>
+</tr>
+<tr>
+<td>Collision</td>
+<td>Can CRM and cart branches share one frequency rule?</td>
+<td>Can email and SMS share a clear priority and cap?</td>
+</tr>
+<tr>
+<td>Purchase exit</td>
+<td>How quickly does the order event stop the journey?</td>
+<td>Does the purchaser event suppress every related message?</td>
+</tr>
+<tr>
+<td>Reporting</td>
+<td>Can sales-assisted outcomes be separated from SMS?</td>
+<td>Can incremental margin be tested against a holdout?</td>
+</tr>
+</tbody>
+</table>
+<h2>Email workflow test</h2>
+<p>Rebuild welcome, cart, post-purchase, replenishment, and win-back in both platforms with the same audience rules. Score setup time, event accuracy, edit safety, purchaser suppression, and reporting. A platform that produces a higher attributed number but cannot explain who received which channel is not the winner.</p>
+<h2>Pricing and total cost</h2>
+<p>Build a twelve-month model with contacts or profiles, email sends, SMS volume, seats, implementation time, and peak-season growth. ActiveCampaign can justify its cost when CRM handoffs change conversion or productivity. Klaviyo can justify its cost when catalog and behavioral segmentation produce measurable incremental retention. Include discount margin and support load in both cases.</p>
+<h2>Who should choose which?</h2>
+<p>
+<strong>Choose ActiveCampaign</strong> when CRM stages, sales follow-up, B2B or membership logic, and flexible branching are load-bearing. <strong>Choose Klaviyo</strong> when Shopify data depth, product-aware segmentation, and coordinated email/SMS retention are load-bearing.</p>
+<p>
+<strong>Use both only with a written ownership map.</strong> Assign each welcome, cart, post-purchase, replenishment, win-back, and promotional job to one sender. Synchronize consent, order ID, purchase state, and suppression before peak season.</p>
+<h2>90-day pilot</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Test</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weeks 1–2</td>
+<td>Consent, identity, event and purchase exits</td>
+<td>Inbox timeline with zero duplicate sends</td>
+</tr>
+<tr>
+<td>Weeks 3–6</td>
+<td>Cart and post-purchase journeys</td>
+<td>Incremental contribution and complaint rate</td>
+</tr>
+<tr>
+<td>Weeks 7–12</td>
+<td>Replenishment, win-back, and peak edit</td>
+<td>Maintenance time, margin, and repeat order</td>
+</tr>
+</tbody>
+</table>
+<h2>Decision table</h2>
+<table>
+<thead>
+<tr><th>Buying question</th><th>Choose ActiveCampaign when…</th><th>Choose Klaviyo when…</th></tr>
+</thead>
+<tbody>
+<tr><td>Where does the store live?</td><td>CRM stages and sales accounts matter as much as carts</td><td>Product, order, and catalog events drive messaging</td></tr>
+<tr><td>Who owns SMS consent?</td><td>SMS is one step inside a wider automation</td><td>SMS consent and quiet hours are commerce-native</td></tr>
+<tr><td>What is the data model?</td><td>Accounts, deals, and pipeline stages</td><td>Profiles, events, catalog, and predictive segments</td></tr>
+<tr><td>How is pricing computed?</td><td>Contacts, tier, seats, and feature gates</td><td>Active profiles, sends, and SMS usage</td></tr>
+<tr><td>What breaks at scale?</td><td>CRM complexity without an owner</td><td>Profile growth and stale event hygiene</td></tr>
+</tbody>
+</table>
+
+<h2>Consent, TCPA, and state privacy rules</h2>
+<p>
+Whichever platform wins, consent ownership is yours, not the vendor's. TCPA liability and state privacy statutes (CCPA/CPRA, Colorado, Virginia, and others) attach to the store for opt-in evidence, disclosure language, STOP latency, and quiet-hour enforcement. Klaviyo keeps SMS consent close to Shopify profiles; ActiveCampaign typically requires the SMS layer's consent fields to be mapped deliberately during integration. In either case, export and archive opt-in source, timestamp, and message-type scope before you migrate anything.
+</p>
+<p>
+A practical audit before committing: send a test STOP and measure suppression time, verify a purchaser is suppressed from cart flows within seconds of order creation, and confirm that a customer who opted out of SMS still receives educational email if email consent is separate. If either platform fails those three checks in your pilot, the decision makes itself. See the <a class="link" href="/guides/tcpa">TCPA guide</a> and <a class="link" href="/guides/consent">consent guide</a> for the full checklist.
+</p>
+
+<h2>Margin math for the SMS portion of either stack</h2>
+<p>
+SMS economics are nearly identical inside both platforms because carrier and message costs pass through. What differs is how usage appears on the invoice. On a $100 order at 55% gross margin with a 15% recovery discount, a three-touch SMS cart flow costs roughly $0.50 in messaging and platform fees per recovered order — the discount is the real cost at $15. If a deeper discount is required to convert the SMS cohort than the email cohort, that gap belongs in the comparison, because the platform that produces shallower discount dependence wins on margin even at a higher monthly fee.
+</p>
+<p>
+Model twelve months: platform minimums, per-message and MMS fees, profile or contact growth at 2× current list, seat costs for the operators who will maintain flows, and the opt-out tax of any frequency you cannot defend. Run the same four flows in both tools with a holdout, and compare incremental contribution margin — not attributed revenue, which flatters whichever platform measured itself.
+</p>
+
+<h2>Where app costs actually hide</h2>
+<p>
+Beyond headline pricing, look for: active-profile billing that charges churned customers until you clean segments; per-seat add-ons for the teammates who need reporting access; premium integrations priced separately from the plan; onboarding fees for data migration; and SMS country coverage sold as an add-on. Ask each vendor for a written twelve-month estimate at your real list size and send mix — official pricing pages change and quotes vary by negotiation. The <a class="link" href="/guides/pricing">pricing guide</a> covers these cost lines across thirteen tools.
+</p>
+
+<h2>Operator workload and safe-change QA</h2>
+<p>
+The platform that wins on paper can still lose in practice if the team cannot safely edit it during a launch week. Test the unglamorous operations in the pilot: can a named owner pause a cart flow in under a minute, preview every branch on a real device, see which subscribers were suppressed and why, and export an audit trail after the fact? Klaviyo concentrates those controls around commerce events; ActiveCampaign spreads them across the CRM automation canvas. Neither is universally easier — the question is which mental model your team already speaks.
+</p>
+<p>
+Set a written stop rule for the pilot before it starts: if incremental contribution margin is negative after fees and discounts, or opt-outs exceed your baseline by a defined percentage, the test fails regardless of attributed revenue. A pre-agreed stop rule keeps the evaluation honest when both vendors are demos-ready and the calendar is crowded.
+</p>
+<p>
+Finally, price the migration itself: rebuild hours, parallel-run overlap, consent re-validation, and the temporary double billing if both platforms run during a transition window. A platform that is cheaper per month can still lose a twelve-month comparison once a two-month migration is included.
+</p>
+<table>
+<thead>
+<tr><th>Weekly operation</th><th>Ask in the pilot</th><th>Failure signal</th></tr>
+</thead>
+<tbody>
+<tr><td>Pause or edit a live flow</td><td>Who has permission, and is there a change log?</td><td>Only the agency that built it can touch it</td></tr>
+<tr><td>Investigate a complaint</td><td>Can you see message, consent, and send history in one record?</td><td>Consent lives in a spreadsheet outside the tool</td></tr>
+<tr><td>Suppress after purchase</td><td>How fast does the order event reach every channel?</td><td>Cart texts arriving after checkout confirms</td></tr>
+<tr><td>Review opt-out spikes</td><td>Is the report per flow or account-wide only?</td><td>Nobody can name which flow caused the spike</td></tr>
+</tbody>
+</table>
+
+<h2>Verdict</h2>
+<p>ActiveCampaign wins when Shopify lifecycle work must share a CRM and sales process. Klaviyo wins when commerce data and coordinated email/SMS retention are the priority. Choose from the five-workflow pilot, not from a generic “best Shopify SMS app” ranking.</p>
+</article>
+  </div>
+</section>
+<FaqSection faqs={faqs} title="ActiveCampaign vs Klaviyo FAQ" />
 </BaseLayout>

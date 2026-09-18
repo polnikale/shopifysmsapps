@@ -48,6 +48,8 @@ const faqs = [
   { question: 'Is SMS pricing based on contacts or messages?', answer: 'Both models exist. Some tools price by message usage, some by profiles or contacts, and enterprise providers may combine a platform minimum with negotiated volume pricing.' },
   { question: 'Should I buy an all-in-one email and SMS app?', answer: 'Choose bundled delivery when a small team values speed and one journey builder. Choose specialist tools when SMS compliance, reply handling, or deep Shopify data needs deserve separate ownership.' },
   { question: 'What should a pricing pilot measure?', answer: 'Measure delivered cost, incremental orders against a holdout, contribution margin after discounts, opt-out rate, complaint rate, reply workload, and the quality of repeat purchases.' },
+  { question: 'Are the prices on this page quotes?', answer: 'No. Every figure is a buying-model note, not a quote. Plan names, tiers, per-message rates, MMS premiums, and surcharges change, and vendors do not always publish overage terms. Check each tool\'s official pricing page and request a written twelve-month estimate at your real volume.' },
+  { question: 'How do I compute contribution margin for an SMS flow?', answer: 'Start from gross profit on the incremental order, then subtract discount depth, messaging cost (segments, MMS share, carrier surcharges), allocated platform fee, and the opt-out cost of added frequency. If the remainder is negative, the flow borrows margin from future sends even when attribution looks green.' },
 ];
 
 const apps = reviews.map(([slug]) => appBySlug(slug)!).filter(Boolean);
@@ -79,6 +81,132 @@ const apps = reviews.map(([slug]) => appBySlug(slug)!).filter(Boolean);
     <div class="mt-12 space-y-8"><h2 class="font-serif text-4xl font-black text-[#24170f]">Tool-by-tool buying notes</h2>{apps.map((app, index) => <ToolReview app={app} rank={index + 1} paragraphs={[reviews[index][1], `Pricing pilot: begin with ${app.name}’s narrowest useful workflow, define a holdout, and record platform, carrier, discount, and support costs separately. Keep the tool only if incremental margin and list health both clear your threshold.`]} />)}</div>
 
     <div class="prose-shopify card mt-12"><h2>Pros and cons of the main pricing models</h2><h3>Usage-based SMS</h3><p><strong>Pros:</strong> You pay in proportion to sends and can start small. <strong>Cons:</strong> A successful campaign can create a sudden bill; carrier and MMS details matter.</p><h3>Contact or profile pricing</h3><p><strong>Pros:</strong> Predictable orchestration across email and SMS. <strong>Cons:</strong> Dormant profiles, duplicates, and list growth can raise cost before revenue does.</p><h3>Custom enterprise contracts</h3><p><strong>Pros:</strong> Managed support, acquisition expertise, and negotiated volume economics. <strong>Cons:</strong> Minimums, onboarding time, and exit terms make a bad fit expensive.</p></div>
-    <FaqSection faqs={faqs} title="Shopify SMS pricing FAQ" />
+<h2>Margin math: a worked example</h2>
+<p>
+"Attributed revenue" is the number SMS platforms report; contribution margin is the number that pays for the app. Walk the math before committing to any plan. Take a recovered cart: $120 AOV at 55% gross margin gives $66 of gross profit. A 15% recovery discount costs $18. A three-touch flow averages 6 delivered segments at $0.03 plus a $0.08 carrier surcharge per message — call it $0.26 per recovered order in messaging. Subtract a platform allocation of $0.50 per order at mid-tier volume and the flow contributes about $47 per incremental order.
+</p>
+<p>
+Now stress it. Move the discount to 25% and contribution drops near $33. Switch one touch to MMS at 3–5× the per-message cost and shave another $1–2. Add a 1.5-point opt-out bump from doubling frequency and you have taxed every future flow's audience. The stack that looks cheapest per message is rarely the one that leaves the most margin once discount depth and opt-out cost are priced in.
+</p>
+<p>
+Track four numbers per flow, weekly: cost per delivered message (platform plus carrier plus MMS), discount cost per incremental order, opt-outs per 100 delivered messages, and the 90-day repeat rate of the recovered cohort. Keep a holdout group wherever the platform allows it so "attributed" never substitutes for "incremental."
+</p>
+
+<h2>Where app costs actually hide</h2>
+<ul>
+<li><strong>Overage tiers.</strong> A plan that prices "up to 5,000 messages" bills the next tier the day a strong campaign crosses the line — model 2× your expected volume.</li>
+<li><strong>MMS premiums.</strong> Image and GIF messages commonly cost 3–5× per-message SMS. A "cheap" plan with MMS-heavy creative can invert the math.</li>
+<li><strong>Carrier surcharges and number fees.</strong> Toll-free or short-code verification, long-code provisioning, and per-carrier pass-throughs are often quoted separately.</li>
+<li><strong>Contact or profile growth.</strong> Contact-based billing charges churned and dormant profiles until segments are cleaned. Usage-based billing charges attempts, not just deliveries — ask which.</li>
+<li><strong>Seats and premium integrations.</strong> Reporting access, review/loyalty data sync, and dedicated IP setup can be add-ons rather than plan features.</li>
+<li><strong>Onboarding and exit terms.</strong> Enterprise contracts may include implementation minimums, data-retention fees, and cancellation notice windows. Get them in writing.</li>
+</ul>
+<p>
+Plan names, tiers, and per-message rates change frequently, and vendors do not always surface overage or surcharge terms on public pricing pages. Treat every figure on this page — including ours — as a buying-model note, not a quote, and check each tool's official pricing page for current terms. Request a written twelve-month estimate at your real send mix before forecasting.
+</p>
+
+<h2>Decision table: which pricing model fits which store</h2>
+<div class="card mt-10 overflow-x-auto">
+<table class="mt-6 w-full min-w-[700px] text-left text-sm">
+<thead>
+<tr class="border-b-2 border-[#24170f]/15">
+<th class="p-3">Your situation</th>
+<th class="p-3">Pricing model that fits</th>
+<th class="p-3">Shortlist candidates</th>
+<th class="p-3">Watch for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-[#24170f]/10 align-top">
+<td class="p-3">Testing SMS for the first time</td>
+<td class="p-3">Free tier or low-commitment usage</td>
+<td class="p-3">Omnisend, Brevo, Privy</td>
+<td class="p-3">Capture quality before send volume</td>
+</tr>
+<tr class="border-b border-[#24170f]/10 align-top">
+<td class="p-3">Steady recovery and campaign volume</td>
+<td class="p-3">Usage-based SMS with transparent rates</td>
+<td class="p-3">Postscript, SMSBump, Firepush</td>
+<td class="p-3">MMS share and carrier surcharges</td>
+</tr>
+<tr class="border-b border-[#24170f]/10 align-top">
+<td class="p-3">Email-heavy lifecycle beside SMS</td>
+<td class="p-3">Pay-per-email without contact tiers</td>
+<td class="p-3">Sequenzy (email) beside a dedicated SMS provider</td>
+<td class="p-3">Integration handoff and attribution overlap</td>
+</tr>
+<tr class="border-b border-[#24170f]/10 align-top">
+<td class="p-3">Deep commerce segmentation</td>
+<td class="p-3">Profile-based with segment hygiene tooling</td>
+<td class="p-3">Klaviyo, Drip</td>
+<td class="p-3">Dormant profiles inflating the bill</td>
+</tr>
+<tr class="border-b border-[#24170f]/10 align-top">
+<td class="p-3">High-volume acquisition program</td>
+<td class="p-3">Custom enterprise contract</td>
+<td class="p-3">Attentive</td>
+<td class="p-3">Minimums, onboarding fees, exit terms</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Pricing deep-dive by model</h2>
+<h3>Usage-based messaging</h3>
+<p>
+You pay per segment sent or delivered, usually plus a carrier pass-through and a platform floor. The model scales down gracefully and matches cost to activity, which is why most SMS-native tools use it. The risk is campaign success: a BFCM broadcast to a large list can produce a one-month bill larger than the previous quarter. Ask each vendor to quote your actual mix — average segments per message, MMS share, monthly volume, and peak-month volume — and confirm whether undelivered messages still bill.
+</p>
+<h3>Contact- or profile-based</h3>
+<p>
+You pay for stored contacts or active profiles, with messaging bundled or metered. The bill is predictable, which finance teams like, but dormant records cost the same as engaged ones until someone prunes. Profile hygiene becomes a paid discipline: dedupe identities, sunset non-engagers, and watch how the platform counts a "profile" across email and SMS. Model the bill at 2× current list size, not current size.
+</p>
+<h3>Custom enterprise contracts</h3>
+<p>
+Platform minimums, negotiated message rates, managed services, and term commitments. This model buys expertise and volume economics, and it also raises the cost of a wrong fit: onboarding fees, multi-month minimums, and notice periods make an exit expensive. Ask for carrier fees, onboarding costs, support scope, and cancellation terms in writing, and treat any case-study revenue claim as directional rather than guaranteed.
+</p>
+
+<h2>Negotiation checklist: questions that change the invoice</h2>
+<ul>
+<li>Do undelivered or attempted messages bill, or only delivered ones?</li>
+<li>What are the per-message and MMS rates at my peak-month volume, including carrier surcharges?</li>
+<li>What happens when I cross a tier mid-campaign — prorated or full next tier?</li>
+<li>How are profiles counted across email and SMS, and what cleans a dormant profile?</li>
+<li>Which integrations, seats, and reporting views cost extra?</li>
+<li>What are onboarding, migration, and data-export fees — in and out?</li>
+<li>What is the cancellation notice period, and is there a term minimum?</li>
+</ul>
+<p>
+Get every answer in writing and file it with the quote. When two finalists are close, run the same four-flow pilot in both and let the measured contribution margin — not the sales deck — settle it.
+</p>
+
+<h2>Seasonality and the twelve-month view</h2>
+<p>
+SMS programs are seasonal, and pricing rarely is. A store that sends 20% of its annual messages in November pays either a usage-based bill that spikes with the success it wanted, or a contact-based plan sized for a peak it reaches one month a year. Neither is wrong — but model the year, not the month. Pull your last twelve months of sends and orders, apply each vendor's model at that shape, and include the peak month explicitly rather than averaging it away.
+</p>
+<p>
+Seasonality also changes discount pressure. Peak-season campaigns often need deeper offers to convert, which is exactly when per-message volume is highest; the combination is where margin quietly exits. A flow that earns $40 of contribution in March can earn $12 in November if the discount deepens and MMS share rises. Budget peak-season margin separately, and set a frequency ceiling for peak weeks before the calendar forces one.
+</p>
+<p>
+Finally, revisit the pricing model annually. A store that outgrew usage-based pricing at 10,000 messages a month may find contract terms cheaper at 50,000, and a store that slimmed its list may be overpaying for profile capacity it no longer needs. The right model is a function of your current send shape, not a one-time decision.
+</p>
+
+<h2>Matchup FAQ: tools merchants price against each other</h2>
+<p>
+These are the pairings merchants ask about most, with the pricing lens that actually distinguishes them. The same logic applies to any pairing: identify the billing model, the channel mix, and the discount depth each requires, then let your pilot data decide.
+</p>
+<h3>Postscript vs. Omnisend on price</h3>
+<p>
+Postscript bills usage for a specialist SMS operation; Omnisend bundles email, SMS, and push into contact-plus-usage tiers. Postscript usually wins when SMS is the primary job and volume is concentrated; Omnisend usually wins when one small team wants all three channels in one builder. Compare total program cost at your volume, including the discount depth each requires to convert — not the platform fee alone.
+</p>
+<h3>Klaviyo vs. Sequenzy on price</h3>
+<p>
+Klaviyo prices by active profiles and SMS usage and rewards teams that will maintain segments and events. Sequenzy is email-first with pay-per-email positioning and no contact-based billing, designed to plan lifecycle email while a dedicated SMS provider handles consented texts. They overlap less than a feature grid suggests: if SMS depth is the requirement, shortlist a specialist; if lifecycle email planning is the requirement, price both and pilot them. Check each vendor's official pricing page for current terms before forecasting.
+</p>
+<h3>Attentive vs. Postscript at scale</h3>
+<p>
+Attentive's custom contract buys managed acquisition and service depth; Postscript's usage model stays self-serve. The crossover is program scale and internal headcount: a lean team sending high volume may find managed services cheaper than hiring, while a hands-on retention team may find a contract's minimums restrictive. Request written terms from both and compare total cost including the operator hours each model implies.
+</p>
+
+  <FaqSection faqs={faqs} title="Shopify SMS pricing FAQ" />
   </section>
 </BaseLayout>
