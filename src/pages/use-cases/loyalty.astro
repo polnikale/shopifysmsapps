@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,60 @@ const comparisonApps = [
   'privy', 'shopify-email', 'sendlane', 'activecampaign',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for loyalty campaigns?',
+    answer: 'Sequenzy ranks first for loyalty email strategy — enrollment timing, points expiration warnings, tier celebration without promo collision. Marsello wins for omnichannel POS plus Shopify loyalty tiers. Yotpo Email & SMS excels when loyalty and reviews share one suite.',
+  },
+  {
+    question: 'When should loyalty enrollment emails send?',
+    answer: 'After second order or first order above AOV threshold — not to one-time discount buyers. Enrollment on second purchase signals habit forming. Premature loyalty pitch to deal-seekers wastes points liability.',
+  },
+  {
+    question: 'Should loyalty emails duplicate promotional sends?',
+    answer: 'No — coordinate calendars. Loyalty tier achievement email should suppress same-day promo blast. Points expiration warning is operational, not promotional discount.',
+  },
+  {
+    question: 'How do loyalty and VIP segments differ?',
+    answer: 'VIP is recognition-based on LTV and behavior; loyalty is program enrollment with points mechanics. Overlap exists — VIP may auto-qualify for top tier. See <a class="link" href="/use-cases/vip-segments">VIP guide</a> for exclusion rules.',
+  },
+  {
+    question: 'What loyalty enrollment rate is realistic?',
+    answer: '40–70% of eligible repeat buyers enroll when email invitation is clear and second-order triggered. Lower if enrollment requires account creation friction.',
+  },
+  {
+    question: 'Can Shopify Email run loyalty campaigns?',
+    answer: 'Manual broadcasts only — no points balance dynamic blocks, tier triggers, or expiration automation. Loyalty requires Marsello, Yotpo, Smile, or platform with loyalty integration.',
+  },
+  {
+    question: 'How do points expiration emails work?',
+    answer: 'Warn at 30 days and 7 days before expiration with clear redemption CTA. Suppress if points already redeemed. Expiration without warning trains customers to ignore program.',
+  },
+  {
+    question: 'Should wholesale accounts get loyalty email?',
+    answer: 'Usually excluded — B2B pricing conflicts with points earning. Segment wholesale in <a class="link" href="/for/b2b-wholesale">B2B guide</a> before loyalty enrollment.',
+  },
+  {
+    question: 'Should loyalty emails include product recommendations?',
+    answer: 'Yes when recommendations use points redemption or earn context — "redeem 500 points on these SKUs" beats generic product grid. Avoid duplicating promotional sale grid same week. Personalize from last purchase category.',
+  },
+  {
+    question: 'How do I sunset inactive loyalty members?',
+    answer: 'Points expiration warnings are the primary sunset mechanism — not deleting accounts. After expiration, reduce email frequency to quarterly program updates until re-engagement or explicit unsubscribe. Wholesale and employee accounts excluded from automated expiration.',
+  },
+  {
+    question: 'What is points liability reporting?',
+    answer: 'Finance tracks outstanding points as deferred revenue — email expiration campaigns affect liability schedule. Coordinate expiration email timing with finance close. Sudden mass expiration without warning creates support spike and brand damage.',
+  },
+  {
+    question: 'Can loyalty work without email platform integration?',
+    answer: 'Manual CSV export of tier changes weekly is fragile — automate via Marsello, Yotpo, or loyalty app webhook to Klaviyo or Sequenzy. Delayed tier celebration email reduces perk impact; immediate send reinforces behavior.',
+  },
+  {
+    question: 'Should loyalty emails reference competitor sales?',
+    answer: 'Never — loyalty is relationship maintenance, not price matching. Reference earned perks, tier progress, and exclusive access instead. Cross-link to <a class="link" href="/use-cases/vip-segments">VIP segments</a> when top-tier members qualify for recognition beyond points.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -91,7 +146,7 @@ const comparisonApps = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Loyalty fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -100,7 +155,7 @@ const comparisonApps = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -224,4 +279,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="Loyalty campaigns FAQ" />
 </BaseLayout>

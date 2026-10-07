@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,56 @@ const comparisonApps = [
   'shopify-email', 'privy', 'marsello', 'sendlane', 'brevo',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for reviews and UGC in campaigns?',
+    answer: 'Yotpo Email & SMS ranks highest when reviews and UGC are native to your stack — dynamic review blocks, review request flows, visual UGC in browse and cart. Sequenzy ranks first for lifecycle strategy integrating social proof timing across post-purchase, browse, and winback. Klaviyo wins with flexible integrations to multiple review apps.',
+  },
+  {
+    question: 'When should review request emails send?',
+    answer: 'After delivery plus 5–7 days for most physical goods — product experienced, return window considered. High-return SKUs delay until return window closes. Digital products: 3–5 days after access granted.',
+  },
+  {
+    question: 'How do I use UGC in browse abandonment?',
+    answer: 'Pull customer photos and quotes for viewed SKU into browse email one — proof before discount. Requires review app integration or Yotpo native blocks. Skip if product has fewer than five quality reviews.',
+  },
+  {
+    question: 'Should review requests go to gift recipients?',
+    answer: 'Request reviews from product users when known — gift purchasers may forward request to recipients via separate flow. Branch gift orders in post-purchase per <a class="link" href="/use-cases/post-purchase">post-purchase guide</a>.',
+  },
+  {
+    question: 'How do negative reviews affect email strategy?',
+    answer: 'Monitor negative review triggers — suppress promotional email to complainants until support resolves. Route to service content, not cross-sell. Yotpo and Klaviyo integrations can segment by review sentiment when configured.',
+  },
+  {
+    question: 'Can Shopify Email collect reviews?',
+    answer: 'No native review request automation — manual campaigns only. Review collection requires Yotpo, Judge.me, Okendo, or similar integrated with lifecycle platform.',
+  },
+  {
+    question: 'What review submission rate should I expect?',
+    answer: '8–15% for optimized post-delivery requests with product context. Higher on passionate niches (pet, hobby); lower on commodity SKUs. Multi-touch reminder at day 14 acceptable; day 3 and day 5 spam hurts.',
+  },
+  {
+    question: 'How does UGC improve winback?',
+    answer: 'Winback email featuring new reviews since lapse outperforms generic product grids — shows social momentum customer missed. Dynamic "12 new reviews on favorites" block personalizes proof.',
+  },
+  {
+    question: 'Should I incentivize reviews with discounts?',
+    answer: 'Policy-sensitive — small incentive for honest review may be acceptable; conditioning review on positive outcome is not. Check review platform and FTC guidance. Points via loyalty program cleaner than one-time code for positive-only reviews.',
+  },
+  {
+    question: 'How do video reviews fit email?',
+    answer: 'Thumbnail linking to PDP video review or hosted UGC — strong for beauty and pet. Yotpo visual UGC supports; ensure mobile-friendly thumbnail size. Do not autoplay video in email — client support poor.',
+  },
+  {
+    question: 'What review star threshold for email social proof?',
+    answer: 'Minimum four-star average and five written reviews before featuring SKU in browse or cart proof blocks — below threshold use brand-level proof or education. Displaying 3.2 stars hurts more than no stars.',
+  },
+  {
+    question: 'How do I respond to negative reviews in email?',
+    answer: 'Do not feature negative review in marketing email — route customer to support via transactional follow-up if recent negative review detected. Suppress promotional sends 14 days post-negative unless support resolved ticket.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -91,7 +142,7 @@ const comparisonApps = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Reviews/UGC fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -100,7 +151,7 @@ const comparisonApps = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -224,4 +275,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="Reviews & UGC FAQ" />
 </BaseLayout>

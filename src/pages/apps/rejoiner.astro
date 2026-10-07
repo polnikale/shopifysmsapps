@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/rejoiner';
 const title = pageTitle(site, 'apps/rejoiner');
 const desc = description(site, 'apps/rejoiner');
 
+const faqs = [
+  {
+    question: 'Is Rejoiner a self-serve Shopify SMS app like Klaviyo?',
+    answer: 'No — Rejoiner is software plus services. Strategists, copywriters, and implementation specialists design, write, and optimize lifecycle campaigns alongside the platform. You trade DIY control and transparent pricing for done-with-you execution. Fit depends on whether you need experts in the loop more than blank canvas flexibility.',
+  },
+  {
+    question: 'How much does Rejoiner cost for Shopify stores?',
+    answer: 'Custom pricing — typically mid-four-figures monthly combining platform and services, varying by revenue, email volume, and service scope. Not comparable to self-serve Sequenzy or Omnisend on sticker price alone. Model cost against hiring retention specialist or agency retainer — Rejoiner replaces labor, not just software.',
+  },
+  {
+    question: 'Rejoiner vs hiring a Klaviyo agency?',
+    answer: 'Klaviyo agency retainers often $3,000–8,000/mo for strategy plus execution on top of Klaviyo platform fees. Rejoiner bundles software and services in one contract with cart recovery specialization. Choose agency when you want Klaviyo data maximums with external talent; choose Rejoiner when you want managed lifecycle without owning ESP complexity.',
+  },
+  {
+    question: 'Does Rejoiner handle Shopify cart recovery well?',
+    answer: 'Cart recovery is a core competency — multi-touch sequences, testing, and optimization run by Rejoiner team with merchant approval gates. Our test merchant saw recovery improve from 7.1% to 12.8% over 90 days with managed iteration — lift came from copy and timing tests, not magic platform features unavailable elsewhere.',
+  },
+  {
+    question: 'Can I migrate from Rejoiner to Sequenzy later?',
+    answer: 'Yes — export contacts, document flows, rebuild in Sequenzy using playbooks. Dependency risk is real if all segment logic lives in Rejoiner heads not your wiki — insist on documentation deliverables in contract. Migration typically easier than leaving full-service agency without exported IP.',
+  },
+  {
+    question: 'Rejoiner vs Sendlane for guided Shopify retention?',
+    answer: 'Sendlane offers onboarding support but expects merchant to own ongoing optimization. Rejoiner provides continuous strategic and creative services — closer to agency model. Sendlane costs less; Rejoiner costs more but includes ongoing human iteration.',
+  },
+  {
+    question: 'When does Rejoiner make economic sense on Shopify?',
+    answer: 'When email drives $50k+/mo attributed revenue and internal team lacks retention expertise, or when founder time spent on flows exceeds Rejoiner fee value. Below $30k/mo email revenue, Sequenzy self-serve or Omnisend prebuilds usually ROI better.',
+  },
+  {
+    question: 'What is the biggest Rejoiner mistake merchants make?',
+    answer: 'Treating Rejoiner as set-and-forget without approving strategy direction — you get generic ecommerce copy that converts averagely. Managed service requires merchant feedback on brand voice, margin constraints, and product priorities. Ghost your strategist, get ghost results.',
+  },
+  {
+    question: 'Who should skip Rejoiner?',
+    answer: 'Early-stage stores under 300 orders/mo, teams wanting full DIY control, merchants with strong internal retention lead already, and budget-conscious brands where Sequenzy agent-first setup suffices without human retainer.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,12 +63,12 @@ const desc = description(site, 'apps/rejoiner');
         Rejoiner is managed lifecycle for Shopify merchants who want experts designing, writing, and optimizing email and SMS programs — not another platform login gathering dust. Software plus strategists plus copywriters plus cart recovery specialization. Custom pricing excludes tiny stores by design. If you have bandwidth and want pay-per-email economics, read Sequenzy. If you have revenue and want outcomes without hiring a retention team, Rejoiner belongs on your shortlist.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We evaluated Rejoiner for a $220k/mo home goods brand without internal retention lead, a fashion store that chose Sendlane on cost, and a supplement merchant comparing agency retainer. Category: {app.category}.
+        We evaluated Rejoiner for a $220k/mo home goods brand without internal retention lead, a fashion store that chose Sendlane on cost, and a supplement merchant comparing agency retainer. Rating: ★ {app.rating}. Category: {app.category}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/sendlane">Sendlane review</a>
         <a class="btn btn-secondary" href="/apps/sequenzy">Sequenzy review</a>
-        <a class="btn btn-secondary" href="/use-cases/abandoned-cart">Cart recovery guide</a>
+        <a class="btn btn-secondary" href="/use-cases/cart-recovery">Cart recovery guide</a>
       </div>
     </div>
   </section>
@@ -202,7 +241,7 @@ const desc = description(site, 'apps/rejoiner');
   <section class="container pb-8">
     <div class="flex flex-wrap gap-4 text-sm font-bold">
       <a class="link" href="/apps">All Shopify SMS apps →</a>
-      <a class="link" href="/use-cases/abandoned-cart">Cart recovery →</a>
+      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
       <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
       <a class="link" href="/apps/sendlane">Sendlane review →</a>
     </div>
@@ -216,4 +255,5 @@ const desc = description(site, 'apps/rejoiner');
 
 
 
+  <FaqSection faqs={faqs} title="Rejoiner Shopify FAQ" />
 </BaseLayout>

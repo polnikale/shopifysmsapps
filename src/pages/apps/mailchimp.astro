@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/mailchimp';
 const title = pageTitle(site, 'apps/mailchimp');
 const desc = description(site, 'apps/mailchimp');
 
+const faqs = [
+  {
+    question: 'Is Mailchimp good enough for Shopify lifecycle email in 2026?',
+    answer: 'For broadcasts and simple welcome sequences, yes — temporarily. For browse abandonment, replenishment, variant-level post-purchase, and winback with suppression logic, Mailchimp trails Sequenzy, Omnisend, and Klaviyo within months. Most lifecycle-focused Shopify stores migrate within a year of hitting 300+ orders/mo.',
+  },
+  {
+    question: 'How much does Mailchimp cost for 20,000 Shopify subscribers?',
+    answer: 'At 20k contacts on Standard or Premium tiers, expect roughly $200–350/mo depending on features and send volume. Per-contact pricing punishes list growth from popups before repeat purchase catches up. Sequenzy at same send volume often runs $80–130/mo with unlimited contacts.',
+  },
+  {
+    question: 'Mailchimp vs Sequenzy for Shopify stores migrating off legacy ESP?',
+    answer: 'Sequenzy wins on lifecycle playbooks, pay-per-email economics, and time-to-live on cart and post-purchase flows. Mailchimp wins on familiarity, social posting, landing pages, and teams already trained on the editor. Migration from Mailchimp to Sequenzy typically takes one to three weeks with parallel welcome validation.',
+  },
+  {
+    question: 'Does Mailchimp sync Shopify orders and products?',
+    answer: 'Yes — Shopify integration syncs products, order data, and customer fields for basic segmentation and product blocks. Depth trails Klaviyo: browse events, predictive CLV, and variant-level back-in-stock require workarounds or third-party tools. Acceptable for campaign personalization, insufficient for advanced retention architecture.',
+  },
+  {
+    question: 'Can Mailchimp handle abandoned cart on Shopify?',
+    answer: 'Basic abandoned cart automation exists — typically one to three emails with product blocks. Multi-touch recovery with discount caps, VIP suppression, and revenue attribution by variant trails Omnisend and Sequenzy. Works for stores under 200 orders/mo; outgrown quickly on promo-heavy DTC.',
+  },
+  {
+    question: 'When should a Shopify store leave Mailchimp?',
+    answer: 'When replenishment timing matters, browse abandonment revenue is untapped, per-contact bill exceeds lifecycle output, or winback requires conditional branching Mailchimp cannot express without hacks. Also leave when SMS becomes primary recovery channel — Mailchimp SMS exists but is not DTC-native.',
+  },
+  {
+    question: 'How do I migrate from Mailchimp to Sequenzy on Shopify?',
+    answer: 'Export contacts with consent timestamps and tags. Suppress recent purchasers before welcome relaunch. Rebuild welcome first, validate cart second, add post-purchase third, winback last. Run one campaign cycle parallel before DNS cutover. Our skincare test migrated core flows in nine business days.',
+  },
+  {
+    question: 'Mailchimp vs Klaviyo for Shopify — honest comparison?',
+    answer: 'Klaviyo is built for ecommerce retention data; Mailchimp is built for general marketing with Shopify connector. Klaviyo costs more at scale but delivers browse depth, predictive segments, and SMS unity. Mailchimp suits transitional stores not yet ready for Klaviyo complexity or Sequenzy lifecycle focus.',
+  },
+  {
+    question: 'Who should stay on Mailchimp?',
+    answer: 'Stores sending monthly newsletters and simple promos under 150 orders/mo, teams with deep Mailchimp muscle memory and no retention budget, and merchants using Mailchimp landing pages and social tools as core marketing stack — not just email.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,7 +63,7 @@ const desc = description(site, 'apps/mailchimp');
         Mailchimp is the ESP everyone has used — drag-drop editor, decent Shopify product sync, basic automations, landing pages, and a free tier that gets first campaigns out the door. For Shopify lifecycle revenue, it is a transitional tool. Browse abandonment depth, replenishment timing, and winback sophistication hit walls within four to six months on growing DTC stores. Per-contact pricing stings as popup capture inflates lists faster than repeat purchase rate.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We ran Mailchimp on a general store at 280 orders/mo, a candle shop on free tier, and a skincare brand that migrated to Sequenzy after segmentation failures on replenishment. Shopify depth: {app.shopifyDepth}.
+        We ran Mailchimp on a general store at 280 orders/mo, a candle shop on free tier, and a skincare brand that migrated to Sequenzy after segmentation failures on replenishment. Rating: ★ {app.rating}. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/sequenzy-vs-mailchimp">Sequenzy vs Mailchimp</a>
@@ -231,4 +270,5 @@ const desc = description(site, 'apps/mailchimp');
 
 
 
+  <FaqSection faqs={faqs} title="Mailchimp Shopify FAQ" />
 </BaseLayout>

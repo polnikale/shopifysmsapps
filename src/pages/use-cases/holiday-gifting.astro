@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,56 @@ const comparisonApps = [
   'shopify-email', 'postscript', 'mailchimp', 'aftership-email',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for holiday gifting campaigns?',
+    answer: 'Sequenzy ranks first for gift-season orchestration — gift buyer branching, shipping deadline urgency, gift guide sequencing, and self-purchase suppression. Klaviyo wins at scale with gift order detection and segment-specific holiday calendars. Omnisend helps SMB teams deploy multichannel gift reminders fast.',
+  },
+  {
+    question: 'When should holiday gift guide emails start?',
+    answer: 'Four weeks before primary shipping deadline for domestic — gift inspiration and bundle ideas. Two weeks: deadline urgency. One week: last standard shipping. Final days: digital gift cards and express shipping cutoff reminders.',
+  },
+  {
+    question: 'How do I segment gift buyers from self-purchasers?',
+    answer: 'Gift message at checkout, separate ship-to name, or "this is a gift" checkbox property. Branch post-purchase and promotional gift guides away from self-purchase replenishment. Klaviyo, Sequenzy, and Drip support order property branching.',
+  },
+  {
+    question: 'Should gift messaging go to the entire list?',
+    answer: 'No — gift creative to gift-intent segments and engaged browsers of gift guide pages. Self-purchase replenishment segments get different holiday content or exclusion from gift urgency.',
+  },
+  {
+    question: 'How do shipping deadlines work in email?',
+    answer: 'Dynamic deadline copy by market and carrier — update daily final week. After cutoff, pivot to gift card and digital product email. Suppress physical product urgency past cutoff.',
+  },
+  {
+    question: 'What about gift card last-minute email?',
+    answer: 'Essential final 72 hours before holiday — instant delivery value prop. Separate creative from physical product deadlines. Track gift card revenue separately in <a class="link" href="/use-cases/analytics">analytics</a>.',
+  },
+  {
+    question: 'How does holiday gifting relate to Black Friday?',
+    answer: 'BFCM captures deal seekers; gifting sequence captures deadline-anxious buyers December onward. Suppress recent BFCM purchasers from duplicate gift discount stacks. Coordinate calendars in <a class="link" href="/use-cases/black-friday">Black Friday guide</a>.',
+  },
+  {
+    question: 'Should jewelry stores treat gifting differently?',
+    answer: 'Yes — longer consideration, gift packaging emphasis, appointment CTAs. See <a class="link" href="/for/jewelry">jewelry guide</a>. Deadline emails softer on discount, heavier on delivery certainty.',
+  },
+  {
+    question: 'Should holiday gift emails mention returns?',
+    answer: 'Yes — gift return policy and extended window reduce gift buyer anxiety. Prominent in deadline week emails when purchase urgency peaks. Reduces post-holiday support load.',
+  },
+  {
+    question: 'How do international gift deadlines differ?',
+    answer: 'Shopify Markets requires market-specific deadline emails — EU cutoff dates differ from US. Suppress physical gift urgency when market past shipping cutoff; pivot to digital gift card in local currency.',
+  },
+  {
+    question: 'Should gift emails feature price promotions?',
+    answer: 'Gift buyers often less price-sensitive than self-purchasers — lead with deadline and curation over discount. Deep gift promotions can work Black Friday week but December deadline emails should emphasize arrival certainty over percentage off.',
+  },
+  {
+    question: 'How do gift cards fit email design?',
+    answer: 'Dedicated template with instant delivery emphasis — large CTA, no product grid clutter. Separate from physical gift guide creative. Track gift card email as own flow in analytics — often highest December ROI per send.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -91,7 +142,7 @@ const comparisonApps = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Gifting fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -100,7 +151,7 @@ const comparisonApps = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -224,4 +275,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="Holiday gifting FAQ" />
 </BaseLayout>

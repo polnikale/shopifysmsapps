@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,60 @@ const comparisonApps = [
   'sendlane', 'activecampaign', 'shopify-email', 'privy',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for VIP customer campaigns?',
+    answer: 'Sequenzy ranks first for VIP lifecycle strategy — early access, thank-you cadence, and full-price treatment without coupon parity to bargain hunters. Klaviyo wins with RFM segmentation and predictive CLV at scale. Marsello fits omnichannel retailers tying POS and ecommerce loyalty into VIP tiers.',
+  },
+  {
+    question: 'How do I define VIP on Shopify?',
+    answer: 'Common models: top 10% by LTV, 3+ orders in 12 months, $500+ cumulative spend, or loyalty tier achievement. Exclude discount-only purchasers who meet spend threshold via stacked promos — they are not VIPs, they are professional deal seekers.',
+  },
+  {
+    question: 'Should VIPs get better discounts than everyone else?',
+    answer: 'Often no. VIP value is early access, exclusive products, priority support, and recognition — not deeper percentage off. Deeper discounts train VIPs to wait for VIP emails. Full-price loyalists deserve access, not coupons.',
+  },
+  {
+    question: 'How often should VIPs receive email?',
+    answer: 'Less promotional volume, more exclusive value. Quarterly personal thank-you, early access before sales, birthday or anniversary recognition. Over-messaging VIPs causes unsubscribes from your highest-LTV file.',
+  },
+  {
+    question: 'How does VIP interact with product launch?',
+    answer: 'VIP early access 24–72h before public — see <a class="link" href="/use-cases/product-launch">product launch guide</a>. Suppress VIP from general launch blast when they already purchased in early window.',
+  },
+  {
+    question: 'Can Shopify tags alone manage VIP?',
+    answer: 'Tags work for static VIP lists but miss dynamic RFM drift. Email platform segments updating from order events keep VIP accurate as customers rise or fall. Quarterly VIP audit required either way.',
+  },
+  {
+    question: 'What metrics prove VIP program success?',
+    answer: 'VIP retention rate, revenue per VIP, full-price purchase ratio among VIP, referral rate, and VIP churn to inactive.',
+  },
+  {
+    question: 'Should fraud-flagged high spenders be VIP?',
+    answer: 'No. High chargeback or fraud-flagged accounts excluded regardless of spend. VIP perks amplify fraud losses.',
+  },
+  {
+    question: 'Should VIPs see sale emails at all?',
+    answer: 'Often excluded from percentage-off blasts but included in early access and exclusive SKU communications. Document VIP exclusion in every promotional campaign QA checklist. Accidental VIP coupon trains best customers to wait with everyone else.',
+  },
+  {
+    question: 'How do I onboard new VIPs?',
+    answer: 'Immediate welcome-to-VIP email explaining perks without discount — access, service line, early sale entry. Set expectations before first VIP early access event. Quarterly touch even between purchases maintains relationship.',
+  },
+  {
+    question: 'Can VIP be invitation-only?',
+    answer: 'Yes — application or invite-only VIP tiers increase perceived exclusivity versus automatic threshold enrollment. Email invitation flow separate from loyalty auto-enroll. Cap membership growth to preserve perk quality and inventory allocation for early access.',
+  },
+  {
+    question: 'How do VIP segments interact with BFCM?',
+    answer: 'VIP receives early access and often exclusion from deepest public discount — document in BFCM war room. Accidental VIP inclusion in deepest sale email trains best customers to ignore early access. Separate creative QA checklist for VIP segment sends.',
+  },
+  {
+    question: 'Should VIP threshold be public?',
+    answer: 'Optional — public threshold increases aspiration but invites gaming via returns and split orders. Private invitation VIP preserves exclusivity. Either way, email perks should emphasize access and service, not deeper coupons than public sale.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -91,7 +146,7 @@ const comparisonApps = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">VIP fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -100,7 +155,7 @@ const comparisonApps = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -224,4 +279,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="VIP segments FAQ" />
 </BaseLayout>

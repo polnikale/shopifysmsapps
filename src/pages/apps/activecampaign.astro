@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/activecampaign';
 const title = pageTitle(site, 'apps/activecampaign');
 const desc = description(site, 'apps/activecampaign');
 
+const faqs = [
+  {
+    question: 'Is ActiveCampaign good for pure DTC Shopify stores?',
+    answer: 'Only when CRM and consultative sales overlap with ecommerce — high-ticket products, wholesale inquiries, B2B2C, or long sales cycles. Pure catalog DTC without sales follow-up usually gets better ROI from Sequenzy, Omnisend, or Klaviyo with less configuration overhead. ActiveCampaign rewards merchants who need pipeline stages alongside order events.',
+  },
+  {
+    question: 'How much does ActiveCampaign cost for 12,000 Shopify contacts?',
+    answer: 'At 12k contacts on Plus or Professional tiers, expect roughly $180–350/mo depending on features and seat count. CRM and sales automation features push tiers upward. Compare Sequenzy at similar send volume — often $60–100/mo — when CRM is unused.',
+  },
+  {
+    question: 'ActiveCampaign vs Klaviyo for Shopify segmentation?',
+    answer: 'Klaviyo wins on Shopify-native event depth, predictive CLV, and ecommerce reporting. ActiveCampaign wins on conditional automation logic, CRM pipelines, lead scoring across email and sales touchpoints, and integrations with non-Shopify systems. Choose Klaviyo for catalog retention; ActiveCampaign when sales reps follow up on high-AOV leads.',
+  },
+  {
+    question: 'Does ActiveCampaign sync Shopify orders deeply?',
+    answer: 'Yes — deep data sync includes orders, line items, tags, and custom fields for automation triggers. Still less ecommerce-native than Klaviyo for browse events and product catalog dynamics. Site tracking enables some behavioral triggers but setup is operator-heavy compared to one-click Omnisend install.',
+  },
+  {
+    question: 'Can ActiveCampaign replace a sales CRM for Shopify wholesale?',
+    answer: 'For light wholesale and high-ticket follow-up, often yes — deals, stages, tasks, and email sequences in one platform. Heavy Salesforce or HubSpot shops will chafe at limits. Best fit: hybrid merchants running DTC Shopify plus consultative sales or B2B portal orders needing unified follow-up.',
+  },
+  {
+    question: 'When does ActiveCampaign become overbuilt for Shopify?',
+    answer: 'When nobody uses CRM pipelines, automations sprawl into unmaintained boolean trees, and ecommerce flows could run simpler in Sequenzy. Signs: six-month-old automations nobody can explain, sales team ignores deal stages, per-contact bill exceeds email revenue contribution.',
+  },
+  {
+    question: 'How long does ActiveCampaign implementation take on Shopify?',
+    answer: 'Basic ecommerce automations in one to two weeks if resisting CRM complexity. Full CRM plus ecommerce integration with sales team adoption: six to twelve weeks. Document every automation branch — ActiveCampaign power becomes liability when original builder leaves.',
+  },
+  {
+    question: 'ActiveCampaign vs Drip for Shopify workflow control?',
+    answer: 'Both offer powerful visual automation. Drip is ecommerce-first with cleaner Shopify defaults. ActiveCampaign adds CRM, deal pipelines, and broader non-ecommerce integrations. Choose Drip for DTC workflow design; ActiveCampaign when sales and marketing share one database.',
+  },
+  {
+    question: 'Who should skip ActiveCampaign on Shopify?',
+    answer: 'Standard catalog DTC under 500 orders/mo with no sales team, merchants wanting fastest prebuilt ecommerce journeys, and teams allergic to configuration maintenance. Start Sequenzy or Omnisend; add ActiveCampaign only when CRM need is proven, not hypothetical.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,7 +63,7 @@ const desc = description(site, 'apps/activecampaign');
         ActiveCampaign is what happens when Shopify ecommerce overlaps with sales follow-up — high-ticket furniture quotes, wholesale inquiries, B2B portal orders, or consultative beauty routines requiring human touch. Powerful conditional automations, built-in CRM pipelines, lead scoring, and site tracking live in one platform. Pure catalog DTC without sales motion usually overpays for complexity Sequenzy or Klaviyo handles with less operator burden.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested ActiveCampaign on a $320 AOV furniture store with quote requests, a hybrid wholesale Shopify shop, and a standard apparel DTC that should have chosen Omnisend. Automation depth: {app.automationDepth}.
+        We tested ActiveCampaign on a $320 AOV furniture store with quote requests, a hybrid wholesale Shopify shop, and a standard apparel DTC that should have chosen Omnisend. Rating: ★ {app.rating}. Automation depth: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/klaviyo">Klaviyo review</a>
@@ -218,4 +257,5 @@ const desc = description(site, 'apps/activecampaign');
 
 
 
+  <FaqSection faqs={faqs} title="ActiveCampaign Shopify FAQ" />
 </BaseLayout>

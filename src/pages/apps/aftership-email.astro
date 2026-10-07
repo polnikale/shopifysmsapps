@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/aftership-email';
 const title = pageTitle(site, 'apps/aftership-email');
 const desc = description(site, 'apps/aftership-email');
 
+const faqs = [
+  {
+    question: 'Is AfterShip Email a full Shopify SMS marketing platform?',
+    answer: 'No — AfterShip Email excels at post-purchase timing tied to shipping, delivery, and returns events within the AfterShip ecosystem. Welcome, browse abandonment, and sophisticated winback belong in Sequenzy, Klaviyo, or Omnisend. AfterShip Email is the post-purchase layer when tracking and delivery data drive message timing.',
+  },
+  {
+    question: 'Do I need other AfterShip products for AfterShip Email to work?',
+    answer: 'AfterShip Email delivers most value when paired with AfterShip Tracking, Returns, or related post-purchase products you already use. Standalone email without tracking integration loses the core differentiator — delivery-triggered messages. Evaluate bundle pricing across AfterShip suite before adding email module alone.',
+  },
+  {
+    question: 'How much does AfterShip Email cost on Shopify?',
+    answer: 'Pricing varies by AfterShip product bundle — free tiers exist for basic volume; paid tiers scale with shipment volume and feature modules. Email often priced as add-on to tracking subscription. Model total AfterShip stack cost, not email line item alone.',
+  },
+  {
+    question: 'AfterShip Email vs Klaviyo post-purchase flows?',
+    answer: 'Klaviyo wins on full lifecycle breadth, segmentation, and revenue attribution across welcome through winback. AfterShip Email wins on precise delivery and return event triggers synced natively with tracking pages — shipment delayed, out for delivery, delivered, return initiated. Many stacks run Klaviyo lifecycle plus AfterShip for delivery-specific messaging without duplication.',
+  },
+  {
+    question: 'Can AfterShip Email replace review request apps?',
+    answer: 'Review request emails post-delivery are supported — competes with Yotpo, Judge.me, and Klaviyo post-purchase review flows. Timing based on actual delivery confirmation beats fixed delay from fulfillment date. Gift order filtering still requires Shopify tag discipline.',
+  },
+  {
+    question: 'Does AfterShip Email include SMS shipping updates?',
+    answer: 'Yes — SMS delivery notifications and marketing messages exist within AfterShip ecosystem. Useful for WISMO reduction and delivery confirmation; not replacement for Postscript cart recovery. Coordinate SMS frequency with email ESP to prevent notification fatigue.',
+  },
+  {
+    question: 'When should a Shopify store add AfterShip Email?',
+    answer: 'When support tickets spike around "where is my order," delivery exceptions are common (international, perishable, made-to-order), or review requests should fire on delivery not fulfillment. Also when already paying for AfterShip Tracking — marginal email add-on cost low.',
+  },
+  {
+    question: 'What is the biggest AfterShip Email mistake merchants make?',
+    answer: 'Duplicating post-purchase emails — Klaviyo sends "your order shipped" while AfterShip sends tracking update same hour. Customer fatigue and unsubscribes follow. Map message ownership: AfterShip owns delivery logistics; ESP owns education and cross-sell.',
+  },
+  {
+    question: 'Who should skip AfterShip Email?',
+    answer: 'Stores without AfterShip Tracking already, merchants needing one platform for entire lifecycle, digital product shops with no shipping events, and brands under 200 orders/mo where Shopify default notifications suffice.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,7 +63,7 @@ const desc = description(site, 'apps/aftership-email');
         AfterShip Email is post-purchase messaging tied to shipping reality — not another general ESP fighting Klaviyo on welcome series depth. When your retention moments depend on delivery confirmation, delay exceptions, return initiation, and review timing anchored to doorstep arrival, AfterShip Email leverages tracking infrastructure most lifecycle platforms approximate with fulfillment webhooks. Best when you already run AfterShip Tracking; weak as standalone email strategy for entire Shopify store.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested AfterShip Email on a perishable food brand with cold-chain anxiety, a furniture store with long lead times, and a beauty shop pairing with Sequenzy for pre-purchase lifecycle. Category: {app.category}.
+        We tested AfterShip Email on a perishable food brand with cold-chain anxiety, a furniture store with long lead times, and a beauty shop pairing with Sequenzy for pre-purchase lifecycle. Rating: ★ {app.rating}. Category: {app.category}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/use-cases/post-purchase">Post-purchase guide</a>
@@ -227,4 +266,5 @@ const desc = description(site, 'apps/aftership-email');
 
 
 
+  <FaqSection faqs={faqs} title="AfterShip Email Shopify FAQ" />
 </BaseLayout>

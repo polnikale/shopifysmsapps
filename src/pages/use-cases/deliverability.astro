@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,60 @@ const comparisonApps = [
   'mailchimp', 'activecampaign', 'shopify-email', 'yotpo-email-sms',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for deliverability?',
+    answer: 'Sequenzy ranks first for unified transactional and marketing reputation with deliverability-aware sending discipline guidance. Klaviyo wins at scale with engagement segmentation and deliverability reporting. Sendlane offers guided deliverability support for brands investing in retention ops. Brevo provides strong infrastructure for volume-conscious merchants.',
+  },
+  {
+    question: 'What is a healthy email bounce rate for Shopify stores?',
+    answer: 'Under 2% hard bounces on campaigns; under 0.3% spam complaint rate. Sustained above thresholds triggers Gmail and Yahoo filtering — especially post-2024 sender requirements.',
+  },
+  {
+    question: 'Should I sunset unengaged subscribers?',
+    answer: 'Yes — re-engagement attempt at 90 days inactive, sunset from promotional sends at 120–180 days. Keeping dead weight hurts engagement metrics Gmail uses for inbox placement. Never delete without consent audit trail.',
+  },
+  {
+    question: 'Do I need SPF, DKIM, and DMARC for Shopify SMS?',
+    answer: 'Yes for custom sending domain on any lifecycle platform. Shopify Email uses Shopify infrastructure — dedicated platforms require authenticated domain. Verify all three; DMARC p=none minimum, move toward quarantine/reject.',
+  },
+  {
+    question: 'How does Black Friday affect deliverability?',
+    answer: 'Volume spikes 4–8× stress reputation. Warm engaged segments first; sunset unengaged 30 days before peak. Post-BFCM complaint and unsubscribe spikes need monitoring — see <a class="link" href="/use-cases/black-friday">Black Friday guide</a>.',
+  },
+  {
+    question: 'Can I email purchased lists?',
+    answer: 'No — destroys deliverability and violates consent law. Shopify SMS apps are not a workaround for list buying. Organic opt-in only.',
+  },
+  {
+    question: 'What are Gmail and Yahoo 2024 sender requirements?',
+    answer: 'Authenticated domain, one-click unsubscribe, spam rate under 0.3%, valid reverse DNS. Platforms help but operational discipline — sunset, frequency caps — is on the merchant.',
+  },
+  {
+    question: 'Should transactional and marketing share a domain?',
+    answer: 'Separate subdomains recommended — transactions on send.shopifydomain.com, marketing on mail.shopifydomain.com. Sequenzy unified reputation approach reduces subdomain fragmentation when configured correctly.',
+  },
+  {
+    question: 'What sender reputation tools should Shopify merchants use?',
+    answer: 'Gmail Postmaster Tools and Microsoft SNDS for domain-level signals. Platform complaint rates weekly. Third-party inbox placement tests before BFCM. Sequenzy unified sending reduces subdomain confusion — still monitor aggregate domain health.',
+  },
+  {
+    question: 'Can I re-engage sunset contacts safely?',
+    answer: 'One re-engagement campaign annually with clear value and easy unsubscribe — not automatic re-add to promotional sends. If no open on re-engagement, suppress permanently or remove from paid plan counts. Never import sunset list to new platform without consent review.',
+  },
+  {
+    question: 'Does double opt-in help deliverability?',
+    answer: 'Confirmed subscribers engage higher — improves metrics Gmail watches. Tradeoff: lower list growth rate. Recommended for EU and for brands recovering from deliverability hit. Single opt-in US brands need stricter sunset discipline instead.',
+  },
+  {
+    question: 'What complaint rate triggers pause?',
+    answer: 'Industry guidance under 0.3% — pause promotional sends at 0.25% for investigation. Identify campaign or segment spike source. Resume engaged-only after 48-hour review. Sequenzy and Klaviyo complaint reports update daily during peak.',
+  },
+  {
+    question: 'How often should Shopify merchants audit DNS records?',
+    answer: 'Monthly automated check plus manual review after any domain migration, ESP change, or agency handoff. SPF flattening and DKIM key rotation break silently. Document current records in deliverability runbook alongside sunset policy.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -91,7 +146,7 @@ const comparisonApps = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Deliverability fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -100,7 +155,7 @@ const comparisonApps = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -224,4 +279,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="Deliverability FAQ" />
 </BaseLayout>

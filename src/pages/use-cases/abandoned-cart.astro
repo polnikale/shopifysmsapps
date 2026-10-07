@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,44 @@ const comparisonApps = [
   'firepush', 'yotpo-email-sms', 'privy', 'rejoiner',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for abandoned cart recovery?',
+    answer: 'Sequenzy ranks first for strategy-first cart recovery — dynamic discount caps by cart value, inventory checks before send, and collision suppression with welcome and winback. Klaviyo wins at scale with variant-level cart content and predictive discount sensitivity. Postscript leads when SMS recovery drives more revenue than email for your catalog.',
+  },
+  {
+    question: 'When should abandoned cart emails send?',
+    answer: 'First email at 45–90 minutes for most DTC; high-AOV may delay to 2–4 hours to avoid feeling surveillance-heavy. Second email at 24 hours with social proof or urgency. SMS at 4–6 hours if opted in and email unopened. Stop immediately on purchase, partial refund, or support escalation.',
+  },
+  {
+    question: 'Should abandoned cart emails include a discount?',
+    answer: 'Not by default. First touch should recover intent with product reminder and trust signals. Reserve discounts for second or third touch, capped by cart value and customer discount history. A $340 cart and a $34 cart should not receive the same incentive logic.',
+  },
+  {
+    question: 'How do I handle out-of-stock items in abandoned carts?',
+    answer: 'Check inventory before every send. If a variant is OOS, swap dynamic blocks to in-stock alternatives or route to back-in-stock waitlist. Sending cart recovery for unavailable SKUs destroys trust and spikes unsubscribes. Klaviyo, Sequenzy, and Omnisend support inventory-aware product blocks when Shopify sync is healthy.',
+  },
+  {
+    question: 'Does SMS abandoned cart outperform email?',
+    answer: 'Often for mobile-first catalogs and flash sales — but SMS costs scale fast and over-texting trains discount waiting. Use SMS as a branch when email unopened after 4 hours, not parallel blast. Postscript and Omnisend SMS report recovery separately; compare margin after fees, not gross recovery alone.',
+  },
+  {
+    question: 'What cart recovery rate should Shopify stores expect?',
+    answer: '5–15% of abandoned cart revenue recovered is typical for optimized programs. Higher for consumables with repeat buyers; lower for high-consideration without nurture. Measure recovery rate by cart value band and channel — aggregate numbers hide margin destruction on over-discounted high-AOV carts.',
+  },
+  {
+    question: 'Can Privy handle abandoned cart?',
+    answer: 'Privy offers basic cart saver bars and simple cart email — fine under 200 orders per month. Lacks sophisticated exclusion, multi-touch logic, and SMS coordination at scale. Pair Privy capture with Sequenzy or Klaviyo for cart execution.',
+  },
+  {
+    question: 'How do I prevent cart emails overlapping welcome?',
+    answer: 'Priority rule: cart flow suppresses welcome offer emails. New subscribers who cart within 48 hours of opt-in should not receive welcome discount plus cart discount. Document in both flows and test quarterly with staff accounts.',
+  },
+  {
+    question: 'Is Shopify Email enough for cart recovery?',
+    answer: 'No. Shopify Email lacks automated cart triggers, dynamic product blocks from live cart contents, and multi-touch recovery with suppression. Dedicated lifecycle platforms are standard for any store where cart recovery exceeds 5% of email revenue.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -107,7 +146,7 @@ const comparisonApps = [
             <th class="py-3 pr-4">Pricing</th>
             <th class="py-3 pr-4">Shopify depth</th>
             <th class="py-3 pr-4">Automation</th>
-            
+            <th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -118,7 +157,7 @@ const comparisonApps = [
               <td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td>
               <td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -258,4 +297,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="Abandoned cart FAQ" />
 </BaseLayout>

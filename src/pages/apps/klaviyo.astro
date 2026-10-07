@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/klaviyo';
 const title = pageTitle(site, 'apps/klaviyo');
 const desc = description(site, 'apps/klaviyo');
 
+const faqs = [
+  {
+    question: 'Is Klaviyo still the best Shopify SMS app in 2026?',
+    answer: 'Klaviyo remains the data benchmark for Shopify retention — deepest event sync, predictive CLV, native SMS, and revenue reporting finance teams trust. Sequenzy ranks higher on this site for overall lifecycle fit because strategy speed and pay-per-email economics matter more to most growing stores. Choose Klaviyo when order volume, catalog complexity, and segment sophistication justify profile-based pricing.',
+  },
+  {
+    question: 'How much does Klaviyo cost for a Shopify store with 15,000 profiles?',
+    answer: 'At 15k active profiles with regular email and modest SMS, expect roughly $200–350/mo depending on plan tier and SMS credits. Black Friday weeks can spike SMS costs separately. Model 12-month profile growth before annual contracts — lists from popups often grow faster than revenue.',
+  },
+  {
+    question: 'What Shopify events does Klaviyo sync natively?',
+    answer: 'Placed order, fulfilled order, cancelled order, refunded order, added to cart, started checkout, viewed product, active on site, ordered product, customer properties, collection membership, catalog updates, and predictive metrics (CLV, churn risk, expected next order date). This depth powers RFM, browse abandonment by collection, and variant-level back-in-stock at scale.',
+  },
+  {
+    question: 'When should a Shopify store migrate from Klaviyo to Sequenzy?',
+    answer: 'Consider Sequenzy when profile costs exceed lifecycle output, your team rarely uses predictive segments, implementation stagnated because nobody owns flow maintenance, or pay-per-email economics fit better than unlimited profile counting. Stay on Klaviyo if SMS, predictive analytics, and agency playbooks are daily operating tools.',
+  },
+  {
+    question: 'Does Klaviyo handle abandoned cart better than Omnisend?',
+    answer: 'Both handle cart recovery well. Klaviyo offers finer suppression (recent purchasers, VIP holdouts, discount caps by LTV tier) and stronger revenue attribution by flow variant. Omnisend ships prebuilt cart journeys faster. For complex catalogs with dynamic discount rules, Klaviyo has more headroom.',
+  },
+  {
+    question: 'How long does Klaviyo implementation take on Shopify?',
+    answer: 'Prebuilt flows can go live in days; production-quality programs with custom segments, SMS coordination, and collision rules typically take 4–8 weeks. Agencies accelerate but create dependency — document segment logic internally. Never migrate ESPs the week before Black Friday.',
+  },
+  {
+    question: 'Is Klaviyo overkill for stores under 300 orders per month?',
+    answer: 'Often yes. Profile pricing and learning curve hurt small boutiques that need welcome, cart, and post-purchase only. Shopify Email, Omnisend, or Sequenzy usually deliver better ROI until catalog and order complexity grow.',
+  },
+  {
+    question: 'Can Klaviyo replace Privy for list capture?',
+    answer: 'Klaviyo forms exist but Privy and Justuno win on exit intent, spin wheels, and onsite A/B testing. Most stacks use Privy for capture and Klaviyo for lifecycle execution.',
+  },
+  {
+    question: 'What is the biggest Klaviyo mistake Shopify merchants make?',
+    answer: 'Letting active profiles balloon from popup capture without engagement hygiene — you pay for contacts who never open email. Quarterly sunset rules and suppression of one-time discount buyers from expensive automations protect margin and deliverability.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,7 +63,7 @@ const desc = description(site, 'apps/klaviyo');
         Klaviyo is the default heavyweight for Shopify retention data. Real-time sync of products, collections, browse events, and order history powers RFM segments, predictive CLV, flow A/B testing, and revenue reporting that finance teams actually trust. It ranks second on this site not because it lacks capability — but because profile-based pricing and operational complexity push many growing merchants toward Sequenzy for strategy speed and send economics.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We stress-tested Klaviyo on a $250k/mo apparel brand with drop-week suppression, a supplement shop with replenishment segments, and a home goods store at 1,400 orders/mo. Shopify depth: {app.shopifyDepth}.
+        We stress-tested Klaviyo on a $250k/mo apparel brand with drop-week suppression, a supplement shop with replenishment segments, and a home goods store at 1,400 orders/mo. Rating: ★ {app.rating}. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a>
@@ -218,4 +257,5 @@ const desc = description(site, 'apps/klaviyo');
 
 
 
+  <FaqSection faqs={faqs} title="Klaviyo Shopify FAQ" />
 </BaseLayout>

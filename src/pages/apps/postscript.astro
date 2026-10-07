@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/postscript';
 const title = pageTitle(site, 'apps/postscript');
 const desc = description(site, 'apps/postscript');
 
+const faqs = [
+  {
+    question: 'Is Postscript a full Shopify SMS marketing platform?',
+    answer: 'No — Postscript is SMS-native. Cart recovery, flash-sale broadcasts, keyword opt-in, and two-way reply handling are the core product. Email lifecycle (welcome depth, winback sophistication, replenishment) belongs in Sequenzy, Klaviyo, or Omnisend. Postscript earns its place when mobile urgency converts better than inbox noise for your catalog.',
+  },
+  {
+    question: 'How much does Postscript cost for a Shopify store sending 8,000 SMS per month?',
+    answer: 'Expect roughly $150–350/mo depending on plan tier, message type (MMS vs SMS), and carrier fees. Black Friday weeks can double message volume — model peak months before committing. A store sending 8k texts with modest list growth often pays less than Attentive but more than Firepush for equivalent volume.',
+  },
+  {
+    question: 'Postscript vs Klaviyo SMS for Shopify cart recovery?',
+    answer: 'Klaviyo SMS wins when email and SMS share one flow builder, suppression layer, and revenue attribution dashboard. Postscript wins on SMS-specific compliance tooling, two-way conversations, and Shopify-focused cart templates tuned for DTC promo cadence. Many stacks run Klaviyo email + Postscript SMS with explicit suppression sync.',
+  },
+  {
+    question: 'Does Postscript handle TCPA compliance for Shopify subscribers?',
+    answer: 'Yes — keyword opt-in, double opt-in flows, quiet hours, and list scrubbing tools are first-class. Still document consent timestamps at capture (Privy, Justuno, Postscript popups) and never text purchased-only customers without explicit SMS consent. Compliance tooling does not replace merchant process.',
+  },
+  {
+    question: 'When should a Shopify store add Postscript alongside Sequenzy?',
+    answer: 'When cart recovery email plateaus and mobile-first customers (streetwear, beauty flash sales, drop culture) respond to text urgency. Sequenzy handles welcome, post-purchase, and winback email; Postscript handles checkout abandonment and sale-day broadcasts. Sync suppressions within 24 hours of launch.',
+  },
+  {
+    question: 'Can Postscript replace Recart for Shopify cart recovery?',
+    answer: 'Both specialize in mobile recovery. Postscript leads on compliance, two-way SMS, and enterprise DTC playbook depth. Recart adds Messenger channel and often ships faster for promo-heavy SMB setups. Choose Postscript when SMS is a primary revenue channel with governance requirements.',
+  },
+  {
+    question: 'How long does Postscript implementation take on Shopify?',
+    answer: 'Basic cart abandonment and keyword opt-in can go live in three to five business days. Full journey coordination with email ESP, VIP segmentation, and sale-week frequency caps typically takes two to three weeks. Never launch SMS cart recovery the same week you migrate email ESPs.',
+  },
+  {
+    question: 'What is the biggest Postscript mistake Shopify merchants make?',
+    answer: 'Running cart SMS and cart email without shared suppression — customers get text and email within an hour, unsubscribe from both, and blame the brand. Define channel priority: email first touch, SMS second after four hours, or inverse for VIP segments only.',
+  },
+  {
+    question: 'Who should skip Postscript entirely?',
+    answer: 'Stores under 150 orders/mo where SMS list size cannot justify per-message economics. Brands with no dedicated person to monitor compliance and reply handling. Merchants who need one platform for email and SMS at Klaviyo depth — consolidate there instead of adding another bill.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,11 +63,11 @@ const desc = description(site, 'apps/postscript');
         Postscript is what happens when a Shopify brand stops treating SMS as an email afterthought and builds a revenue channel with compliance guardrails. Cart abandonment texts, flash-sale broadcasts, keyword opt-in, and two-way reply handling are tuned for DTC promo cadence — not bolted onto a legacy ESP. It is not your email platform. Pair it with Sequenzy or Klaviyo for lifecycle depth and use Postscript where mobile urgency beats inbox latency.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Postscript on a streetwear drop brand ($180k/mo), a skincare flash-sale shop, and a supplement store with replenishment email in Klaviyo. SMS attributed 22% of cart recovery revenue on the apparel account; compliance tooling caught three quiet-hour violations before send. Shopify depth: {app.shopifyDepth}.
+        We tested Postscript on a streetwear drop brand ($180k/mo), a skincare flash-sale shop, and a supplement store with replenishment email in Klaviyo. SMS attributed 22% of cart recovery revenue on the apparel account; compliance tooling caught three quiet-hour violations before send. Rating: ★ {app.rating}. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/klaviyo-vs-postscript">Klaviyo vs Postscript</a>
-        <a class="btn btn-secondary" href="/use-cases/abandoned-cart">Cart recovery guide</a>
+        <a class="btn btn-secondary" href="/use-cases/cart-recovery">Cart recovery guide</a>
         <a class="btn btn-secondary" href="/apps/sequenzy">Pair with Sequenzy</a>
       </div>
     </div>
@@ -208,7 +247,7 @@ const desc = description(site, 'apps/postscript');
     <div class="flex flex-wrap gap-4 text-sm font-bold">
       <a class="link" href="/apps">All Shopify SMS apps →</a>
       <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
-      <a class="link" href="/use-cases/abandoned-cart">Cart recovery →</a>
+      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
     </div>
   </section>
     <div class="prose-shopify card mt-12">
@@ -220,4 +259,5 @@ const desc = description(site, 'apps/postscript');
 
 
 
+  <FaqSection faqs={faqs} title="Postscript Shopify FAQ" />
 </BaseLayout>

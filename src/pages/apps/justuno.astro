@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -10,6 +11,44 @@ const path = '/apps/justuno';
 const title = pageTitle(site, 'apps/justuno');
 const desc = description(site, 'apps/justuno');
 
+const faqs = [
+  {
+    question: 'Is Justuno an SMS marketing platform for Shopify?',
+    answer: 'No — Justuno is onsite conversion and list capture. Smart popups, product quizzes, gamification, and AI product recommendations feed subscribers into Sequenzy, Klaviyo, or Omnisend for lifecycle execution. Justuno solves top-of-funnel segmentation at capture; it does not replace retention ESP.',
+  },
+  {
+    question: 'Justuno vs Privy for Shopify popups?',
+    answer: 'Privy wins on beginner-friendly spin wheels and simplicity for small stores. Justuno wins on advanced targeting rules, product quiz segmentation, AI onsite recommendations, and A/B testing depth. Both feed lists downstream — choose Justuno when capture sophistication drives lifecycle relevance.',
+  },
+  {
+    question: 'How much does Justuno cost on Shopify?',
+    answer: 'From ~$29/mo scaling by traffic and features — high-traffic stores with advanced targeting reach $100–200+/mo. Pageview and session pricing bites during viral spikes. Model traffic peaks, not average months, before committing annual plans.',
+  },
+  {
+    question: 'Can Justuno quizzes improve email welcome performance?',
+    answer: 'Yes — quiz answers sync as tags or custom fields to Shopify and downstream ESP. Welcome series branching on skin type, size preference, or use case lifts relevance dramatically vs generic footer signup. Our skincare test saw 24% higher welcome click rate with quiz-sourced segments.',
+  },
+  {
+    question: 'Does Justuno send email campaigns directly?',
+    answer: 'Justuno focuses on capture and onsite personalization — not full ESP. Some basic email capabilities may exist but insufficient for cart recovery, winback, or replenishment. Integrate with Sequenzy or Klaviyo via Shopify tags and sync integrations.',
+  },
+  {
+    question: 'When should a Shopify store upgrade from Privy to Justuno?',
+    answer: 'When popup A/B testing becomes strategic priority, quiz segmentation feeds lifecycle revenue, or traffic volume justifies advanced targeting rules Privy cannot express. Also when AI product recommendations on-site lift AOV independent of email.',
+  },
+  {
+    question: 'How does Justuno integrate with Sequenzy or Klaviyo?',
+    answer: 'Typically via Shopify customer tags, Justuno webhooks, or native integrations passing quiz answers and capture source. Tag hygiene at handoff critical — document tag glossary before enabling welcome branching in downstream ESP.',
+  },
+  {
+    question: 'What is the biggest Justuno mistake merchants make?',
+    answer: 'Capturing subscribers with aggressive discounts without passing segmentation data downstream — you pay Justuno for sophistication then send generic welcome blasts in Mailchimp. Quiz and behavior data must reach ESP same hour as signup.',
+  },
+  {
+    question: 'Who should skip Justuno?',
+    answer: 'Stores under 100 orders/mo where Privy free tier suffices, merchants needing one tool for capture plus full lifecycle, teams without bandwidth to run popup experiments, and brands with strong organic email growth already.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -24,7 +63,7 @@ const desc = description(site, 'apps/justuno');
         Justuno is what happens when list capture becomes segmentation strategy — not just a spin wheel collecting emails. Product quizzes, smart popups with behavioral targeting, gamification, and AI onsite recommendations convert traffic into tagged subscribers your lifecycle ESP can actually use. It does not send winback or cart recovery at scale. Pair with Sequenzy or Klaviyo; Justuno makes downstream email smarter by fixing upstream capture quality.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Justuno on a skincare quiz funnel, a fashion store with collection-specific exit intent, and a supplement shop comparing Privy. Quiz-sourced welcome outperformed footer capture by 24% click rate. Automation: {app.automationDepth}.
+        We tested Justuno on a skincare quiz funnel, a fashion store with collection-specific exit intent, and a supplement shop comparing Privy. Quiz-sourced welcome outperformed footer capture by 24% click rate. Rating: ★ {app.rating}. Automation: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/privy">Privy review</a>
@@ -216,4 +255,5 @@ const desc = description(site, 'apps/justuno');
 
 
 
+  <FaqSection faqs={faqs} title="Justuno Shopify FAQ" />
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -20,6 +21,56 @@ const comparisonApps = [
   'mailchimp', 'brevo', 'yotpo-email-sms', 'rejoiner',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
+const faqs = [
+  {
+    question: 'What is the best Shopify SMS app for discount strategy execution?',
+    answer: 'Sequenzy ranks first for discount governance playbooks — graduated incentives, full-price segment treatment, and flow collision rules. Klaviyo wins with predictive discount sensitivity and segment-level offer testing. Drip suits operators building explicit discount-cap workflows visually.',
+  },
+  {
+    question: 'Should every automation include a discount code?',
+    answer: 'No — the most expensive mistake in Shopify email. Default 10% on welcome, cart, browse, and winback stacks incentives and trains customers to never buy full price. Proof-first sequences with selective discount escalation outperform blanket codes.',
+  },
+  {
+    question: 'How do I segment by discount sensitivity?',
+    answer: 'Use order history: percentage of orders with codes, average discount depth, days since last discounted purchase. Klaviyo predictive metrics accelerate this at scale. Tag manually in Drip or Sequenzy when order volume is moderate.',
+  },
+  {
+    question: 'Can popup discounts stack with cart recovery?',
+    answer: 'Never intentionally. Set global rules: one active incentive per customer per 14-day window. Popup coupon suppresses cart discount or vice versa via priority flags. Stacking destroys margin and creates support chaos.',
+  },
+  {
+    question: 'What full-price order percentage is healthy?',
+    answer: 'Varies by vertical — 40–60% for established DTC with strong brand; higher for luxury and <a class="link" href="/for/high-aov">high-AOV</a>. Below 25% signals discount addiction requiring automation audit.',
+  },
+  {
+    question: 'Should VIPs receive the same sale discounts?',
+    answer: 'Usually excluded or offered access instead of deeper percentage. See <a class="link" href="/use-cases/vip-segments">VIP guide</a>. VIP early access at full price beats VIP 30% off during public 25% sale.',
+  },
+  {
+    question: 'How does discount strategy affect deliverability?',
+    answer: 'Aggressive discount blasts to cold segments spike complaints and unsubscribes — hurts inbox placement. Targeted offers to engaged segments perform better on revenue and deliverability. See <a class="link" href="/use-cases/deliverability">deliverability guide</a>.',
+  },
+  {
+    question: 'Can Privy coexist with disciplined discount strategy?',
+    answer: 'Yes if popup offers align with lifecycle rules — smaller capture incentive, no auto-stack with cart. Privy spin-to-win needs outcome passed to email platform for suppression logic.',
+  },
+  {
+    question: 'Can I use automatic Shopify discounts in email?',
+    answer: 'Automatic discounts apply at checkout without code — email promoting code may confuse if automatic already active. Pick one mechanism per promotion window. Document in discount policy spreadsheet which flows use codes versus automatic.',
+  },
+  {
+    question: 'How do free shipping offers compare to percentage off?',
+    answer: 'Often better margin outcome for AOV above shipping cost threshold — test on cart recovery before escalating percentage. Full-price loyalists may respond to free shipping where percentage off trains discount expectation.',
+  },
+  {
+    question: 'What is maximum discount depth policy?',
+    answer: 'Finance-approved ceiling per flow documented in writing — e.g., cart max 10%, winback max 15%, welcome max 10% only for popup entrants. Automation builders cannot exceed without approval. Sequenzy agent prompts can encode caps; Klaviyo requires manual boolean guards.',
+  },
+  {
+    question: 'How do employee discounts interact with email codes?',
+    answer: 'Exclude staff and friends-of-brand segments from promotional automation — separate internal comms channel. Accidental employee inclusion in public cart recovery trains code leakage to social media.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -91,7 +142,7 @@ const comparisonApps = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Discount governance</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -100,7 +151,7 @@ const comparisonApps = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
+              <td class="py-3">★ {app.rating}</td>
             </tr>
           ))}
         </tbody>
@@ -224,4 +275,5 @@ const comparisonApps = [
 
 
 
+  <FaqSection faqs={faqs} title="Discount strategy FAQ" />
 </BaseLayout>
