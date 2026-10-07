@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -21,48 +20,6 @@ const comparisonApps = [
   'activecampaign', 'brevo', 'rejoiner', 'yotpo-email-sms',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
-const faqs = [
-  {
-    question: 'What is the best Shopify SMS app for winback campaigns?',
-    answer: 'Sequenzy ranks first for winback strategy — full-price reactivation before discount escalation, former VIP branches, and replenishment collision rules. Klaviyo wins with predictive churn scores and RFM segmentation at scale. Rejoiner fits brands wanting managed winback creative and strategy.',
-  },
-  {
-    question: 'When should winback emails start?',
-    answer: 'Depends on category: 60–90 days for consumables with shorter cycles; 120–180 days for apparel and home goods; longer for jewelry. Start with new arrivals and proof — reserve discounts for discount-sensitive segments who ignored full-price touches.',
-  },
-  {
-    question: 'Should winback offer a discount immediately?',
-    answer: 'No. Email one and two should lead with product news, social proof, and category-specific reasons to return. Discount in email three only for segments with prior discount redemption or predicted sensitivity. Former full-price VIPs may get exclusive access instead of percentage off.',
-  },
-  {
-    question: 'How do winback and replenishment interact?',
-    answer: 'Customers on active replenishment timers must be excluded from winback — they are not lapsed. Subscription active on SKU suppresses winback for that product line. Collision causes double incentives and confusion.',
-  },
-  {
-    question: 'What winback reactivation rate is realistic?',
-    answer: '3–8% of targeted lapsed segment per series is healthy. Higher on consumables with strong product-market fit; lower on one-time gift buyers. Measure margin on reactivated orders — 15% reactivation with 40% discount may be worse than 5% at full price.',
-  },
-  {
-    question: 'Should I winback unengaged email subscribers who never purchased?',
-    answer: 'Different job — that is welcome/nurture sunset, not purchase winback. Non-buyer re-engagement belongs in deliverability sunset policy. Purchase winback targets customers with order history only.',
-  },
-  {
-    question: 'Can Mailchimp handle Shopify winback?',
-    answer: 'Basic recency segments possible with Shopify integration but lack predictive churn, flow collision control, and revenue attribution depth. Stores serious about winback margin graduate to ecommerce-native platforms.',
-  },
-  {
-    question: 'How does winback differ from Black Friday?',
-    answer: 'Winback is individualized reactivation based on lapse cohort. BFCM is list-wide peak with VIP early access and suppression discipline. Do not substitute BFCM blast for structured winback — you train lapsed buyers to wait for November.',
-  },
-  {
-    question: 'Should winback use SMS?',
-    answer: 'Only for SMS-opted engaged lapsed customers with mobile purchase history — one message maximum per winback series. Postscript compliance tooling helps. SMS winback without email proof-first often over-discounts.',
-  },
-  {
-    question: 'How do I winback one-time gift buyers?',
-    answer: 'Separate cohort — gift buyers may not be product users. Target gifters with self-purchase angle January post-holiday, not standard product winback. Order gift property detection required.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -134,7 +91,7 @@ const faqs = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Winback fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -143,7 +100,7 @@ const faqs = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              <td class="py-3">★ {app.rating}</td>
+              
             </tr>
           ))}
         </tbody>
@@ -269,5 +226,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Winback FAQ" />
 </BaseLayout>

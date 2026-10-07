@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/omnisend';
 const title = pageTitle(site, 'apps/omnisend');
 const desc = description(site, 'apps/omnisend');
 
-const faqs = [
-  {
-    question: 'Is Omnisend good for Shopify SMS and SMS together?',
-    answer: 'Yes — Omnisend is the best SMB multichannel shortcut on Shopify. Email, SMS, and push live in one journey builder with prebuilt cart, welcome, and post-purchase flows. One-click install gets most stores live in days. Klaviyo goes deeper on data; Sequenzy goes faster on strategy playbooks; Omnisend wins when you want multichannel without enterprise complexity.',
-  },
-  {
-    question: 'Omnisend vs Klaviyo for a 500-order-per-month Shopify store?',
-    answer: 'Omnisend usually wins on speed and entry cost at that volume. Klaviyo pays off once you need collection-level boolean logic, predictive CLV, and complex drop suppression. Many Omnisend merchants migrate to Sequenzy or Klaviyo at 800–1,200 orders/mo when seasonal winback becomes weekly ops.',
-  },
-  {
-    question: 'How does Omnisend pricing work on Shopify?',
-    answer: 'Free tier available; Standard and Pro scale by contacts and message volume. SMS and push billed within plan limits then overage. At 10k contacts with regular email + modest SMS, expect roughly $60–120/mo vs Klaviyo $150–250 for similar profile counts.',
-  },
-  {
-    question: 'Does Omnisend sync Shopify browse abandonment?',
-    answer: 'Yes for core browse and cart events needed in prebuilt journeys. Segmentation is solid for SMB but less flexible than Klaviyo for exotic metafield logic across dozens of collections. Sufficient for most boutiques; insufficient for 5,000+ SKU matrix operations.',
-  },
-  {
-    question: 'Are Omnisend push notifications worth it?',
-    answer: 'Push can recover mobile web browse and cart intent without SMS cost — useful for flash sales. Overuse trains ignore behavior. If push is not in your channel strategy, the feature is irrelevant weight vs email-only tools.',
-  },
-  {
-    question: 'Can Omnisend replace Privy for popups?',
-    answer: 'Omnisend includes signup forms and gamified capture but Privy and Justuno win on exit intent depth and popup A/B testing. Common stack: Privy capture + Omnisend lifecycle.',
-  },
-  {
-    question: 'How fast can I launch automations on Shopify with Omnisend?',
-    answer: 'Our home goods test went from install to welcome, cart, and post-purchase live in eleven days including template customization. Faster than typical Klaviyo greenfield; comparable to Sequenzy playbook speed but with more template-driven editing.',
-  },
-  {
-    question: 'When should I leave Omnisend for Sequenzy?',
-    answer: 'When pay-per-email economics beat contact pricing, you want agent-first lifecycle guidance over template editing, or replenishment/winback complexity outgrows Omnisend boolean limits. Omnisend remains strong if SMS + push unity is the priority.',
-  },
-  {
-    question: 'Does Omnisend handle Black Friday volume on Shopify?',
-    answer: 'Yes with prep — sunset unengaged contacts 30 days before peak, cap SMS frequency, and test suppression for recent purchasers. Klaviyo offers finer holdout testing; Omnisend prebuilt sale templates help SMB teams move fast with manual discipline.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,7 +24,7 @@ const faqs = [
         Omnisend is the practical shortcut when a Shopify team needs welcome, cart recovery, post-purchase, and SMS live this week — not next quarter. One-click install, prebuilt ecommerce journeys, and email + SMS + push in one builder reduce tool sprawl for boutiques without a retention specialist. It ranks third here because Klaviyo and Sequenzy eventually outpace it on data depth and strategy guidance — but Omnisend wins the first 12–18 months for many SMB merchants.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        Tested on a 320-order/mo candle shop, a pet products store, and a fashion boutique graduating off Shopify Email. Rating: ★ {app.rating}. Automation: {app.automationDepth}.
+        Tested on a 320-order/mo candle shop, a pet products store, and a fashion boutique graduating off Shopify Email. Automation: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a>
@@ -254,5 +215,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Omnisend Shopify FAQ" />
 </BaseLayout>

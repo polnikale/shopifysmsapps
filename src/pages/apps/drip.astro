@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/drip';
 const title = pageTitle(site, 'apps/drip');
 const desc = description(site, 'apps/drip');
 
-const faqs = [
-  {
-    question: 'Is Drip good for Shopify ecommerce automation?',
-    answer: 'Yes for operators who enjoy visual workflow design and behavior-based segmentation. Native Shopify sync, tag triggers, and revenue dashboards passed our outdoor gear scenarios. Smaller ecosystem than Klaviyo — choose Drip when you want hands-on control without Klaviyo bill size; choose Sequenzy when you want guided playbooks over blank canvas building.',
-  },
-  {
-    question: 'How much does Drip cost for Shopify stores?',
-    answer: 'From ~$39/mo scaling by people in account (contacts). At 8,000 contacts expect roughly $89–129/mo; at 20,000 contacts $154–220/mo. Per-contact pricing similar trap to Klaviyo when lists grow faster than engagement — compare Sequenzy pay-per-send if sends lag profile count.',
-  },
-  {
-    question: 'Drip vs Klaviyo for Shopify segmentation?',
-    answer: 'Klaviyo wins on predictive CLV, native SMS, and Shopify event depth at enterprise scale. Drip wins on visual workflow clarity and often lower entry price for mid-size lists. Drip tag-based logic suits focused catalogs; Klaviyo suits 4,000+ SKU matrix operations.',
-  },
-  {
-    question: 'Drip vs Sequenzy — which for a lean Shopify team?',
-    answer: 'Sequenzy for agent-first lifecycle strategy and unlimited contacts with pay-per-email. Drip for marketers who want to see every branch and build custom paths manually. Sequenzy ranks higher on this site for most growing stores; Drip for workflow enthusiasts.',
-  },
-  {
-    question: 'Does Drip support Shopify browse abandonment?',
-    answer: 'Yes — site tracking and product browse tags enable collection-specific paths. Setup requires more manual tagging than Klaviyo prebuilt segments. Powerful once configured; slower to launch than Omnisend templates or Sequenzy playbooks.',
-  },
-  {
-    question: 'Can Drip handle SMS on Shopify?',
-    answer: 'SMS available in Drip but ecosystem and compliance tooling trail Postscript and Klaviyo SMS. Most Drip Shopify stacks are email-primary with SMS bolt-on if needed.',
-  },
-  {
-    question: 'Migration from Klaviyo to Drip — what breaks?',
-    answer: 'Predictive segments do not transfer — rebuild RFM manually from order data. Flow logic must be recreated in visual builder. Budget 4–6 weeks; export consent timestamps; suppress recent purchasers during overlap.',
-  },
-  {
-    question: 'Who should skip Drip on Shopify?',
-    answer: 'Teams wanting fastest time-to-live with prebuilt journeys — Omnisend or Sequenzy ship faster. Stores needing predictive analytics daily — Klaviyo. Merchants who hate workflow builders — Drip UI will frustrate.',
-  },
-  {
-    question: 'Best Drip use case on Shopify?',
-    answer: 'DTC brands with focused catalog and distinct customer paths by collection — outdoor gear, specialty food, niche apparel. Tags like browsed-denim or purchased-outerwear trigger explicit education vs cross-sell branches.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,7 +24,7 @@ const faqs = [
         Drip appeals to Shopify operators who want to see and control every branch of the customer journey. The visual workflow builder makes collection-specific browse abandonment, post-purchase cross-sell by category purchased, and winback paths that diverge for full-price buyers versus discount-first customers straightforward — if you enjoy building automations. Sequenzy ranks higher for teams wanting guided outcomes; Klaviyo for predictive data — Drip occupies the hands-on middle ground.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        Tested on outdoor gear DTC ($110k/mo), specialty coffee subscription, and print-on-demand store. Rating: ★ {app.rating}. Automation: {app.automationDepth}.
+        Tested on outdoor gear DTC ($110k/mo), specialty coffee subscription, and print-on-demand store. Automation: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a>
@@ -254,5 +215,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Drip Shopify FAQ" />
 </BaseLayout>

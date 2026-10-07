@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/recart';
 const title = pageTitle(site, 'apps/recart');
 const desc = description(site, 'apps/recart');
 
-const faqs = [
-  {
-    question: 'Is Recart a replacement for Klaviyo on Shopify?',
-    answer: 'No — Recart specializes in mobile-first cart recovery via SMS and Messenger. Email lifecycle depth, welcome sophistication, and winback belong in Sequenzy, Klaviyo, or Omnisend. Recart earns budget when abandoned cart recovery via mobile channels is the primary gap and email already performs adequately.',
-  },
-  {
-    question: 'How much does Recart cost for Shopify cart recovery?',
-    answer: 'Recart uses paid plans with usage-based messaging — typically scales with subscriber count and message volume. Expect roughly $100–300/mo for mid-size DTC depending on cart volume and MMS usage. Compare Postscript at similar SMS volume; Recart adds Messenger channel Postscript lacks.',
-  },
-  {
-    question: 'Recart vs Postscript for Shopify SMS recovery?',
-    answer: 'Postscript leads on TCPA compliance depth, two-way SMS conversations, and enterprise DTC playbook. Recart leads on Messenger recovery channel, faster SMB setup for promo-heavy catalogs, and combined Facebook ecosystem retargeting adjacency. Choose Postscript for SMS governance; Recart for Messenger plus SMS combo at SMB scale.',
-  },
-  {
-    question: 'Does Recart support Facebook Messenger cart recovery?',
-    answer: 'Yes — Messenger abandoned cart reminders are a core differentiator vs SMS-only tools. Requires Messenger subscriber opt-in and Meta policy compliance. Performance varies by audience age and channel preference — test holdout groups before scaling Messenger spend.',
-  },
-  {
-    question: 'Can Recart handle browse abandonment on Shopify?',
-    answer: 'Browse abandonment via SMS exists with consent and list growth prerequisites. Checkout-stage recovery remains stronger use case — higher intent, clearer consent path. Pair with Privy or Justuno for onsite capture feeding Recart mobile lists.',
-  },
-  {
-    question: 'When should a Shopify store add Recart alongside Sequenzy?',
-    answer: 'When Sequenzy email cart recovery plateaus and mobile-first audience shows higher SMS or Messenger conversion. Sync suppressions: recent purchasers and active cart email recipients should not get simultaneous Recart texts within one hour.',
-  },
-  {
-    question: 'Does Recart include email marketing?',
-    answer: 'Recart is mobile recovery focused — not full email ESP. Some email touchpoints may exist but insufficient for lifecycle strategy. Budget Sequenzy or Omnisend for email; Recart for mobile recovery specialization.',
-  },
-  {
-    question: 'What is the biggest Recart mistake Shopify merchants make?',
-    answer: 'Discount escalation on every SMS touch trains customers to abandon carts intentionally. Cap discounts on final message only; test no-discount recovery on high-AOV segments. Recart makes discount automation easy — margin destruction follows without discipline.',
-  },
-  {
-    question: 'Who should skip Recart?',
-    answer: 'Stores under 200 orders/mo, brands with email recovery sufficient and non-mobile audience, merchants needing unified email-SMS in Klaviyo or Omnisend, and teams unable to monitor Messenger policy changes and SMS compliance.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,11 +24,11 @@ const faqs = [
         Recart is mobile-first cart recovery for promo-heavy Shopify DTC — SMS reminders, Messenger abandoned cart nudges, browse abandonment texts, and discount automation tuned for urgency catalogs. Not a full email platform. When your bottleneck is checkout abandonment on phones and email recovery flatlined, Recart specializes where general ESPs treat SMS as checkbox feature. Pair with Sequenzy or Klaviyo for everything before and after the cart moment.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Recart on a promo-driven beauty brand, a streetwear shop comparing against Postscript, and a home goods store where Messenger underperformed. Rating: ★ {app.rating}. Shopify depth: {app.shopifyDepth}.
+        We tested Recart on a promo-driven beauty brand, a streetwear shop comparing against Postscript, and a home goods store where Messenger underperformed. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/postscript">Postscript review</a>
-        <a class="btn btn-secondary" href="/use-cases/cart-recovery">Cart recovery guide</a>
+        <a class="btn btn-secondary" href="/use-cases/abandoned-cart">Cart recovery guide</a>
         <a class="btn btn-secondary" href="/apps/sequenzy">Pair with Sequenzy</a>
       </div>
     </div>
@@ -241,7 +202,7 @@ const faqs = [
   <section class="container pb-8">
     <div class="flex flex-wrap gap-4 text-sm font-bold">
       <a class="link" href="/apps">All Shopify SMS apps →</a>
-      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
+      <a class="link" href="/use-cases/abandoned-cart">Cart recovery →</a>
       <a class="link" href="/for/fashion">Fashion stores →</a>
       <a class="link" href="/apps/postscript">Postscript review →</a>
     </div>
@@ -255,5 +216,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Recart Shopify FAQ" />
 </BaseLayout>

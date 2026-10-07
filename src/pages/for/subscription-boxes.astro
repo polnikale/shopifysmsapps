@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { segmentBySlug } from '../../data/segments';
@@ -13,16 +12,6 @@ const path = '/for/subscription-boxes';
 const title = pageTitle(site, 'for/subscription-boxes');
 const desc = description(site, 'for/subscription-boxes');
 
-const faqs = [
-  { question: 'What is the best Shopify SMS app for subscription box brands?', answer: 'Postscript leads for SMS-native Shopify automation with TCPA tooling and cart recovery. Sequenzy is the lifecycle layer for email strategy beside SMS. Klaviyo and Omnisend fit when you want SMS bundled with deep segmentation.' },
-  { question: 'How should subscription box brands handle SMS consent?', answer: 'Document opt-in source, message frequency, and quiet hours. subscription box brands face subscriber retention, skips, churn, and upcoming-box previews — texts must reference that context, not generic promos. Suppress recent purchasers and active support cases.' },
-  { question: 'What does SMS cost look like for subscription box brands?', answer: 'Model cost per delivered message against margin after discounts. Monthly recurring; skip behavior common; churn at month 3–4 Buying cycles affect how many texts justify recovery versus annoyance.' },
-  { question: 'Should subscription box brands pair SMS with email?', answer: 'Yes — SMS for urgency (cart, launch, replenishment, shipping), email for education and proof. Sequenzy coordinates lifecycle email while Postscript or Omnisend handle SMS sends.' },
-  { question: 'What metrics matter for subscription box brands SMS?', answer: 'Skip-to-active recovery rate, Churn by subscriber month, Referral revenue from email, Box preview engagement correlation, plus opt-out rate, cost per recovered order, and TCPA complaint rate.' },
-  { question: 'When is Attentive worth it over Postscript for subscription box brands?', answer: 'When SMS volume, acquisition budget, and managed onboarding justify enterprise pricing — typically above ~$150k/mo with dedicated retention headcount.' },
-  { question: 'How do quiet hours affect subscription box brands?', answer: 'Respect local time zones and category norms. Food and pet reorder texts differ from jewelry gift reminders. Configure per-segment send windows before scaling broadcasts.' },
-  { question: 'Can Privy replace a full SMS platform for subscription box brands?', answer: 'Privy handles capture and basic SMS. Growing subscription box brands usually add Postscript, Omnisend, or Klaviyo for automation depth and suppression control.' },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -209,6 +198,5 @@ const faqs = [
       </ul>
     </div>
 
-    <FaqSection faqs={faqs} title="FAQ: Shopify SMS for subscription box brands" />
   </section>
 </BaseLayout>

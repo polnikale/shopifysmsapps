@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -21,56 +20,6 @@ const comparisonApps = [
   'yotpo-email-sms', 'sendlane', 'firepush', 'attentive',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
-const faqs = [
-  {
-    question: 'What is the best Shopify SMS app for Black Friday campaigns?',
-    answer: 'Sequenzy ranks first for BFCM strategy — VIP early access, recent purchaser suppression, teaser sequencing, and post-peak deliverability recovery. Klaviyo wins at scale with segment holdout testing and fine suppression during 8× volume spikes. Omnisend helps SMB teams ship multichannel sale journeys fast.',
-  },
-  {
-    question: 'When should Black Friday email start?',
-    answer: 'Teaser week -1 to engaged segments only. VIP early access -24 to -48 hours. General sale launch Thanksgiving or brand calendar equivalent. Last chance +48h before sale end. Sunset unengaged 30 days before first teaser.',
-  },
-  {
-    question: 'How many Black Friday emails is too many?',
-    answer: 'More than one promotional email per day to same segment burns list and deliverability. VIP and engaged can tolerate higher frequency than cold segments. Post-BFCM complaint spike is the feedback — if above 0.3%, you over-mailed.',
-  },
-  {
-    question: 'Should recent full-price buyers get Black Friday emails?',
-    answer: 'Suppress or offer price adjustment policy instead of blast — nothing angers customers like full-price Monday and 30% off Friday. Minimum 14-day purchase suppression for same SKU category.',
-  },
-  {
-    question: 'How do I protect deliverability during BFCM?',
-    answer: 'Sunset unengaged pre-season. Warm engaged segments with value content week -2. Authenticate domain. Monitor complaint rate daily. Post-peak pause promotional 5–7 days. See <a class="link" href="/use-cases/deliverability">deliverability guide</a>.',
-  },
-  {
-    question: 'Should SMS be part of Black Friday?',
-    answer: 'VIP early access SMS performs well for opted-in engaged subscribers — not full list SMS blast. Coordinate with email suppression. Postscript and Omnisend manage channel economics.',
-  },
-  {
-    question: 'How does BFCM differ from product launch email?',
-    answer: 'BFCM is list-wide peak with strict suppression and deliverability guardrails. Launch is SKU-specific orchestration. Reuse VIP early access concepts, not identical sequences.',
-  },
-  {
-    question: 'What metrics matter post-Black Friday?',
-    answer: 'Revenue per send during BFCM, unsubscribe and complaint spikes, January reactivation rate, deliverability placement recovery, and margin after discounts — not gross revenue alone.',
-  },
-  {
-    question: 'Should Cyber Monday differ from Black Friday email?',
-    answer: 'Segment customers who purchased Black Friday — suppress repeat discount or offer category cross-sell instead. Fresh creative angle for non-purchasers. Same frequency caps apply — not excuse for second daily blast to full file.',
-  },
-  {
-    question: 'How do I staff BFCM email operations?',
-    answer: 'War room doc: send schedule, suppression rules, escalation contact, pause protocol if complaint spikes. Klaviyo users schedule sends; keep human monitoring inbox for reply spikes. Postscript SMS needs quiet hours verification before automation.',
-  },
-  {
-    question: 'Should I pause lifecycle flows during BFCM?',
-    answer: 'Pause non-essential automations that conflict with sale messaging — browse and winback especially. Keep cart and post-purchase transactional paths active with suppression updated for sale week. Document pause dates in flow changelog to restore December week one.',
-  },
-  {
-    question: 'What is BFCM email revenue quality?',
-    answer: 'Measure margin after discount and January repeat rate — not gross attributed revenue alone. High BFCM revenue with 70% discount redemption and weak January is list rental, not growth. Compare to full-price weeks in September benchmark.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -142,7 +91,7 @@ const faqs = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">BFCM fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -151,7 +100,7 @@ const faqs = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              <td class="py-3">★ {app.rating}</td>
+              
             </tr>
           ))}
         </tbody>
@@ -275,5 +224,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Black Friday FAQ" />
 </BaseLayout>

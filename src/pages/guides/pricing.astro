@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description } from '../../content';
 import { appBySlug } from '../../data/apps';
@@ -43,14 +42,6 @@ const reviews = [
   ['drip', 'Drip is email-first and ecommerce-oriented, with revenue reporting and event-based workflows that can make an SMS holdout easier to measure. Pair it with an SMS-native provider, and judge the combined stack on incremental margin rather than Drip-attributed revenue alone.'],
 ];
 
-const faqs = [
-  { question: 'What is the cheapest way to test Shopify SMS?', answer: 'Start with a one-flow pilot and a provider with a free or low-commitment plan, such as Omnisend, Brevo, or Privy for capture. Include carrier fees, MMS, discounts, and opt-out loss in the test budget.' },
-  { question: 'Is SMS pricing based on contacts or messages?', answer: 'Both models exist. Some tools price by message usage, some by profiles or contacts, and enterprise providers may combine a platform minimum with negotiated volume pricing.' },
-  { question: 'Should I buy an all-in-one email and SMS app?', answer: 'Choose bundled delivery when a small team values speed and one journey builder. Choose specialist tools when SMS compliance, reply handling, or deep Shopify data needs deserve separate ownership.' },
-  { question: 'What should a pricing pilot measure?', answer: 'Measure delivered cost, incremental orders against a holdout, contribution margin after discounts, opt-out rate, complaint rate, reply workload, and the quality of repeat purchases.' },
-  { question: 'Are the prices on this page quotes?', answer: 'No. Every figure is a buying-model note, not a quote. Plan names, tiers, per-message rates, MMS premiums, and surcharges change, and vendors do not always publish overage terms. Check each tool\'s official pricing page and request a written twelve-month estimate at your real volume.' },
-  { question: 'How do I compute contribution margin for an SMS flow?', answer: 'Start from gross profit on the incremental order, then subtract discount depth, messaging cost (segments, MMS share, carrier surcharges), allocated platform fee, and the opt-out cost of added frequency. If the remainder is negative, the flow borrows margin from future sends even when attribution looks green.' },
-];
 
 const apps = reviews.map(([slug]) => appBySlug(slug)!).filter(Boolean);
 ---
@@ -207,6 +198,5 @@ Klaviyo prices by active profiles and SMS usage and rewards teams that will main
 Attentive's custom contract buys managed acquisition and service depth; Postscript's usage model stays self-serve. The crossover is program scale and internal headcount: a lean team sending high volume may find managed services cheaper than hiring, while a hands-on retention team may find a contract's minimums restrictive. Request written terms from both and compare total cost including the operator hours each model implies.
 </p>
 
-  <FaqSection faqs={faqs} title="Shopify SMS pricing FAQ" />
   </section>
 </BaseLayout>

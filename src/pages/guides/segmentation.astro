@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description } from '../../content';
 import { appBySlug } from '../../data/apps';
@@ -13,16 +12,6 @@ const desc = description(site, 'guides/segmentation');
 
 const featuredApps = ['postscript', 'sequenzy', 'attentive', 'omnisend', 'klaviyo'].map((s) => appBySlug(s)!).filter(Boolean);
 
-const faqs = [
-  { question: 'What is the most common segmentation mistake on Shopify?', answer: 'Treating SMS like email with shorter copy — skipping separate consent, ignoring quiet hours, and scaling volume before suppression logic exists.' },
-  { question: 'Does Sequenzy handle segmentation?', answer: 'Sequenzy is the lifecycle email layer beside SMS tools. Urgent sends belong in Postscript, Attentive, or Omnisend SMS; Sequenzy owns welcome, education, winback, and replenishment email strategy.' },
-  { question: 'How does Postscript compare for segmentation?', answer: 'Postscript is SMS-native with compliance tooling, two-way replies, and Shopify event triggers tuned for cart recovery and launch urgency.' },
-  { question: 'What should I document before Black Friday?', answer: 'Opt-in sources, message frequency promises, quiet-hour rules, weekly caps per subscriber, discount escalation policy, and email-SMS collision rules.' },
-  { question: 'When should I pause SMS campaigns?', answer: 'When opt-out rate spikes above your baseline, reply inbox fills with complaints, or cost per recovered order exceeds contribution margin after discounts.' },
-  { question: 'How do I model SMS ROI correctly?', answer: 'Include platform fees, carrier fees, MMS surcharges, discount cost, and opt-out impact on future reach — not last-click attribution alone.' },
-  { question: 'Can I rely on checkout SMS checkbox alone?', answer: 'Only if unchecked by default, clearly labeled, separate from email marketing consent, and synced with timestamp to your SMS platform.' },
-  { question: 'Who owns segmentation weekly?', answer: 'Name one operator — not a rotating "marketing team." SMS debt compounds faster than email when nobody owns suppression and consent audits.' },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -209,6 +198,5 @@ const faqs = [
     </div>
 
 
-    <FaqSection faqs={faqs} title="FAQ: SMS Segmentation on Shopify" />
   </section>
 </BaseLayout>

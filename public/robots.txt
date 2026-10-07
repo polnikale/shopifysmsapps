@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shopifysmsapps.com/sitemap-index.xml
+Sitemap: https://www.shopifysmsapps.com/sitemap-index.xml
