@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/tinyemail';
 const title = pageTitle(site, 'apps/tinyemail');
 const desc = description(site, 'apps/tinyemail');
 
-const faqs = [
-  {
-    question: 'Is tinyEmail good for Shopify stores just starting email marketing?',
-    answer: 'Yes — tinyEmail targets young stores wanting campaigns live quickly with AI-assisted copy and accessible pricing. Free tier and paid from ~$15/mo beat enterprise complexity. Graduate to Sequenzy or Omnisend when welcome, cart, post-purchase, and winback automations become revenue priority — typically around 150–300 orders/mo.',
-  },
-  {
-    question: 'How much does tinyEmail cost compared to Shopify Email?',
-    answer: 'tinyEmail free tier plus paid from ~$15/mo scales by subscribers and features. Shopify Email offers 10,000 free emails/mo inside Admin. tinyEmail wins on AI copy, template variety, and basic automations beyond broadcasts. Shopify Email wins on zero-friction Admin-native simplicity for pure newsletters.',
-  },
-  {
-    question: 'tinyEmail vs Sequenzy for growing Shopify stores?',
-    answer: 'Sequenzy wins on lifecycle playbooks, pay-per-email unlimited contacts, agent-first flow generation, and replenishment/winback depth. tinyEmail wins on lowest entry price and fastest first campaign for absolute beginners. Migrate to Sequenzy when automation depth exceeds tinyEmail capabilities — usually within 6–12 months of growth.',
-  },
-  {
-    question: 'Does tinyEmail sync Shopify products for email blocks?',
-    answer: 'Yes — Shopify integration pulls products for email templates and basic personalization. Sync adequate for sale campaigns and simple product grids; insufficient for variant-level dynamic cross-sell at Klaviyo depth. Matches expectations for starter-tier tool.',
-  },
-  {
-    question: 'Can tinyEmail handle abandoned cart on Shopify?',
-    answer: 'Basic abandoned cart automation exists — typically simple reminder sequence. Multi-touch recovery with suppression logic, VIP paths, and holdout measurement trails Omnisend and Sequenzy. Acceptable first cart flow for stores under 100 orders/mo; upgrade trigger when cart recovery becomes measurable KPI.',
-  },
-  {
-    question: 'How good is tinyEmail AI copy for Shopify campaigns?',
-    answer: 'AI copy generation accelerates first drafts — subject lines, product descriptions, promotional body copy. Output requires human edit for brand voice and compliance; do not send raw AI copy on regulated products (supplements, health claims). Speed benefit real; quality ceiling lower than human strategist or Rejoiner services.',
-  },
-  {
-    question: 'When should a Shopify store outgrow tinyEmail?',
-    answer: 'When segmentation needs exceed basic filters, winback and replenishment become seasonal ops manually, per-subscriber pricing at scale exceeds Sequenzy pay-per-send economics, or email revenue exceeds 10% of total revenue deserving dedicated lifecycle platform investment.',
-  },
-  {
-    question: 'Does tinyEmail include SMS?',
-    answer: 'Email-first — SMS not core product. Add Postscript, Omnisend SMS, or Firepush when mobile recovery matters. tinyEmail role is starter email only.',
-  },
-  {
-    question: 'Who should skip tinyEmail entirely?',
-    answer: 'Stores already on Sequenzy, Omnisend, or Klaviyo — no downgrade path makes sense. Merchants needing advanced automation day one. High-volume senders where per-subscriber pricing exceeds alternatives. Teams wanting MCP/agent campaign ops — Sequenzy.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,7 +24,7 @@ const faqs = [
         tinyEmail is the on-ramp — AI-assisted copy, simple Shopify sync, template library, and basic automations at pricing young stores can afford. Get first sale campaign out in an hour without Klaviyo certification. Not battle-tested for complex lifecycle programs; lighter segmentation and automation depth by design. Start here or Shopify Email; graduate to Sequenzy when retention revenue justifies real infrastructure.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested tinyEmail on a new candle shop at 40 orders/mo, a side-project apparel brand, and a store that migrated to Sequenzy at 180 orders/mo. First campaign speed impressed; segmentation ceiling appeared month four. Rating: ★ {app.rating}. Entry: {app.pricing}.
+        We tested tinyEmail on a new candle shop at 40 orders/mo, a side-project apparel brand, and a store that migrated to Sequenzy at 180 orders/mo. First campaign speed impressed; segmentation ceiling appeared month four. Entry: {app.pricing}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/sequenzy-vs-shopify-email">Sequenzy vs Shopify Email</a>
@@ -245,7 +206,7 @@ const faqs = [
     <div class="flex flex-wrap gap-4 text-sm font-bold">
       <a class="link" href="/apps">All Shopify SMS apps →</a>
       <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
-      <a class="link" href="/for/budget">Budget stores →</a>
+      <a class="link" href="/guides/pricing">Budget SMS pricing →</a>
     </div>
   </section>
     <div class="prose-shopify card mt-12">
@@ -257,5 +218,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="tinyEmail Shopify FAQ" />
 </BaseLayout>

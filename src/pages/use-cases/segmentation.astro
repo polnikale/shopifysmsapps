@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -21,60 +20,6 @@ const comparisonApps = [
   'yotpo-email-sms', 'mailchimp', 'brevo', 'marsello',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
-const faqs = [
-  {
-    question: 'What is the best Shopify SMS app for segmentation?',
-    answer: 'Sequenzy ranks first for lifecycle segmentation strategy — behavioral segments with defined actions, not tag clutter. Klaviyo wins with deepest Shopify event history and predictive segments at scale. ActiveCampaign fits CRM-overlapping stores needing sales pipeline segments alongside ecommerce.',
-  },
-  {
-    question: 'What segments should every Shopify store start with?',
-    answer: 'Buyers versus non-buyers, recency bands (0–30, 31–90, 91–180, 180+ days), discount-sensitive versus full-price, VIP threshold, and engaged email (opened/clicked 90 days) versus unengaged. Build actions for each before adding exotic segments.',
-  },
-  {
-    question: 'How often should segments be audited?',
-    answer: 'Weekly for active campaign segments; monthly for automation enrollment; quarterly full RFM recalc and overlap review. Stale segments cause wrong offers and deliverability damage.',
-  },
-  {
-    question: 'Are Shopify tags enough for segmentation?',
-    answer: 'Tags supplement but do not replace behavioral segments from order and browse events. Tags drift when staff apply manually. Email platform segments from Shopify sync stay current if triggers are event-based.',
-  },
-  {
-    question: 'What is segment overlap and why does it matter?',
-    answer: 'Customers matching multiple segments receive conflicting emails if priority rules absent. Document segment priority: cart > welcome > browse > promotional. Measure overlap percentage monthly.',
-  },
-  {
-    question: 'Should I delete unengaged contacts or segment them?',
-    answer: 'Segment first for sunset re-engagement; delete or suppress from paid plans after failed re-engagement. Deletion without sunset risks deliverability if you re-import later. See <a class="link" href="/use-cases/deliverability">deliverability guide</a>.',
-  },
-  {
-    question: 'How does segmentation support replenishment?',
-    answer: 'Per-SKU buyer segments with consumption timers — not "all customers." Subscription-active segments exclude from replenishment. See <a class="link" href="/use-cases/replenishment">replenishment guide</a>.',
-  },
-  {
-    question: 'Can Mailchimp segment Shopify behavior deeply?',
-    answer: 'Basic order and tag sync; lacks browse depth, predictive metrics, and real-time event granularity of Klaviyo or Sequenzy. Adequate for simple lists; insufficient for complex lifecycle programs.',
-  },
-  {
-    question: 'How many segments is too many?',
-    answer: 'When operators cannot name segment purpose and last send date from memory — too many. Prune quarterly. Active segments under twenty with clear actions beats fifty stale boolean definitions Klaviyo allows but teams cannot maintain.',
-  },
-  {
-    question: 'Should segments sync to Meta or Google ads?',
-    answer: 'Optional for acquisition retargeting — separate from lifecycle email segments. Email engagement segments exported to ads need consent review. Klaviyo integrations available; do not let ad audience logic override email suppression rules.',
-  },
-  {
-    question: 'What is segment priority documentation?',
-    answer: 'Written rule when customer matches cart abandon and winback segments simultaneously — cart wins. Store in team wiki and replicate as suppression flags in platform. Undocumented overlap causes double sends weekly at scale.',
-  },
-  {
-    question: 'What is engaged segment minimum definition?',
-    answer: 'Opened or clicked any email in 90 days, or purchased in 120 days — tune per brand send frequency. Stricter for BFCM prep. Document definition in deliverability and segmentation wiki same page to avoid team mismatch.',
-  },
-  {
-    question: 'When should I rebuild segments from scratch?',
-    answer: 'After platform migration, major catalog restructure, or when overlap audit finds more than fifteen percent of list in conflicting segments. Export segment definitions before rebuild. Pair with <a class="link" href="/use-cases/deliverability">deliverability review</a> if engagement metrics dropped during drift.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -146,7 +91,7 @@ const faqs = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Segmentation fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -155,7 +100,7 @@ const faqs = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              <td class="py-3">★ {app.rating}</td>
+              
             </tr>
           ))}
         </tbody>
@@ -279,5 +224,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Segmentation FAQ" />
 </BaseLayout>

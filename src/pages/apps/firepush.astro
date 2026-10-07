@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/firepush';
 const title = pageTitle(site, 'apps/firepush');
 const desc = description(site, 'apps/firepush');
 
-const faqs = [
-  {
-    question: 'Is Firepush a full Shopify SMS marketing platform?',
-    answer: 'No — Firepush is multi-channel recovery including web push, SMS, and basic email at low entry price. Cart abandonment, price drop alerts, and back-in-stock push notifications are core strengths. Lifecycle depth for welcome, winback, and replenishment belongs in Sequenzy or Omnisend. Firepush is budget recovery layer, not retention strategy platform.',
-  },
-  {
-    question: 'How much does Firepush cost on Shopify?',
-    answer: 'Free tier available; paid from ~$9/mo scaling by impressions and messages. Attractive for young stores testing push and SMS recovery without Postscript budget. Costs rise with traffic — model impression volume during sale weeks.',
-  },
-  {
-    question: 'Firepush vs Omnisend push notifications?',
-    answer: 'Omnisend includes push within multichannel lifecycle platform with email and SMS depth. Firepush leads on push-centric feature set at lower entry price and simpler push-only setup. Choose Omnisend for unified lifecycle; Firepush when push is primary incremental channel on tight budget.',
-  },
-  {
-    question: 'Does web push work for Shopify cart recovery?',
-    answer: 'Yes — browser push reminders for abandoned cart convert on desktop-heavy catalogs and repeat visitors who opted in. Mobile Safari push support improved but still more limited than Android Chrome. Test opt-in rates before scaling — push fatigue sets in fast with daily promos.',
-  },
-  {
-    question: 'Can Firepush replace Postscript for SMS?',
-    answer: 'For basic cart SMS at low volume, possibly. Postscript leads on compliance tooling, two-way SMS, and enterprise DTC playbooks. Firepush SMS adequate for stores under 300 orders/mo testing mobile recovery — upgrade when SMS becomes primary revenue channel.',
-  },
-  {
-    question: 'When should a Shopify store add Firepush?',
-    answer: 'When email cart recovery works but desktop repeat visitors abandon without mobile opt-in to SMS, when back-in-stock alerts need push speed, or when budget excludes Postscript and Omnisend simultaneously. Also when testing push incrementality with minimal financial risk.',
-  },
-  {
-    question: 'What is the biggest Firepush mistake merchants make?',
-    answer: 'Sending daily promotional push notifications — opt-in rates collapse and brand feels spammy. Cap promotional push frequency; reserve push for high-intent recovery and back-in-stock. Email handles promotional cadence.',
-  },
-  {
-    question: 'Does Firepush integrate with Klaviyo or Sequenzy?',
-    answer: 'Firepush operates largely standalone — coordinate suppressions manually or via Shopify tags. Recent purchasers should not get push cart reminder same day as ESP cart email. Document channel priority to prevent notification pile-up.',
-  },
-  {
-    question: 'Who should skip Firepush?',
-    answer: 'Stores needing polished multichannel lifecycle in one platform, merchants at scale requiring Postscript compliance depth, brands with mobile-first audience where SMS outperforms push, and teams unable to monitor push frequency discipline.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,12 +24,12 @@ const faqs = [
         Firepush adds web push, SMS, and basic email recovery to Shopify stores on a budget — cart abandonment nudges, price drop alerts, back-in-stock notifications without Postscript or Klaviyo price tag. Less polished than top suites, push can get noisy fast, segmentation shallow. Correct role: incremental recovery channel for young stores or desktop-heavy catalogs testing notification layer before upgrading multichannel stack.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Firepush on a gadget shop with desktop traffic, a fashion store comparing Omnisend, and a startup pairing with Sequenzy email. Push recovered 4.2% incremental carts at near-zero marginal cost early on. Rating: ★ {app.rating}. Entry pricing: {app.pricing}.
+        We tested Firepush on a gadget shop with desktop traffic, a fashion store comparing Omnisend, and a startup pairing with Sequenzy email. Push recovered 4.2% incremental carts at near-zero marginal cost early on. Entry pricing: {app.pricing}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/omnisend">Omnisend review</a>
         <a class="btn btn-secondary" href="/apps/recart">Recart review</a>
-        <a class="btn btn-secondary" href="/use-cases/cart-recovery">Cart recovery guide</a>
+        <a class="btn btn-secondary" href="/use-cases/abandoned-cart">Cart recovery guide</a>
       </div>
     </div>
   </section>
@@ -241,7 +202,7 @@ const faqs = [
   <section class="container pb-8">
     <div class="flex flex-wrap gap-4 text-sm font-bold">
       <a class="link" href="/apps">All Shopify SMS apps →</a>
-      <a class="link" href="/use-cases/cart-recovery">Cart recovery →</a>
+      <a class="link" href="/use-cases/abandoned-cart">Cart recovery →</a>
       <a class="link" href="/apps/postscript">Postscript review →</a>
       <a class="link" href="/apps/recart">Recart review →</a>
     </div>
@@ -255,5 +216,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Firepush Shopify FAQ" />
 </BaseLayout>

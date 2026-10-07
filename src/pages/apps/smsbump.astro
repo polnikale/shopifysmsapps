@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/smsbump';
 const title = pageTitle(site, 'apps/smsbump');
 const desc = description(site, 'apps/smsbump');
 
-const faqs = [
-  {
-    question: 'Is SMSBump the same as Yotpo SMS for Shopify?',
-    answer: 'SMSBump operates within the Yotpo ecosystem — branding and integration paths increasingly align with Yotpo SMS modules. If you use Yotpo reviews or loyalty, SMSBump/Yotpo SMS consolidation reduces dashboard sprawl. Standalone SMS merchants can compare Postscript for DTC-native depth.',
-  },
-  {
-    question: 'How much does SMSBump cost for Shopify SMS marketing?',
-    answer: 'Usage-based SMS pricing plus plan tiers — typically $0.01–0.03 per message depending on region and MMS usage. A store sending 5,000 SMS/mo might spend $80–180 all-in including platform fee. Model Black Friday peak volume before scaling broadcasts.',
-  },
-  {
-    question: 'SMSBump vs Postscript for Shopify cart recovery?',
-    answer: 'Postscript leads on TCPA compliance tooling, two-way conversations, and Shopify DTC playbook depth. SMSBump leads on Yotpo ecosystem integration, recognizable Shopify app store presence, and bundled popup opt-in tools. Choose Postscript for SMS-first strategy; SMSBump when already paying Yotpo for reviews/loyalty.',
-  },
-  {
-    question: 'Does SMSBump include email marketing?',
-    answer: 'SMS-first — email capabilities exist within broader Yotpo suite but not SMSBump core value. Pair with Yotpo Email, Klaviyo, or Sequenzy for lifecycle email. SMSBump owns mobile recovery and SMS campaigns.',
-  },
-  {
-    question: 'Can SMSBump handle list growth popups on Shopify?',
-    answer: 'Yes — popup and opt-in tools collect SMS subscribers with compliance language. Overlaps partially with Privy and Justuno — avoid duplicate popups on same pages. Coordinate capture strategy: Justuno for quiz segmentation feeding email, SMSBump popup for explicit SMS consent only.',
-  },
-  {
-    question: 'When should a Shopify store choose SMSBump?',
-    answer: 'When already in Yotpo ecosystem for reviews or loyalty, when SMS cart recovery needed without Postscript enterprise positioning, and when MMS product images in cart recovery matter for visual catalogs like beauty and apparel.',
-  },
-  {
-    question: 'Does SMSBump sync suppressions with Klaviyo email?',
-    answer: 'Integration options exist but require configuration — not automatic. Map recent purchaser suppressions and cart email recipients before enabling SMS cart flow. Duplicate touches across Yotpo SMS and Klaviyo email common failure mode.',
-  },
-  {
-    question: 'What is the biggest SMSBump mistake merchants make?',
-    answer: 'Running SMS broadcasts during every sale without frequency caps — opt-out spikes and deliverability degradation follow. Define max promotional SMS per subscriber per month; cart recovery and transactional messages separate from promo cadence.',
-  },
-  {
-    question: 'Who should skip SMSBump?',
-    answer: 'Merchants not in Yotpo ecosystem where Postscript offers deeper SMS specialization, stores under 200 orders/mo with insufficient SMS list, teams needing two-way SMS support at Postscript depth, and brands wanting unified email-SMS in Klaviyo single stack.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,7 +24,7 @@ const faqs = [
         SMSBump — now tightly coupled with Yotpo SMS — is the recognizable Shopify SMS app for cart recovery, promotional broadcasts, MMS product images, and list growth popups. It fits merchants already in Yotpo reviews or loyalty ecosystem wanting SMS without adding Postscript. Not email-first — pair with Yotpo Email, Sequenzy, or Klaviyo for lifecycle depth. SMS economics need weekly tracking during sale weeks or margins erode silently.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested SMSBump on a beauty brand in Yotpo reviews suite, a standalone DTC comparing Postscript, and an apparel store with MMS-heavy cart recovery. Rating: ★ {app.rating}. Pricing: {app.priceDetail}.
+        We tested SMSBump on a beauty brand in Yotpo reviews suite, a standalone DTC comparing Postscript, and an apparel store with MMS-heavy cart recovery. Pricing: {app.priceDetail}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/yotpo-email-sms">Yotpo Email & SMS review</a>
@@ -290,5 +251,4 @@ const faqs = [
       <p class="mt-4 text-[17px] leading-8 text-cyan-100">SMSBump competes with Postscript and Attentive on compliance tooling — pair either with a lifecycle email owner so cart texts are second touch, not parallel discount blasts.</p>
     </div>
   </section>
-  <FaqSection faqs={faqs} title="SMSBump Shopify FAQ" />
 </BaseLayout>

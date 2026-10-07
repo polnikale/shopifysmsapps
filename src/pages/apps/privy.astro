@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/privy';
 const title = pageTitle(site, 'apps/privy');
 const desc = description(site, 'apps/privy');
 
-const faqs = [
-  {
-    question: 'Is Privy a full Shopify SMS marketing platform?',
-    answer: 'No — Privy is capture-first. Exit intent, spin-to-win, cart saver bars, and basic email/SMS campaigns excel at turning traffic into subscribers. Lifecycle automation for winback, replenishment, and complex post-purchase is shallow. Pair Privy with Sequenzy, Klaviyo, or Omnisend once the list exceeds 5k engaged contacts.',
-  },
-  {
-    question: 'How much does Privy cost on Shopify?',
-    answer: 'Free tier available; paid from ~$30/mo scaling by contacts and pageviews. High-traffic low-converting stores pay more than expected — pageview pricing bites during viral traffic spikes. Model pageviews, not just list size.',
-  },
-  {
-    question: 'Privy vs Justuno for Shopify capture?',
-    answer: 'Privy wins on beginner-friendly spin wheels and bars; Justuno wins on quiz segmentation and advanced onsite targeting. Both feed lists into lifecycle platforms — neither replaces Sequenzy or Klaviyo for retention execution.',
-  },
-  {
-    question: 'Can Privy handle abandoned cart email?',
-    answer: 'Basic cart reminders yes; multi-touch recovery with suppression, dynamic product logic, and revenue attribution trails Omnisend, Sequenzy, and Klaviyo. Acceptable for stores under 200 orders/mo; insufficient at scale.',
-  },
-  {
-    question: 'When should I add a lifecycle platform alongside Privy?',
-    answer: 'When email revenue flatlines after first purchase, winback becomes seasonal ops, or list passes 5k with engagement decay. Keep Privy for capture optimization; migrate execution to Sequenzy for pay-per-email lifecycle or Klaviyo for data depth.',
-  },
-  {
-    question: 'Does Privy sync with Shopify customer tags?',
-    answer: 'Yes — popup submissions create customers and tags in Shopify. Pass UTM and collection interest tags to downstream ESP via integration or export. Tag hygiene at handoff prevents welcome series chaos.',
-  },
-  {
-    question: 'Privy SMS vs dedicated SMS apps?',
-    answer: 'Privy SMS works for simple opt-in and promos tied to popups. Postscript and Omnisend SMS lead on compliance tooling and cart recovery depth. Do not run Privy SMS cart recovery at enterprise volume without cost monitoring.',
-  },
-  {
-    question: 'Best Privy + email stack for Shopify?',
-    answer: 'Privy capture + Sequenzy lifecycle is our lean stack recommendation — capture economics separate from send economics. Privy + Klaviyo for brands already committed to Klaviyo data infrastructure.',
-  },
-  {
-    question: 'Who should skip Privy entirely?',
-    answer: 'Stores with strong organic list growth and mature lifecycle already — adding Privy duplicates capture without incremental subscribers. Also skip if you need one platform for everything; Privy will disappoint on winback depth.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,7 +24,7 @@ const faqs = [
         Privy wins the top-of-funnel lane on Shopify. Apparel traffic from TikTok, Instagram, and influencer codes arrives with intent but no subscriber relationship. Privy's exit intent, spin-to-win, and cart saver bars convert that traffic into owned audience with minimal dev work — a jewelry store in our tests grew subscribers 34% in 60 days. It is not a lifecycle platform. Plan to pair with Sequenzy or Klaviyo once capture stops being the bottleneck.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        Rating: ★ {app.rating}. Automation: {app.automationDepth}. Worst stack: Privy alone at $80k/mo with no winback or replenishment.
+        Automation: {app.automationDepth}. Worst stack: Privy alone at $80k/mo with no winback or replenishment.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/omnisend-vs-privy">Omnisend vs Privy</a>
@@ -254,5 +215,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Privy Shopify FAQ" />
 </BaseLayout>

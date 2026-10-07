@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
 import { useCaseBySlug } from '../../data/use-cases';
@@ -21,48 +20,6 @@ const comparisonApps = [
   'shopify-email', 'sendlane', 'brevo', 'marsello',
 ].map((s) => appBySlug(s)!).filter(Boolean);
 
-const faqs = [
-  {
-    question: 'What is the best Shopify SMS app for post-purchase flows?',
-    answer: 'Sequenzy ranks first for post-purchase strategy — education before cross-sell, gift-buyer branching, and product-specific onboarding without rebuilding flows per SKU. Klaviyo wins at scale with order line item dynamic content and predictive second-purchase timing. AfterShip Email fits merchants already orchestrating shipping and tracking in AfterShip.',
-  },
-  {
-    question: 'When should post-purchase cross-sell emails send?',
-    answer: 'After delivery confirmation plus 7–14 days for physical goods — let customers experience the product first. Digital products compress to 48–72 hours post-delivery. Gift purchases delay cross-sell until after estimated gift receipt date. Subscription first orders branch to onboarding, not immediate upsell.',
-  },
-  {
-    question: 'How do post-purchase emails reduce returns?',
-    answer: 'Product-specific education: fit guides for apparel, usage tutorials for beauty, assembly for furniture. Send before cross-sell. Tag return reasons in Shopify and suppress promotional content for fit-issue buyers — route to exchange support content instead.',
-  },
-  {
-    question: 'Should gift buyers receive the same post-purchase flow?',
-    answer: 'No. Gift purchasers need receipt-friendly messaging, gift card upsell, and no "how to use your product" assumptions. Branch on gift message or separate shipping address at order level. Klaviyo, Sequenzy, and Drip support order property branching.',
-  },
-  {
-    question: 'How does post-purchase interact with review requests?',
-    answer: 'Review ask belongs after delivery plus 5–7 days for most categories — after education email one. See <a class="link" href="/use-cases/reviews-and-ugc">reviews and UGC guide</a>. Do not stack review request, cross-sell, and loyalty pitch in the same send.',
-  },
-  {
-    question: 'Can Shopify Email handle post-purchase automation?',
-    answer: 'Limited to manual campaigns. No behavioral branching on line items, gift detection, or delivery-triggered sends. Any store treating post-purchase as retention foundation needs a lifecycle platform.',
-  },
-  {
-    question: 'What metrics prove post-purchase success?',
-    answer: 'Second order within 60 days, review submission rate, support ticket reduction, cross-sell attach rate, and return rate by email segment. Revenue from post-purchase alone understates value if returns drop.',
-  },
-  {
-    question: 'How do I avoid post-purchase colliding with replenishment?',
-    answer: 'Consumable SKUs on replenishment timers should exit generic cross-sell at order placement. Route to replenishment enrollment instead. Priority: replenishment > generic post-purchase cross-sell for subscription-eligible products.',
-  },
-  {
-    question: 'Should post-purchase include referral ask?',
-    answer: 'After positive review or second purchase — not order one. Referral incentive stacks with loyalty points cleaner than standalone discount. Suppress if first order returned.',
-  },
-  {
-    question: 'How do partial shipments affect post-purchase?',
-    answer: 'Split shipments need per-shipment tracking emails — do not send "delivered" education until final SKU arrives if split matters to usage. AfterShip multi-shipment sync critical.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -136,7 +93,7 @@ const faqs = [
         <thead>
           <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
             <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Post-purchase fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th><th class="py-3">Rating</th>
+            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
           </tr>
         </thead>
         <tbody class="text-cyan-100">
@@ -145,7 +102,7 @@ const faqs = [
               <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
               <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
               <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              <td class="py-3">★ {app.rating}</td>
+              
             </tr>
           ))}
         </tbody>
@@ -269,5 +226,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Post-purchase FAQ" />
 </BaseLayout>

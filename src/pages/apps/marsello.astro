@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { appBySlug } from '../../data/apps';
 
@@ -11,44 +10,6 @@ const path = '/apps/marsello';
 const title = pageTitle(site, 'apps/marsello');
 const desc = description(site, 'apps/marsello');
 
-const faqs = [
-  {
-    question: 'Is Marsello a Klaviyo replacement for Shopify SMS?',
-    answer: 'Not for pure email specialization — Klaviyo and Sequenzy lead on lifecycle depth and segmentation. Marsello wins when loyalty program, POS behavior, and email/SMS campaigns must share one customer identity — especially omnichannel retailers with Shopify plus physical stores.',
-  },
-  {
-    question: 'How much does Marsello cost on Shopify?',
-    answer: 'From ~$49/mo scaling by contacts and features — loyalty plus email bundles increase with program complexity and store count. Compare Yotpo loyalty plus email modules if already in Yotpo ecosystem. Model total cost including POS sync and referral features enabled.',
-  },
-  {
-    question: 'Marsello vs Yotpo Email & SMS for Shopify loyalty?',
-    answer: 'Both consolidate loyalty and campaigns. Yotpo leads when reviews and UGC are central module alongside loyalty. Marsello leads on POS-native loyalty for retailers with Shopify POS and physical foot traffic driving repeat purchase. Evaluate existing vendor contracts before adding second suite.',
-  },
-  {
-    question: 'Does Marsello sync Shopify POS purchases?',
-    answer: 'Yes — POS integration ties in-store purchases to loyalty points and email segments. Customer buys in store, earns points, receives email cross-sell for online exclusives — omnichannel loop Klaviyo requires custom integration work to replicate.',
-  },
-  {
-    question: 'Can Marsello handle abandoned cart on Shopify online-only stores?',
-    answer: 'Basic cart recovery exists but email depth trails Sequenzy and Omnisend prebuilds. Online-only DTC without loyalty program gets better ROI from lifecycle specialist. Marsello justifies cost when loyalty drives repeat purchase metric.',
-  },
-  {
-    question: 'When should a Shopify merchant choose Marsello?',
-    answer: 'When repeat purchase depends on points, tiers, and referrals; when POS and ecommerce must share loyalty identity; when marketing wants segment by loyalty tier not just purchase recency. Skip when single-channel online-only with no loyalty strategy.',
-  },
-  {
-    question: 'Does Marsello include SMS marketing?',
-    answer: 'Yes — SMS campaigns and automations tied to loyalty events — points earned, tier upgrade, referral success. Not Postscript-level SMS recovery specialization. Sufficient for loyalty-triggered texts; pair Postscript if cart SMS is primary channel.',
-  },
-  {
-    question: 'What is the biggest Marsello mistake retailers make?',
-    answer: 'Launching loyalty program before product-market fit produces points liability and email noise — nobody redeems because first purchase experience weak. Fix retention fundamentals before gamifying repeat purchase.',
-  },
-  {
-    question: 'Who should skip Marsello?',
-    answer: 'Online-only DTC without loyalty strategy, stores needing maximum email segmentation depth, merchants already deep in Yotpo or Smile loyalty with working stack, and brands under 200 orders/mo where Shopify Email plus simple discount suffices.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -63,7 +24,7 @@ const faqs = [
         Marsello connects loyalty, email, SMS, and POS behavior for omnichannel Shopify retailers — not pure-play email specialists chasing Klaviyo on browse segmentation. When repeat purchase runs through points tiers, in-store visits, and referral loops, Marsello unifies customer identity across channels. Online-only DTC with no loyalty program should read Sequenzy instead. Marsello is for retailers where loyalty is the retention engine, not a sidebar widget.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Marsello on a boutique with Shopify POS plus online, a coffee equipment shop with referral program, and an online-only apparel brand that misfit the product. Rating: ★ {app.rating}. Shopify depth: {app.shopifyDepth}.
+        We tested Marsello on a boutique with Shopify POS plus online, a coffee equipment shop with referral program, and an online-only apparel brand that misfit the product. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/yotpo-email-sms">Yotpo review</a>
@@ -255,5 +216,4 @@ const faqs = [
 
 
 
-  <FaqSection faqs={faqs} title="Marsello Shopify FAQ" />
 </BaseLayout>
