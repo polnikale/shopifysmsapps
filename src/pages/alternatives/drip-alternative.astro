@@ -20,7 +20,7 @@ const faqs = [
   { question: 'Drip pricing vs alternatives at 20k contacts?', answer: 'Drip often $150–280/mo at 20k people. Sequenzy and Brevo frequently lower depending on send volume. Klaviyo similar or higher.' },
   { question: 'Keep Drip tags in migration?', answer: 'Export tag membership as CSV custom properties. Rebuild tag logic as dynamic segments in new platform using Shopify events where possible.' },
   { question: 'Best Drip alternative for workflow lovers?', answer: 'ActiveCampaign for CRM-heavy branching; Klaviyo for ecommerce-native depth; Sequenzy if you want outcomes without drawing every node.' },
-  { question: 'Migration timeline from Drip?', answer: '2–3 weeks for core flows; longer if dozens of custom workflows — prioritize revenue-bearing automations first.' },
+  { question: 'Migration timeline from Drip?', answer: 'Readiness depends on documented triggers, tags, delays, data mapping and tested sender ownership, not a fixed number of weeks. Prioritize core welcome and cart flows; keep unresolved workflows disabled until suppression, purchase checks and replay tests pass.' },
   { question: 'When to stay on Drip?', answer: 'Stay if someone owns workflow hygiene weekly and per-contact bill is acceptable for attributed revenue — Drip still excels for focused catalogs.' },
 ];
 ---
@@ -66,14 +66,14 @@ const faqs = [
         <h2>Drip migration checklist</h2>
         <ol>
           <li><strong>Audit active workflows</strong> — disable zombie flows still enrolling subscribers.</li>
-          <li><strong>Rank flows by attributed revenue</strong> — rebuild top 5 first, not all 40.</li>
-          <li><strong>Export contacts with tags and custom fields</strong> — document tag definitions.</li>
+          <li><strong>Rank flows by attributed revenue</strong> — use this as a prioritization signal, not proof of causal lift; rebuild the highest-priority flows before the long tail.</li>
+          <li><strong>Export contacts with tags and custom fields</strong> — document tag definitions and separate permission evidence by purpose, channel and sender, including disclosure, source and timestamp. Carry current withdrawals and suppressions; tags or email permission do not authorize SMS.</li>
           <li><strong>Map Shopify triggers</strong> used in Drip — order, browse, product tags.</li>
           <li><strong>Install new platform and sync Shopify</strong> before bulk import.</li>
           <li><strong>Rebuild welcome and cart</strong> with simplified logic — do not copy every branch.</li>
-          <li><strong>14-day suppression</strong> on overlapping recovery emails.</li>
+          <li><strong>Assign one sender per purpose and channel</strong> — disable old enrollments and cancel or reconcile queued messages before enabling replacements. Recheck current withdrawal, suppression and purchase state at send time; test late events and deduplicate replays. A fixed overlap period does not establish readiness.</li>
           <li><strong>Sunset unused tags</strong> — do not import legacy segmentation debt.</li>
-          <li><strong>Archive Drip account 90 days</strong> for workflow reference screenshots.</li>
+          <li><strong>Retain workflow reference screenshots</strong> under the applicable retention and access policy; confirm export and account access before cancellation rather than assuming ninety days of access.</li>
         </ol>
       </article>
 
