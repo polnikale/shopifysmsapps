@@ -24,7 +24,7 @@ const desc = description(site, 'apps/activecampaign');
         ActiveCampaign is what happens when Shopify ecommerce overlaps with sales follow-up — high-ticket furniture quotes, wholesale inquiries, B2B portal orders, or consultative beauty routines requiring human touch. Powerful conditional automations, built-in CRM pipelines, lead scoring, and site tracking live in one platform. Pure catalog DTC without sales motion usually overpays for complexity Sequenzy or Klaviyo handles with less operator burden.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested ActiveCampaign on a $320 AOV furniture store with quote requests, a hybrid wholesale Shopify shop, and a standard apparel DTC that should have chosen Omnisend. Automation depth: {app.automationDepth}.
+        The scenarios below are evaluation proposals for furniture quotes, hybrid wholesale and standard apparel DTC; they are not observed merchant tests. Verify current account features and integration behavior before using them. Automation depth: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/klaviyo">Klaviyo review</a>
@@ -72,7 +72,7 @@ const desc = description(site, 'apps/activecampaign');
         <strong>Gaps vs Klaviyo/Sequenzy:</strong> Browse abandonment less native — requires site tracking discipline. No predictive CLV out of box. Product recommendation blocks less polished for dynamic catalog email. Revenue attribution by flow less ecommerce-granular. Implementation is operator-heavy — no guided ecommerce playbook like Sequenzy or Omnisend prebuilds.
       </p>
       <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Maintenance warning:</strong> Automations become spaghetti without documentation. We audited a furniture store with 47 active automations — 12 duplicated cart logic from three migrations, 8 never triggered in 90 days. ActiveCampaign power requires governance or it becomes technical debt.
+        <strong>Maintenance warning:</strong> Automations become spaghetti without documentation. For a proposed audit, inventory every active automation, identify duplicate cart logic and examine why a flow has not triggered. No merchant audit is evidenced here. Assign an owner to each queue, cancel obsolete scheduled messages and deduplicate replayed events before cutover.
       </p>
     </div>
 
@@ -100,7 +100,7 @@ const desc = description(site, 'apps/activecampaign');
         <strong>Scenario:</strong> Custom furniture; $2,800 average quote. Customer submits fabric and dimension form. <strong>ActiveCampaign setup:</strong> Create deal in "Quote sent" stage; automation sends swatch guide; task assigned to sales rep at 48 hours no reply; move to "Negotiation" on rep manual update; Shopify order tag closes deal.
       </p>
       <p>
-        <strong>Result:</strong> 22% quote-to-order conversion vs 14% prior spreadsheet tracking. CRM visibility justified platform for this merchant — Klaviyo could not replicate pipeline without custom ops.
+        <strong>Proposed evaluation:</strong> Check form-to-deal linkage, rep task ownership and order closure using controlled records. Measure quote-to-order conversion with comparable cohorts; no conversion result or comparative platform limitation has been established here.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. High-AOV cart abandonment — sales alert plus email</h3>
@@ -108,7 +108,7 @@ const desc = description(site, 'apps/activecampaign');
         <strong>Scenario:</strong> Jewelry store; $890 cart abandoned. <strong>ActiveCampaign setup:</strong> Email sequence plus internal notification to sales if cart value exceeds $500 and contact has open deal or prior purchase over $400.
       </p>
       <p>
-        <strong>Result:</strong> 31% recovery when sales called within 4 hours; 9% email-only path. Human touch plus automation — ActiveCampaign sweet spot.
+        <strong>Proposed evaluation:</strong> Verify that outreach is permitted for the purpose and channel before assigning a call or email. Recheck current suppression, purchase and subscription state at dispatch. Compare eligible cohorts against a suitable holdout and include staff time, discounts and all messaging costs; attributed recoveries do not prove causal profit.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Wholesale reorder nudge — net-30 account lapsing</h3>
@@ -116,7 +116,7 @@ const desc = description(site, 'apps/activecampaign');
         <strong>Scenario:</strong> Hybrid merchant; B2B buyer last ordered 75 days ago, typical cycle 45 days. <strong>ActiveCampaign setup:</strong> Segment on wholesale tag plus days since order; email rep and buyer; create follow-up task.
       </p>
       <p>
-        <strong>Result:</strong> 41% of nudged accounts reordered within 14 days. DTC winback template would miss rep coordination requirement.
+        <strong>Proposed evaluation:</strong> Confirm buyer eligibility, rep ownership and cancellation when an order arrives. Check replay deduplication and changes to account terms or subscription status. Record incremental reorder contribution with comparable controls; no measured reorder outcome is evidenced here.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Standard apparel welcome — overbuilt failure case</h3>
@@ -186,7 +186,7 @@ const desc = description(site, 'apps/activecampaign');
         <strong>Hybrid wholesale Shopify:</strong> DTC segment runs standard welcome in ActiveCampaign branch; wholesale segment triggers rep task on first bulk order below historical frequency. One platform replaces Mailchimp plus spreadsheet pipeline.
       </p>
       <p>
-        <strong>Apparel misfit:</strong> $95 AOV, no sales team, ActiveCampaign $180/mo — migrated to Omnisend $65/mo in three weeks. Lesson: CRM features without CRM users is expensive shelfware.
+        <strong>Illustrative apparel evaluation:</strong> For a $95 AOV store without a sales team, compare the workflows actually used against account-specific alternatives. Match contacts, sends, destinations, seats, add-ons, carrier charges, discounts, integration and operator labor. No merchant migration, quoted rate or readiness timeline is established by this example.
       </p>
     </div>
 
@@ -211,7 +211,7 @@ const desc = description(site, 'apps/activecampaign');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>For SMS, verify the applicable sender, destination, purpose and channel permission before activation; an email opt-in or purchase alone is not an SMS permission record. Preserve the disclosure and opt-in evidence, current exclusions and recipient-local timing controls. Confirm the current account tooling rather than assuming a vendor handles every requirement; legal and provider-specific details remain publication holds.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
