@@ -19,7 +19,7 @@ const faqs = [
   { question: 'Export Mailchimp to Klaviyo?', answer: 'Export audience with tags and merge fields; rebuild automations manually. Map Mailchimp tags to Shopify customer properties where possible.' },
   { question: 'Is Brevo like Mailchimp but cheaper?', answer: 'Similar generalist positioning with pay-per-email — still lighter on Shopify lifecycle than Sequenzy or Omnisend.' },
   { question: 'Mailchimp pricing at 20k contacts?', answer: 'Often $200–350/mo on Standard/Premium without ecommerce depth — at that price Klaviyo or Sequenzy usually deliver more retention ROI.' },
-  { question: 'Keep Mailchimp for newsletters only?', answer: 'Possible short-term while lifecycle runs elsewhere — dual sending hurts deliverability; pick one primary marketing ESP within 60 days.' },
+  { question: 'Keep Mailchimp for newsletters only?', answer: 'A split can work when each purpose and channel has an assigned sender, shared current withdrawals and suppressions, and tested queue ownership. Cancel overlapping queued messages and deduplicate delayed or replayed events. A sixty-day deadline does not establish safety; confirm authentication and monitor complaints and bounces for both streams.' },
   { question: 'Migration priority flows?', answer: 'Welcome, abandoned cart, post-purchase, winback — in that order. See our use-case playbooks for each.' },
   { question: 'When to stay on Mailchimp?', answer: 'Stay if you send monthly newsletters to a static B2B list with no cart recovery needs — rare for active Shopify DTC.' },
 ];
@@ -66,19 +66,19 @@ const faqs = [
 
         <h2>Mailchimp migration checklist</h2>
         <ol>
-          <li><strong>Export all audiences</strong> with tags, merge fields, signup dates, and marketing consent.</li>
+          <li><strong>Export all audiences</strong> with tags, merge fields, signup dates and permission evidence by sender, purpose and channel, including disclosure source, withdrawals and suppressions. An email subscription or purchase does not authorize SMS marketing.</li>
           <li><strong>Document Customer Journeys</strong> — triggers, delays, exit conditions.</li>
           <li><strong>Clean list before import</strong> — sunset unengaged 6+ months; do not migrate dead weight into per-contact platforms.</li>
           <li><strong>Connect new platform to Shopify</strong> — verify historical orders sync for winback segments.</li>
-          <li><strong>Rebuild welcome and cart first</strong> — pause Mailchimp journeys after QA.</li>
+          <li><strong>Rebuild welcome and cart first</strong> — test entry, delays, exits and current purchase state. Assign one production sender per purpose and channel; pause old journeys and cancel pending messages before activating replacements. Test replay deduplication and late events.</li>
           <li><strong>Update Shopify-MC integration disconnect</strong> — point popups and forms to new ESP.</li>
           <li><strong>Warm new sending domain</strong> if infrastructure changes.</li>
           <li><strong>Migrate post-purchase and winback</strong> — flows Mailchimp never ran well.</li>
-          <li><strong>Cancel Mailchimp paid tier</strong> after 30-day overlap ends.</li>
+          <li><strong>Cancel Mailchimp paid tier</strong> only after verifying exports, historical access, retention and contract terms, current suppression reconciliation and queue ownership. A thirty-day overlap alone does not establish readiness.</li>
         </ol>
 
         <h2>Three Mailchimp merchant scenarios</h2>
-        <p><strong>Scenario A — 8k contacts, $120/mo, no cart automation.</strong> Moved to Omnisend; cart recovery alone paid migration in 11 days.</p>
+        <p><strong>Illustrative scenario A — 8k contacts, assumed $120/mo, no cart automation.</strong> Evaluate an Omnisend cart pilot against a holdout where feasible; no measured merchant result or eleven-day payback is established. Compare matched send volumes, destinations, SMS segments/MMS, carrier and platform fees, discounts and migration labor, and distinguish attributed orders from causal incremental profit.</p>
         <p><strong>Scenario B — 22k contacts, bloated imports.</strong> Cleansed to 9k engaged, migrated to Sequenzy; bill dropped 40% with stronger winback.</p>
         <p><strong>Scenario C — B2B wholesale + DTC.</strong> Moved DTC to Klaviyo, kept Mailchimp for wholesale newsletter only — intentional split.</p>
       </article>
@@ -145,7 +145,7 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Review SMS by purpose, destination and sender separately from email. Record the applicable permission and disclosure source; a purchase or email subscription alone does not authorize promotional texts. Reconcile current withdrawals and suppressions and check purchase state before each queued recovery send. Configure applicable quiet hours and verify provider tooling and destination-specific requirements before activation; software settings alone do not establish compliance.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>

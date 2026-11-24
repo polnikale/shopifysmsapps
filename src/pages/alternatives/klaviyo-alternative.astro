@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: 'How long does Klaviyo migration take?',
-    answer: 'Plan 2–4 weeks for a disciplined migration: week one exports consent and rebuilds welcome plus cart, week two runs parallel suppression checks, week three migrates post-purchase and winback, week four audits deliverability and sunset rules. Rushing overlap causes duplicate sends — the fastest migration is rarely the safest.',
+    answer: 'Schedule exports, welcome and cart rebuilds, suppression checks, post-purchase and winback migration, and deliverability review as separate workstreams. Readiness depends on verified event mapping, current permission and suppression state, queue cancellation and sender ownership, not a two- or four-week deadline. Test delayed and replayed events before enabling production flows; preserve reference access under confirmed retention and contract terms.',
   },
   {
     question: 'Can I export Klaviyo flows to another platform?',
@@ -104,17 +104,17 @@ const faqs = [
         <p>Run this sequence before disconnecting Klaviyo from Shopify. Skipping steps causes duplicate sends, consent gaps, and attribution black holes.</p>
         <ol>
           <li><strong>Audit active profiles.</strong> Export counts by segment. Identify inactive profiles inflating billing — typically 30–50% on popup-heavy stores. Document who you will sunset vs migrate.</li>
-          <li><strong>Export consent records.</strong> CSV with email, SMS consent status, consent timestamp, and source (popup, checkout, import). TCPA requires provable opt-in for SMS migration.</li>
+          <li><strong>Export consent records.</strong> Retain email and SMS permission separately, including sender, purpose, disclosure version, timestamp and source (popup, checkout, import). Preserve withdrawals and suppressions; an address or number export alone does not establish permission. Review destination-specific requirements before any marketing activation.</li>
           <li><strong>Document every live flow.</strong> Screenshot triggers, delays, splits, and suppression rules. Note Shopify events used — Placed Order, Fulfilled Order, Viewed Product, Added to Cart.</li>
           <li><strong>Map integrations.</strong> List connected apps: reviews, loyalty, helpdesk, subscription. Each may push data into Klaviyo segments that break on migration.</li>
           <li><strong>Install and sync the new platform.</strong> Connect Shopify first. Verify product catalog, order history, and browse events before importing contacts.</li>
-          <li><strong>Rebuild welcome and cart first.</strong> These flows generate the most immediate revenue and are easiest to test. Pause Klaviyo equivalents only after new flows pass test orders.</li>
-          <li><strong>Run parallel suppression for 14 days.</strong> Tag migrated customers. Ensure no shopper receives cart recovery from both platforms simultaneously.</li>
+          <li><strong>Rebuild welcome and cart first.</strong> Use test orders to check entry, delay, exit and current purchase state. Assign one production sender per purpose and channel; pause the old equivalent and cancel its queued sends before activating the replacement.</li>
+          <li><strong>Validate suppression across the handoff.</strong> Tag migrated customers, reconcile current withdrawals and purchases immediately before sends, and test late events and replay deduplication. A fixed overlap period cannot establish readiness or prevent duplicate recovery.</li>
           <li><strong>Migrate post-purchase, winback, replenishment.</strong> Higher complexity flows come after core recovery is stable.</li>
           <li><strong>Redirect signup forms and popups.</strong> Update Privy, Justuno, or native forms to feed the new platform. Stale Klaviyo list growth breaks consent continuity.</li>
-          <li><strong>Warm sending domain if switching ESP.</strong> If the new platform uses different sending infrastructure, ramp volume over 7–14 days. See our <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
-          <li><strong>Cancel Klaviyo SMS before email cutover.</strong> Avoid double texting during number porting or new shortcode setup.</li>
-          <li><strong>Archive Klaviyo for 90 days.</strong> Keep read access for historical campaign reference before final cancellation.</li>
+          <li><strong>Warm sending domain if switching ESP.</strong> If sending infrastructure changes, verify authentication and use engagement, bounce and complaint evidence to decide the ramp; a fixed 7–14-day window is not clearance. See our <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
+          <li><strong>Plan SMS handoff separately from email.</strong> Confirm number and sender arrangements, channel-specific permission, suppression transfer and pending-message cancellation before changing SMS ownership. Email readiness does not authorize SMS activation.</li>
+          <li><strong>Confirm historical access before cancellation.</strong> Verify export completeness, retention obligations, access permissions and contract terms; do not assume a 90-day archive remains accessible.</li>
         </ol>
       </article>
 
@@ -236,7 +236,7 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Assess SMS separately from email by message purpose, destination and sender. Document applicable permission, disclosure and opt-in source; marketing permission does not follow from a purchase or email subscription. Check current withdrawal, suppression and purchase state before sending, configure applicable quiet hours, and review destination-specific requirements. Verify each provider capability before relying on it. Compare costs on matched volumes, destinations, SMS segments/MMS, platform and carrier fees, discounts and operating labor; attributed orders alone do not establish incremental profit.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
