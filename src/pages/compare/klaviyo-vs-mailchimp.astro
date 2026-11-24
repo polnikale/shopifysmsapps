@@ -11,7 +11,7 @@ const desc = 'Klaviyo vs Mailchimp for Shopify stores — lifecycle automation d
 const faqs = [
   {
     question: 'Is Klaviyo or Mailchimp better for a new Shopify store?',
-    answer: 'Mailchimp is faster for first newsletters and simple welcome emails if your team already knows the editor. Klaviyo pays off once cart recovery, browse abandonment, and segment-level revenue reporting matter — usually past ~400 orders/month. Mailchimp\'s Shopify integration syncs products but lacks real-time browse depth. Neither solves weak popup capture; add Privy or Justuno if list growth is the bottleneck.',
+    answer: 'Choose from demonstrated requirements and your team\'s ability to maintain them, not a monthly order threshold. Test welcome, cart, browse and reporting needs in each current Shopify integration and plan. Confirm available email and SMS channels and destinations separately; editor familiarity does not establish that a product can perform every required journey.',
   },
   {
     question: 'How does Klaviyo vs Mailchimp pricing compare at 15,000 contacts?',
@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     question: 'Which has better Shopify ecommerce automation?',
-    answer: 'Klaviyo by a wide margin. Real-time browse and cart events, dynamic product blocks, predictive CLV, and flow revenue attribution are native. Mailchimp offers basic abandoned cart and product blocks through the Shopify integration — fine for simple stores, insufficient for replenishment, browse abandonment, or complex suppression during sales.',
+    answer: 'Compare the current integration, events and plan entitlements in each account. Build the same cart, welcome, replenishment and suppression rules, checking payload completeness, latency and safe edits. Verify predictive and reporting features explicitly. A broad category ranking does not prove that either product supports or lacks the specific workflow your store needs.',
   },
   {
     question: 'Can I migrate from Mailchimp to Klaviyo without losing subscribers?',
-    answer: 'Yes. Export contacts with consent timestamps and marketing permissions, import to Klaviyo with proper GDPR/CAN-SPAM fields, rebuild automations from scratch (do not expect 1:1 template transfer). Run welcome and cart flows first, pause Mailchimp automations before enabling Klaviyo equivalents to avoid duplicate sends. Budget 2–3 weeks for a store with four active journeys.',
+    answer: 'Verify export and import support before promising that no subscriber or permission record will be lost. Map identity, consent source and scope, timestamps, suppressions and unsubscribes; preserve purpose-specific channel permissions rather than treating an import as fresh consent. Rebuild and validate journeys, assign one sender and queue owner per journey, cancel old scheduled messages and test replay deduplication. Let acceptance checks determine the cutover date instead of a fixed number of weeks.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Klaviyo or Mailchimp?',
@@ -35,11 +35,11 @@ const faqs = [
   },
   {
     question: 'Which platform handles Black Friday better?',
-    answer: 'Klaviyo offers segment-level VIP early access, recent purchaser suppression, and holdout testing — critical when volume spikes 5x. Mailchimp can broadcast and run basic journeys but struggles with fine-grained ecommerce suppression without manual list hygiene. Both need deliverability prep; Klaviyo\'s sunset tools are more ecommerce-native.',
+    answer: 'Propose peak-season tests for VIP eligibility, recent purchases, suppressions, delayed events and safe edits. Confirm current features and limits on the selected plan rather than assuming a supplier advantage at five times normal volume. Check permission, suppression, purchase and subscription state again at dispatch. Define queue ownership and cancellation so old and new journeys cannot send overlapping reminders.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Attempt the same four flows in both: welcome (branch by signup source), abandoned cart (dynamic products, purchase suppression), post-purchase (exclude gift buyers), winback (split engaged vs unengaged). If Mailchimp cannot complete two of four without workarounds, that is your migration signal. Score edit safety during a sale week, not demo aesthetics.',
+    answer: 'Attempt the same four journeys: welcome by signup source, cart with product and purchase checks, post-purchase with gift-buyer exclusions, and winback by engagement. Record missing requirements, maintenance effort and edit safety in each current account. Weigh the severity of each gap and the cutover work; a count of two incomplete journeys is not a universal migration trigger.',
   },
 ];
 ---
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Klaviyo vs Mailchimp for Shopify SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          The migration story every growing Shopify store eventually faces: keep the familiar Mailchimp editor you have used for years, or graduate to Klaviyo's ecommerce-native retention stack. We ran both through a $55k/mo candle brand still on Mailchimp Customer Journeys, a pet supplies shop with 22k contacts and weak cart recovery, and a B2C wholesale hybrid needing CRM-ish follow-up — measuring where Mailchimp still earns its seat and where it quietly leaks revenue.
+          Evaluate three proposed scenarios: a candle brand using Customer Journeys, a pet supplies shop with 22k contacts, and a B2C wholesale hybrid needing follow-up alongside ecommerce messages. These are evaluation scenarios, not documented merchant tests or measured revenue leakage. Confirm current integration, email and SMS availability, destinations and plan scope before deciding whether either product can replace the required channels; the SMS heading does not establish capability.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -98,7 +98,7 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Mailchimp was not built for Shopify retention — it was built for general small business marketing and adapted. Klaviyo was built assuming every browse event might inform next month's winback. That difference is invisible in App Store screenshots and brutal in production. The candle brand discovered it when their Mailchimp abandoned cart journey could not suppress customers already in an active welcome series without manual list exports every Monday.
+          For the candle scenario, test whether cart and welcome journeys can share current suppression state without manual exports. Inspect the actual integration events, identity mapping and plan-specific automation controls. Document any workaround and how it behaves when a purchase or opt-out arrives late; no merchant production failure is established here.
         </p>
         <p>
           Mailchimp still wins scenarios: monthly sale broadcasts, simple welcome drips, teams that need landing pages without a second tool, and stores under 300 orders/month where lifecycle ROI cannot justify migration labor. The pet supplies shop stayed on Mailchimp six months longer than they should have because the founder knew the editor — switching cost masquerading as strategy.
@@ -109,12 +109,12 @@ const faqs = [
           Goal: three-email welcome without anchoring 30% off. Mailchimp's Customer Journey achieved a linear welcome in two hours — respectable. Klaviyo branched by popup vs product page signup and pulled dynamic collection blocks by first browse category. Mailchimp required static images updated manually when the hero collection changed.
         </p>
         <p>
-          The pet supplies shop wanted welcome email two to feature the category of the first product viewed. Klaviyo did this with segment filters on viewed product metadata. Mailchimp needed a workaround with tags synced from a third-party popup — fragile and broke once when the integration lagged six hours.
+          For the pet supplies scenario, propose featuring the first viewed product category in welcome email two. Verify the event, identity resolution, permission scope and available content fields in each current integration. If a third-party popup supplies tags, test delayed and duplicate updates and assign ownership of failures. No six-hour outage or supplier workaround has been observed.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
         <p>
-          Cart recovery separated the platforms immediately. Klaviyo fired on cart abandonment within an hour, rendered dynamic line items, suppressed on purchase, and attributed $4,200/month within six weeks for the candle brand. Mailchimp's abandoned cart journey recovered revenue too — but roughly 40% less in our parallel test, largely because delayed sync and weaker product block rendering reduced click-through on multi-SKU carts.
+          For the candle scenario, propose cart recovery tests with equivalent eligible customers, purchase exclusions and event windows. Confirm current queue cancellation and dispatch-time suppression before activation. Attributed orders and revenue are accounting views rather than randomized causal lift; use a defined holdout and report uncertainty to assess incrementality. No $4,200 monthly recovery or 40% comparative outcome is established here.
         </p>
         <p>
           Discount capping by cart value — 10% only under $60 — was one click in Klaviyo flow filters. Mailchimp required splitting into two journeys with manual segment maintenance. Not impossible, but the kind of friction that stops teams from iterating during sale weeks.
@@ -130,16 +130,16 @@ const faqs = [
 
         <h2>Shopify data depth in production</h2>
         <p>
-          Klaviyo's browse abandonment flow recovered 11% of test cohort revenue for the candle brand — Mailchimp has no equivalent without third-party tracking. Predictive CLV and churn scores do not exist in Mailchimp's core ecommerce toolkit. If your retention strategy depends on knowing who is likely to reorder in 21 days, Mailchimp is the wrong long-term home.
+          For the candle scenario, test the actual browse event and identity coverage in each proposed integration before deciding whether additional tracking is needed. Verify current predictive features and eligibility separately. A proposed 21-day reorder window needs validation against purchase and subscription state; no 11% cohort result or supplier capability exclusion has been established. Dashboard attribution alone cannot determine incremental recovery.
         </p>
         <p>
-          Mailchimp's strength is breadth outside email: surveys, social scheduling, CRM-lite features. The B2C wholesale hybrid used Mailchimp pipelines for post-purchase follow-up calls on high-ticket orders — a workflow Klaviyo does not replace without ActiveCampaign. Know whether your bottleneck is ecommerce automation or general marketing suite breadth.
+          For the B2C wholesale scenario, list required surveys, social publishing, contact management and follow-up calls separately from ecommerce automation. Verify the current modules and integration needed for each task and assign an owner for service and marketing messages. Do not infer CRM pipelines or the need for a third supplier from a suite label; no merchant implementation is documented here.
         </p>
 
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Klaviyo if:</strong></p>
         <ul>
-          <li>You have 500+ monthly orders and lifecycle revenue is a tracked KPI</li>
+          <li>Lifecycle requirements and validated reporting needs justify the proposed account scope</li>
           <li>Cart recovery, browse abandonment, and replenishment drive meaningful GMV</li>
           <li>You need segment-level revenue reporting weekly</li>
           <li>Your list is growing fast and ecommerce-native suppression matters during peaks</li>
@@ -147,7 +147,7 @@ const faqs = [
         <p><strong>Choose Mailchimp if:</strong></p>
         <ul>
           <li>You primarily send newsletters and occasional sale blasts</li>
-          <li>Your team refuses to learn a new platform and orders are under 400/month</li>
+          <li>Your team can safely maintain the required journeys in its current account</li>
           <li>You need landing pages and non-email marketing in one familiar tool</li>
           <li>Migration budget and time are genuinely unavailable this quarter</li>
         </ul>
@@ -159,7 +159,7 @@ const faqs = [
 
         <h2>Verdict</h2>
         <p>
-          Mailchimp is a reasonable starting point and a revenue leak at scale. Klaviyo wins for any Shopify store treating retention as a growth channel, not a newsletter checkbox. If you cannot complete the four-flow workflow test in Mailchimp without exports and workarounds, schedule the migration — familiarity is not worth 30–40% cart recovery leakage. The winner is whichever platform matches your order volume next quarter, not whichever you used for your first blog list in 2018.
+          Choose from the four-journey evaluation and the requirements your operator can maintain safely. Confirm unresolved current features, migration scope and channel eligibility before scheduling a cutover. Familiarity, order volume and a feature matrix do not establish a revenue leak or guaranteed supplier winner; the claimed 30–40% recovery leakage has not been measured here.
         </p>
       </article>
 
