@@ -11,19 +11,19 @@ const desc = 'Brevo vs Omnisend for Shopify — generalist marketing suite vs ec
 const faqs = [
   {
     question: 'Is Brevo or Omnisend better for a Shopify store doing $40k/mo?',
-    answer: 'Omnisend usually wins for pure Shopify ecommerce — prebuilt cart, welcome, and post-purchase journeys with SMS and push bundled. Brevo suits merchants who need CRM, transactional email, and multichannel marketing beyond Shopify — or who run Shopify plus WooCommerce or B2B invoicing. At $40k/mo Shopify-only with one marketer, Omnisend ships revenue flows faster.',
+    answer: 'Evaluate current plans against the actual Shopify workflows, CRM needs, transactional messages and required channels. A $40k monthly revenue figure does not establish the right platform or setup speed. Test equivalent cart, welcome and post-purchase journeys in the proposed accounts and verify integration support; no measured winner is established here.',
   },
   {
     question: 'How does Brevo vs Omnisend pricing compare at 10,000 contacts?',
-    answer: 'Brevo Business at 10k often runs $65–100/mo with email sends capped by plan tier. Omnisend Standard at 10k typically lands $80–130/mo depending on SMS. Brevo can look cheaper on email-only sends; Omnisend bundles ecommerce automation depth. Model SMS volume explicitly — Omnisend includes SMS infrastructure; Brevo SMS is separate usage billing.',
+    answer: 'Request current matched all-in quotes at 10,000 contacts for equal send volumes, destinations, message segments and modules. Include platform, carrier, minimum commitment, discount, integration and labor costs. Verify current SMS and push availability and billing separately; contact count alone does not establish the cheaper or more complete stack.',
   },
   {
     question: 'Which has better Shopify integration?',
-    answer: 'Omnisend wins on Shopify-native triggers — cart, browse recovery presets, product blocks tuned for DTC. Brevo integrates with Shopify but feels generalist — stronger for merchants juggling multiple sales channels or needing CRM pipelines alongside ecommerce. Choose Omnisend for Shopify-first retention; Brevo for hybrid commerce stacks.',
+    answer: 'Map required Shopify cart, browse, order and product events, then verify current connector and plan support in each account. Test event freshness, product blocks and suppression at execution, alongside CRM inputs if needed. Ecommerce or generalist positioning alone does not establish integration depth or a universal winner.',
   },
   {
     question: 'Can I migrate from Brevo to Omnisend easily?',
-    answer: 'Yes. Export contacts with consent metadata and engagement tags. Rebuild welcome and cart first; run parallel two weeks with strict suppression. Brevo CRM deals and pipeline data do not map to Omnisend — document what you lose if sales teams use Brevo CRM daily. Budget 2–3 weeks for mid-size stores with four active automations.',
+    answer: 'Inspect current exports and imports for contacts, segment rules, permission evidence, suppressions and CRM records. Rebuild on test records and verify purpose/channel eligibility and current purchase, subscription and suppression state. Assign one sender and queue owner per flow; cancel old queued work and test replay deduplication before enabling replacement sends. No automatic deal portability or fixed two-to-three-week parallel-send schedule is established.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Brevo or Omnisend?',
@@ -31,15 +31,15 @@ const faqs = [
   },
   {
     question: 'Which handles transactional email better?',
-    answer: 'Brevo leads — order confirmations, shipping updates, and API-driven transactional sends are core Brevo strengths from its Sendinblue heritage. Omnisend focuses on marketing automation; transactional often stays on Shopify or a dedicated provider. If transactional and marketing must share one vendor, Brevo competes strongly.',
+    answer: 'Verify current transactional products, API access, eligible message types, plan requirements and billing in both proposed accounts. Separate shipping or order service messages from marketing by actual purpose and permission requirements. Test event handling and replay deduplication without assuming that one vendor category establishes product scope or requires a separate provider.',
   },
   {
     question: 'Does Omnisend push matter vs Brevo?',
-    answer: 'Omnisend includes web push; Brevo does not. Push recovers mobile browse and cart without SMS cost — relevant for fashion and flash catalogs. If push is not in your channel strategy, the comparison narrows to Shopify automation depth vs Brevo\'s CRM and transactional breadth.',
+    answer: 'Verify current push availability, plan access, browser and device support in each proposed account. Push permission is separate from email or SMS permission and cannot be assumed portable across domains or providers. Test eligible devices and current subscription state; no free recovery channel or measured incremental lift is established by this comparison.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Build welcome, cart, post-purchase, winback, and one broadcast campaign. Score time-to-live, Shopify trigger accuracy, and whether CRM features matter to your team. If Shopify-only DTC with SMS needs, lean Omnisend. If multi-channel commerce with CRM pipelines, lean Brevo.',
+    answer: 'Propose welcome, cart, post-purchase, winback and broadcast tests against the actual event and CRM requirements. Verify current permission and suppression at execution, sender and queue ownership, purchase or opt-out cancellation and replay deduplication. Compare matched all-in costs and attributed orders separately from randomized causal estimates with uncertainty. These are proposed evaluations, not observed tests or guaranteed setup times.',
   },
 ];
 ---
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Brevo vs Omnisend for Shopify SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Generalist marketing suite versus ecommerce-native automation. Brevo (formerly Sendinblue) serves merchants who need CRM, transactional email, and campaigns across channels beyond a single Shopify storefront. Omnisend serves DTC operators who want prebuilt cart, welcome, and post-purchase journeys with SMS and push in one Shopify-tuned UI. We tested both on a $55k/mo candle brand running Shopify plus Etsy wholesale, a European skincare shop needing GDPR tooling, and a US apparel store graduating off Mailchimp.
+          Consider proposed evaluations for a hypothetical $55k/month candle store with Shopify and wholesale inquiries, a European skincare shop reviewing processing and permission records, and a US apparel store assessing a Mailchimp migration. No merchant or platform test was observed here. Verify current product, connector and plan support for the required email, SMS, push, CRM and transactional workflows instead of treating positioning as a complete capability map.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -89,7 +89,7 @@ const faqs = [
             <tr><td>Shopify depth</td><td>Good — generalist fit</td><td>Native — ecommerce presets</td></tr>
             <tr><td>CRM</td><td>Built-in pipelines</td><td>Limited</td></tr>
             <tr><td>Transactional</td><td>Strong API email</td><td>Marketing-focused</td></tr>
-            <tr><td>Push</td><td>Not available</td><td>Built-in</td></tr>
+            <tr><td>Push</td><td>Verify current product and plan</td><td>Verify current product and plan</td></tr>
             <tr><td>Learning curve</td><td>Moderate — broad surface</td><td>Moderate — DTC focused</td></tr>
           </tbody>
         </table>
@@ -101,25 +101,25 @@ const faqs = [
           Brevo and Omnisend both send email and integrate with Shopify. The fork is whether your business is Shopify-shaped or marketing-suite-shaped. Omnisend assumes DTC ecommerce is the center — cart recovery, product blocks, SMS opt-in branches. Brevo assumes you may need deal pipelines for wholesale buyers, transactional API email for custom apps, and campaigns that span more than one revenue channel.
         </p>
         <p>
-          The candle brand sold 70% DTC on Shopify and 30% through Etsy wholesale inquiries tracked in Brevo CRM. Omnisend could not replace their wholesale deal follow-up; Brevo could not match Omnisend's push recovery on mobile candle shoppers. They kept Brevo for B2B pipeline and added Omnisend for DTC lifecycle — messy but honest to their revenue shape.
+          For a hypothetical candle store with an illustrative 70% Shopify DTC and 30% wholesale mix, test consumer lifecycle and wholesale follow-up separately. Verify deal-stage support and any required connectors rather than assuming either platform cannot cover a role. If using both, document purpose-specific permission and suppression, one queue owner per flow and common identity without indiscriminately merging channel eligibility.
         </p>
 
         <h2>Merchant scenario: European skincare and GDPR</h2>
         <p>
-          This shop at $38k/mo needed double opt-in defaults, consent audit trails, and French-language template management. Brevo's GDPR tooling and EU data residency options satisfied their legal review. Omnisend's GDPR features passed but their agency preferred Brevo's consent logging for cross-border list imports from influencer campaigns.
+          For a hypothetical $38k/month European skincare store, evaluate double-opt-in settings, permission records, language support, processing terms, data locations and transfer arrangements against its requirements. No vendor passed legal review here. Company location or an audit-log feature alone does not establish compliance; imported influencer contacts need purpose-specific provenance and eligibility review.
         </p>
         <p>
-          Shopify automation was slower in Brevo — cart workflow took four days versus Omnisend's afternoon preset. They accepted build time for compliance comfort. US-only DTC brands without EU complexity often reverse that tradeoff.
+          Propose equivalent Shopify automation builds on current account test records and record setup effort only after testing. No four-day versus afternoon result or agency preference was observed. Applicable processing and permission requirements depend on the actual program and destinations, not a universal EU versus US tradeoff.
         </p>
 
         <h2>Workflow test: welcome series</h2>
         <p>
-          Omnisend activated prebuilt welcome with SMS opt-in branch in under two hours. Brevo built equivalent logic with more manual steps but added CRM tagging for wholesale-interest subscribers who clicked B2B footer links — segmentation the apparel store used to route leads to sales inbox. Choose Omnisend when welcome is purely DTC conversion; Brevo when signup intent spans customer types.
+          Propose welcome workflows with channel-specific opt-in branching and wholesale-interest tags from signup choices or B2B links. Verify current account support and do not treat a click as permission for another purpose or channel. Record setup effort and event behavior only after testing; no under-two-hour activation or relative builder advantage is established here.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
         <p>
-          Both recovered carts for $68–$110 AOV tests. Omnisend added push at step two — incremental recovery on mobile. Brevo's cart workflow was competent but required more builder time; no push fallback. The apparel store's Omnisend push recovered 3.2% of abandoned carts that ignored email — meaningful on $52 AOV accessories.
+          Propose matched cart tests for illustrative $68–$110 carts and $52 accessories, verifying current push support and separate device permission before adding a push step. Check current purchase, subscription and suppression state, assign one sender and queue owner, and test cancellation and replay deduplication. No 3.2% recovery result was observed. Report attributed orders separately from randomized causal lift with uncertainty.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
@@ -129,7 +129,7 @@ const faqs = [
 
         <h2>Shopify data depth in production</h2>
         <p>
-          Omnisend covers standard ecommerce triggers — sufficient for most SMB catalogs. Brevo handles Shopify events but shines when custom attributes from CRM deals or non-Shopify sources inform segmentation. Neither matches Klaviyo predictive depth; both beat Mailchimp for Shopify operators.
+          Map the actual Shopify events, CRM attributes and off-site inputs required for segmentation. Verify current connector support, plan access and event freshness in each proposed account. Neither category labels nor this review establish universal predictive limitations or superiority over another vendor; test the required workflows with representative records.
         </p>
 
         <h2>Team fit: who should choose which</h2>
@@ -173,7 +173,9 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>
+          Document purpose-, destination-, sender- and channel-specific permission requirements and the wording and source of opt-in. Verify current subscription and suppression state and applicable timing rules before queued execution. Do not assume one universal consent rule or that vendor tooling establishes compliance. Obtain appropriate review of checkout, popup and keyword disclosures before launch.
+        </p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
