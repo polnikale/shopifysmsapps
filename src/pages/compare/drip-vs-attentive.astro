@@ -23,19 +23,19 @@ const faqs = [
   },
   {
     question: 'Which has better TCPA compliance tooling?',
-    answer: 'Attentive leads — keyword management, legal review workflows, quiet hours, and compliance dashboards are built for enterprise SMS operators. Drip SMS compliance is solid for SMB DTC but email-native teams sometimes underestimate TCPA risk at scale. If legal counsel reviews SMS programs quarterly, Attentive\'s guardrails justify consideration.',
+    answer: 'Evaluate current keyword handling, permission records, quiet hours, suppression, and review workflows in the actual plan. Requirements depend on purpose, destination, sender, and channel; a feature list does not establish legal clearance. Test opt-out propagation and queue cancellation across every sender rather than declaring either platform compliant.',
   },
   {
     question: 'Which handles cart abandonment better?',
-    answer: 'Depends on channel mix. Drip email cart flows with branching by discount sensitivity outperform SMS alone on AOV for most catalogs. Attentive SMS cart recovery wins on immediacy for mobile-first flash drops — streetwear, limited releases, celebrity collaborations. Best results often combine Drip email with Attentive SMS, not either alone as a full retention stack.',
+    answer: 'Propose equivalent cart journeys with discount-sensitive branching and eligible email or SMS steps. Confirm current event and channel support; recheck purchase and suppression at dispatch. Compare attributed orders separately from incremental contribution using randomized eligible holdouts with sample-size and uncertainty reporting. No AOV or immediacy winner is established here.',
   },
   {
     question: 'Does Drip\'s workflow canvas matter vs Attentive?',
-    answer: 'Yes for email-primary teams. Drip\'s visual canvas enables custom branching, A/B splits, and tag-driven logic that Attentive email cannot match. Attentive assumes SMS is your urgency channel and email is supplementary. If your retention owner lives in workflow design, Drip wins email. If enterprise SMS personalization at scale is the mandate, Attentive wins and email lives elsewhere.',
+    answer: 'Evaluate branch visibility, tag and custom-field support, experimentation, and edit reviewability in each current product and plan. Test the same email and SMS journeys before assuming either platform cannot support them. Operator fit depends on your required branches and ownership, not an assumed permanent channel split.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'If evaluating full retention: run Drip welcome, cart, post-purchase, and winback on the canvas. Attentive is not in that race alone. If evaluating SMS ownership: run keyword opt-in, conversational cart recovery, and BFCM broadcast with quiet hours. Attentive should win SMS-specific tests at enterprise scale; Drip wins SMB-to-mid-market email workflow economics.',
+    answer: 'Propose welcome, cart, post-purchase, and winback evaluations plus permitted keyword and reply-handling tests if SMS is in scope. Verify current plan and integration capabilities, event freshness, queue ownership, cancellation, and replay deduplication. Record operator effort and uncertain causal outcomes rather than predicting a winner.',
   },
 ];
 ---
@@ -55,7 +55,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Drip vs Attentive for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Another category mismatch merchants still search. Drip is visual email automation for operators who design behavior-based workflows without enterprise overhead. Attentive is enterprise SMS infrastructure that assumes advanced email and segmentation live elsewhere. We evaluated both through a $52k/mo accessories brand outgrowing Drip SMS limits, a $2.4M/mo apparel label running Attentive SMS plus Drip email, and a meal-kit subscription that mistakenly evaluated Attentive as its only marketing platform.
+          Compare current product and plan scope before assuming these are separate channel categories. Use proposed scenarios: a $52k/mo accessories brand assessing SMS needs, a $2.4M/mo apparel label assessing email and SMS ownership, and a meal-kit subscription assessing lifecycle coverage. These are planning examples, not observed evaluations or merchant results; verify current Drip and Attentive email, SMS, and integration availability.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -97,23 +97,23 @@ const faqs = [
           Drip and Attentive appear in the same consideration set because both touch high-intent mobile shoppers and both integrate with Shopify. The fork is fundamental: Drip optimizes for email operators who want canvas control at mid-market economics. Attentive optimizes for enterprise SMS programs with legal review workflows, personalization at scale, and contract minimums that assume SMS is a board-level channel. The accessories brand hit Drip SMS ceilings at 18% text-attributed revenue — not because Drip failed, but because compliance tooling and two-way depth lagged their growth.
         </p>
         <p>
-          The meal-kit subscription evaluated Attentive after a podcast ad and signed a pilot without an email strategy. Attentive SMS performed — keyword opt-in and cart texts converted. But welcome education, post-purchase recipe nurture, and churn winback had no home. They added Drip three months later and spent Q4 reconciling duplicate touches. Attentive was the right SMS layer; it was the wrong only platform.
+          In a proposed meal-kit scenario, evaluate keyword opt-in and cart messaging alongside welcome education, recipe nurture, and churn winback. Check current email and SMS coverage rather than assuming another ESP is required. Assign one owner per journey and channel, document permission scope, and test cross-platform suppression before activation; no pilot conversion or later migration result is established here.
         </p>
 
         <h2>Workflow test: welcome and onboarding</h2>
         <p>
-          Drip built welcome on canvas with explicit nodes for popup vs checkout signup, first-box customization branch, and SMS opt-in handoff via tag sync. Build time: one day for an operator who documents logic for future hires. Attentive offers sophisticated SMS welcome and keyword flows — enterprise personalization, geographic quiet hours — but email welcome depth requires pairing another ESP. For brands where email still drives 65–85% of automation revenue, Drip owns this test.
+          Propose a welcome evaluation with popup versus checkout signup, first-box customization branches, and a permitted SMS handoff. Measure build time and reviewability in each current product and plan. Confirm available welcome, personalization, timezone, and email capabilities rather than claiming a one-day build or a revenue-share winner. Check purpose- and channel-specific permission and current suppression at dispatch.
         </p>
         <p>
-          The apparel label at $2.4M/mo ran Attentive for VIP early-access texts and Drip for email browse nurture and post-purchase cross-sell. Clean separation by channel intent — urgency on SMS, education on email — but required a retention lead who owned suppression rules across both platforms before every product drop.
+          For a proposed $2.4M/mo apparel scenario, compare VIP early-access SMS with email browse nurture and post-purchase cross-sell. Verify event and channel support in the actual plans. Assign a retention lead to own suppression across both senders before each product drop; no merchant deployment or resulting performance is verified here.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
         <p>
-          Drip's cart workflow enabled discount-sensitive branching — education before 10% off for margin-conscious catalogs. Cross-journey suppression excluded shoppers in active winback. Attentive cart texts fired with sub-minute latency on mobile — decisive for limited-release drops where inventory sold through in two hours. The apparel label used Drip email steps one and three, Attentive text at step two for SMS-opted shoppers.
+          Test discount-sensitive cart branching: education before a proposed 10% offer for a margin-conscious catalog, with active-winback exclusions. Measure event-to-queue and queue-to-dispatch latency in each current integration. A limited-release scenario can compare email steps one and three with an eligible SMS step two; no sub-minute delivery, inventory sell-through, or observed merchant sequence is established here.
         </p>
         <p>
-          Coordinated timing was non-negotiable. Shoppers who converted on Drip email step one never received the Attentive text. Shared exclusion via tag sync and nightly reconciliation prevented the duplicate-touch complaints that spike during BFCM when teams edit journeys independently.
+          Before dispatch, recheck purchase, subscription, and suppression state across senders. Designate one queue owner, cancel obsolete messages after conversion or a cutover, and deduplicate retries and replayed events with stable identifiers. Test sync delays and failure recovery; nightly reconciliation alone cannot prevent a message already queued. These are proposed controls, not verified complaint reductions.
         </p>
 
         <h2>Pricing reality: mid-market vs enterprise</h2>
@@ -129,7 +129,7 @@ const faqs = [
           Drip goes deep on custom fields, tag-driven logic, and product-based delays when Shopify customer metadata is rich — natural for subscription-adjacent replenishment and VIP segmentation. Attentive focuses on SMS-relevant personalization — browse, cart, purchase, location — with enterprise-grade identity resolution. Neither replaces the other; they serve different layers of the retention stack.
         </p>
         <p>
-          The meal-kit subscription's churn logic — pause vs cancel vs skip-week branches — lived in Drip's canvas with custom delays tied to delivery cadence. Attentive handled last-minute delivery SMS and keyword reactivation. Email owned relationship; SMS owned logistics urgency. Forcing one platform to own both diluted what each does best.
+          Propose a meal-kit churn evaluation with pause, cancel, and skip-week branches tied to delivery cadence. Verify current subscription events and their freshness before selecting email or SMS. Separate service logistics from marketing reactivation by purpose and channel permission; a delivery notification does not establish eligibility for a promotional keyword journey.
         </p>
 
         <h2>Team fit: who should choose which</h2>
