@@ -91,7 +91,7 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why Shopify merchants leave ActiveCampaign</h2>
         <p>
-          The CRM overbuild arrives slowly. A supplement brand installs ActiveCampaign because an agency promised "one platform for everything." Deal pipelines get created, then ignored — 100% of revenue still flows through Shopify checkout, not sales-assigned leads. Meanwhile per-contact billing climbs: 22,000 contacts from popups and checkout opt-ins, but only 3,800 ever entered a post-purchase sequence because someone never finished the automation map.
+          Illustrative scenario, not an observed merchant result: the CRM overbuild arrives slowly. A supplement brand installs ActiveCampaign because an agency promised "one platform for everything." Deal pipelines get created, then ignored — 100% of revenue still flows through Shopify checkout, not sales-assigned leads. Meanwhile per-contact billing climbs: 22,000 contacts from popups and checkout opt-ins, but only 3,800 ever entered a post-purchase sequence because someone never finished the automation map.
         </p>
         <p>
           Shopify-native depth is the second fracture. Browse abandonment by collection, variant back-in-stock, predictive winback before clearance — ActiveCampaign can approximate these with tags and site tracking, but setup becomes a part-time job. A home goods store spends forty hours wiring product interest tags while Klaviyo or Sequenzy would sync catalog events in an afternoon. When the person who built the integration leaves, flows silently break on theme updates.
@@ -108,12 +108,12 @@ const faqs = [
         <ol>
           <li><strong>Split CRM from ecommerce automations.</strong> List every automation touching Shopify webhooks vs deal stage changes. CRM stays or exports separately; DTC lifecycle migrates.</li>
           <li><strong>Export consent records.</strong> CSV with email, SMS consent, consent timestamp, and source. TCPA requires provable opt-in if SMS moves platforms.</li>
-          <li><strong>Audit contact bloat.</strong> Count inactive contacts inflating billing — often 40–60% on popup-heavy stores. Document sunset rules before import.</li>
+          <li><strong>Audit contact bloat.</strong> Count inactive contacts inflating billing using your actual account data; do not assume a universal inactive percentage. Document sunset rules before import.</li>
           <li><strong>Document live automations.</strong> Screenshot triggers, conditions, wait steps, and goals. Note which Shopify events each flow uses.</li>
           <li><strong>Map integrations.</strong> List connected apps feeding ActiveCampaign tags — helpdesk, forms, subscription tools. Each may break on migration.</li>
           <li><strong>Install and sync the new platform.</strong> Connect Shopify first. Verify product catalog, order history, and browse events before bulk contact import.</li>
-          <li><strong>Rebuild welcome and cart first.</strong> Highest revenue, easiest to test. Pause ActiveCampaign equivalents only after test orders pass.</li>
-          <li><strong>Run parallel suppression for 14 days.</strong> Tag migrated customers. Prevent duplicate cart recovery from both platforms.</li>
+          <li><strong>Rebuild welcome and cart first.</strong> Test proposed flows with controlled orders before activation. Recheck current channel permission, suppression, purchase and subscription state at send time; a historical export is not sufficient. Give each trigger a stable deduplication key so replay cannot enroll the same recovery twice.</li>
+          <li><strong>Assign one sender owner per purpose and channel.</strong> Use an observation period, not a fixed fourteen-day readiness rule. Disable old enrollments and cancel queued recovery jobs before enabling replacements; test purchase, withdrawal, unsubscribe, delayed-event replay, and duplicate-event suppression in both systems.</li>
           <li><strong>Migrate post-purchase, winback, replenishment.</strong> Rebuild with simpler logic — resist copying every ActiveCampaign branch.</li>
           <li><strong>Redirect signup forms.</strong> Update popups and checkout integrations to feed the new platform. Stale list growth breaks consent continuity.</li>
           <li><strong>Warm sending domain if switching ESP.</strong> Ramp volume over 7–14 days if sending infrastructure changes. See our <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>

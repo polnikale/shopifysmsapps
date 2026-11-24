@@ -91,7 +91,7 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why Shopify merchants leave Brevo</h2>
         <p>
-          The automation ceiling is the headline. A beauty brand runs Brevo successfully through year one — welcome, cart, monthly newsletter. Year two demands replenishment by serum vs moisturizer, winback before seasonal clearance, VIP early access without training discount hunters. Brevo's automation builder can approximate some of this with tags and manual lists, but maintenance becomes weekly list exports the platform was supposed to eliminate.
+          Illustrative scenario, not an observed merchant result: a beauty brand runs Brevo successfully through year one — welcome, cart, monthly newsletter. Year two demands replenishment by serum vs moisturizer, winback before seasonal clearance, VIP early access without training discount hunters. Brevo's automation builder can approximate some of this with tags and manual lists, but maintenance becomes weekly list exports the platform was supposed to eliminate.
         </p>
         <p>
           Shopify segmentation depth is the second fracture. Collection-level browse abandonment, variant back-in-stock, suppressing recent full-price buyers during sales — Brevo syncs orders but merchandising intelligence trails Klaviyo, Omnisend, and Sequenzy. Operators compensate with broadcast blasts, which defeats pay-per-email savings and hurts deliverability when engagement drops.
@@ -111,8 +111,8 @@ const faqs = [
           <li><strong>Audit active automations.</strong> List every workflow with last enrollment date. Disable zombies still sending to unengaged contacts.</li>
           <li><strong>Export contact attributes.</strong> Custom fields, list membership, purchase tags. Document attribute definitions for rebuild.</li>
           <li><strong>Connect new platform to Shopify first.</strong> Verify product catalog, order history, and customer sync before bulk import.</li>
-          <li><strong>Rebuild welcome and cart.</strong> Test with real Shopify test orders. Pause Brevo equivalents only after new flows pass.</li>
-          <li><strong>Run parallel suppression 14 days.</strong> Tag migrated customers. No duplicate cart recovery from Brevo and new platform.</li>
+          <li><strong>Rebuild welcome and cart.</strong> Use controlled Shopify test orders before activation. Recheck current channel permission, suppression, purchase and subscription state at send time. Deduplicate enrollment with stable event keys, including replayed events; imported consent alone is not a send authorization.</li>
+          <li><strong>Assign one sender owner per purpose and channel.</strong> An observation period is not proof of readiness. Disable old enrollments and cancel queued jobs before activating replacements. Test withdrawal, unsubscribe, purchase, delayed-event replay, and duplicate-event suppression across both systems.</li>
           <li><strong>Add post-purchase, winback, replenishment.</strong> The flows that triggered Brevo graduation — build with simpler logic than Brevo workarounds required.</li>
           <li><strong>Redirect signup forms.</strong> Update Privy, popups, and checkout integrations to feed new platform lists.</li>
           <li><strong>Warm sending domain if ESP changes.</strong> Ramp marketing volume over 7–14 days. See <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
