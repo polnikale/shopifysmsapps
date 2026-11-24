@@ -97,26 +97,26 @@ const desc = description(site, 'apps/tinyemail');
 
       <h3 class="font-serif text-2xl font-black text-white">1. First sale campaign — AI draft to send in 45 minutes</h3>
       <p>
-        <strong>Scenario:</strong> New candle shop; first BFCM participation; founder non-marketer. <strong>tinyEmail setup:</strong> AI prompt "20% off holiday candle sale"; product block from Shopify; manual tone edit.
+        <strong>Scenario:</strong> Illustrative new candle shop; first BFCM participation; founder non-marketer. <strong>Proposed tinyEmail setup:</strong> AI prompt "20% off holiday candle sale"; verify current Shopify product-block support; manually review tone and offer terms. Recheck purpose-specific email permission and suppression before sending.
       </p>
       <p>
-        <strong>Result:</strong> Campaign sent same day; 14% open rate, 3.2% click — acceptable for 800-list. Speed was entire value proposition.
+        <strong>Result:</strong> Proposed evaluation: time the draft, review, and launch process for an illustrative 800-contact list. Record clicks and purchases separately from privacy-affected opens; no campaign or merchant result has been verified here.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Basic welcome — three emails, AI-assisted</h3>
       <p>
-        <strong>Scenario:</strong> Apparel side project; popup signup. <strong>tinyEmail setup:</strong> Welcome template plus AI body copy; 10% off email two.
+        <strong>Scenario:</strong> Illustrative apparel side project; popup signup. <strong>Proposed tinyEmail setup:</strong> Verify welcome template support, review AI body copy, and test a 10% offer in email two. Preserve signup purpose and source; recheck current subscription, suppression, and purchase state before each queued message.
       </p>
       <p>
-        <strong>Result:</strong> 11% welcome click rate — generic but functional. No source branching; footer vs popup treated identically.
+        <strong>Result:</strong> Proposed evaluation: compare footer and popup signup journeys, verifying any available source branching in the current product. Measure clicks and purchases with a randomized eligible holdout and uncertainty; do not assume the welcome series caused attributed purchases.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Simple cart reminder — single email</h3>
       <p>
-        <strong>Scenario:</strong> 40 orders/mo candle shop; basic cart automation. <strong>tinyEmail setup:</strong> One reminder 4 hours post-abandon with cart products.
+        <strong>Scenario:</strong> Illustrative 40 orders/mo candle shop; basic cart automation. <strong>Proposed tinyEmail setup:</strong> Verify cart-trigger support, then evaluate one reminder four hours after abandonment with cart products. Assign one sender and queue owner; cancel on purchase or withdrawal, recheck current eligibility at dispatch, and deduplicate replayed events using a stable cart/message key.
       </p>
       <p>
-        <strong>Result:</strong> 6.8% recovery — meaningful at low volume. Insufficient testing depth for optimization; fine for starter phase.
+        <strong>Result:</strong> Proposed evaluation: use a randomized eligible holdout to estimate incremental orders and contribution margin, reporting uncertainty at this low volume. Dashboard recovery attribution alone cannot establish lift; no recovery percentage is verified here.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Graduation trigger — winback attempt hits wall</h3>
@@ -211,7 +211,7 @@ const desc = description(site, 'apps/tinyemail');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>SMS on Shopify requires a separate purpose and channel eligibility assessment; a purchase or email signup does not establish SMS marketing permission. Document opt-in source, scope, timestamp, and withdrawals, and assess applicable jurisdiction, message purpose, quiet hours, and sender requirements before launch. Verify current vendor controls rather than treating tooling as legal clearance; compare platform fees, carrier surcharges, message segments, discounts, and operating costs on matched volumes.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
