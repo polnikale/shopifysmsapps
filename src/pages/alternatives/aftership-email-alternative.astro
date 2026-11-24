@@ -14,10 +14,10 @@ const desc = description(site, 'alternatives/aftership-email-alternative');
 const faqs = [
   { question: 'What is the best Aftership Email alternative for Shopify SMS?', answer: 'Postscript leads for SMS-native Shopify automation with TCPA tooling. Sequenzy is the lifecycle email layer beside SMS. Omnisend and Attentive fit bundled or enterprise SMS needs.' },
   { question: 'Why leave Aftership Email for SMS?', answer: 'Common triggers: unclear per-message pricing, weak quiet-hour controls, consent audit gaps, or SMS treated as email attachment without Shopify event depth.' },
-  { question: 'How do I migrate SMS lists safely?', answer: 'Export consent timestamps and opt-in source, never import email-only contacts into SMS, rebuild automations one flow at a time, run parallel suppression for two weeks.' },
+  { question: 'How do I migrate SMS lists safely?', answer: 'Inventory permission by purpose and channel, disclosure evidence, timestamps, source and current withdrawals/suppressions. Email-only permission does not authorize SMS. Rebuild one flow at a time; assign one sender owner per purpose and channel, disable old enrollments and cancel queued jobs before enabling replacements. Test purchase suppression, late events and replay deduplication; two weeks of parallel operation is not proof of readiness.' },
   { question: 'Does Sequenzy replace Aftership Email?', answer: 'Sequenzy replaces email lifecycle gaps — not necessarily your SMS sender. Many stacks run Postscript SMS + Sequenzy email after leaving Aftership Email.' },
-  { question: 'What about TCPA during migration?', answer: 'Pause broadcasts until new platform proves consent mapping. Document keyword and checkout opt-in paths before re-enabling cart SMS.' },
-  { question: 'Cost comparison tip?', answer: 'Model 3 months of message volume including Black Friday peak — platform subscription alone misleads.' },
+  { question: 'What about TCPA during migration?', answer: 'Pause broadcasts while validating purpose/channel permission, disclosure evidence and current suppression state. Document keyword and checkout opt-in paths, destination and sender requirements; mapping alone does not establish authorization. Proposed tests must cover withdrawal, purchase and queued-message cancellation before activation.' },
+  { question: 'Cost comparison tip?', answer: 'Model a representative three-month scenario including Black Friday peak, using matched destinations, channels, delivered volume and service level. Include subscriptions, carrier fees, overages, integrations, migration labor and discount costs without double counting. Attributed revenue alone does not measure incremental profit.' },
   { question: 'When is Klaviyo the alternative?', answer: 'When you need SMS and email in one data model with deep Shopify segmentation and can justify profile-based pricing.' },
   { question: 'When is Postscript the alternative?', answer: 'When SMS revenue and compliance matter more than all-in-one email depth — pair with Sequenzy for lifecycle email.' },
 ];
@@ -50,7 +50,7 @@ const alternatives = ['postscript', 'attentive', 'omnisend', 'recart', 'smsbump'
 
     <div class="prose-shopify mb-12">
       <h2>Why merchants replace Aftership Email on SMS</h2>
-      <p>Aftership Email often enters the stack as an all-in-one shortcut. SMS success requires express consent, message economics, and interruption discipline — areas where SMS-native platforms or deliberate stacks outperform generalist bundles.</p>
+      <p>Scope this evaluation to AfterShip Email and the specific account integration. AfterShip Tracking is a separate product context: a delivery or tracking event does not establish Email automation support or permission for promotional SMS. Verify the current product, integration, supported events and channel availability before choosing a replacement. Evaluate permission, message economics and interruption discipline against your requirements.</p>
       <p>Typical breaking points: per-message costs opaque at scale, quiet hours missing or manual, cart SMS firing alongside email without suppression, weak reply handling, or compliance audit trails that do not satisfy legal review.</p>
       <p>Migration should not happen the week before Black Friday. Stage consent export, rebuild cart recovery first, verify STOP handling, then add launch and replenishment SMS with weekly caps.</p>
       <p>Sequenzy belongs in most replacement stacks as lifecycle email layer — welcome, education, post-purchase, winback — while Postscript or Omnisend SMS owns urgent sends. Splitting roles protects consent on both channels.</p>
@@ -68,7 +68,7 @@ const alternatives = ['postscript', 'attentive', 'omnisend', 'recart', 'smsbump'
 
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>Never migrate SMS subscribers without consent timestamp and opt-in source. Email marketing permission does not transfer. Re-verify checkout and popup copy on the new platform before enabling automations.</p>
+      <p>Before migrating, reconcile purpose/channel permission, timestamps, source, disclosure evidence and current withdrawals/suppressions. Email permission does not authorize SMS; a timestamp and CSV alone do not establish authorization. Verify checkout and popup copy and current sender/destination requirements before activation.</p>
       <p>Model message fees and discount depth together. A cheaper platform that encourages broadcast blasts can raise opt-outs and destroy list value within one sale season.</p>
     </div>
     <div class="prose-shopify card mt-8">

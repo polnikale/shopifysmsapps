@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: 'How long does Brevo migration take?',
-    answer: 'Plan 2–3 weeks for disciplined Shopify lifecycle migration: week one exports and rebuilds welcome plus cart, week two parallel suppression, week three winback and replenishment. Brevo\'s simpler automation library migrates faster than Klaviyo — unless you built complex custom workflows on top of basic tooling.',
+    answer: 'Use a staged plan rather than a universal 2–3 week promise: inventory and export first, rebuild welcome and cart next, then validate suppression before moving winback and replenishment. Duration depends on custom workflows, data quality, sender readiness and staffing. Proposed acceptance tests should cover withdrawals, purchases, delayed events and duplicate replays before activation.',
   },
   {
     question: 'Should I stay on Brevo and add a second tool?',
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     question: 'Which Brevo alternative is best for SMS?',
-    answer: 'Omnisend bundles email, SMS, and push with simpler onboarding than Brevo SMS add-ons. Postscript or Attentive win for SMS-first strategies. Do not run Brevo SMS and new platform SMS in parallel — TCPA overlap risk.',
+    answer: 'Compare current channel availability, destination coverage, sender registration, reply handling and permission requirements for each candidate. Assign one sender owner per purpose and channel, disable old enrollments and cancel queued jobs before activating replacements. Proposed tests should cover purchase and withdrawal suppression plus replay deduplication; avoiding duplicate sends alone does not establish legal compliance.',
   },
   {
     question: 'Is Klaviyo worth the upgrade from Brevo?',
@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     question: 'What happens to Brevo contact attributes on migration?',
-    answer: 'Export custom attributes and list membership with consent timestamps. Map purchase recency and product interest to dynamic Shopify segments in the new platform. Static Brevo lists go stale — dynamic segments stay accurate as catalog changes.',
+    answer: 'Export custom attributes and list membership with permission timestamps, source and current withdrawals/suppressions. Map purchase recency and product interest to documented segment rules where supported. Dynamic membership is only as accurate as event freshness, identity matching and rule evaluation. Proposed tests should cover new purchases, catalog changes, late events and suppression updates before relying on a segment.',
   },
   {
     question: 'When should I stay on Brevo?',
-    answer: 'Stay when send volume is predictable, automation needs are modest, and pay-per-email economics still beat alternatives after honest send modeling. Brevo remains excellent for budget-conscious brands not yet past 500 orders/month lifecycle complexity.',
+    answer: 'Stay if the required workflows pass controlled tests and matched current quotes support the economics. Order count alone, including a 500-orders-per-month threshold, does not establish lifecycle complexity. Compare the same contacts, sends, destinations, channels and service level, including platform fees, overages, carrier charges, integrations and migration labor without double counting.',
   },
 ];
 ---
@@ -107,7 +107,7 @@ const faqs = [
         <p>Run this before disconnecting Brevo marketing automations from Shopify. Transactional email can remain on Brevo temporarily if you split stacks deliberately.</p>
         <ol>
           <li><strong>Separate transactional from marketing.</strong> Document which Brevo templates handle orders vs lifecycle. Decide single-platform or split-stack strategy before migration.</li>
-          <li><strong>Export consent records.</strong> CSV with email, SMS status, consent timestamp, and signup source. Required for compliant list import.</li>
+          <li><strong>Export consent records.</strong> Export permission by purpose and channel, timestamps, signup source and disclosure evidence, withdrawals and current suppression status. Reconcile imported records with current state; an email opt-in does not authorize SMS, and a CSV alone does not establish permission.</li>
           <li><strong>Audit active automations.</strong> List every workflow with last enrollment date. Disable zombies still sending to unengaged contacts.</li>
           <li><strong>Export contact attributes.</strong> Custom fields, list membership, purchase tags. Document attribute definitions for rebuild.</li>
           <li><strong>Connect new platform to Shopify first.</strong> Verify product catalog, order history, and customer sync before bulk import.</li>
@@ -115,9 +115,9 @@ const faqs = [
           <li><strong>Assign one sender owner per purpose and channel.</strong> An observation period is not proof of readiness. Disable old enrollments and cancel queued jobs before activating replacements. Test withdrawal, unsubscribe, purchase, delayed-event replay, and duplicate-event suppression across both systems.</li>
           <li><strong>Add post-purchase, winback, replenishment.</strong> The flows that triggered Brevo graduation — build with simpler logic than Brevo workarounds required.</li>
           <li><strong>Redirect signup forms.</strong> Update Privy, popups, and checkout integrations to feed new platform lists.</li>
-          <li><strong>Warm sending domain if ESP changes.</strong> Ramp marketing volume over 7–14 days. See <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
+          <li><strong>Warm sending domain if ESP changes.</strong> If sending infrastructure changes, plan a monitored ramp based on authentication, sending history, engagement and provider guidance; elapsed days alone do not establish readiness. See <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
           <li><strong>Downgrade Brevo marketing tier.</strong> Keep transactional-only plan if splitting stacks.</li>
-          <li><strong>Archive Brevo campaigns 90 days.</strong> Historical reference before canceling marketing features.</li>
+          <li><strong>Plan archive access and retention.</strong> Export needed campaign references and permission/suppression evidence under an agreed retention policy. Verify completeness and access terms before canceling marketing features; ninety days is not a universal retention rule.</li>
         </ol>
       </article>
 
@@ -140,7 +140,7 @@ const faqs = [
           app={alternatives[1]}
           rank={2}
           paragraphs={[
-            'Klaviyo is the Brevo graduation when Shopify data depth drives margin — not when you merely want prettier templates. Predictive CLV, collection browse abandonment, variant triggers, and holdout testing justify profile pricing for catalogs over 500 SKUs with seasonal complexity.',
+            'Klaviyo is the Brevo graduation when Shopify data depth drives margin — not when you merely want prettier templates. A catalog over 500 SKUs does not by itself justify profile pricing. Specify the required prediction inputs, collection and variant events, and holdout design; verify support and compare matched all-in costs against the operational value of those workflows.',
             'Brevo migrants often underestimate Klaviyo operational overhead. You trade automation ceiling for segmentation discipline — budget time for weekly segment audits or hire help. Compare <a class="link" href="/compare/brevo-vs-omnisend">Brevo vs Omnisend</a> if Klaviyo feels like overkill.',
           ]}
         />
@@ -149,7 +149,7 @@ const faqs = [
           app={alternatives[2]}
           rank={3}
           paragraphs={[
-            'Omnisend is the fastest Brevo exit for multichannel expansion. Prebuilt welcome, cart, and post-purchase with email, SMS, and push install in days — deeper than Brevo without Klaviyo\'s learning curve. Contact pricing behaves similarly to Brevo at small scale with bundled channel value.',
+            'Evaluate Omnisend for multichannel expansion using a scoped onboarding trial: map welcome, cart and post-purchase events, verify supported channels and destinations, and test current suppression and purchase state before activation. Setup duration depends on data, sender registration, integration work and staffing; neither a fastest ranking nor a days-long promise is established here. Compare current quotes for matched usage.',
             'Choose Omnisend when Brevo email worked but SMS and push were add-on friction. Many merchants run Omnisend 12–18 months after leaving Brevo, then reassess against Klaviyo or Sequenzy.',
           ]}
         />
@@ -194,9 +194,9 @@ const faqs = [
           app={alternatives[7]}
           rank={8}
           paragraphs={[
-            'Shopify Email is the downgrade path when Brevo graduation was aspirational — you realize lifecycle ambitions paused and sale blasts suffice. No automation depth, no SMS.',
-            'Useful as 90-day reset during cash conservation. Stores that left Brevo for capability reasons rarely stay on Shopify Email long if revenue goals remain.',
-            'Treat as pause button, not Brevo replacement for growth-focused DTC.',
+            'Evaluate Shopify Email against the actual welcome, cart and post-purchase workflows you need. Confirm current automation and channel support in official documentation and your account before treating it as either a sufficient replacement or an unsuitable option.',
+            'If cash conservation drives the switch, set a workflow review date and budget for any gaps. A fixed ninety-day reset or a claimed typical migration outcome is not evidence that the replacement fits your store.',
+            'Treat replacement suitability as a workflow and cost decision: keep Shopify Email if the tested requirements fit, and identify specific unmet requirements before planning another migration.',
           ]}
         />
       </section>
@@ -233,7 +233,7 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>SMS on Shopify is not a faster email channel. Before activation, determine the permission, disclosure, withdrawal and timing requirements for the message purpose, destination and sender. Keep opt-in evidence and current suppression state, configure applicable quiet hours, and model platform fees, carrier surcharges and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
