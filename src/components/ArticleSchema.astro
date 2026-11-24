@@ -12,11 +12,10 @@ export interface Props {
 const {
   title,
   description,
-  siteName,
   domain,
   path,
-  datePublished = '2026-01-15',
-  dateModified = '2026-07-08',
+  datePublished,
+  dateModified,
   type = 'Article',
 } = Astro.props;
 const url = new URL(path.replace(/\.html$/, ''), `https://www.${domain}`).toString();
@@ -28,8 +27,6 @@ const schema = {
   datePublished,
   dateModified,
   url,
-  author: { '@type': 'Organization', name: siteName },
-  publisher: { '@type': 'Organization', name: siteName },
 };
 ---
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
