@@ -24,7 +24,7 @@ const desc = description(site, 'apps/recart');
         Recart is mobile-first cart recovery for promo-heavy Shopify DTC — SMS reminders, Messenger abandoned cart nudges, browse abandonment texts, and discount automation tuned for urgency catalogs. Not a full email platform. When your bottleneck is checkout abandonment on phones and email recovery flatlined, Recart specializes where general ESPs treat SMS as checkbox feature. Pair with Sequenzy or Klaviyo for everything before and after the cart moment.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Recart on a promo-driven beauty brand, a streetwear shop comparing against Postscript, and a home goods store where Messenger underperformed. Shopify depth: {app.shopifyDepth}.
+        Proposed evaluations cover a hypothetical beauty promotion, a streetwear comparison and a home goods channel comparison. No observed tests or Messenger underperformance are established. Verify current channel availability and account integration before use. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/postscript">Postscript review</a>
@@ -49,10 +49,10 @@ const desc = description(site, 'apps/recart');
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">Why specialization beats generalist SMS checkboxes</h2>
       <p>
-        Omnisend and Klaviyo include SMS — adequate for many stores. Recart exists because cart recovery on mobile has different economics: tighter send windows, discount escalation discipline, Messenger opt-in flows, and revenue reporting isolated to recovery attribution. When 40%+ of abandoned carts happen on mobile and email open rates on cart messages fall below 15%, dedicated recovery tooling earns its line item.
+        Evaluate mobile recovery economics using actual eligible cart volumes, contribution margin and operating costs. A 40% mobile share or 15% email open rate alone cannot justify a platform; opens are unreliable attention evidence. Verify current capabilities and use randomized eligible comparisons with uncertainty before attributing incremental value.
       </p>
       <p>
-        Messenger recovery is Recart's contrarian bet. Younger demographics and Facebook/Instagram traffic sometimes respond to Messenger pings when SMS feels intrusive. Meta policy shifts make Messenger channel higher maintenance — Recart absorbs some complexity but merchants must monitor opt-in UX and policy updates. Our home goods test saw Messenger underperform SMS 2:1; beauty brand saw parity — audience dependent.
+        Evaluate whether Messenger and SMS serve the same eligible audience before comparing them. Verify current Recart channel availability, destination rules and Meta requirements. No home goods 2:1 result or beauty parity was observed. Randomize comparable eligible groups where possible and report uncertainty rather than treating channel attribution as causal lift.
       </p>
       <p>
         Recart does not solve list growth, welcome education, post-purchase cross-sell, or winback. Capture still needs Privy or Justuno; lifecycle still needs Sequenzy or Klaviyo. Recart is surgical instrument — excellent at one incision, useless for whole operation.
@@ -72,7 +72,7 @@ const desc = description(site, 'apps/recart');
         <strong>Gaps:</strong> No email lifecycle suite. Compliance tooling less enterprise than Postscript. Segmentation depth limited vs Klaviyo. Messenger channel policy dependency creates platform risk. International SMS support varies.
       </p>
       <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Stack coordination:</strong> Export suppression segments from email ESP daily during launch week or use integration if available. Duplicate cart touches destroy trust faster on SMS than email — customers feel personally intruded.
+        <strong>Stack coordination:</strong> Assign one sender and queue owner per recovery step. A daily suppression export can become stale; recheck current purpose/channel permission, suppression, purchase and subscription state at dispatch. Reconcile queued cancellations and deduplicate replayed events across senders; verify current integration support rather than assuming sync.
       </p>
     </div>
 
@@ -97,26 +97,26 @@ const desc = description(site, 'apps/recart');
 
       <h3 class="font-serif text-2xl font-black text-white">1. SMS cart recovery — 15% off only on message three</h3>
       <p>
-        <strong>Scenario:</strong> Beauty flash sale; $64 cart abandoned. <strong>Recart setup:</strong> Text one reminder no code; text two social proof; text three 15% max. Suppress purchasers.
+        <strong>Proposed scenario:</strong> Hypothetical beauty flash sale with a $64 cart. Evaluate reminder, social-proof and capped 15% discount steps only after validating current sender support and eligibility. Recheck purchase and inventory state at each step; the sequence has not been observed here.
       </p>
       <p>
-        <strong>Result:</strong> 13.2% recovery; 41% of recovered orders used discount on message three only — margin preserved vs discount-first competitors.
+        <strong>Proposed evaluation:</strong> Test the illustrative $64 beauty cart sequence with randomized eligible alternatives. Check live purchase and inventory state, cancel obsolete steps and deduplicate retries. Measure net contribution after discounts, refunds and message costs with sample sizes and uncertainty. No 13.2% recovery, 41% discount share or margin advantage was observed.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Messenger recovery — Instagram traffic cohort</h3>
       <p>
-        <strong>Scenario:</strong> Skincare brand; 70% traffic from Instagram. <strong>Recart setup:</strong> Messenger opt-in on mobile PDP; cart reminder 90 minutes post-abandon.
+        <strong>Proposed scenario:</strong> Hypothetical skincare brand with Instagram-heavy traffic; 70% is an illustrative assumption. Verify current Messenger availability and capture rules before evaluating an eligible mobile-PDP signup and ninety-minute cart reminder.
       </p>
       <p>
-        <strong>Result:</strong> Messenger recovery 11.8% on IG-sourced carts vs 9.1% SMS same cohort — channel mix worth maintaining despite policy monitoring overhead.
+        <strong>Proposed evaluation:</strong> Treat the Instagram-heavy skincare audience and ninety-minute reminder as hypothetical. Verify current channel availability and separate channel permission, then compare randomized eligible groups where feasible. No 11.8% versus 9.1% recovery was observed; channel attribution alone does not justify maintaining a channel.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Browse abandonment SMS — high-intent collection viewers</h3>
       <p>
-        <strong>Scenario:</strong> Streetwear; viewed drop collection 3+ products, no cart. <strong>Recart setup:</strong> SMS to opted-in browsers after 24 hours; inventory-aware link.
+        <strong>Proposed scenario:</strong> Hypothetical streetwear browser views three products without adding a cart. Evaluate a twenty-four-hour reminder only after verifying browse-event support, live inventory and current purpose/channel permission; no automatic inventory-aware link is established.
       </p>
       <p>
-        <strong>Result:</strong> 6.4% conversion from browse SMS — lower than cart recovery but incremental revenue on high-intent segment. Required strong opt-in capture via Recart popup.
+        <strong>Proposed evaluation:</strong> Treat three product views and a twenty-four-hour delay as candidate rules for the streetwear example. Verify browse-event and inventory support, current purpose/channel permission and suppression before dispatch. Cancel after purchase and deduplicate retries. No 6.4% conversion or incremental revenue is established; use randomized eligible comparisons and uncertainty.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Coordinated recovery with Sequenzy email — holdout test</h3>
@@ -124,7 +124,7 @@ const desc = description(site, 'apps/recart');
         <strong>Scenario:</strong> Home goods; Sequenzy email cart at 1hr; Recart SMS at 5hr if unopened. <strong>Setup:</strong> 15% holdout SMS-off group.
       </p>
       <p>
-        <strong>Result:</strong> Incremental lift 5.8% recovery from SMS layer — justified Recart bill. Home goods Messenger test failed — discontinued Messenger, kept SMS only.
+        <strong>Proposed evaluation:</strong> The preceding mixed-channel setup is unverified. An unopened email is not current SMS permission or reliable attention evidence. Validate current eligibility and purchase state, assign sender and queue owners, cancel stale steps and deduplicate replayed events. No 5.8% causal lift or failed Messenger test was observed; report randomized eligible comparisons, net costs and uncertainty.
       </p>
     </div>
 
@@ -180,7 +180,7 @@ const desc = description(site, 'apps/recart');
         <strong>Beauty promo DTC:</strong> Sequenzy email lifecycle plus Recart SMS cart. Incremental SMS recovery 5.8% over email holdout — Recart bill justified on margin after discount caps enforced.
       </p>
       <p>
-        <strong>Instagram skincare Messenger:</strong> Recart Messenger parity with SMS on IG traffic — maintained both channels despite Meta policy monitoring overhead.
+        <strong>Instagram skincare Messenger:</strong> Proposed evaluation: verify current channel availability and compare eligible channel groups before assigning creative resources. No observed Messenger/SMS parity is established. Include policy-monitoring labor and matched all-in costs, and distinguish attributed orders from randomized causal contribution.
       </p>
       <p>
         <strong>180 orders/mo rejected:</strong> List too small for usage economics — Sequenzy email cart sufficient until volume doubled. Revisit Recart when SMS list exceeds 800 opted-in subscribers.
@@ -209,7 +209,9 @@ const desc = description(site, 'apps/recart');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>
+        Establish requirements by purpose, channel, destination and sender. Preserve permission evidence and withdrawals; purchase or email signup alone does not authorize promotional SMS. Recheck current suppression, purchase and subscription state at dispatch. Assign queue owners, cancel stale messages and deduplicate retries. Compare matched all-in costs including volumes, destinations, segments, carrier fees, modules, discounts and operating labor; verify current vendor controls.
+      </p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
