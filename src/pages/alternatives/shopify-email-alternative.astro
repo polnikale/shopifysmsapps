@@ -21,7 +21,7 @@ const faqs = [
   { question: 'Do I uninstall Shopify Email after migrating?', answer: 'Inventory campaigns, automations and queued messages across both systems. Assign one production owner per flow, cancel superseded queues and deduplicate replayed events. Verify purchase and suppression updates before enabling replacements. Keep or remove the old app only after dependencies and rollback needs are checked; a fixed calendar deadline is not a readiness test.' },
   { question: 'Will leaving Shopify Email hurt deliverability?', answer: 'A sender change can affect delivery. Verify authentication, permission mapping and current suppression, then expand from appropriately engaged eligible recipients while monitoring delivery, complaints and opt-outs. Infrastructure, domain history and audience quality all matter; a fixed warm-up period does not guarantee readiness.' },
   { question: 'Can tinyEmail replace Shopify Email?', answer: 'tinyEmail adds AI copy and slightly better templates but similar automation depth. It is a lateral move for campaigns, not a lifecycle upgrade. Use it only as a brief stepping stone.' },
-  { question: 'What flows to build first after Shopify Email?', answer: 'Welcome series, abandoned cart, post-purchase education, then winback. See our <a class="link" href="/use-cases/abandoned-cart">cart recovery playbook</a> and welcome series guide.' },
+  { question: 'What flows to build first after Shopify Email?', answer: 'Welcome series, abandoned cart, post-purchase education, then winback. The cart recovery playbook and welcome series guide explain these workflows.' },
 ];
 ---
 
@@ -219,4 +219,5 @@ const faqs = [
 
 
   <FaqSection faqs={faqs} title="Shopify Email alternatives FAQ" />
+  <p class="container pb-8">Explore the <a class="link" href="/use-cases/abandoned-cart">cart recovery playbook</a> and <a class="link" href="/use-cases/welcome-series">welcome series guide</a>.</p>
 </BaseLayout>
