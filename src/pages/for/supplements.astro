@@ -1,202 +1,44 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { segmentBySlug } from '../../data/segments';
-import { appBySlug } from '../../data/apps';
-
-const segment = segmentBySlug('supplements')!;
+import { site } from '../../content';
 const path = '/for/supplements';
-const title = pageTitle(site, 'for/supplements');
-const desc = description(site, 'for/supplements');
-
+const title = 'Choosing Shopify SMS apps for supplement stores';
+const desc = 'Evaluate claims review, subscription exclusions and replenishment data before choosing a supplement SMS workflow. A reorder reminder should follow an actual purchase context, not an inferred health condition.';
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+  <section class="container py-16">
+    <a class="link" href="/guides">SMS operator guides</a>
+    <h1 class="hero-title mt-5">{title}</h1>
+    <p class="mt-7 text-xl leading-9">{desc}</p>
+    <div class="prose-shopify mt-12">
 
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/for" class="link text-sm">← All store types</a>
-      <p class="badge mt-6">supplement stores</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify SMS apps for supplement stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        Supplement stores need SMS that respects consent, quiet hours, and margin — not promotional blasts that burn the list. We ranked tools for merchants facing compliance-safe claims, subscriptions, replenishment, and education.
-      </p>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        Buying behavior: {segment.buyingCycle}. Below: SMS apps that handle TCPA compliance, cost-per-message discipline, and Shopify event context for this category.
-      </p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="/apps">Full app rankings</a>
-        <a class="btn btn-secondary" href="/guides/consent">SMS consent guide</a>
-      </div>
-    </div>
-  </section>
+<h2>Start with the product and the message</h2>
+<p>A supplement catalog can contain very different ingredients and claims. Give the prospective sender the actual SKU list, destination countries, sample message and landing page before committing to acquisition spend. Ask for written category eligibility and registration requirements. An app accepting a Shopify connection does not establish that its messaging suppliers accept every product you sell.</p>
+<p>The <a class="link" href="https://www.fda.gov/food/dietary-supplements-guidance-documents-regulatory-information/dietary-supplement-labeling-guide-chapter-vi-claims">FDA claims guide</a> distinguishes health, nutrient-content and structure/function claims. These categories have different conditions; a marketing text should not improvise a disease-treatment promise from a product description. The <a class="link" href="https://www.ftc.gov/business-guidance/resources/health-products-compliance-guidance">FTC health-products guidance</a> addresses both express and implied advertising claims and supporting scientific evidence. Review the text, image and linked destination together. A disclaimer is not a substitute for substantiating the message a customer reasonably takes away.</p>
+<h2>Keep a claims approval record</h2>
+<p>For each campaign, record the SKU, exact proposed wording, linked page version, supporting evidence reference, reviewer and approval date. Freeze that version for scheduling. If someone changes the benefit claim, testimonial, image or destination after review, return the campaign to the reviewer. This is a proposed operating process, not a claim that any named app supplies regulatory approval.</p>
+<p>A neutral reorder link can still lead to an unreviewed sales page. Include the landing page in review and keep health advice out of the marketing reply inbox. Route questions about symptoms, interactions or adverse experiences to the appropriate support process rather than making individualized product recommendations through an automation.</p>
+<h2>Build replenishment around fulfillment and subscription state</h2>
+<p>Map each reminder to the item actually fulfilled, pack quantity and order status. Order date alone can overstate consumption after a shipping delay. Do not infer a medical need from purchase history or claim that the customer is running low with certainty. Let the customer manage reminder preferences and use neutral language about viewing their reorder options.</p>
+<table class="data-table"><thead><tr><th>Customer state</th><th>Proposed treatment</th><th>Data needed before queueing</th></tr></thead><tbody>
+<tr><td>Active recurring subscription</td><td>Suppress a one-time reorder promotion that duplicates the next shipment</td><td>Current subscription status, next charge and skip/cancel events</td></tr>
+<tr><td>Gift order</td><td>Exclude from personal consumption reminders unless the buyer separately requests them</td><td>Explicit gift marker or preference; do not guess from address alone</td></tr>
+<tr><td>Refund, cancellation or open complaint</td><td>Stop the sales sequence and let support resolve the issue</td><td>Refund and support events available to the send decision</td></tr>
+<tr><td>One-time repeat buyer</td><td>Offer a reorder route only while eligible and opted in</td><td>Fulfilled SKU, intervening orders, stock and current SMS permission</td></tr>
+</tbody></table>
+<p>Recheck those conditions at send time. A subscription cancellation may arrive after an audience was exported; a stale segment should not override the latest preference. If subscription data is unavailable, hold that automation rather than presenting its exclusions as working.</p>
+<h2>Use a demonstration brief instead of a ranking</h2>
+<p>Ask each shortlisted app to demonstrate one purchase, a delayed fulfillment, a subscription skip, a refund and a later opt-out. These are proposed acceptance cases, not tests performed for this guide. Require an inspectable reason when a message is skipped and identify the team member responsible for missing events. Compare setup effort, event delay, support ownership and total messaging cost on the same workload.</p>
+<p>Catalog entry points include <a class="link" href="/apps/postscript">Postscript</a>, <a class="link" href="/apps/klaviyo">Klaviyo</a>, <a class="link" href="/apps/omnisend">Omnisend</a> and <a class="link" href="/apps/attentive">Attentive</a>; these links are not a category approval or performance order. <a class="link" href="https://www.sequenzy.com/pricing">Sequenzy currently advertises an SMS/MMS beta</a> on paid plans using a US/Canada toll-free number. For a supplement use case, confirm category approval, subscription-event coverage and beta operating limits directly rather than assuming either email-only scope or Shopify workflow parity.</p>
+<h2>Coordinate education without creating a second sales trigger</h2>
+<p>Email can carry longer product instructions and preference management; it needs the same claims review as SMS. Give one system ownership of a replenishment attempt. Record the order or subscription event that closes the attempt, and cancel pending sends in both tools. An unopened email is not proof that an additional text is welcome.</p>
+<p>Separate service notices from promotional reorders in both consent records and templates. Review local requirements before adding an offer to a shipment or account notification. See the <a class="link" href="/guides/consent">consent workflow</a> for capture and revocation records.</p>
+<h2>Measure repeat contribution, not replenishment attribution alone</h2>
+<p>Budget platform charges, message segments, carrier charges where applicable, discounts, fulfillment and returns. Separate one-time repurchases from scheduled subscription orders that would occur without the reminder. Compare eligible randomized groups over a complete reorder window before interpreting a revenue difference as incremental. Do not promise a universal reminder interval or weekly cap for all supplements.</p>
+<p>Before expanding, hand the owner a claims approval archive, subscription suppression map, unresolved-event report and contribution worksheet. Pause a flow when a SKU or claim changes until its review is complete. This guide supplies selection and operating criteria; product eligibility and jurisdiction-specific legal review remain merchant-specific decisions.</p>
 
-  <section class="container pb-12">
-    <TldrBox
-      title="Top Shopify SMS apps for supplement stores"
-      picks={[
-        { label: 'Best SMS-native', tool: 'Postscript', reason: 'Shopify-focused automations, TCPA tooling, two-way replies, and cart recovery texts with compliance guardrails.' },
-        { label: 'Best lifecycle layer', tool: 'Sequenzy', reason: 'Agent-first email lifecycle strategy beside SMS — welcome, education, replenishment planning without enterprise bloat.' },
-        { label: 'Best data depth', tool: 'Klaviyo', reason: 'Native Shopify sync with SMS credits, segmentation, and revenue reporting for complex catalogs.' },
-        { label: 'Best SMB multichannel', tool: 'Omnisend', reason: 'Email, SMS, and push in one builder for stores that need fast implementation.' },
-        { label: 'Best enterprise SMS', tool: 'Attentive', reason: 'Acquisition at scale with managed services when traffic economics justify premium SMS.' },
-      ]}
-    />
-
-    <div class="prose-shopify mb-12">
-      <h2>SMS priorities for supplement stores</h2>
-      <p>Supplement stores compress the usual retention mistakes into sharper failures on SMS: one badly timed text costs more than a ignored email. The selection pressure here is compliance-safe claims, subscriptions, replenishment, and education. Your SMS stack must read Shopify order history, consent source, inventory state, and replenishment windows before interrupting anyone.</p>
-      <p>Priority flows for this category: TCPA-safe education in email; Replenishment SMS with subscription suppression; Compliance-reviewed broadcast copy; Reorder nudges without medical claims in SMS. Each flow needs documented suppressions — recent purchasers, active subscribers, wholesale accounts, and customers in open support tickets should never receive conflicting offers.</p>
-      <p>Cost-per-message analysis matters because supplement stores often run thinner margins on promotional recovery. Model carrier fees, platform per-message costs, and discount depth together. A recovered cart that required 25% off plus three texts may be strategically negative even when the dashboard shows attributed revenue.</p>
-      <p>TCPA and consent are not legal footnotes for supplement stores. Checkout checkbox copy, popup promises, and keyword opt-in language must match what automations actually send. Quiet hours should reflect when your customers live, not when your marketing team is online.</p>
-      <p>Pair SMS with email deliberately. Sequenzy handles longer lifecycle education and winback sequencing in email; Postscript, Omnisend, or Klaviyo SMS handles moments that genuinely need immediacy. Duplicating the same offer across channels on the same day trains opt-outs.</p>
-      <p>Measure Subscription churn from email touchpoints, Replenishment revenue per active subscriber, Compliance review pass rate, LTV by acquisition source alongside SMS-specific KPIs: opt-out rate per flow, reply sentiment, cost per recovered order, and complaint rate. Vanity click metrics hide list damage until the next product launch underperforms.</p>
     </div>
-
-    <div class="space-y-8">
-    <ToolReview app={appBySlug('postscript')!} rank={1} paragraphs={['For supplement stores, Postscript is the SMS-native benchmark: TCPA tooling, Shopify cart events, two-way replies, and broadcast controls that treat texts as revenue with compliance guardrails — not a checkbox beside email.', 'Against compliance-safe claims, subscriptions, replenishment, and education, Postscript includes native SMS with Shopify context. Model Usage-based with realistic message volume before peak season.', 'Merchants in supplement stores typically pair Postscript with clear quiet hours, cost caps per subscriber, and suppression for high-intent segments.']} />
-    <ToolReview app={appBySlug('sequenzy')!} rank={2} paragraphs={['Sequenzy is not a replacement for Postscript on urgent texts — it is the lifecycle brain for email sequences that supplement stores need when SMS alone cannot carry education, proof, or long winback arcs.', 'Against compliance-safe claims, subscriptions, replenishment, and education, Sequenzy requires pairing with a dedicated SMS sender for interrupt moments. Model From $19/mo with realistic message volume before peak season.', 'Merchants in supplement stores typically pair Sequenzy with clear quiet hours, cost caps per subscriber, and suppression for high-intent segments.']} />
-    <ToolReview app={appBySlug('klaviyo')!} rank={3} paragraphs={['Klaviyo fits supplement stores when stores needing deep ecommerce segmentation and proven shopify-native flows and your team can maintain advanced automations weekly.', 'Against compliance-safe claims, subscriptions, replenishment, and education, Klaviyo includes native SMS with Shopify context. Model Free tier; paid from ~$20/mo with realistic message volume before peak season.', 'Consider Klaviyo if you already run workflows inside it; switching SMS providers during peak season is higher risk than optimizing consent and timing first.']} />
-    <ToolReview app={appBySlug('omnisend')!} rank={4} paragraphs={['Omnisend fits supplement stores when smb shopify stores wanting multichannel automation without enterprise complexity and your team can maintain solid automations weekly.', 'Against compliance-safe claims, subscriptions, replenishment, and education, Omnisend includes native SMS with Shopify context. Model Free tier; Standard from ~$16/mo with realistic message volume before peak season.', 'Consider Omnisend if you already run workflows inside it; switching SMS providers during peak season is higher risk than optimizing consent and timing first.']} />
-    <ToolReview app={appBySlug('attentive')!} rank={5} paragraphs={['Attentive fits supplement stores when larger dtc brands with high sms volume and your team can maintain advanced automations weekly.', 'Against compliance-safe claims, subscriptions, replenishment, and education, Attentive includes native SMS with Shopify context. Model Custom enterprise pricing with realistic message volume before peak season.', 'Consider Attentive if you already run workflows inside it; switching SMS providers during peak season is higher risk than optimizing consent and timing first.']} />
-    </div>
-
-    <div class="prose-shopify card mt-12">
-      <h2>Implementation checklist for supplement stores</h2>
-      <p>Week one: audit all SMS opt-in sources, map them to Shopify customer records, configure quiet hours, and verify STOP/HELP handling. Do not launch automations until consent provenance is documented.</p>
-      <p>Week two: launch one high-intent flow — usually cart recovery or back-in-stock for supplement stores. Set strict exclusions and cap messages per customer per week.</p>
-      <p>Week three: add replenishment or launch SMS only if product usage data supports it. 30–60 day consumption cycles; high subscription adoption; compliance constraints on claims</p>
-      <p>Week four: review cost per delivered message, opt-outs, and incremental orders. Adjust discount policy before scaling broadcasts.</p>
-      <p>Ongoing: weekly consent and suppression review, monthly segment pruning, quarterly TCPA copy audit. SMS compounds through discipline, not volume.</p>
-    </div>
-
-    
-      <h2>TCPA and quiet-hour checklist</h2>
-      <p>Before scaling SMS for this store type, confirm express written consent for marketing texts, visible disclosure at every opt-in point, and documented quiet hours aligned to customer time zones. Audit monthly for popup copy drift, checkout checkbox changes, and flows that text after a purchase when email already confirmed delivery.</p>
-      <p>Model weekly SMS caps per subscriber and cost per recovered order. If broadcasts spike opt-outs, pause and fix segmentation before increasing volume. Pair urgent texts with Sequenzy email sequences so education and proof do not compete with interrupts on the same day.</p>
-
-    
-    <div class="prose-shopify card mt-8">
-      <h2>Cost-per-message worksheet for this category</h2>
-      <p>Build a simple model: monthly SMS sends multiplied by platform per-message fee plus carrier fee, plus average discount cost per recovered order. Compare to full-price repeat purchase rate from the same segment. If recovery depends on escalating discounts, SMS may be training the wrong behavior even when dashboards show revenue.</p>
-      <p>Document three tiers: conservative (one text per subscriber per week), moderate (two texts for high-intent only), aggressive (broadcast-heavy). Only the moderate tier should be default for most Shopify stores in this category — aggressive tiers belong behind explicit campaign approval.</p>
-      <p>Sequenzy should own email education and winback sequencing; Postscript or Omnisend SMS should own cart recovery and launch urgency. Never send the same offer on both channels within twenty-four hours unless the customer explicitly opted into high-frequency updates.</p>
-      <p>Run quarterly TCPA audits: popup copy, checkout checkbox language, keyword campaigns, and influencer landing pages must match actual automation content. Mismatches are the fastest path to opt-out spikes and complaint risk.</p>
-    </div>
-
-    
-    <div class="prose-shopify card mt-8">
-      <h2>Three SMS scenarios for this vertical</h2>
-      <p><strong>Scenario A — High-intent recovery.</strong> Checkout-started SMS after email unopened, with quiet hours and no first-message discount. Postscript or Recart with Sequenzy email follow-up.</p>
-      <p><strong>Scenario B — Launch urgency.</strong> VIP SMS early access segmented by purchase history; suppress discount-only buyers. Cap at one launch text per week per subscriber.</p>
-      <p><strong>Scenario C — Replenishment.</strong> SKU-specific timing from order date; skip if subscription active. Model cost per message against margin — consumables only where repeat window is predictable.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>Comparison table: SMS apps for this store type</h2>
-      <table class="data-table mt-4">
-        <thead><tr><th>Rank</th><th>App</th><th>SMS fit</th><th>Compliance</th><th>Economics</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td><a class="link" href="/apps/postscript">Postscript</a></td><td>SMS-native Shopify</td><td>TCPA tooling</td><td>Usage-based — monitor peaks</td></tr>
-          <tr><td>2</td><td><a class="link" href="/apps/sequenzy">Sequenzy</a></td><td>Email lifecycle layer</td><td>Email consent</td><td>Pay-per-email</td></tr>
-          <tr><td>3</td><td><a class="link" href="/apps/klaviyo">Klaviyo</a></td><td>Bundled SMS</td><td>SMS credits</td><td>Profile + SMS fees</td></tr>
-          <tr><td>4</td><td><a class="link" href="/apps/omnisend">Omnisend</a></td><td>SMS + push</td><td>Multichannel</td><td>Contact + SMS</td></tr>
-          <tr><td>5</td><td><a class="link" href="/apps/attentive">Attentive</a></td><td>Enterprise SMS</td><td>Managed compliance</td><td>Custom pricing</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>Drop and seasonal SMS orchestration</h2>
-      <p>SMS launches fail when every subscriber gets the same blast. VIP early access, waitlist confirmations, and back-in-stock alerts need separate consent expectations and frequency caps. Email carries lookbooks and education; SMS carries timing and access.</p>
-      <p>Document suppression: recent purchasers, wholesale accounts, open support tickets, and customers who opted into email-only. Run collision checks against Sequenzy email flows before enabling SMS broadcasts.</p>
-    </div>
-
-    
-    <div class="prose-shopify card mt-8">
-      <h2>Extended SMS operations notes</h2>
-      <p>Operators in this vertical should review opt-in copy monthly, model cost per delivered message before peak season, and keep a living suppression map shared between SMS and Sequenzy email owners. TCPA exposure from mismatched popup promises exceeds the cost of any single campaign.</p>
-      <p>Track opt-out rate by flow, not aggregate list size. A growing SMS list with rising opt-outs is a warning sign — often from duplicate cart reminders or launch texts sent during quiet hours.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: STOP and HELP reply…</h2>
-      <p>For <strong>for supplements</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: suppression for recent purchasers…</h2>
-      <p>For <strong>for supplements</strong>, suppression for recent purchasers gift buyers and open support tickets is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 3: Sequenzy lifecycle email paired…</h2>
-      <p>For <strong>for supplements</strong>, Sequenzy lifecycle email paired with Postscript urgent SMS sends is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 4: opt-out rate monitoring by…</h2>
-      <p>For <strong>for supplements</strong>, opt-out rate monitoring by flow not aggregate list size alone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 5: inventory-aware cart SMS before…</h2>
-      <p>For <strong>for supplements</strong>, inventory-aware cart SMS before sending recovery texts is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 6: VIP segmentation separate from…</h2>
-      <p>For <strong>for supplements</strong>, VIP segmentation separate from discount-hunter segments is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
   </section>
 </BaseLayout>
