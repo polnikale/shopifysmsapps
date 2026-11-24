@@ -11,19 +11,19 @@ const desc = 'Attentive vs ActiveCampaign for Shopify stores — enterprise SMS 
 const faqs = [
   {
     question: 'Is Attentive or ActiveCampaign better for Shopify SMS?',
-    answer: 'Attentive is SMS-native at enterprise scale — keyword journeys, drop alerts, legal review workflows, and conversational recovery built for text-first brands. ActiveCampaign offers SMS as an add-on to its automation and CRM platform — workable for moderate volume tied to complex email automations and deal stages. Choose Attentive when SMS is a primary DTC channel. Choose ActiveCampaign SMS only when text volume is low and automation logic must live in the same tool as CRM pipelines.',
+    answer: 'Evaluate the current Attentive and ActiveCampaign account offerings against the same Shopify SMS requirements: eligible destinations, permission records, keyword journeys, quiet hours, reply routing, suppression and event handling. Treat enterprise DTC and CRM-led nurture as candidate use cases, not proof that one vendor will win. Confirm plan and integration support in the actual accounts before choosing.',
   },
   {
     question: 'Can ActiveCampaign replace Attentive for Shopify DTC?',
-    answer: 'Not for SMS-heavy DTC. ActiveCampaign SMS lacks Attentive depth on compliance dashboards, conversational reply routing, and Shopify drop-campaign patterns at enterprise volume. ActiveCampaign replaces Attentive when your business is automation-first — courses, B2B wholesale, membership — with SMS as a thin layer on CRM nurture, not flash-sale infrastructure.',
+    answer: 'Replacement depends on the workflows and current account capabilities, not a universal DTC rule. Test cart recovery, broadcasts, reply handling and suppression at expected volume, alongside wholesale or membership CRM needs. Confirm which email and SMS products are included; neither this comparison nor a vendor label establishes feature parity or migration eligibility.',
   },
   {
     question: 'Should I use ActiveCampaign for email and Attentive for SMS?',
-    answer: 'Common for hybrid merchants — deal pipelines, lead scoring, and wholesale inquiry follow-up stay in ActiveCampaign; Attentive owns promotional and recovery text for DTC. Sync suppressions and purchase events bidirectionally. The failure mode is duplicate cart touches because ActiveCampaign automation and Attentive flows trigger on different timers without coordination.',
+    answer: 'A hybrid can be evaluated with CRM nurture assigned to ActiveCampaign and consumer SMS assigned to Attentive. Verify current purpose- and channel-specific permission, suppression, purchase and subscription state at execution. Assign one sender and queue owner per flow; test cancellation of already queued messages after purchase or opt-out and deduplication of replayed events. A contact sync alone does not establish safe coordination.',
   },
   {
     question: 'How does Attentive vs ActiveCampaign pricing compare?',
-    answer: 'ActiveCampaign: contact-tier pricing plus SMS credits on higher plans — CRM features inflate base cost before sending a single text. Attentive: enterprise contracts keyed to list size and message volume — often $1,500+/mo minimum. Compare total stack cost: ActiveCampaign at 20k contacts plus Attentive SMS often exceeds Klaviyo for equivalent ecommerce retention unless CRM automation is genuinely load-bearing.',
+    answer: 'Request current matched all-in quotes for the same contact counts, destinations, message segments and send volumes. Include platform and module fees, carrier charges, minimum commitments, discounts, integration work and operating labor. Compare the combined stack with alternatives using contribution margin and a randomized holdout with uncertainty where feasible; dashboard-attributed revenue alone does not establish incremental ROI.',
   },
   {
     question: 'Should I also consider Sequenzy instead of ActiveCampaign or Attentive?',
@@ -31,15 +31,15 @@ const faqs = [
   },
   {
     question: 'Which handles B2B wholesale better?',
-    answer: 'ActiveCampaign leads — deal pipelines, sales automation, and lead scoring map naturally to wholesale inquiry follow-up and distributor nurture. Attentive is DTC SMS infrastructure — it does not replace CRM pipeline UI sales teams expect. The supplement wholesaler ran ActiveCampaign for B2B deals and Attentive for consumer drop alerts — different problems, both justified.',
+    answer: 'Evaluate ActiveCampaign for distributor inquiry pipelines, deal stages and sales follow-up, and verify those features in the proposed plan. Evaluate Attentive separately for consumer messaging and any other current products relevant to the account. A hypothetical supplement wholesaler may need both roles, but no observed wholesaler result is established here. Keep wholesale and consumer purpose permissions distinct even for the same contact.',
   },
   {
     question: 'Which has better automation depth for email?',
-    answer: 'ActiveCampaign wins email and CRM automation — conditional branches, lead scoring, deal stages, site tracking across non-Shopify pages. Attentive automation is SMS-scoped — cart, keyword, broadcast, conversational. If retention strategy requires CRM sophistication, ActiveCampaign remains email brain; Attentive does not replace that regardless of SMS performance.',
+    answer: 'Test the required conditional branches, lead scoring, deal stages and Shopify or off-site event inputs in current accounts. Do not infer that Attentive has no email offering from its SMS positioning, or assume that ActiveCampaign includes every CRM capability in every plan. Choose the verified workflow fit and document integration gaps before assigning email ownership.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'SMS tests: keyword opt-in, cart abandonment with quiet hours, flash broadcast with legal review, two-way reply handling — Attentive should win at scale. CRM tests: lead tagging from wholesale inquiry form, multi-branch nurture by product interest, deal stage SMS nudge — ActiveCampaign should win if those workflows exist. Pure DTC without CRM should question ActiveCampaign SMS; enterprise SMS without CRM still needs Attentive plus a real email ESP.',
+    answer: 'Propose SMS tests for keyword permission, cart recovery with quiet hours, broadcast approval and two-way replies, plus CRM tests for wholesale inquiry tagging, product-interest nurture and deal-stage messages. Use safe test records and verify current suppression, purchase and subscription state, queue cancellation and replay deduplication. Compare matched costs and report attribution separately from randomized causal estimates with uncertainty; no winner or measured lift is established by these proposed tests.',
   },
 ];
 ---
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Attentive vs ActiveCampaign for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Enterprise SMS personalization versus CRM automation powerhouse — two platforms merchants conflate because both appear on enterprise RFPs. Attentive owns text revenue at scale. ActiveCampaign owns deal pipelines, lead scoring, and automations spanning Shopify plus wholesale inbox plus content site. We evaluated both through a B2B supplement wholesaler running ActiveCampaign CRM with Attentive consumer drops, a $185k/mo athleisure brand debating ActiveCampaign for wholesale leads while Attentive handled DTC SMS, and an online course membership on ActiveCampaign that nearly signed Attentive for SMS it would never fully utilize.
+          Enterprise SMS and CRM-led automation are different evaluation needs. Consider a hypothetical supplement wholesaler with distributor pipelines and consumer drops, a $185k/month athleisure store assessing wholesale leads alongside DTC messages, and a course membership with modest SMS volume. These are proposed evaluation scenarios, not merchants observed in this review. Verify the current email, SMS and CRM products in each proposed plan before deciding which system owns each workflow.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -86,7 +86,7 @@ const faqs = [
             <tr><td>Best for</td><td>Enterprise SMS-first DTC</td><td>CRM + marketing automation</td></tr>
             <tr><td>Starting price</td><td>Enterprise contracts</td><td>From ~$29/mo</td></tr>
             <tr><td>Billing model</td><td>Contract + usage tiers</td><td>Contacts + feature tier</td></tr>
-            <tr><td>Email depth</td><td>Not primary — pair required</td><td>Core product</td></tr>
+            <tr><td>Email depth</td><td>Verify current email product and plan</td><td>Core product</td></tr>
             <tr><td>SMS depth</td><td>Best-in-class at scale</td><td>Add-on, moderate depth</td></tr>
             <tr><td>CRM pipelines</td><td>Not available</td><td>Core strength</td></tr>
             <tr><td>Shopify fit</td><td>Strong DTC triggers</td><td>Good — one of many connectors</td></tr>
@@ -98,26 +98,26 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Merchants search "Attentive vs ActiveCampaign" when procurement bundles enterprise vendors or when a CRM-heavy team wonders if ActiveCampaign SMS can avoid a second contract. The answer is almost always stack architecture, not either/or. Attentive assumes email and CRM live elsewhere. ActiveCampaign assumes you need automation breadth — and SMS is one channel among deal stages, site tracking, and sales follow-up. The membership site nearly paid Attentive minimums for 800 monthly SMS sends that ActiveCampaign credits covered adequately.
+          A Shopify team comparing these vendors should first map its stack: which system owns email, consumer SMS, wholesale deals and sales follow-up? Do not assume Attentive requires email to live elsewhere or that a particular ActiveCampaign plan includes all needed channels. In the hypothetical membership case, compare 800 monthly SMS sends against current plan eligibility, minimums and workflow requirements rather than assuming a second contract is necessary.
         </p>
         <p>
-          The supplement wholesaler had genuine need for both: ActiveCampaign managed distributor inquiry pipelines with stage-based email nurture spanning 45-day sales cycles. Attentive ran consumer restock alerts and cart recovery for the Shopify storefront — 28% of DTC revenue via text. Neither platform replaced the other; integration hygiene between them determined customer experience quality.
+          For the hypothetical supplement wholesaler, evaluate distributor inquiry pipelines with stage-based email nurture across an illustrative 45-day sales cycle, separately from consumer restock alerts and cart recovery. No 28% revenue result is established. Define common contact identity and purpose-specific eligibility; a consumer purchase or wholesale inquiry does not by itself authorize every marketing channel.
         </p>
 
         <h2>Workflow test: wholesale inquiry to closed deal</h2>
         <p>
-          ActiveCampaign captured wholesale form submissions, tagged by product line interest, and routed deals through a visual pipeline — automated reminders at day 3, 7, and 14 with different copy for cold vs warm leads. Sales reps updated deal stages manually; automations paused promotional DTC blasts for contacts flagged as wholesale prospects. Attentive played no role — SMS cart recovery to a distributor evaluating bulk pricing would have been a brand disaster.
+          Propose a wholesale form test that tags product interest, creates a deal and schedules illustrative reminders at days 3, 7 and 14 for different lead states. Verify the current plan and integration support before relying on this workflow. Sales-stage updates should re-check channel permission and current suppression at execution; test that canceled or replaced reminders leave the owning queue and cannot reappear through event replay.
         </p>
         <p>
-          The athleisure brand's wholesale team lived entirely in ActiveCampaign. Their DTC team owned Attentive drop calendars. Quarterly friction occurred when a wholesale contact also subscribed to consumer SMS — resolved only after explicit cross-system suppression rules tagged B2B accounts in both platforms.
+          In the hypothetical athleisure case, assign the wholesale team its CRM nurture and the DTC team its consumer drop calendar. Test a contact who belongs to both groups. Define which purpose permits each message, who owns suppressions and which sender can cancel queued work; a B2B tag alone is not proof that consumer SMS is prohibited or permitted.
         </p>
 
         <h2>Workflow test: DTC flash drop via SMS</h2>
         <p>
-          Attentive broadcast to 44k opted-in subscribers with segment by purchase recency, holdout testing, and legal sign-off workflow. Two-way replies handled sizing exchanges for limited colorways — conversion lift ActiveCampaign SMS could not match without enterprise configuration overhead. ActiveCampaign SMS broadcast to a test segment worked mechanically but lacked Attentive's pre-send compliance audit and conversational routing polish.
+          Propose a flash-drop test for an illustrative 44,000 eligible SMS subscribers, segmented by purchase recency with approval checks and a randomized holdout where feasible. Verify reply routing for sizing questions and limited colorways in each account. No broadcast was observed here and no conversion advantage is established; report attributed orders separately from causal lift and its uncertainty.
         </p>
         <p>
-          The athleisure brand ran ActiveCampaign email for wholesale nurture and Attentive for consumer drops — correct channel ownership. Their near-mistake was consolidating SMS into ActiveCampaign to reduce vendor count; modeled Attentive-attributed revenue on flash events exceeded ActiveCampaign SMS savings by 4x annually.
+          For the hypothetical athleisure stack, compare separate wholesale email and consumer SMS ownership with a consolidated workflow. Do not infer a fourfold annual advantage from vendor-attributed flash-event revenue. Use equivalent audience eligibility, send volume, destinations and margin assumptions, and test purchase-triggered cancellation, current subscription and suppression checks, and event-replay deduplication before evaluating consolidation.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
@@ -130,10 +130,10 @@ const faqs = [
 
         <h2>Shopify data depth in production</h2>
         <p>
-          ActiveCampaign's Shopify integration supports ecommerce automations but shines on tag-based CRM logic, form submissions, and automations spanning non-Shopify properties. Attentive triggers on Shopify cart, checkout, and order events for SMS — DTC-first, not CRM replacement. Hybrid merchants need both data models coordinated, not merged naively.
+          Map the Shopify events, off-site forms, tags, deal states and channels required by the proposed workflows. Verify current connector support, event freshness and plan access separately for each product. Neither CRM positioning nor SMS positioning proves the complete current product scope. Test current permission, subscription, purchase and suppression state immediately before a queued send executes.
         </p>
         <p>
-          The supplement wholesaler synced Shopify consumer orders to Attentive while ActiveCampaign tracked wholesale deal value separately — duplicate contact records until they implemented a master ID strategy. Pure DTC stores without CRM complexity should question why ActiveCampaign appears in an Attentive evaluation at all.
+          In the proposed wholesaler test, link consumer order identity to wholesale deal identity without merging permissions indiscriminately. Verify duplicate-record resolution and suppression propagation, then replay an event to check idempotency. Assign one queue and sender owner per flow and confirm that purchase or opt-out cancels outstanding work in every system that can send.
         </p>
 
         <h2>Team fit: who should choose which</h2>
@@ -146,10 +146,10 @@ const faqs = [
         </ul>
         <p><strong>Choose Attentive (with ActiveCampaign or another ESP/CRM) if:</strong></p>
         <ul>
-          <li>DTC SMS drives 20%+ of retention revenue with dedicated ownership</li>
+          <li>DTC SMS requirements justify dedicated ownership after a matched evaluation</li>
           <li>Drop alerts, VIP texts, and conversational recovery require enterprise tooling</li>
           <li>Legal review workflows and audit trails are non-negotiable</li>
-          <li>Contract minimums clear internal ROI thresholds on attributable text revenue</li>
+          <li>Contract minimums clear internal margin thresholds using causal uncertainty as well as attribution</li>
         </ul>
 
         <h2>Also consider Sequenzy</h2>
@@ -159,7 +159,7 @@ const faqs = [
 
         <h2>Verdict</h2>
         <p>
-          Attentive vs ActiveCampaign is a stack decision, not a winner-take-all comparison. ActiveCampaign wins CRM automation and moderate SMS tied to complex nurture. Attentive wins enterprise DTC SMS depth ActiveCampaign cannot replicate at scale. The supplement wholesaler needed both with clear ownership boundaries. The membership site needed ActiveCampaign alone. Pure DTC flash brands need Attentive plus a real email ESP — not ActiveCampaign SMS as a shortcut. Map whether CRM or SMS is load-bearing before signing contracts.
+          Treat this as a workflow and stack evaluation. Test CRM-led wholesale nurture and enterprise consumer messaging against the actual plans rather than declaring either vendor incapable by category. The supplement, membership and athleisure scenarios are proposed tests with no measured merchant results. Confirm current email offerings, sender ownership, cancellation and replay handling before signing, and compare matched all-in costs with incremental contribution margin rather than attributed revenue alone.
         </p>
       </article>
 
@@ -177,7 +177,9 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>
+          SMS requires purpose-, destination-, sender- and channel-specific permission review. Document the opt-in source and wording, verify current subscription and suppression state, and configure applicable timing rules before execution. Do not assume one universal consent standard covers every message. Verify the selected account tooling and obtain appropriate review of checkout, popup and keyword disclosures; this source establishes no legal clearance.
+        </p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
