@@ -11,7 +11,7 @@ const desc = 'Drip vs ActiveCampaign for Shopify — visual ecommerce workflows 
 const faqs = [
   {
     question: 'Is Drip or ActiveCampaign better for a Shopify store doing $70k/mo?',
-    answer: 'Drip usually wins for Shopify-native ecommerce workflows — cart, post-purchase, and product-triggered automation with a visual canvas tuned for DTC. ActiveCampaign wins when CRM pipelines, lead scoring for B2B, and multichannel automation beyond Shopify orders matter. At $70k/mo pure DTC, Drip ships revenue flows faster. With wholesale or service upsells, ActiveCampaign competes.',
+    answer: 'Revenue alone does not decide fit. Evaluate cart, post-purchase, and product-triggered branching for a DTC store; add CRM pipelines and lead scoring for wholesale or service upsells. Verify those capabilities in the current product, plan, and Shopify integration. Measure setup and edit time with the same proposed flows rather than promising faster revenue delivery.',
   },
   {
     question: 'How does Drip vs ActiveCampaign pricing compare at 12,000 contacts?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Can ActiveCampaign replace Drip for Shopify cart recovery?',
-    answer: 'Yes, with more build time. ActiveCampaign handles Shopify cart abandonment via integrations and custom triggers — competent but not preset-driven like Drip. Drip\'s ecommerce defaults reduce time-to-live. If cart recovery must ship this week, Drip wins. If cart is one automation among CRM-heavy journeys, ActiveCampaign fits.',
+    answer: 'Evaluate replacement against the current integration and plan rather than assuming cart events or a launch deadline. Check event eligibility, purpose- and channel-specific permission, and current purchase, subscription, and suppression state before dispatch. Assign one sender and queue owner; cancel old queued recovery, prevent replay with stable deduplication keys, and verify rollback before enabling the replacement.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Drip or ActiveCampaign?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Which handles B2B wholesale better?',
-    answer: 'ActiveCampaign leads — deal pipelines, sales automation, and lead scoring map naturally to wholesale inquiry follow-up. Drip can tag and branch but lacks CRM pipeline UI sales teams expect. The meal-kit corporate gifting merchant chose ActiveCampaign; the coffee subscription DTC chose Drip.',
+    answer: 'For a proposed meal-kit corporate gifting evaluation, test inquiry-to-order stages, sales handoffs, and lead scoring in the current plan. For a coffee subscription evaluation, test recurring-order branches and subscription-state changes. These are proposed decision criteria, not documented merchant choices; confirm pipeline and integration support before selecting either product.',
   },
   {
     question: 'Which integrates with Shopify more natively?',
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Drip vs ActiveCampaign for Shopify SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Visual ecommerce workflows versus CRM automation powerhouse. Drip optimizes for DTC operators who design behavior-based retention on a canvas tuned for orders, tags, and product properties. ActiveCampaign optimizes for teams who need deal pipelines, lead scoring, and automations that span Shopify plus sales inbox plus content site. We stress-tested both on a $68k/mo coffee subscription, a B2B supplement wholesaler, and a home fitness brand with a content blog driving leads.
+          Visual ecommerce workflows versus CRM automation powerhouse. Drip optimizes for DTC operators who design behavior-based retention on a canvas tuned for orders, tags, and product properties. ActiveCampaign optimizes for teams who need deal pipelines, lead scoring, and automations that span Shopify plus sales inbox plus content site. Use three proposed evaluation scenarios: a $68k/mo coffee subscription, a B2B supplement wholesaler, and a home fitness brand with a content blog driving leads. These are planning examples, not observed tests or merchant results; confirm current product, plan, and integration scope before scoring either platform.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -106,20 +106,20 @@ const faqs = [
 
         <h2>Merchant scenario: home fitness blog plus Shopify</h2>
         <p>
-          This brand at $52k/mo drove 30% of email signups from WordPress workout guides, not Shopify popups. ActiveCampaign site tracking scored blog engagement before purchase — leads who read three articles got different welcome paths than popup discount seekers. Drip could branch on tags but lacked cross-site tracking without custom integration labor.
+          In a proposed $52k/mo home fitness scenario, assume 30% of email signups come from WordPress workout guides rather than Shopify popups. Test whether the current integration can distinguish three-article readers from popup discount seekers, with appropriate tracking permission. Compare native events and tag-based alternatives, including any custom integration labor; no cross-site capability or merchant outcome is established here.
         </p>
         <p>
-          Cart recovery on Shopify was faster to build in Drip during parallel trial — two hours versus six in ActiveCampaign. They chose ActiveCampaign anyway because blog-to-buy nurture was the growth bottleneck, not cart timing. Prioritize your actual constraint.
+          Time the same cart-recovery build in each evaluation environment and record operator experience, required integrations, and audit effort. Compare that with blog-to-buy nurture if it is the proposed growth constraint. No two-hour versus six-hour trial or merchant selection is verified here; prioritize the constraint demonstrated by your own evaluation.
         </p>
 
         <h2>Workflow test: welcome series</h2>
         <p>
-          Drip built welcome with signup source branches on canvas in one afternoon — popup vs footer vs blog referral tag. ActiveCampaign added lead score thresholds — high-intent blog readers skipped discount email two. More powerful for the fitness brand; unnecessary complexity for the coffee subscription's simpler funnel.
+          Propose a welcome test with popup, footer, and blog-referral branches. Evaluate whether current plan support allows lead-score thresholds so eligible high-intent readers can skip discount email two. Record build and review time rather than claiming an afternoon result. Use purpose- and channel-specific permission and current suppression checks; added branching is useful only if the scenario needs it.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
         <p>
-          Drip's cart workflow showed exactly which branch fired for wholesale-tagged customers excluded from consumer promotions — one visible rule. ActiveCampaign achieved the same with tag conditions buried in a longer automation tree — functional but harder to audit during sale week. Drip wins edit safety for pure DTC; ActiveCampaign wins when cart is one branch among CRM logic.
+          Propose an abandoned-cart test excluding wholesale-tagged customers from consumer promotions. Inspect branch visibility and audit effort in each current builder rather than claiming an observed winner. Recheck purchase, subscription, and suppression state at dispatch; designate one sender and queue owner, cancel stale queued messages, and deduplicate retries and replayed events. Compare attributed orders separately from causal lift: randomized eligible holdouts need uncertainty estimates and adequate samples.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
