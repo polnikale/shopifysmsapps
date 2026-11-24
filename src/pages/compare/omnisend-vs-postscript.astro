@@ -6,163 +6,90 @@ import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 const path = '/compare/omnisend-vs-postscript';
 const title = 'Omnisend vs Postscript for Shopify: 2026 Comparison';
-const desc = 'Omnisend vs Postscript for Shopify stores — bundled multichannel lifecycle vs SMS-native specialization, stack architecture, and compliance.';
+const desc = 'Omnisend vs Postscript for Shopify stores — email and SMS consolidation, split-stack operations, launch replies, migration and matched costs.';
 
 const faqs = [
   {
-    question: 'Is Omnisend or Postscript better for Shopify SMS?',
-    answer: 'Postscript is SMS-native with superior compliance tooling, two-way conversations, and keyword campaigns. Omnisend bundles SMS with email and push in one journey builder — better for unified multichannel without stack sprawl. Choose Postscript when SMS is 25%+ of retention revenue with dedicated ownership. Choose Omnisend SMS when moderate text volume and one dashboard matter more.',
+    "question": "Is Omnisend or Postscript better for Shopify SMS?",
+    "answer": "Compare your actual SMS operations: acquisition, replies, campaign approval and cart cancellation. Postscript has an SMS heritage and now offers email; Omnisend supports email, SMS and web push workflows. Neither channel revenue share nor a feature list establishes a winner."
   },
   {
-    question: 'Can Postscript replace Omnisend entirely?',
-    answer: 'No for most stores. Postscript is SMS-first — it does not replace Omnisend\'s email depth, push notifications, or prebuilt ecommerce email journeys. Typical architecture: Omnisend for email and push, Postscript for SMS. Some stores use Omnisend for all channels when SMS volume is moderate.',
+    "question": "Can Postscript replace Omnisend entirely?",
+    "answer": "Potentially for an email and SMS program, subject to an email migration assessment. Postscript Email changes the old SMS-only premise. Inventory templates, events, segments and any web push dependency before deciding what can move."
   },
   {
-    question: 'How does Omnisend vs Postscript pricing compare?',
-    answer: 'Omnisend bundles SMS into contact-based plans plus per-message costs. Postscript uses plan plus usage-based messaging — can be more transparent for SMS-heavy stores but spikes during flash sales. Model promotional SMS volume explicitly for BFCM on both.',
+    "question": "How does Omnisend vs Postscript pricing compare?",
+    "answer": "Request matched quotes for contacts, email sends, message segments, destinations, peak usage and service scope. Check Omnisend SMS eligibility for your plan and any legacy arrangement. Do not compare an entry email price with a complete SMS program."
   },
   {
-    question: 'Should I use Omnisend and Postscript together?',
-    answer: 'Common when SMS revenue justifies specialization. Omnisend owns email and push; Postscript owns SMS broadcasts and conversational recovery. Sync suppression to prevent duplicate cart touches. The mistake is paying for both without coordination logic.',
+    "question": "Should I use Omnisend and Postscript together?",
+    "answer": "A split stack can retain established Omnisend email while using Postscript for SMS. Give each journey one sender per channel and define purchase cancellation, suppression freshness and failure handling across both systems."
   },
   {
-    question: 'Should I also consider Sequenzy instead of Omnisend or Postscript?',
-    answer: 'Sequenzy handles email lifecycle with pay-per-email pricing — pair with Postscript for SMS depth. Omnisend still wins for unified email-SMS-push if consolidation matters. Sequenzy plus Postscript is a lean stack for guided email strategy and specialized SMS.',
+    "question": "Should I also consider Sequenzy instead of Omnisend or Postscript?",
+    "answer": "Consider Sequenzy as a separate email candidate if the email workflow is the unresolved part of your stack. Demonstrate Shopify events, exclusions, templates and costs before pairing it with an SMS sender; a third platform needs a specific job."
   },
   {
-    question: 'Which has better TCPA compliance tooling?',
-    answer: 'Postscript leads for SMS-specific compliance — keywords, opt-out, quiet hours. Omnisend SMS compliance is solid but email-native teams may underestimate risk. High SMS revenue stores should weigh Postscript guardrails seriously.',
+    "question": "Which has better TCPA compliance tooling?",
+    "answer": "Do not infer legal compliance or relative safety from the vendor category. Inspect permission records, opt-out processing, destination rules and the configured sending policy with your responsible reviewer. The required behavior must be demonstrated in your setup."
   },
   {
-    question: 'Does Omnisend push matter vs Postscript?',
-    answer: 'Push is Omnisend-only in this comparison — recovers mobile intent without SMS cost. Postscript does not offer push. If your channel mix is email + push with selective SMS, Omnisend covers two channels Postscript cannot.',
+    "question": "Does Omnisend push matter vs Postscript?",
+    "answer": "Omnisend documents web push alongside email and SMS. If you rely on browser subscriptions, inventory those journeys separately; the cited Postscript Email release is not evidence of a web push replacement."
   },
   {
-    question: 'What workflow test should decide the winner?',
-    answer: 'For SMS: cart abandonment text, flash broadcast with quiet hours, keyword opt-in, two-way reply. Postscript wins SMS tests. For full lifecycle: Omnisend email welcome, cart, push. Most stores need Omnisend (or similar ESP) plus optional Postscript — not Postscript alone.',
-  },
+    "question": "What workflow test should decide the winner?",
+    "answer": "Rehearse a subscriber joining a product-drop list, buying before a queued reminder and asking a question by reply. Inspect audience selection, cancellation and inbox ownership. Then demonstrate email template and segment migration before treating either combined stack as ready."
+  }
 ];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="py-14 md:py-20">
-    <div class="container">
-      <nav class="mb-8 text-sm">
-        <a class="link" href="/compare">Comparisons</a>
-        <span class="mx-2 text-cyan-100/90">/</span>
-        <span class="text-cyan-100/90">Omnisend vs Postscript</span>
-      </nav>
-
-      <header class="max-w-4xl">
-        <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Omnisend vs Postscript for Shopify</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Omnisend bundles email, SMS, and push for SMB multichannel retention. Postscript is SMS infrastructure that assumes email lives elsewhere. We evaluated both through a $75k/mo beauty brand consolidating on Omnisend-only, a streetwear label pairing Omnisend email with Postscript drop alerts, and a supplements shop that wrongly treated Postscript as its only marketing platform.
-        </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
-      </header>
-
-      <div class="mt-12 max-w-4xl">
-        <TldrBox
-          picks={[
-            { label: 'Email + push lifecycle', tool: 'Omnisend', reason: 'Prebuilt ecommerce journeys with multichannel bundling.' },
-            { label: 'SMS specialization', tool: 'Postscript', reason: 'Compliance, two-way text, and Shopify SMS focus.' },
-            { label: 'Stack simplicity', tool: 'Omnisend', reason: 'One tool for three channels at moderate SMS volume.' },
-            { label: 'SMS revenue focus', tool: 'Postscript', reason: 'When text is a primary channel, not an add-on.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Email playbooks paired with Postscript for SMS depth.' },
-          ]}
-        />
-      </div>
-
-      <div class="mt-12 card overflow-x-auto">
-        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
-        <table class="data-table">
-          <thead>
-            <tr><th>Dimension</th><th>Omnisend</th><th>Postscript</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Best for</td><td>SMB multichannel automation</td><td>SMS-native Shopify marketing</td></tr>
-            <tr><td>Starting price</td><td>Free tier; Standard ~$16/mo</td><td>Usage-based plans</td></tr>
-            <tr><td>Email</td><td>Core product</td><td>Not primary</td></tr>
-            <tr><td>SMS depth</td><td>Journey-integrated</td><td>Best-in-class for Shopify</td></tr>
-            <tr><td>Push</td><td>Built-in</td><td>Not available</td></tr>
-            <tr><td>Compliance</td><td>Solid</td><td>SMS-first guardrails</td></tr>
-            <tr><td>Prebuilt flows</td><td>Strong ecommerce templates</td><td>SMS automations</td></tr>
-            <tr><td>Typical role</td><td>Primary ESP + SMS</td><td>SMS layer in combined stack</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          SMB merchants want one tool. Omnisend markets that reality — email, SMS, push together. Postscript markets SMS excellence and expects pairing. Comparing them as replacements misses the architecture question: is bundled Omnisend SMS good enough, or does SMS revenue justify Postscript specialization on top of Omnisend email?
-        </p>
-        <p>
-          The beauty brand consolidated to Omnisend-only after duplicate cart messages from a previous Klaviyo-plus-Postscript stack annoyed customers. SMS volume was moderate; unified reporting and simpler ops outweighed Postscript's SMS edge. The streetwear label reversed that calculus — SMS drove 32% of drop revenue and needed Postscript's keyword and reply tooling.
-        </p>
-
-        <h2>Workflow test: abandoned cart</h2>
-        <p>
-          Omnisend sequenced email at one hour, SMS at four hours, push at six for mobile opt-ins — one workflow, one dashboard. Postscript SMS fired at 20 minutes with conversational reply option for sizing questions on limited inventory. The streetwear label used Postscript for minute-zero urgency and Omnisend email for detailed product storytelling — complementary if suppression syncs.
-        </p>
-        <p>
-          The supplements shop ran Postscript-only cart SMS without email follow-up — recovered some carts but missed higher-AOV email conversions on multi-bottle orders. Category error, not tool failure.
-        </p>
-
-        <h2>Workflow test: flash sale broadcast</h2>
-        <p>
-          Postscript broadcast to 28k SMS subscribers with quiet hours and segment by last purchase — $1,800 message cost, $24k attributed revenue for the streetwear drop. Omnisend SMS broadcast was operationally similar; the beauty brand preferred scheduling email, SMS, and push from one BFCM calendar rather than logging into two tools.
-        </p>
-        <p>
-          Compliance: Postscript flagged a list import missing keyword opt-in documentation. Omnisend would send with configured consent — SMS-native review caught risk an email-first team might miss.
-        </p>
-
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          Omnisend at 15k contacts with moderate SMS: $120–200/mo all-in platform. Postscript: platform fee plus per-message — $400–1,500/mo during heavy SMS quarters. Combined Omnisend-plus-Postscript: $300–600/mo baseline, spiking with drops. Consolidation saves money and integration labor; specialization wins conversion on SMS-heavy catalogs.
-        </p>
-        <p>
-          Model BFCM explicitly. A store sending 40k promotional SMS in November needs Postscript fees or Omnisend SMS credits in the budget conversation — surprises here kill ROI narratives finance actually believes.
-        </p>
-
-        <h2>Shopify data depth in production</h2>
-        <p>
-          Omnisend provides ecommerce email journeys, push for mobile web, and SMS triggers on cart and order events — appropriate breadth for SMB retention. Postscript triggers SMS on Shopify events with depth on subscriber growth and compliance — appropriate depth for one channel.
-        </p>
-        <p>
-          Omnisend push recovered browse abandonment for the beauty brand without SMS cost — irrelevant to Postscript comparison except it is a channel Postscript cannot replace. Channel mix should drive vendor count.
-        </p>
-
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Omnisend (including SMS) if:</strong></p>
-        <ul>
-          <li>One marketer owns email, SMS, and push with unified reporting</li>
-          <li>SMS is under 20% of retention revenue</li>
-          <li>Stack simplicity beats SMS specialization</li>
-          <li>Prebuilt ecommerce templates should extend to SMS steps</li>
-        </ul>
-        <p><strong>Choose Postscript (with Omnisend or another ESP) if:</strong></p>
-        <ul>
-          <li>SMS is a dedicated revenue channel with its own owner</li>
-          <li>Two-way conversations and keyword drops are core</li>
-          <li>TCPA rigor and compliance dashboards are non-negotiable</li>
-          <li>Mobile-first shoppers need text urgency email cannot match</li>
-        </ul>
-
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          Lean stack option: Sequenzy for email lifecycle playbooks with pay-per-email economics, Postscript for SMS when Omnisend bundling is not enough. Omnisend remains the default SMB unified platform. Sequenzy helps when Omnisend email strategy is clear but execution needs guidance — without adding a third full ESP.
-        </p>
-
-        <h2>Verdict</h2>
-        <p>
-          Omnisend vs Postscript is channel architecture, not winner-take-all. Omnisend wins unified SMB multichannel including moderate SMS. Postscript wins SMS depth paired with Omnisend (or similar) for email. Postscript alone is almost never the right answer. Map SMS share of retention revenue before choosing consolidation or specialization.
-        </p>
-      </article>
-
+  <section class="py-14 md:py-20"><div class="container">
+    <nav class="mb-8 text-sm"><a class="link" href="/compare">Comparisons</a><span class="mx-2">/</span><span>Omnisend vs Postscript</span></nav>
+    <header class="max-w-4xl"><p class="badge">Head-to-head</p><h1 class="hero-title mt-5">Omnisend vs Postscript for Shopify</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">Decide whether to consolidate email and SMS or keep a deliberate split stack. Postscript now offers email, so this is no longer a choice between an email platform and an SMS-only add-on. The useful comparison is the work required to run product launches, answer subscribers and migrate established email journeys.</p></header>
+    <div class="mt-12 max-w-4xl"><TldrBox picks={[
+      { label: 'Existing multichannel program', tool: 'Omnisend', reason: 'Evaluate retaining email, SMS and web push in the documented workflow toolkit.' },
+      { label: 'Existing Postscript SMS program', tool: 'Postscript', reason: 'Evaluate Email as a consolidation candidate before adding or retaining a second ESP.' },
+      { label: 'Established email elsewhere', tool: 'Split stack', reason: 'Retain useful email assets only with explicit cross-channel queue ownership.' },
+    ]} /></div>
+    <div class="mt-12 card overflow-x-auto"><h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Compare the operating model</h2><table class="data-table"><thead><tr><th>Decision</th><th>Omnisend</th><th>Postscript</th></tr></thead><tbody>
+      <tr><td>Channel scope</td><td>Email, SMS and web push workflows</td><td>SMS and Email offering; inventory remaining channel dependencies</td></tr>
+      <tr><td>Retain or migrate</td><td>Assess the value of existing journeys and browser subscriptions</td><td>Assess email migration alongside the existing SMS program</td></tr>
+      <tr><td>Launch acceptance</td><td>Show channel eligibility, priority and cancellation</td><td>Show the same rules plus the intended reply handling</td></tr>
+      <tr><td>Commercial acceptance</td><td>Confirm SMS plan eligibility and message usage</td><td>Quote email, SMS and any managed-service scope together</td></tr>
+    </tbody></table></div>
+    <article class="prose-shopify mt-14 max-w-4xl">
+    <h2>Correct the starting assumption before requesting a demo</h2>
+    <p>Postscript's <a href="https://postscript.io/launch">product release page</a> documents Postscript Email, identity resolution and migration tooling. That makes moving email into Postscript a legitimate option, rather than automatically requiring Omnisend beside it. These are vendor-described capabilities, not results from a merchant test performed for this comparison.</p>
+    <p>Omnisend's <a href="https://support.omnisend.com/en/articles/1740886-add-sms-to-your-omnisend-automations">SMS automation guide</a> documents combining SMS, email and push. Its current eligibility rules distinguish Pro from current Free and Standard accounts and retained legacy SMS arrangements. Confirm your account's eligibility before designing the consolidated program. A low entry email price does not establish the price of the required channel stack.</p>
+    <h2>Three architectures worth pricing</h2>
+    <p>First, retain Omnisend for the channels already working there. This avoids a migration but still requires proof that the proposed launch and reply operations fit. Second, retain Omnisend email and assign SMS to Postscript. This can protect established templates and email flows, while adding a second queue and reconciliation responsibility. Third, evaluate Postscript Email and SMS together. This can remove an ESP handoff, but email migration becomes a project with its own acceptance criteria.</p>
+    <p>For each option, list welcome, cart, post-purchase, replenishment, winback and product-drop messages. Record the event source, audience, sender and cancellation owner. Keep browser push as a separate row if used. Do not assume that email and phone records sharing a profile have the same permission or that a merged identity imports every historical exclusion.</p>
+    <h2>Proposed product-drop rehearsal: answer the question before another reminder</h2>
+    <p>For an illustrative streetwear release, define early access for subscribers who explicitly joined the drop list. Separate email-only subscribers, SMS-only subscribers and people eligible for both. Choose a priority rule before scheduling: for example, send the promised early-access notice through the signup channel, then make later reminders depend on purchase state and the campaign's frequency policy. This is a proposed operating rule, not a universal timing recommendation.</p>
+    <p>Have an eligible test subscriber reply with a sizing question. Identify who sees the conversation, who answers, and whether a scheduled promotion should pause while the question is unresolved. Require a demonstration of the intended inbox and automation behavior rather than assuming that two-way messaging automatically coordinates every campaign. Repeat with an opt-out request and an unstaffed inbox; document the escalation owner.</p>
+    <p>Now postpone the launch after scheduling. The campaign coordinator must know which jobs can be cancelled, which are already handed to delivery, and how a reschedule avoids duplicate notices. If Omnisend sends email and Postscript sends SMS, rehearse both controls. One combined account reduces handoffs but does not itself establish that every queue cancels correctly.</p>
+    <h2>Cart recovery: purchase state beats a revenue-share rule</h2>
+    <p>Queue a cart reminder, complete the order before delivery and replay the checkout event. The acceptance requirement is no stale recovery offer and no second journey from the replay. Record event identifiers and timestamps, then inspect the actual configured result. Include a guest checkout later matched to an existing subscriber and a person who opts out while waiting.</p>
+    <p>In a split stack, define how quickly purchase and suppression state must reach the other sender and what happens when synchronization fails. A shared segment updated periodically can still leave a stale queued message. Decide whether to stop the affected flow during a state outage and who can do so. Do not use an arbitrary percentage of attributed SMS revenue to justify this operational burden.</p>
+    <h2>Email consolidation needs a separate migration decision</h2>
+    <p>Postscript's advertised migration tooling is a reason to request an email demonstration, not proof of exact parity with your current program. Bring a real template with product blocks, a segment using custom properties and a journey with a purchase exclusion. Ask the future operator to reproduce them and explain any changed behavior. Inspect authentication, signup routing, unsubscribe state and historical suppression imports.</p>
+    <p>Include post-purchase education and a replenishment or winback flow in the inventory, not only promotional broadcasts. A care guide may have a different audience and purpose from a discount offer. Establish what happens to subscribers already waiting in the old flow: finish there, cancel, or recreate deliberately. Starting every imported profile at the beginning can repeat welcome offers or instructions.</p>
+    <p>Keep a cutover register with the final old-system event, first new-system event, disabled forms and rollback owner. Move a bounded journey first if that fits the implementation plan. Check that the old ESP cannot continue firing the same email after the new sender is enabled. This is migration work regardless of which vendor receives the program.</p>
+    <h2>Budget the sale month and the operating work</h2>
+    <p>Request equivalent quotes using the same billable audience, email sends, SMS destinations, message lengths, media usage and seasonal peak. Include platform commitments, messaging and carrier charges, onboarding, migration and any contracted service responsibilities. Ask how opt-out instructions or longer creative affect message segmentation. Quote the actual proposed scope instead of reusing fixed monthly totals from another store.</p>
+    <p>For a clearly hypothetical split-stack decision, an additional $300 per month of software and operating cost needs $300 of additional contribution after product, fulfillment, discounts and messaging costs to break even. At $30 contribution per incremental order, that means 10 incremental orders. This is arithmetic for the decision, not a forecast or observed result. Platform-attributed orders alone do not establish those orders were incremental; use a suitable holdout where feasible and document the measurement limits.</p>
+    <h2>Permission and suppression are configured responsibilities</h2>
+    <p>Neither vendor's branding proves that a proposed campaign is legally compliant. Keep the collection source, promised message purpose and channel-specific permission with the subscriber record. Have the responsible reviewer assess the destinations and live collection copy. Demonstrate how opt-outs change eligibility, including already queued work and linked records, rather than assuming a phone number or email subscription authorizes promotional texts.</p>
+    <p>Omnisend documents a workflow option for allowing contacts who cannot receive SMS to continue to later steps. Inspect that setting when email or push follows a text. In a split stack, require equivalent explicit handling of ineligible recipients; skipping a text should not accidentally remove someone from otherwise appropriate email education. Purchase suppression and a marketing opt-out are different states and need different rules.</p>
+    <h2>Where Sequenzy fits</h2>
+    <p>Sequenzy can enter the email evaluation if you are choosing an email layer independently. Give it the same Shopify-event, template, suppression and cutover requirements rather than assuming lower cost or better outcomes. If Omnisend or Postscript already covers the necessary email work, adding another sender needs a concrete benefit that outweighs the extra ownership and integration work.</p>
+    <h2>Decision record</h2>
+    <p>Retain Omnisend when its configured channel workflows and existing assets meet the operating requirements at an acceptable matched cost. Evaluate Postscript consolidation when an established SMS program would benefit from moving email and the migration demonstration passes. Keep both when retaining email assets has a clear value and the team can own cross-system cancellation and replies. Record the failed or passed requirements, cost assumptions and migration work; do not declare a universal SMS winner.</p>
+    </article>
       <div class="mt-10 max-w-4xl text-sm">
         <p class="font-black text-white">Related comparisons</p>
         <p class="mt-2">
@@ -173,42 +100,7 @@ const faqs = [
           <a class="link" href="/use-cases/abandoned-cart">Abandoned cart playbook</a>
         </p>
       </div>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: email-SMS collision rules for…</h2>
-      <p>For <strong>compare omnisend vs postscript</strong>, email-SMS collision rules for cart recovery and product launches is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
 
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: weekly SMS caps per…</h2>
-      <p>For <strong>compare omnisend vs postscript</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
+  </div></section>
   <FaqSection faqs={faqs} title="Omnisend vs Postscript FAQ" />
 </BaseLayout>
