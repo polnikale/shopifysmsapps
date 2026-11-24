@@ -34,7 +34,7 @@ export function appBySlug(slug: string) {
 }
 
 export function channelApps(channel: string) {
-  return APPS.filter((app) => app.channels.includes(channel) || app.channels.includes('marketing'));
+  return APPS.filter((app) => app.channels.includes(channel));
 }
 
 export function comparisonPairs() {
