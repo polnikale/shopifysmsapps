@@ -15,12 +15,12 @@ const alternatives = altSlugs.map((s) => appBySlug(s)!);
 
 const faqs = [
   { question: 'Why leave Yotpo Email if reviews stay on Yotpo?', answer: 'Many stores keep Yotpo Reviews but move email/SMS to specialists — Klaviyo, Sequenzy, or Omnisend — when campaign depth and pricing clarity beat suite consolidation. Reviews integration still works via Shopify sync and UGC blocks.' },
-  { question: 'Does leaving Yotpo break loyalty points in email?', answer: 'If loyalty runs on Yotpo, migrating email requires reconnecting loyalty triggers in the new platform or keeping Yotpo Loyalty while email moves — document which module owns which automations before switching.' },
+  { question: 'Does leaving Yotpo break loyalty points in email?', answer: 'Inventory the loyalty triggers and data each flow needs. Confirm current module availability, integration permissions and event mappings with the providers before reconnecting flows. Assign one owner to each automation and queue, cancel replaced sends and deduplicate replayed events; validate points and current purchase state before activation.' },
   { question: 'Is Yotpo Email cheaper than Klaviyo?', answer: 'Modular Yotpo pricing varies by active products. Stores paying for Reviews + Loyalty + Email + SMS often exceed Klaviyo or Sequenzy totals without matching email depth — audit line items before assuming suite = savings.' },
   { question: 'Best Yotpo alternative for reviews-heavy brands?', answer: 'Klaviyo for maximum email depth with review UGC via integrations. Sequenzy for lifecycle strategy with pay-per-email economics. Marsello if POS loyalty is central.' },
-  { question: 'Can I export Yotpo segments?', answer: 'Export contacts and segment membership via Yotpo dashboard or API. Rebuild behavioral segments in new platform using Shopify events rather than static imports when possible.' },
-  { question: 'Should I leave SMSBump when leaving Yotpo Email?', answer: 'SMSBump is Yotpo SMS — evaluate Postscript or Omnisend SMS separately if moving email off Yotpo. SMS compliance records need explicit export.' },
-  { question: 'Migration timeline from Yotpo?', answer: '2–4 weeks: map module dependencies, rebuild welcome/cart, migrate review-request timing to new post-purchase flow, then winback and replenishment.' },
+  { question: 'Can I export Yotpo segments?', answer: 'Confirm which exports and APIs are currently available for your account and messaging product. Preserve permission evidence by purpose and channel, current opt-outs and segment definitions where supported. Rebuild behavioral segments from validated events; static membership alone does not reproduce rules or establish permission to send.' },
+  { question: 'Should I leave SMSBump when leaving Yotpo Email?', answer: 'Evaluate the SMS service separately from email and confirm the current product identity, availability and export support for your account. Reviews or Loyalty availability does not establish messaging capability. Require SMS-specific permission evidence, current suppression state and a documented sender and queue handoff before moving sends.' },
+  { question: 'Migration timeline from Yotpo?', answer: 'Use readiness gates rather than a fixed 2–4 week promise: map module dependencies, verify permission and suppression, rebuild welcome/cart and review-request timing, then winback and replenishment. Check current purchase and subscription state, assign queue ownership, cancel replaced sends and deduplicate replays before activating each flow.' },
   { question: 'When to stay on Yotpo Email?', answer: 'Stay when you actively use Reviews, Loyalty, Email, and SMS modules together and total cost beats best-of-breed stack. Leave when email is the weak module you subsidize for reviews.' },
 ];
 ---
@@ -77,7 +77,7 @@ const faqs = [
           <li><strong>Replicate review request timing</strong> — typically 7–14 days post-delivery in new platform.</li>
           <li><strong>Update loyalty email triggers</strong> if loyalty stays on Yotpo — API or Shopify tags may bridge.</li>
           <li><strong>Migrate SMS last</strong> with compliance handoff if leaving SMSBump.</li>
-          <li><strong>Downgrade Yotpo Email module</strong> after 30-day parallel suppression ends.</li>
+          <li><strong>Downgrade Yotpo Email module</strong> only after permission, suppression and event checks pass, replaced queues are cancelled and the new sender owns each flow.</li>
         </ol>
       </article>
 
