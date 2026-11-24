@@ -17,10 +17,10 @@ const faqs = [
   { question: 'Is Privy an email platform?', answer: 'Privy is capture-first — popups, bars, spin-to-win — with basic email and SMS. Most growing stores keep Privy for capture and move lifecycle to Sequenzy, Klaviyo, or Omnisend.' },
   { question: 'Why leave Privy instead of upgrading Privy plan?', answer: 'Higher Privy tiers add contacts and pageviews, not lifecycle depth — no browse abandonment by collection, weak winback logic, analytics that do not diagnose margin by segment.' },
   { question: 'Best Privy replacement for full stack?', answer: 'Sequenzy for lifecycle + keep Privy for capture, or replace capture with Justuno while lifecycle runs on Sequenzy.' },
-  { question: 'Can I export Privy subscribers?', answer: 'Yes — export with consent source and date. Re-import to new platform and reconnect popup integrations to new list IDs.' },
+  { question: 'Can I export Privy subscribers?', answer: 'Confirm available export fields, retaining disclosure, sender, purpose, channel, source and date alongside current withdrawals and suppressions. Import only contacts eligible for the intended email purpose; email permission does not authorize SMS. Reconnect popups to the intended list IDs and test that new withdrawals and purchases update the destination before sends.' },
   { question: 'Does leaving Privy mean losing popups?', answer: 'No — keep Privy for capture only, or switch capture to Justuno. Leaving Privy email sends, not necessarily Privy onsite tools.' },
   { question: 'Privy vs Justuno when leaving?', answer: 'Justuno for advanced quizzes and onsite targeting; Privy for simpler spin-to-win. Both feed external lifecycle platforms.' },
-  { question: 'Migration steps from Privy email?', answer: 'Pause Privy automations, rebuild welcome/cart in new platform, point popups to new list, run 14-day suppression overlap watch.' },
+  { question: 'Migration steps from Privy email?', answer: 'Pause old automations and cancel queued sends, rebuild welcome and cart flows, and point popups to the intended list. Assign one production sender and queue owner per trigger; verify current email permission, withdrawals, suppressions and purchases at send time, plus late-event replay deduplication. Test SMS permission separately if used. A 14-day watch alone does not establish readiness.' },
   { question: 'When to keep Privy?', answer: 'Keep when capture converts well and a dedicated platform handles lifecycle — the stack most scaling DTC brands run.' },
 ];
 ---
@@ -143,7 +143,7 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>SMS and email require separate permission checks for the sender and intended purpose; email marketing permission alone does not authorize promotional SMS. Determine applicable consent and timing requirements for the destination and message type, retain the disclosure and opt-in evidence, and honor current withdrawals and suppressions before sending. Verify the selected platform can enforce those controls; checkout, popup and keyword copy must match the actual program.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
