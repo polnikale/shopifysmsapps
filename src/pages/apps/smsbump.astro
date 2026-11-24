@@ -24,7 +24,7 @@ const desc = description(site, 'apps/smsbump');
         SMSBump — now tightly coupled with Yotpo SMS — is the recognizable Shopify SMS app for cart recovery, promotional broadcasts, MMS product images, and list growth popups. It fits merchants already in Yotpo reviews or loyalty ecosystem wanting SMS without adding Postscript. Not email-first — pair with Yotpo Email, Sequenzy, or Klaviyo for lifecycle depth. SMS economics need weekly tracking during sale weeks or margins erode silently.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested SMSBump on a beauty brand in Yotpo reviews suite, a standalone DTC comparing Postscript, and an apparel store with MMS-heavy cart recovery. Pricing: {app.priceDetail}.
+        Consider proposed evaluations for a beauty brand using Reviews, a standalone DTC store comparing SMS options, and apparel with visual cart messages. No observed SMSBump tests or merchant outcomes are documented here. Confirm current Yotpo Messaging product identity, availability and integration separately: Reviews or Loyalty availability does not establish messaging capability. Pricing: {app.priceDetail}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/yotpo-email-sms">Yotpo Email & SMS review</a>
@@ -52,7 +52,7 @@ const desc = description(site, 'apps/smsbump');
         Yotpo built a modular retention suite — reviews, loyalty, email, SMS — and SMSBump was the SMS entry point for Shopify merchants before branding convergence. If you already pay Yotpo for reviews and send review-request SMS post-delivery, adding cart recovery SMS in same dashboard reduces vendor sprawl and unified customer view. Standalone merchants without Yotpo modules should compare Postscript on SMS-native merits alone.
       </p>
       <p>
-        MMS support matters for beauty and apparel — product image in cart recovery text increases click-through vs plain link. SMSBump handles MMS workflows adequately for mid-market; monitor per-message cost premium vs SMS-only recovery sequences.
+        For beauty and apparel, compare a permitted product-image message with a plain-link alternative under otherwise matched conditions. Verify current MMS availability and destination support, then include message segments and fees when assessing net margin. Images do not guarantee more clicks or justify their cost without measurement.
       </p>
       <p>
         Keyword campaigns and segmented broadcasts work for flash sales and VIP early access. Compliance basics exist — still document consent timestamps from popups and never text purchased-only customers without explicit SMS opt-in. SMSBump makes sending easy; merchant process prevents violations.
@@ -97,26 +97,26 @@ const desc = description(site, 'apps/smsbump');
 
       <h3 class="font-serif text-2xl font-black text-white">1. Cart SMS with MMS product image — beauty</h3>
       <p>
-        <strong>Scenario:</strong> Skincare; $78 cart abandoned; MMS shows serum bottle image. <strong>SMSBump setup:</strong> Two-touch sequence; 10% off message two only.
+        <strong>Proposed scenario:</strong> Skincare with a $78 abandoned cart and a serum image. <strong>Evaluation setup:</strong> Verify current MMS support and purpose-specific channel permission. Assign a sender to own the queue, recheck purchase and suppression at dispatch, cancel obsolete jobs and deduplicate replayed events. Treat discount depth as an experimental input.
       </p>
       <p>
-        <strong>Result:</strong> MMS message one click rate 19% vs 11% SMS-only holdout — MMS cost justified for visual catalog.
+        <strong>Evaluation:</strong> Randomize eligible shoppers between SMS and MMS variants with a matched offer and window. Report purchases, contribution, opt-outs and uncertainty alongside clicks and delivery costs. No 19% versus 11% click result or MMS cost advantage has been observed.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Review-request SMS post-delivery — Yotpo synergy</h3>
       <p>
-        <strong>Scenario:</strong> Brand on Yotpo Reviews; SMS review ask 4 days post-fulfillment. <strong>SMSBump setup:</strong> Coordinated with email review ask — SMS first for mobile buyers.
+        <strong>Proposed scenario:</strong> A Reviews merchant evaluating a post-delivery review request. <strong>Evaluation setup:</strong> Verify current messaging integration and separate channel permission for this purpose. Fulfillment is not delivery: use a reliable delivery signal or a clearly defined fallback, coordinate email and SMS queues and cancel stale requests.
       </p>
       <p>
-        <strong>Result:</strong> Review submission rate up 28% combined vs email-only — suite integration value tangible.
+        <strong>Evaluation:</strong> Randomize eligible recipients to comparable review-request variants and define the submission window in advance. Include delivery failures, complaints and uncertainty. No 28% increase or suite integration benefit has been measured here.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. VIP SMS broadcast — loyalty tier segment</h3>
       <p>
-        <strong>Scenario:</strong> Yotpo Loyalty Gold tier; early access sale. <strong>SMSBump setup:</strong> Segment by tier tag synced from Yotpo; broadcast 1 hour before public email.
+        <strong>Proposed scenario:</strong> A Loyalty Gold cohort considering early access. <strong>Evaluation setup:</strong> Verify current tier synchronization and messaging product availability independently. A loyalty tag is not SMS permission; recheck current purpose-specific permission, suppression and purchases before dispatch.
       </p>
       <p>
-        <strong>Result:</strong> 24% click-through Gold SMS vs 9% general email — tier segmentation requires Yotpo Loyalty module active.
+        <strong>Evaluation:</strong> Compare randomized variants within the same eligible loyalty cohort and observation window. Gold-tier SMS clicks versus general-audience email clicks confound audience and channel. No 24% versus 9% result or causal channel advantage is documented.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Coordinated cart with Sequenzy email — suppression test</h3>
@@ -124,7 +124,7 @@ const desc = description(site, 'apps/smsbump');
         <strong>Scenario:</strong> Home goods; Sequenzy email cart 1hr; SMSBump SMS 5hr if unopened. <strong>Setup:</strong> Manual suppression export weekly during launch — integration partial.
       </p>
       <p>
-        <strong>Result:</strong> Incremental 4.6% recovery from SMS; two duplicate-touch complaints first week until suppression fixed. Coordination not turnkey.
+        <strong>Evaluation requirement:</strong> Before coordinating senders, verify current channel and purpose permission, purchase and subscription state, suppression freshness and queue ownership. Cancel on purchase or withdrawal and deduplicate retries. Weekly exports and unopened-email escalation cannot establish safe eligibility; no incremental recovery or complaint result has been observed.
       </p>
     </div>
 
@@ -167,7 +167,7 @@ const desc = description(site, 'apps/smsbump');
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">SMSBump frequency and suite governance</h2>
       <p>
-        Define promotional SMS cap per subscriber — two to four monthly max for general list, higher only for explicit VIP opt-in segments. Separate cart recovery automations from promo broadcasts in reporting — mixed metrics hide performance problems.
+        Set frequency limits from the subscriber’s purpose-specific permission, message type, destination rules and observed complaints; a universal two-to-four-monthly cap does not establish compliance. Coordinate all sender queues and separate recovery from broadcasts in reporting, including fees, discounts and uncertainty about incremental contribution.
       </p>
       <p>
         Audit Yotpo module usage quarterly — paying for Reviews plus Loyalty plus SMS plus Email when only SMS used is expensive shelfware. Consolidate modules you actually operate.
@@ -177,10 +177,10 @@ const desc = description(site, 'apps/smsbump');
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with SMSBump</h2>
       <p>
-        <strong>Yotpo reviews plus SMSBump:</strong> Post-delivery SMS review ask coordinated with email — submission rate up 28% combined. Suite synergy primary reason to stay vs Postscript.
+        <strong>Proposed Reviews plus messaging evaluation:</strong> Verify the current products and integration independently, then test delivery-based review requests against a randomized eligible comparison group. No 28% submission increase or reason to prefer one vendor has been established.
       </p>
       <p>
-        <strong>Standalone DTC chose Postscript:</strong> No Yotpo modules — Postscript two-way SMS won for sizing replies on high-touch denim catalog.
+        <strong>Proposed standalone DTC comparison:</strong> Evaluate reply routing, staffing and response quality for sizing questions on a denim catalog using current vendor documentation and account tests. No merchant choice or superior two-way SMS outcome is documented here.
       </p>
       <p>
         <strong>Sequenzy email coordination:</strong> Manual suppression weekly during launch until integration mapped — plan coordination labor in first month budget before scaling SMS sends.
@@ -209,7 +209,9 @@ const desc = description(site, 'apps/smsbump');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>
+        SMS requirements vary by destination, sender, purpose and applicable rules. Verify the legal basis and current channel-specific permission, retain opt-in evidence and configure required quiet hours. Review actual checkout, popup and keyword language against live sends; compliance tooling does not by itself establish legal compliance.
+      </p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
@@ -220,8 +222,12 @@ const desc = description(site, 'apps/smsbump');
     <div class="prose-shopify">
       <p class="badge">Field notes</p>
       <h2 class="font-serif text-4xl font-black text-white mt-3">SMSBump in live TCPA stacks</h2>
-      <p><strong>Scenario A — Beauty enterprise.</strong> SMSBump broadcast volume justified custom Yotpo SMS pricing only after checkout opt-in crossed eight percent; sub-threshold stores should not copy the playbook.</p>
-      <p><strong>Scenario B — Protein subscription.</strong> Cart SMS at four hours when Klaviyo email unopened; TCPA log tied checkout checkbox text to SMSBump list ID. OOS flavor branch paused texts — texting urgency on depleted SKUs is a compliance and brand double failure.</p>
+      <p>
+        <strong>Proposed Scenario A — Beauty enterprise.</strong> Obtain a current written messaging quote for matched destinations, segments and volume, including carrier fees, modules and labor. Evaluate opt-in quality and net contribution; no eight-percent checkout threshold or custom-pricing outcome has been observed.
+      </p>
+      <p>
+        <strong>Proposed Scenario B — Protein subscription.</strong> An unopened email is not permission to text. Verify current SMS permission for the purpose, subscription and purchase state, stock and suppression at dispatch. Assign queue ownership, cancel obsolete work and deduplicate retries; retain the actual opt-in wording and provenance without treating a list ID as legal proof.
+      </p>
       <p><strong>Scenario C — Jewelry, thin margins.</strong> SMSBump cart texts required twenty-two percent off to convert — negative margin after carrier fees. Moved education to Sequenzy email; SMS reserved for back-in-stock opt-ins only.</p>
     </div>
   </section>
@@ -229,7 +235,9 @@ const desc = description(site, 'apps/smsbump');
     <div class="ledger-card">
       <p class="badge">TCPA console</p>
       <h2 class="font-serif text-3xl font-black text-white mt-3">Quiet hours, consent proof, and cost-per-message math</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">SMS recovery on Shopify is not a shorter email. Every cart text needs express written consent, documented opt-in source, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript and Attentive expose compliance tooling — merchants still own checkout copy and popup language.</p>
+      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
+        SMS recovery requires a destination-, sender- and purpose-specific review of applicable rules. Verify current channel permission and legal basis and retain the evidence for the actual message. Include platform fees, carrier surcharges and discounts in the margin model; vendor tooling does not establish compliance or replace review of checkout and popup wording.
+      </p>
       <p class="mt-4 text-[17px] leading-8 text-cyan-100">Model cost per delivered message before scaling broadcasts. A recovered cart that required twenty-five percent off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context.</p>
       <p class="mt-4 text-[17px] leading-8 text-cyan-100">Weekly ops: audit STOP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent against live automations.</p>
     </div>
