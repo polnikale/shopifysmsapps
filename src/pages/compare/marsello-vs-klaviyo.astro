@@ -6,7 +6,7 @@ import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 const path = '/compare/marsello-vs-klaviyo';
 const title = 'Marsello vs Klaviyo for Shopify Email: 2026 Comparison';
-const desc = 'Marsello vs Klaviyo for Shopify — loyalty-led retention vs customer data platform depth, POS integration, pricing, and which platform fits retail-first vs DTC-first brands.';
+const desc = 'Marsello vs Klaviyo for Shopify: compare loyalty-ledger ownership, behavioral audiences, POS returns, message eligibility and total operating cost.';
 
 const faqs = [
   {
@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: 'How does Marsello vs Klaviyo pricing compare at 12,000 contacts?',
-    answer: 'Marsello at 12k often runs $150–300/mo depending on loyalty features and order volume. Klaviyo at 12k profiles typically lands $200–350/mo with SMS extra. Marsello bundles loyalty plus email — value collapses if you only need email without points program. Klaviyo email-only can undercut Marsello for DTC-only stores without POS.',
+    answer: 'Request quotes for identical contacts, orders, sends, destinations and message segments. Include the loyalty integration, support, migration and reconciliation labor. The better value depends on which ledger and messaging jobs you will actually use; this page does not establish current prices.',
   },
   {
     question: 'Which has better loyalty-triggered email?',
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: 'Should I also consider Sequenzy instead of Marsello or Klaviyo?',
-    answer: 'Sequenzy fits when lifecycle email strategy matters more than loyalty infrastructure or CDP depth — agent-first playbooks with pay-per-email pricing. Keep Marsello for loyalty if already invested in POS integration. Klaviyo still wins on predictive Shopify data. Sequenzy layers strategy without replacing Marsello\'s points engine.',
+    answer: 'Include Sequenzy in an email evaluation when its documented event and workflow controls meet your requirements. Keep ledger ownership explicit: changing the email sender does not itself migrate earned balances, return history or POS identity. Confirm the integration and operating cost rather than assuming a simpler product label means a simpler implementation.',
   },
   {
     question: 'Does Klaviyo POS integration match Marsello?',
@@ -57,11 +57,11 @@ const faqs = [
 
       <header class="max-w-4xl">
         <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Marsello vs Klaviyo for Shopify SMS</h1>
+        <h1 class="hero-title mt-5">Marsello vs Klaviyo for Shopify Email</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
           For a retailer comparing a loyalty ledger with behavioral targeting, the key question is which system owns customer state. Use the coffee-roaster and apparel scenarios below as proposed evaluations, not reported merchant trials. A points balance, a predicted reorder date and permission to send a message are different records: joining them does not prove that an email caused a repeat purchase.
         </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+        <p>Evaluate two separate contracts: how purchases change earned benefits, and how current customer state changes message eligibility. A single interface can reduce handoffs, but it does not remove the need to reconcile the ledger and the sender.</p>
       </header>
 
       <div class="mt-12 max-w-4xl">
@@ -84,12 +84,12 @@ const faqs = [
           </thead>
           <tbody>
             <tr><td>Best for</td><td>Evaluate loyalty ledger ownership</td><td>Evaluate behavioral audience ownership</td></tr>
-            <tr><td>Starting price</td><td>From ~$135/mo</td><td>Free tier; paid from ~$20/mo</td></tr>
-            <tr><td>Billing model</td><td>Orders + contacts tiers</td><td>Active profiles + SMS</td></tr>
+            <tr><td>Starting price</td><td>Obtain a quote for the required sites and workflows</td><td>Obtain a quote for the same contact and send assumptions</td></tr>
+            <tr><td>Billing model</td><td>Include ledger and messaging scope</td><td>Include sender and external-ledger scope</td></tr>
             <tr><td>Shopify depth</td><td>Trace POS and online ledger events</td><td>Trace order and browse events</td></tr>
             <tr><td>Loyalty program</td><td>Demonstrate earn and reversal history</td><td>Demonstrate the connected ledger contract</td></tr>
             <tr><td>POS support</td><td>Test associate lookup and return</td><td>Test POS event identity and freshness</td></tr>
-            <tr><td>Predictive analytics</td><td>Basic RFM</td><td>CLV, churn, discount sensitivity</td></tr>
+            <tr><td>Predictive analytics</td><td>Keep ledger eligibility distinct from audience scoring</td><td>Check prediction eligibility against order-history requirements</td></tr>
             <tr><td>Learning curve</td><td>Reconcile a ledger mismatch</td><td>Repair an audience or property mismatch</td></tr>
           </tbody>
         </table>
@@ -97,12 +97,8 @@ const faqs = [
 
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Marsello and Klaviyo both send email from Shopify data. The fork is whether loyalty is your retention engine or email segmentation is. Marsello assumes repeat visits come from points, tiers, and referral incentives — email reinforces that loop. Klaviyo assumes repeat purchases come from behavioral targeting — browse history, predicted reorder, discount sensitivity. The coffee roaster's third location launch made Marsello obvious: baristas earned points on POS purchases that triggered welcome-back emails when customers browsed online days later.
-        </p>
-        <p>
-          The pure DTC skincare brand had no POS and no points program — Marsello's loyalty infrastructure was dead weight on the invoice. Klaviyo's predictive CLV and replenishment timing matched their subscription-adjacent model. Comparing these tools without naming your retention thesis wastes evaluation time.
-        </p>
+        <p>The decision is whether the missing capability is managing earned benefits or selecting behavioral audiences. A ledger records why a balance changed; an audience records who meets a rule now. A retailer may need both, with the ledger remaining authoritative even when a sender computes a different audience.</p>
+        <p>For a proposed online-only skincare evaluation, omit POS lookup from the acceptance criteria but retain returns and repeat orders. If a loyalty program already exists, compare the effort of maintaining its integration with the effort of moving its balances and history. If no loyalty program is planned, do not assign value to unused ledger functionality.</p>
 
         <h2>Merchant scenario: coffee roaster with three POS locations</h2>
         <p>
@@ -121,51 +117,41 @@ const faqs = [
         </p>
 
         <h2>Workflow test: abandoned cart with points reminder</h2>
-        <p>
-          Both recovered carts effectively. Marsello cart email two included dynamic point balance — "You have 340 points — enough for $17 off this cart." Klaviyo cart recovery used predicted discount sensitivity without native points context unless tags synced. For loyalty-heavy catalogs, Marsello's cart emails feel personalized beyond product blocks alone.
-        </p>
+        <p>For a proposed points-reminder journey, join the current balance to the eligible customer only after checking permission and purchase state. Return the qualifying item while the reminder waits, then replay the original event. Require the reminder to reflect the current entitlement and require replay deduplication independently of audience suppression. This is a proposed acceptance case, not a reported recovery result.</p>
         <p>
           For a store without a points program, evaluate the behavioral journey independently: a browse event followed by a purchase should remove the shopper from the waiting reminder. Inspect current purchase and suppression state at send time and identify the team responsible for messages already queued in the previous sender.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          At 20k contacts with moderate order volume, Marsello often runs $250–450/mo including loyalty. Klaviyo at 20k profiles lands $250–450/mo before SMS. Marsello value requires active loyalty program — paying for Marsello email-only without points utilization is misallocation. Klaviyo punishes profile bloat; Marsello punishes order volume tiers on high-transaction retail.
-        </p>
-        <p>
-          Model TCO including loyalty app fees if choosing Klaviyo plus third-party points — Marsello bundling often wins for retail-first brands when total stack cost is compared honestly.
-        </p>
+        <p>Compare a matched quote using the same marketable contacts, order volume, email sends, SMS destinations and message segments. Record platform charges, carrier fees, required loyalty integrations, support and implementation labor separately. No current price or cheaper default is established here.</p>
+        <p>A combined loyalty-and-messaging workflow may reduce integration work; a separate ledger may preserve an established program with less migration risk. Include ongoing reconciliation and associate training in the comparison. A lower subscription total can still create more operating work if two teams must repair the same identity mismatch.</p>
 
         <h2>Shopify data depth in production</h2>
         <p>
-          For behavioral targeting, propose a separate replenishment test using a known SKU purchase, a subsequent order and a cancelled order. Compare the expected audience with the actual eligible records before any send. A prediction can prioritize an audience, but it does not establish need, permission or incrementality; the loyalty ledger should not be rewritten merely because an audience score changes.
+          Marsello's <a href="https://help.marsello.com/how-do-i-connect-my-shopify-site-to-marsello-marsello-help-center">Shopify integration guide</a> treats online and POS as separate sites that must each be enabled. Include every selling location in reconciliation. Klaviyo's <a href="https://help.klaviyo.com/hc/en-us/articles/360020919731">predictive analytics guide</a> describes order-history requirements; a feature listing does not establish usable predictions for each customer. For behavioral targeting, propose a separate replenishment test using a known SKU purchase, a subsequent order and a cancelled order. Compare the expected audience with the actual eligible records before any send. A prediction can prioritize an audience, but it does not establish need, permission or incrementality; the loyalty ledger should not be rewritten merely because an audience score changes.
         </p>
 
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Marsello if:</strong></p>
         <ul>
-          <li>You run Shopify POS and want online-offline loyalty unified</li>
-          <li>Points, tiers, and referrals are central to repeat purchase strategy</li>
-          <li>Retail staff need customer loyalty visibility at checkout</li>
-          <li>Email reinforces earn-and-burn rather than replacing it</li>
+          <li>Your primary acceptance case is one reconciled earn-and-reversal history across online and POS orders.</li>
+          <li>A store associate must explain the displayed benefit and route disputed balances to a named ledger owner.</li>
+          <li>You can specify how returns and account merges change eligibility without merging unrelated shoppers.</li>
+          <li>Your sender can consume the ledger state without awarding benefits again when an event is replayed.</li>
         </ul>
         <p><strong>Choose Klaviyo if:</strong></p>
         <ul>
-          <li>You are pure DTC without retail locations or points program</li>
-          <li>Predictive analytics and browse segmentation justify profile pricing</li>
-          <li>Loyalty lives in a separate best-in-class app you will not migrate</li>
-          <li>Native SMS plus email with shared suppression is non-negotiable</li>
+          <li>The missing job is audience selection from purchases and browsing rather than managing a benefits ledger.</li>
+          <li>Your acceptance case includes a later purchase cancelling a waiting replenishment message.</li>
+          <li>An existing loyalty system remains authoritative and its event IDs and reversal rules can be mapped.</li>
+          <li>A marketing operator can repair a stale audience while ledger corrections remain with the loyalty owner.</li>
         </ul>
 
         <h2>Also consider Sequenzy</h2>
-        <p>
-          If Marsello feels like paying for loyalty you have not launched and Klaviyo feels like CDP overhead, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing. Keep Marsello for loyalty when POS integration is live. Sequenzy layers email strategy without replacing either platform's core strength.
-        </p>
+        <p>Consider Sequenzy as an additional email candidate only when its documented event inputs and workflow controls meet your requirements. Do not assume that a different sender replaces a points ledger or fixes a stale loyalty integration. Compare a concrete workflow and matched quote before adding another system.</p>
 
         <h2>Verdict</h2>
-        <p>
-          Marsello wins when loyalty and POS are your retention engine and email reinforces earn-and-burn across channels. Klaviyo wins when pure DTC behavioral segmentation and predictive analytics drive revenue without points infrastructure. Run the loyalty workflow test first — tier upgrade, points earn post-purchase, cart with balance reminder. If those flows define your program, Marsello earns its invoice. If not, Klaviyo is the safer default.
-        </p>
+        <p>For retail-led loyalty, start with the earn, return and associate-lookup case. For behavioral targeting, start with a later purchase cancelling a waiting reminder. Prefer the implementation that passes the job you actually need and gives each failure a repair owner. Neither a prediction nor an attributed order establishes incremental revenue.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -181,39 +167,11 @@ const faqs = [
     </div>
   </section>
     <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+      <h2>Operating the ledger-to-message handoff</h2>
+      <p>For a delayed tier notification, record the order ID, ledger transaction and version, customer-link history and queued message ID. The loyalty owner resolves disputed balances; the sender owner cancels or rebuilds stale announcements. A marketing opt-out should suppress the relevant channel without erasing the transaction history needed to resolve a return.</p>
+      <p>Keep loyalty enrollment separate from email and SMS permission. Marsello's <a href="https://help.marsello.com/how-do-customers-join-my-marsello-database-marsello-help-center">database guide</a> explains that a shopper can enter its database without accepting email marketing. Store permission provenance and apply current suppression before delivery. Confirm the requirements for the actual destination, sender and message purpose rather than treating a points balance as authorization.</p>
+      <p>Compare reporting with two outputs: attributed orders under each platform's stated window, and an incremental estimate from a suitable holdout if feasible. Reconcile returned orders and benefit liability before interpreting repeat-purchase revenue. No experiment or merchant result is reported on this page.</p>
     </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: quiet hours configured by…</h2>
-      <p>For <strong>compare marsello vs klaviyo</strong>, quiet hours configured by customer timezone not HQ timezone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: cost-per-message modeling including carrier…</h2>
-      <p>For <strong>compare marsello vs klaviyo</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
 
   <FaqSection faqs={faqs} title="Marsello vs Klaviyo FAQ" />
 </BaseLayout>
