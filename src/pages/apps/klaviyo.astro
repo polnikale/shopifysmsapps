@@ -24,7 +24,7 @@ const desc = description(site, 'apps/klaviyo');
         Klaviyo is the default heavyweight for Shopify retention data. Real-time sync of products, collections, browse events, and order history powers RFM segments, predictive CLV, flow A/B testing, and revenue reporting that finance teams actually trust. It ranks second on this site not because it lacks capability — but because profile-based pricing and operational complexity push many growing merchants toward Sequenzy for strategy speed and send economics.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We stress-tested Klaviyo on a $250k/mo apparel brand with drop-week suppression, a supplement shop with replenishment segments, and a home goods store at 1,400 orders/mo. Shopify depth: {app.shopifyDepth}.
+        Proposed evaluations cover a $250k/mo apparel brand with drop-week suppression, a supplement shop with replenishment segments, and a home goods store at 1,400 orders/mo. These are illustrative scenarios, not observed stress tests or merchant outcomes. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo</a>
@@ -116,7 +116,7 @@ const desc = description(site, 'apps/klaviyo');
         <strong>Scenario:</strong> Beauty brand; customer bought shade 4W foundation, order tagged gift_message present on 30% of holiday orders. <strong>Klaviyo setup:</strong> Dynamic cross-sell shade-compatible concealer; gift orders routed to "share your gift" referral instead of replenishment pitch.
       </p>
       <p>
-        <strong>Result:</strong> Cross-sell revenue $3.10 per recipient on non-gift cohort; gift cohort referral signups 8%. Order property filtering at variant level — production quality.
+        <strong>Proposed evaluation:</strong> Validate variant and gift-property mapping separately from commercial outcomes. Check current channel permission, suppression, purchase and subscription state before each cross-sell or referral message. Compare eligible recipient contribution after refunds and discounts using a randomized holdout with uncertainty; dashboard revenue attribution alone does not establish incremental lift. Match all-in platform, message, module, integration and operating costs across alternatives.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Winback — predictive churn risk vs fixed 90-day delay</h3>
@@ -173,7 +173,7 @@ const desc = description(site, 'apps/klaviyo');
         Quarterly sunset unengaged profiles before billing cycles bite. Merge guest checkout duplicates aggressively. Exclude one-time discount buyers from expensive automations if they show no browse activity in 60 days — you are paying to email coupon hunters who will not return at full price. Klaviyo's predictive metrics only help when someone reads them weekly and changes sends accordingly.
       </p>
       <p>
-        SMS coordination is non-optional at scale. Define frequency caps per tier: VIP max four promotional texts per month, general list max two. Map email flow suppressions to SMS journeys — a customer who received cart email three should not get cart SMS one hour later unless that is an explicit test with holdout measurement.
+        Define coordinated frequency policies from actual permission, purpose, audience expectations and applicable destination requirements; tier membership or a holdout test does not create permission. Assign one sender to each journey step and synchronize current suppression, purchase and subscription state before execution. Reconcile and cancel stale queues across systems, deduplicate replayed events, and verify these controls before cutover rather than relying on fixed monthly caps or an arbitrary delay.
       </p>
     </div>
 
@@ -211,7 +211,7 @@ const desc = description(site, 'apps/klaviyo');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>

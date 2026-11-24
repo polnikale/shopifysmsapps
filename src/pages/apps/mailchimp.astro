@@ -108,7 +108,7 @@ const desc = description(site, 'apps/mailchimp');
         <strong>Scenario:</strong> General store; one-SKU cart abandonment. <strong>Mailchimp setup:</strong> Default abandoned cart journey, product block, 15% discount email two.
       </p>
       <p>
-        <strong>Result:</strong> 7.4% recovery over 14 days — fine at 280 orders/mo. Failed at scale when VIP suppression and multi-item dynamic carts required manual segment exports.
+        <strong>Proposed evaluation:</strong> Verify multi-item cart rendering and VIP exclusions without assuming a recovery rate. Recheck purpose/channel permission, current suppression, purchase and subscription state before every queued step. Assign one recovery sender per step, cancel stale messages and deduplicate event replays. Compare contribution after discounts and returns using a randomized holdout with uncertainty; a 14-day attribution window alone cannot establish incremental lift.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Post-purchase — cross-sell bestsellers not complements</h3>
@@ -170,7 +170,7 @@ const desc = description(site, 'apps/mailchimp');
         Set a migration trigger before you need one: when per-contact bill exceeds 2% of email-attributed revenue, when replenishment becomes manual CSV exports, or when cart recovery lacks holdout measurement. Budget two to four weeks for Sequenzy or Omnisend migration — not Black Friday quarter.
       </p>
       <p>
-        Export consent timestamps religiously. GDPR and CAN-SPAM audits fail when migration drops proof of opt-in. Map Mailchimp tags to Shopify customer tags before cutover so welcome source branching survives. Run parallel welcome for one week with 10% traffic split if nervous — then cut Mailchimp automations hard to prevent duplicate cart emails.
+        Preserve permission evidence by purpose, channel, destination and sender alongside withdrawal and suppression history; timestamps alone do not establish current eligibility. Validate tag mapping and suppression before cutover. If testing a split cohort, make assignment mutually exclusive and give one system ownership of each step. Reconcile and cancel old queues, deduplicate replayed events, and verify purchase and subscription changes before enabling the replacement. Use readiness checks rather than a fixed week or traffic percentage; compare matched all-in platform, carrier, module, integration and labor costs.
       </p>
       <p>
         Keep Mailchimp landing pages temporarily if marketing team depends on them — but move lifecycle execution first. Broadcasts can migrate last. Revenue lives in automations, not monthly sale blasts.
@@ -224,7 +224,7 @@ const desc = description(site, 'apps/mailchimp');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>

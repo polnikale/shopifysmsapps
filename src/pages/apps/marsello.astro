@@ -24,7 +24,7 @@ const desc = description(site, 'apps/marsello');
         Marsello connects loyalty, email, SMS, and POS behavior for omnichannel Shopify retailers — not pure-play email specialists chasing Klaviyo on browse segmentation. When repeat purchase runs through points tiers, in-store visits, and referral loops, Marsello unifies customer identity across channels. Online-only DTC with no loyalty program should read Sequenzy instead. Marsello is for retailers where loyalty is the retention engine, not a sidebar widget.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Marsello on a boutique with Shopify POS plus online, a coffee equipment shop with referral program, and an online-only apparel brand that misfit the product. Shopify depth: {app.shopifyDepth}.
+        Proposed evaluations cover a boutique with Shopify POS plus online, a coffee equipment shop with a referral program, and an online-only apparel brand assessing product fit. These are illustrative scenarios, not observed merchant tests. Shopify depth: {app.shopifyDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/yotpo-email-sms">Yotpo review</a>
@@ -93,14 +93,14 @@ const desc = description(site, 'apps/marsello');
     </div>
 
     <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+      <h2 class="font-serif text-4xl font-black text-white">Four proposed workflow evaluations on Shopify</h2>
 
       <h3 class="font-serif text-2xl font-black text-white">1. POS purchase triggers online cross-sell email</h3>
       <p>
         <strong>Scenario:</strong> Boutique; customer buys dress in-store, never visited online. <strong>Marsello setup:</strong> POS purchase adds points; email day 3 highlights online-only accessories with points multiplier.
       </p>
       <p>
-        <strong>Result:</strong> 14% of POS-only customers made online purchase within 60 days — omnichannel loop Klaviyo could not trigger without custom POS integration.
+        <strong>Evaluation:</strong> Validate POS-to-online identity matching and current channel permission; an in-store purchase or points enrollment alone does not authorize promotional email. Recheck suppression, purchase and subscription state at execution. Assign one sender per step, cancel stale queues and deduplicate replayed purchase events. Measure subsequent online purchases with defined denominators and a randomized holdout, reporting uncertainty rather than assuming a 60-day conversion rate.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Tier upgrade celebration SMS plus email</h3>
@@ -108,7 +108,7 @@ const desc = description(site, 'apps/marsello');
         <strong>Scenario:</strong> Coffee equipment; customer hits Gold tier at $500 lifetime spend. <strong>Marsello setup:</strong> SMS plus email with exclusive early access to new grinder launch.
       </p>
       <p>
-        <strong>Result:</strong> 42% of tier upgrade cohort purchased launch SKU vs 8% general list — tier segmentation justified campaign.
+        <strong>Evaluation:</strong> Validate tier events and separate email and SMS permissions before the proposed coordinated launch. A high-tier cohort differs from the general list; its attributed purchase rate cannot establish causal lift. Randomize eligible tier members where feasible and report sample size, uncertainty, refunds and contribution after rewards.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Points expiry winback — dormant balance reactivation</h3>
@@ -116,7 +116,7 @@ const desc = description(site, 'apps/marsello');
         <strong>Scenario:</strong> 340 customers with 50+ points expiring in 14 days, no purchase 90 days. <strong>Marsello setup:</strong> Email plus SMS reminder with cart link and points value highlighted.
       </p>
       <p>
-        <strong>Result:</strong> 22% redeemed before expiry vs 9% prior manual email — automated loyalty trigger outperformed generic winback.
+        <strong>Evaluation:</strong> Check current points balances, expiry policy, channel permission and suppression before queuing and again at dispatch. Distinguish service notices from promotions according to purpose and destination requirements. Compare redemption and net contribution in a randomized eligible cohort; a prior manual campaign is not a causal baseline.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Referral advocate nurture — friend purchased</h3>
@@ -124,7 +124,7 @@ const desc = description(site, 'apps/marsello');
         <strong>Scenario:</strong> Referral program; advocate's friend completes first order. <strong>Marsello setup:</strong> Advocate earns points; email celebrates plus suggests next referral; friend gets welcome offer series.
       </p>
       <p>
-        <strong>Result:</strong> 2.3 referrals per advocate average over 6 months — referral loop self-reinforcing with Marsello dual-sided automation.
+        <strong>Evaluation:</strong> Verify advocate and friend identities, purchase validity, reward reversals and separate permissions. Referral data is not permission to market to a friend. Deduplicate reward and welcome events, then measure referrals and contribution over a defined period against a randomized holdout where feasible. Include reward liability and matched all-in platform, message, POS, integration and operating costs.
       </p>
     </div>
 
@@ -177,10 +177,10 @@ const desc = description(site, 'apps/marsello');
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with Marsello</h2>
       <p>
-        <strong>Boutique POS plus online:</strong> Marsello replaced Smile plus Mailchimp. In-store purchase triggers online cross-sell email — 14% of POS-only customers purchased online within 60 days.
+        <strong>Boutique POS plus online scenario:</strong> Evaluate replacing Smile plus Mailchimp only after verifying identity, permission and event handoff. Measure eligible online purchases over a defined period; no observed cross-sell conversion rate is established here.
       </p>
       <p>
-        <strong>Coffee equipment referrals:</strong> Marsello referral program drove 18% new customers at lower CAC than Meta prospecting — loyalty plus referral native in one stack.
+        <strong>Coffee equipment referral scenario:</strong> Evaluate a referral program alongside prospecting using consistent new-customer definitions and matched all-in reward, platform and acquisition costs. Attributed referrals may overlap other channels; no lower CAC or incremental customer gain has been established here.
       </p>
       <p>
         <strong>Online-only apparel misfit:</strong> Paid $89/mo for unused loyalty — migrated email to Sequenzy, cancelled Marsello. Loyalty platform requires loyalty strategy first, not checkbox install.
@@ -209,7 +209,7 @@ const desc = description(site, 'apps/marsello');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
