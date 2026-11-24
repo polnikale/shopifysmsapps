@@ -11,11 +11,11 @@ const desc = 'Klaviyo vs Privy for Shopify stores — capture vs lifecycle depth
 const faqs = [
   {
     question: 'Is Klaviyo or Privy better for a new Shopify store?',
-    answer: 'Privy wins early when traffic exists but list capture is weak — popups, spin wheels, and cart saver bars convert visitors before lifecycle work matters. Klaviyo wins once you have 1,000+ subscribers and need cart recovery, browse abandonment, and segment revenue reporting. Many stores run Privy for capture and Klaviyo for retention — they solve different funnel stages.',
+    answer: 'Choose around the first unresolved workflow. A store collecting few qualified subscribers should examine form placement, offer and signup friction. A store already collecting subscribers should test whether its email journeys can use purchase and signup context. Subscriber count alone does not establish a need to migrate; compare the actual capture and sending requirements separately.',
   },
   {
     question: 'Can Privy replace Klaviyo for email automation?',
-    answer: 'Rarely at scale. Privy handles basic welcome, cart saver, and broadcast campaigns well for SMBs. It lacks Klaviyo\'s predictive CLV, browse segmentation depth, flow A/B testing rigor, and complex suppression during seasonal peaks. Stores outgrow Privy email typically between 600–1,200 orders/month depending on catalog complexity.',
+    answer: 'Use a requirements test rather than an order-volume graduation rule. Build a welcome journey with separate giveaway and footer signup paths, exclude existing customers from acquisition offers, and test purchase suppression before each queued send. If the selected Privy plan cannot express a required branch, assess Klaviyo against that same case. A simple campaign program may not need that additional complexity.',
   },
   {
     question: 'How does Klaviyo vs Privy pricing compare?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Should I use Privy and Klaviyo together?',
-    answer: 'Yes, frequently. Privy owns onsite capture and often delivers coupons at signup. Klaviyo owns post-capture lifecycle — welcome branching, cart, post-purchase, winback. Sync consent and signup source metadata so Klaviyo welcome flows branch correctly. The mistake is staying on Privy-only email past the point capture is solved.',
+    answer: 'Pair them only when the capture layer supplies a capability the sending layer actually needs. Assign coupon delivery and welcome enrollment to named owners. Pass signup source, purpose and channel permission with the contact; submitting a form must not silently enroll someone twice. Test a returning customer and a repeat form submission before enabling the integration.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Klaviyo or Privy?',
@@ -31,15 +31,15 @@ const faqs = [
   },
   {
     question: 'Which has better popup and list growth tools?',
-    answer: 'Privy by a wide margin. Exit intent, spin-to-win, cart saver bars, and A/B popup tests are Privy\'s core product. Klaviyo offers forms but they are secondary to segmentation. If popup conversion rate is your primary KPI, Privy (or Justuno) belongs in the stack regardless of email platform.',
+    answer: 'Compare the forms your store needs: mobile placement, accessibility, targeting, repeat-visitor suppression and experiments that retain a control group. Evaluate qualified subscribers and subsequent purchase behavior alongside form submission rate. A wheel incentive can increase signups while attracting people interested only in the offer; a higher capture rate alone does not establish a better retention program.',
   },
   {
     question: 'Does Privy SMS compete with Klaviyo SMS?',
-    answer: 'Privy SMS handles basic opt-in and campaigns tied to popups. Klaviyo SMS integrates with full flow logic, suppression, and revenue attribution across journeys. For SMS as a serious revenue channel with cart recovery and sale broadcasts, Klaviyo or Postscript outclass Privy. Privy SMS is fine for capture-to-first-message continuity.',
+    answer: 'Establish current SMS product availability, supported recipient countries and the exact integration path before comparing them. Email signup is not SMS permission. For a proposed capture-to-text test, record the phone permission and source, withdraw it before dispatch, and confirm the intended sender cancels the queued message. Do not infer SMS capability from either product having email forms.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'If list growth is under 2% of sessions, test Privy capture first — no lifecycle platform fixes empty lists. If capture is healthy, run welcome, cart, post-purchase, and winback in Klaviyo. Privy only wins the comparison if your bottleneck is traffic-to-subscriber conversion, not post-subscriber revenue.',
+    answer: 'Test the constraint you can name. For capture, compare a targeted form with the existing experience while keeping traffic and offer treatment comparable. For lifecycle, use the same new-subscriber and returning-customer fixtures through welcome and cart journeys. Record enrollment, coupon ownership and purchase suppression; use a randomized holdout to assess incrementality rather than treating attributed revenue as proof.',
   },
 ];
 ---
@@ -57,10 +57,8 @@ const faqs = [
 
       <header class="max-w-4xl">
         <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Klaviyo vs Privy for Shopify SMS</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          This comparison is often asked wrong. Klaviyo and Privy are not direct substitutes — one is a retention data platform, the other is capture-first tooling that happens to send email. We tested both on a $28k/mo jewelry brand bleeding traffic without popups, a snack DTC store running Privy-only email past its ceiling, and a fashion label pairing Privy capture with Klaviyo lifecycle — clarifying when to choose one, both, or graduate.
-        </p>
+        <h1 class="hero-title mt-5">Klaviyo vs Privy for Shopify Email</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">A useful Klaviyo–Privy decision separates collecting qualified subscribers from running their subsequent journeys. Start with the workflow you need: a source-specific welcome, a recent-purchaser exclusion or a form that preserves the promised offer. Compare a capture-only deployment, a single sender and a paired stack against the same signup-to-purchase requirements.</p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
 
@@ -70,7 +68,7 @@ const faqs = [
             { label: 'Lifecycle revenue', tool: 'Klaviyo', reason: 'Cart, browse, predictive, and flow attribution at scale.' },
             { label: 'List capture', tool: 'Privy', reason: 'Popups, spin wheels, cart bars, and onsite conversion.' },
             { label: 'Full retention stack', tool: 'Klaviyo', reason: 'Post-capture journeys that survive BFCM complexity.' },
-            { label: 'Fast SMB start', tool: 'Privy', reason: 'Capture plus basic email live in a weekend.' },
+            { label: 'Fast SMB start', tool: 'Privy', reason: 'Evaluate capture and a simple welcome against your required launch checklist.' },
             { label: 'Also consider', tool: 'Sequenzy', reason: 'Lifecycle playbooks after Privy solves capture if Klaviyo feels heavy.' },
           ]}
         />
@@ -105,20 +103,14 @@ const faqs = [
         </p>
 
         <h2>Workflow test: welcome series</h2>
-        <p>
-          Privy deployed a three-email welcome with coupon delivery tied to popup signup in under four hours — excellent for speed. Klaviyo built welcome branching by signup source (giveaway wheel vs footer form), dynamic product blocks from first browse, and suppression for existing customers. Privy's welcome is linear and template-driven; Klaviyo's welcome is a retention instrument.
-        </p>
-        <p>
-          The snack DTC store ran Privy-only welcome for eleven months. Revenue per new subscriber plateaued because email two and three never referenced purchase history or category affinity — data Privy does not mine deeply. Migration to Klaviyo welcome with browse-based branching lifted first-90-day LTV 18% in the test cohort.
-        </p>
+        <p>Proposed welcome test: submit a giveaway form and a footer form as separate new contacts, then repeat both as existing customers. Require the chosen sender to deliver the right promised offer, retain the signup source and avoid an acquisition sequence for a recent purchaser. Compare how clearly each configuration exposes those branches and who maintains them.</p>
+        <p>For a hypothetical snack subscription store, distinguish a first-order sampler from a repeat customer buying a refill. A second welcome message might explain subscription timing to the former while leaving the latter in a product education journey. Check whether the actual plan and available events support that distinction; no revenue lift or migration timetable is established here.</p>
 
         <h2>Workflow test: abandoned cart</h2>
         <p>
           Privy's cart saver bar recovers carts onsite before email fires — a channel Klaviyo does not replicate. For email cart recovery, Klaviyo rendered dynamic multi-SKU blocks, suppressed on purchase within minutes, and capped discounts by cart tier. Privy's cart email series worked for simple single-SKU carts but struggled with variant-level imagery and cross-flow suppression when shoppers were also in welcome.
         </p>
-        <p>
-          The fashion label used Privy cart bar for immediate onsite nudge and Klaviyo three-email cart series for delayed recovery — complementary, not competitive. Total cart recovery beat either tool alone by 22% in their Q1 test.
-        </p>
+        <p>For a hypothetical fashion store pairing a form tool with a sender, assign the signup coupon to one delivery path. Then abandon a cart after signup and complete the order while welcome is waiting. Inspect both systems for duplicate offers, stale cart content and queued sends that survive purchase. This is a proposed evaluation, not an observed recovery improvement.</p>
 
         <h2>Pricing reality at growing list sizes</h2>
         <p>
@@ -129,26 +121,22 @@ const faqs = [
         </p>
 
         <h2>Shopify data depth in production</h2>
-        <p>
-          Klaviyo's browse abandonment, predictive CLV, and collection-level segments have no Privy equivalent. If replenishment, winback by churn risk, or BFCM suppression by recent purchase matter, Privy email alone will leak margin. Privy's analytics focus on popup conversion and campaign clicks — the right metrics for capture, insufficient for retention ownership.
-        </p>
-        <p>
-          Privy wins when the problem is still "how do we get emails at all?" Klaviyo wins when the problem is "how do we monetize the list we built?" Sequence matters: solve capture, then graduate lifecycle.
-        </p>
+        <p>For the data comparison, trace a signup source, consent update, viewed category and completed order from collection to the journey condition that uses it. An event being visible in a profile does not mean it is usable in every branch. Record event latency and identity stitching for an anonymous visitor who later signs up; unsupported fields should not silently default into an offer.</p>
+        <p>Keep capture performance and lifecycle performance separate. Diagnose whether qualified visitors fail to subscribe, subscribed customers fail to receive a relevant journey, or the catalog simply does not support the expected repeat interval. Adding a second app only addresses the first two when it supplies a missing capability and someone owns the integration.</p>
 
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Klaviyo if:</strong></p>
         <ul>
           <li>Capture is healthy and lifecycle revenue is the bottleneck</li>
-          <li>You have 600+ monthly orders and need cart, browse, and winback sophistication</li>
+          <li>Your required journey branches exceed what the current sender can express</li>
           <li>A retention owner will manage segments and flows weekly</li>
           <li>BFCM requires complex suppression and holdout testing</li>
         </ul>
         <p><strong>Choose Privy if:</strong></p>
         <ul>
-          <li>Email capture is under 2% of sessions and popups are untested</li>
+          <li>Qualified traffic reaches signup points but the form experience remains untested</li>
           <li>You need spin-to-win, exit intent, or cart bars live this week</li>
-          <li>Orders are under 400/month and basic welcome plus broadcasts suffice</li>
+          <li>Your requirements are satisfied by a simple welcome and campaign program</li>
           <li>You will pair Privy capture with a dedicated lifecycle tool later</li>
         </ul>
 
@@ -158,9 +146,7 @@ const faqs = [
         </p>
 
         <h2>Verdict</h2>
-        <p>
-          Privy wins top-of-funnel. Klaviyo wins everything after opt-in. Treating them as either/or usually misdiagnoses the bottleneck. Run capture rate diagnostics first — if sessions convert poorly, Privy (or Justuno) before Klaviyo. If capture is strong but lifecycle metrics flatline, graduate off Privy-only email regardless of popup satisfaction. The winner is whichever tool matches the constraint choking revenue this quarter.
-        </p>
+        <p>Choose the smallest configuration that passes the named capture and journey requirements. Pairing can make sense when a specific onsite experience is missing from the sender, provided consent sync, coupon ownership and duplicate enrollment are resolved. Prefer one system when it already passes both jobs. Neither order count nor a universal capture-rate threshold decides that tradeoff.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -179,11 +165,11 @@ const faqs = [
       <h2>TCPA, consent, and cost-per-message discipline</h2>
       <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+      <p>For a paired capture-and-sending setup, audit form version, destination list and enrollment trigger together. A form edit can change the offer while an older welcome remains active. Keep a record of which system owns the subscriber state and where an operator cancels a pending send; review legal requirements for the actual recipient market separately.</p>
     </div>
     <div class="prose-shopify card mt-8">
       <h2>SMS operations depth 1: STOP and HELP reply…</h2>
-      <p>For <strong>compare klaviyo vs privy</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>In the proposed phone-signup test, request help and withdraw SMS permission after capture but before the queued send. The integration should preserve the relevant permission state and make the reply owner visible. Record which sender receives the request; an email unsubscribe and an SMS opt-out need distinct purpose and channel treatment.</p>
       <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
       <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <ul>
@@ -196,7 +182,7 @@ const faqs = [
 
     <div class="prose-shopify card mt-8">
       <h2>SMS operations depth 2: suppression for recent purchasers…</h2>
-      <p>For <strong>compare klaviyo vs privy</strong>, suppression for recent purchasers gift buyers and open support tickets is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
+      <p>For the recent-purchaser fixture, let the same shopper enter from a Privy form and then purchase before a Klaviyo welcome step dispatches. Inspect the actual queue and repeat the signup event to check deduplication. Passing purchase data to a profile is insufficient if the scheduled message never rechecks eligibility.</p>
       <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
       <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <ul>
