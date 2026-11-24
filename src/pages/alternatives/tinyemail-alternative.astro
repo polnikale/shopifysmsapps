@@ -59,11 +59,11 @@ const faqs = [
   },
   {
     question: 'How should I migrate?',
-    answer: 'Export and validate consent first, rebuild cart recovery, test STOP handling and quiet hours, then add launch, replenishment, and winback flows with a collision calendar.',
+    answer: 'Export and validate permission scope and exclusions first. Assign one sender and queue owner per flow; test current purchase and subscription exits, STOP handling, quiet hours, cancellation of old queued messages, and replay deduplication before enabling recovery. Add other flows only after these checks pass.',
   },
   {
     question: 'How does SMS margin math change which tool I pick?',
-    answer: 'Model contribution margin per recovered order: gross margin minus discount depth, per-message platform and carrier fees, MMS premiums, and the opt-out cost of higher frequency. A platform with a higher monthly fee but lower per-message cost can win the margin math at your volume, so model twelve months of sends, not the first invoice.',
+    answer: 'Estimate contribution after discounts, goods and fulfillment costs, platform and carrier fees, MMS, integration work, and operator time. Attributed orders do not establish incremental profit: compare against a suitable holdout and include costs of sends that produced no order. Quote all vendors on the same twelve-month volume, destination and message mix.',
   },
   {
     question: 'What SMS costs hide behind low app pricing?',
@@ -71,7 +71,7 @@ const faqs = [
   },
   {
     question: 'Do I need to re-consent existing SMS subscribers?',
-    answer: 'If the consent record can be exported with source, timestamp, and message-type scope, most stores can carry it forward. If the record is incomplete, re-permission with a keyword campaign and a clear disclosure rather than assuming a purchase or email opt-in grants SMS permission.',
+    answer: 'An export alone does not establish permission to contact someone from a new sender. Validate sender, purpose, channel, destination, disclosure and current opt-out state before transfer. Quarantine incomplete records. Do not send a re-permission message through a channel without an applicable permission basis; offer a voluntary signup through an appropriate permitted surface instead.',
   },
   {
     question: 'Should SMS and email be on the same platform?',
@@ -126,26 +126,26 @@ const faqs = [
 </table>
 </section>)}<h2>Consent, TCPA, and state rules during a TinyEmail migration</h2>
 <p>
-SMS consent is not a checkbox you inherit. Under the TCPA and state privacy laws such as CCPA/CPRA, Colorado, Virginia, and Washington's My Health My Data regime, every promotional text needs express written consent tied to the phone number, a clear disclosure of message types and frequency, and a machine-readable record of the opt-in event. When you leave TinyEmail, export the consent ledger — source URL or keyword, timestamp, IP or carrier evidence where available, and every opt-out — before you disconnect the account.
+Do not treat a platform migration as permission to send. Before activation, review the applicable sender, purpose, destination, channel and disclosure requirements with qualified support. Export the consent ledger — source URL or keyword, timestamp, disclosure version, scope and every opt-out — before disconnecting the account. The legal requirements and current provider controls remain publication-verification holds; this checklist does not establish compliance.
 </p>
 <p>
-Do not map email subscribers into SMS audiences "because they bought something." Purchase creates a business relationship, not SMS permission. A shared pattern that survives audits: keep consent state in one system of record, have the SMS provider read it, and suppress any subscriber whose consent source, timestamp, or message-type scope cannot be proven. Honor STOP globally within seconds, route HELP to a human-readable reply, and enforce quiet hours by the recipient's local time zone, not the store's.
+Do not map email subscribers into SMS audiences "because they bought something." Purchase creates a business relationship, not SMS permission. A shared pattern that survives audits: keep consent state in one system of record, have the SMS provider read it, and suppress any subscriber whose consent source, timestamp, or message-type scope cannot be proven. Test how STOP updates all relevant queues and exclusions, route HELP to an owned reply process, and validate recipient-local quiet-hour enforcement, including missing time zones.
 </p>
 <p>
-If you operate in or market to states with stricter rules, re-permission rather than assume. A keyword campaign ("text SHOP to 55588") with an unambiguous disclosure rebuilds a defensible list in weeks and gives you a consent artifact that survives both carrier filtering and litigation review. For a fuller walkthrough, see the <a class="link" href="/guides/consent">SMS consent guide</a> and the <a class="link" href="/guides/tcpa">TCPA primer</a>.
+If evidence is incomplete, quarantine the record until the applicable permission basis is resolved. A voluntary keyword signup with a suitable disclosure can collect new permission, but do not contact an unpermitted number to solicit that signup. Readiness depends on verified controls and records, not a fixed number of weeks. For a fuller walkthrough, see the <a class="link" href="/guides/consent">SMS consent guide</a> and the <a class="link" href="/guides/tcpa">TCPA primer</a>.
 </p>
 
 <h2>Purchaser suppression and flow collisions</h2>
 <p>
-The most expensive SMS mistake is a cart reminder sent after checkout completed. Every platform in this comparison can suppress recent purchasers; the differences are where the suppression is configured, how fast the purchase event propagates, and whether gift buyers and subscription renewals are treated separately. During migration, build a suppression matrix before rebuilding flows: which events exit a flow instantly (order created), which delay it (refund pending), and which branch it (subscription renewal vs. one-time purchase).
+The most expensive SMS mistake is a cart reminder sent after checkout completed. Validate purchaser suppression in each candidate account: configuration, propagation delays, gift purchases, cancellations and subscription changes need explicit checks; availability is not established by this comparison. During migration, build a suppression matrix before rebuilding flows: which events exit a flow instantly (order created), which delay it (refund pending), and which branch it (subscription renewal vs. one-time purchase).
 </p>
 <p>
-Then coordinate with email. If TinyEmail was running cart email and Postscript runs cart SMS, define a collision rule: SMS first for opted-in shoppers within the first hour, email as the fallback at 4–24 hours, and no duplicated offer inside the same window. Document it. The <a class="link" href="/guides/email-sms-coordination">email/SMS coordination guide</a> covers the suppression map in detail, and <a class="link" href="/guides/quiet-hours">quiet hours</a> covers timing enforcement.
+Then coordinate with email. If TinyEmail was running cart email and Postscript runs cart SMS, assign a sender and queue owner per intent. Recheck current channel permission, suppression, purchase and subscription state before dispatch. Cancel old queued reminders and deduplicate replayed events before enabling the replacement; choose timing from recipient eligibility and tested rules rather than fixed channel delays. Document it. The <a class="link" href="/guides/email-sms-coordination">email/SMS coordination guide</a> covers the suppression map in detail, and <a class="link" href="/guides/quiet-hours">quiet hours</a> covers timing enforcement.
 </p>
 
 <h2>Margin math: what a recovered cart actually earns</h2>
 <p>
-Attribution dashboards report revenue; contribution margin is what pays for the app. Work an example: a recovered cart with $120 AOV, 55% gross margin, a 15% discount code, $0.03 per delivered SMS segment (say 3 segments), and a $0.08 carrier surcharge. Gross profit is $66; the discount costs $18; messaging costs roughly $0.17 per message and a typical cart flow sends three touches. Before platform fees the flow earns about $47.55 per recovered order — healthy. Now the same recovery with 25% off and MMS creative drops it near $33, and a two-message-per-day frequency that raises opt-outs by a point taxes every future flow.
+Attribution dashboards report assigned revenue, not causal profit. Consider an illustrative $120 pre-discount basket with $54 goods cost (55% gross margin before discount). A 15% discount leaves $102 revenue and $48 before messaging and other costs. If each of three touches hypothetically costs $0.17, the remainder is $47.49 before platform, fulfillment, returns, labor and integration costs. At 25% off it is $35.49 under the same assumptions; MMS needs a separate quote. These are arithmetic assumptions, not vendor rates or observed recoveries. Allocate unsuccessful sends too, and use a suitable holdout to estimate incremental contribution.
 </p>
 <p>
 Track four numbers per flow: cost per delivered message (platform + carrier + MMS), discount cost per incremental order, opt-out rate per 100 delivered messages, and repeat-purchase rate of the recovered cohort at 90 days. If a competitor's "cheaper" pricing hides per-message minimums or MMS markups, the margin math will surface it faster than a pricing page. Keep a holdout cohort so "attributed" never substitutes for "incremental."
@@ -171,7 +171,7 @@ Track four numbers per flow: cost per delivered message (platform + carrier + MM
 <h3>TinyEmail to Klaviyo</h3>
 <p>Best when segmentation depth was the real gap. Export TinyEmail consent and engagement history, cap synced profiles during the pilot, and model active-profile cost for twelve months — the platform fee is rarely the number that surprises anyone.</p>
 <h3>TinyEmail to Omnisend</h3>
-<p>Fastest path to a live multichannel stack. The trade is less headroom for unusual suppression logic, so write the collision rules down rather than trusting defaults.</p>
+<p>Evaluate a bundled multichannel stack against your actual suppression logic. Verify current channel availability and write down collision ownership, cancellation and replay behavior before enabling live journeys; a shared builder does not establish readiness.</p>
 <h3>TinyEmail to Sequenzy</h3>
 <p>Not an SMS swap — Sequenzy is email-first. It fits when TinyEmail's email lifecycle was the strong part and SMS should move to a dedicated provider. Pair the two deliberately: urgent, consented texts from the SMS vendor; education, proof, and replenishment education from Sequenzy. Validate the current integration and handoff in a pilot before committing, and check the <a class="link" href="/apps/sequenzy">Sequenzy profile</a> for scope.</p>
 
