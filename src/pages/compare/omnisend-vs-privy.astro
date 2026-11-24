@@ -6,41 +6,41 @@ import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 const path = '/compare/omnisend-vs-privy';
 const title = 'Omnisend vs Privy for Shopify Email: 2026 Comparison';
-const desc = 'Omnisend vs Privy for Shopify stores — multichannel lifecycle vs capture-first tooling, when to pair both, and which owns post-opt-in revenue.';
+const desc = 'Compare Omnisend and Privy for Shopify forms, email and SMS: consolidate messaging or retain displays beside an existing sender, with practical acceptance tests.';
 
 const faqs = [
   {
-    question: 'Is Omnisend or Privy better for a new Shopify store?',
-    answer: 'Privy wins when traffic is high but capture is under 2% — popups and spin wheels come first. Omnisend wins once you have 800+ subscribers and need cart recovery, welcome series, and SMS in one lifecycle tool. Many stores start Privy for capture and graduate to Omnisend for retention — or run both with clear ownership.',
+    "question": "Is Omnisend or Privy better for a new Shopify store?",
+    "answer": "Choose around the work you need to launch: a form, the promised welcome offer and purchase-aware follow-up. Both products offer capture and messaging. Compare maintaining those tasks in one product against retaining an existing sender; neither subscriber count nor order volume establishes a universal graduation point."
   },
   {
-    question: 'Can Privy replace Omnisend for email automation?',
-    answer: 'Rarely past 500 orders/month. Privy handles basic welcome and cart saver campaigns. Omnisend offers prebuilt multichannel journeys, push notifications, stronger flow logic, and better revenue reporting. Stores outgrow Privy email when post-purchase and winback complexity arrives.',
+    "question": "Can Privy replace Omnisend for email automation?",
+    "answer": "Privy offers email and SMS automations, including a visual journey builder. Replacement depends on whether your actual segments, message content, trigger conditions and exclusions can be reproduced. Demonstrate a current welcome, cart and returning-customer journey before moving the sending responsibility."
   },
   {
-    question: 'How does Omnisend vs Privy pricing compare?',
-    answer: 'Privy scales by contacts and pageviews from ~$30/mo. Omnisend Standard from ~$16/mo scales by contacts and message volume. Privy costs rise with traffic even before list grows. Combined stack is common: Privy capture plus Omnisend lifecycle. Model TCO together if running both.',
+    "question": "How does Omnisend vs Privy pricing compare?",
+    "answer": "Privy distinguishes mailable-contact email pricing with an SMS add-on from a displays-only plan priced by pageviews. Quote the intended configuration rather than combining both billing models as if every customer pays both. Compare Omnisend at the same contact population, message usage and eligible channels, including the operating cost of a split stack."
   },
   {
-    question: 'Should I use Privy and Omnisend together?',
-    answer: 'Yes, often. Privy owns onsite capture; Omnisend owns welcome-through-winback with email, SMS, and push. Pass signup source metadata so Omnisend welcome branches correctly. Graduate off Privy-only email when lifecycle metrics plateau — capture solved is not retention solved.',
+    "question": "Should I use Privy and Omnisend together?",
+    "answer": "Potentially, when a particular Privy display earns its place beside an established Omnisend program. Confirm the supported integration path, channel consent mapping, signup source and update behavior. Assign welcome delivery to one sender; a captured email address alone does not establish permission for SMS."
   },
   {
-    question: 'Should I also consider Sequenzy instead of Omnisend or Privy?',
-    answer: 'Sequenzy fits when capture is handled but lifecycle strategy needs guidance — agent-first playbooks with pay-per-email pricing. Keep Privy for popups. Omnisend still wins on multichannel convenience. Sequenzy can replace Omnisend for email execution if SMS/push are not central.',
+    "question": "Should I also consider Sequenzy instead of Omnisend or Privy?",
+    "answer": "Include Sequenzy if you are evaluating a separate email tool. Demonstrate the Shopify events, subscription mapping, templates and exclusions your program needs before replacing either sender. Adding a third platform should solve a named email task and justify its integration and operating costs."
   },
   {
-    question: 'Which has better popup tools?',
-    answer: 'Privy decisively. Exit intent, gamification, cart saver bars, and popup A/B tests are Privy\'s core. Omnisend offers signup forms but they are secondary. If popup conversion is the KPI, Privy or Justuno belongs in the stack regardless of Omnisend.',
+    "question": "Which has better popup tools?",
+    "answer": "Both offer popup and gamified capture options. Privy documents display A/B tests, quizzes, exit-intent and cart-saver displays; Omnisend documents popups, embedded forms, landing pages and spin-to-win. Compare the actual targeting and offer experience you require rather than awarding a universal winner."
   },
   {
-    question: 'Does Omnisend push matter vs Privy?',
-    answer: 'Push is an Omnisend differentiator Privy lacks — useful for browse and cart recovery on mobile web without SMS cost. Irrelevant if you will not use push. Privy focuses on onsite capture, not post-capture push channels.',
+    "question": "Does Omnisend push matter vs Privy?",
+    "answer": "Omnisend documents web push alongside email and SMS. Include it in the decision if you already have an eligible push audience or a specific use for it. A push permission is separate from email or SMS permission, and the channel still requires audience and workflow management."
   },
   {
-    question: 'What workflow test should decide the winner?',
-    answer: 'Measure session-to-subscriber rate first. Under 2%: Privy. Above 2% with weak cart recovery: Omnisend. Run welcome, cart, post-purchase, and winback in Omnisend — Privy only wins if capture remains the binding constraint.',
-  },
+    "question": "What workflow test should decide the winner?",
+    "answer": "Rehearse the whole path from a specific display to offer delivery, purchase and repeat signup. Inspect new versus existing customers, partial email/SMS signup, duplicate submissions and purchase cancellation. Choose the configuration that preserves the offer and customer state with an operating burden your team can maintain."
+  }
 ];
 ---
 
@@ -57,110 +57,49 @@ const faqs = [
 
       <header class="max-w-4xl">
         <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Omnisend vs Privy for Shopify SMS</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Omnisend is a multichannel lifecycle platform. Privy is capture infrastructure that sends basic email. We tested both on a $35k/mo accessories brand converting 1.2% of traffic, a food DTC shop running Privy-only past its ceiling, and a skincare label pairing Privy popups with Omnisend journeys — mapping when merchants should buy one, both, or graduate.
-        </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+        <h1 class="hero-title mt-5">Omnisend vs Privy for Shopify Email and SMS</h1>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">Choose between two overlapping capture and messaging platforms, or keep a Privy display beside an established Omnisend program. The useful question is which setup preserves the promised offer, subscription state and follow-up with the least unnecessary work for your store.</p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">The scenarios below are proposed evaluations, not merchant tests or measured results. There is no universal capture-rate or monthly-order threshold that makes either product the correct choice.</p>
       </header>
-
-      <div class="mt-12 max-w-4xl">
-        <TldrBox
-          picks={[
-            { label: 'Post-capture lifecycle', tool: 'Omnisend', reason: 'Prebuilt cart, welcome, SMS, and push journeys.' },
-            { label: 'List capture', tool: 'Privy', reason: 'Popups, spin wheels, and onsite conversion.' },
-            { label: 'Multichannel', tool: 'Omnisend', reason: 'Email + SMS + push in one builder.' },
-            { label: 'Fast top-of-funnel', tool: 'Privy', reason: 'Capture live in days with minimal setup.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Lifecycle playbooks after Privy solves capture.' },
-          ]}
-        />
-      </div>
-
-      <div class="mt-12 card overflow-x-auto">
-        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
-        <table class="data-table">
-          <thead>
-            <tr><th>Dimension</th><th>Omnisend</th><th>Privy</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Best for</td><td>SMB multichannel automation</td><td>Capture and basic email</td></tr>
-            <tr><td>Starting price</td><td>Free tier; Standard ~$16/mo</td><td>Free tier; paid from ~$30/mo</td></tr>
-            <tr><td>Billing model</td><td>Contacts + message volume</td><td>Contacts + pageviews</td></tr>
-            <tr><td>Popups & capture</td><td>Basic forms</td><td>Core strength</td></tr>
-            <tr><td>Automation depth</td><td>Solid prebuilt journeys</td><td>Basic automations</td></tr>
-            <tr><td>Push notifications</td><td>Built-in</td><td>Not available</td></tr>
-            <tr><td>SMS</td><td>Journey-integrated</td><td>Capture-tied basics</td></tr>
-            <tr><td>Typical stack role</td><td>Lifecycle owner</td><td>Top-of-funnel capture</td></tr>
-          </tbody>
-        </table>
-      </div>
-
+      <div class="mt-12 max-w-4xl"><TldrBox picks={[
+        { label: 'Existing Omnisend program', tool: 'Evaluate the display gap', reason: 'Add Privy only for a specific capture experience worth a second integration.' },
+        { label: 'Consolidation candidate', tool: 'Evaluate Privy messaging too', reason: 'Privy offers email and SMS flows, rather than only collecting leads.' },
+        { label: 'Push requirement', tool: 'Include Omnisend', reason: 'Its documented channel set includes web push; test the intended audience and account eligibility.' },
+      ]} /></div>
+      <div class="mt-12 card overflow-x-auto"><h2 class="px-5 py-4 font-serif text-2xl font-black text-white">What belongs in the comparison</h2>
+      <table class="data-table"><thead><tr><th>Decision</th><th>Omnisend</th><th>Privy</th></tr></thead><tbody>
+        <tr><td>Capture</td><td>Forms, popups, landing pages and spin-to-win</td><td>Displays including quizzes, exit intent and cart savers</td></tr>
+        <tr><td>Messaging</td><td>Email, SMS and web push workflows</td><td>Email and SMS campaigns and automations</td></tr>
+        <tr><td>Retain another sender</td><td>Confirm welcome trigger accepts the external signup source</td><td>Confirm supported export or integration and field mapping</td></tr>
+        <tr><td>Cost comparison</td><td>Quote required contacts, sends and channel eligibility</td><td>Distinguish messaging from the displays-only pageview plan</td></tr>
+      </tbody></table></div>
       <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          SMB merchants conflate Omnisend and Privy because both appear in "email marketing" searches and both install in one click. They solve adjacent problems. Privy answers "how do we get subscribers from traffic?" Omnisend answers "how do we monetize subscribers across email, SMS, and push?" Choosing only Privy for the second question leaves cart and winback revenue on the table. Choosing only Omnisend when capture is 1% leaves journeys starved.
-        </p>
-        <p>
-          The accessories brand had strong creative and weak capture — Omnisend automations were fine but received 400 new profiles monthly against 35k sessions. Privy exit-intent and mobile-specific popups tripled signups in four weeks. Omnisend welcome and cart flows then had fuel.
-        </p>
-
-        <h2>Workflow test: welcome series</h2>
-        <p>
-          Privy deployed coupon-driven welcome in an afternoon — fast, linear, effective for first purchase push. Omnisend's prebuilt welcome allowed branching by channel opt-in (email vs SMS vs push) and product-interest segments with dynamic blocks. Privy welcome stops at "here is your code." Omnisend welcome starts a multichannel relationship.
-        </p>
-        <p>
-          The food DTC shop used Privy welcome for nine months. Repeat purchase rate among welcome cohort flatlined because emails never referenced category affinity or order timing. Omnisend post-purchase and replenishment templates — live in two days after migration — lifted 90-day repeat rate 14%.
-        </p>
-
-        <h2>Workflow test: abandoned cart</h2>
-        <p>
-          Privy's cart saver bar recovers onsite before email — valuable and absent from Omnisend. Omnisend's three-step cart series with SMS and optional push at step two recovered more total revenue for multi-SKU carts in our skincare test. Privy cart email worked for single-product stores; Omnisend scaled better with variant imagery.
-        </p>
-        <p>
-          Cross-flow suppression mattered: shoppers in active welcome should not receive cart discount escalation. Omnisend handled this with workflow rules after configuration. Privy required manual list tags — workable at small scale, brittle during BFCM.
-        </p>
-
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          Privy bills pageviews and contacts — high-traffic low-conversion stores pay for capture infrastructure before lists grow. Omnisend bills contacts and sends — better aligned to post-capture scale. At 12k contacts: Omnisend ~$100–160/mo, Privy ~$70–110/mo depending on traffic. Combined: $170–270/mo — justified when both funnel stages are optimized.
-        </p>
-        <p>
-          The costly mistake is Privy-only email at 10k+ contacts with 600+ monthly orders. You are paying capture-tool pricing for lifecycle work Omnisend does better at similar or lower total cost once capture is solved.
-        </p>
-
-        <h2>Shopify data depth in production</h2>
-        <p>
-          Omnisend syncs core Shopify events — orders, carts, products — with prebuilt segmentation for ecommerce. Not Klaviyo-depth predictive analytics, but sufficient for SMB cart, post-purchase, and winback. Privy does not mine browse history or build replenishment logic — it is not trying to.
-        </p>
-        <p>
-          Omnisend push notifications recovered mobile browse intent for the skincare label without SMS per-message costs — a channel Privy cannot offer. If mobile web traffic is high and push is acceptable to your audience, Omnisend widens the post-capture toolkit beyond Privy's scope.
-        </p>
-
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Omnisend if:</strong></p>
-        <ul>
-          <li>Capture is above 2% or handled by another popup tool</li>
-          <li>You need cart, post-purchase, and winback live within two weeks</li>
-          <li>One marketer owns email, SMS, and optionally push</li>
-          <li>You are graduating from Shopify Email or Privy-only email</li>
-        </ul>
-        <p><strong>Choose Privy if:</strong></p>
-        <ul>
-          <li>Session-to-subscriber conversion is the binding bottleneck</li>
-          <li>You need gamified popups and cart bars this week</li>
-          <li>Orders are under 350/month and basic email suffices temporarily</li>
-          <li>You will add Omnisend or similar for lifecycle within six months</li>
-        </ul>
-
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          Privy plus Omnisend is a solid SMB stack. If Omnisend's canvas still feels blank for strategy — what to say, when to suppress discounts — add Sequenzy as the lifecycle brain with pay-per-email economics. Keep Privy for capture. Sequenzy will not replace Omnisend's push channel or Privy's popups; it accelerates email execution with guided playbooks.
-        </p>
-
-        <h2>Verdict</h2>
-        <p>
-          Privy wins top-of-funnel. Omnisend wins post-opt-in multichannel retention. The wrong choice is treating them as interchangeable ESPs. Diagnose capture rate first; if low, Privy before Omnisend. If capture is healthy and lifecycle metrics are flat, migrate off Privy-only email to Omnisend regardless of popup satisfaction. The winner matches whichever constraint is choking growth this quarter.
-        </p>
+        <h2>Start with the current products, not their former roles</h2>
+        <p>Privy's <a href="https://www.privy.com/">product overview</a> describes email and SMS campaigns and a visual automation builder from welcome through winback. Its <a href="https://www.privy.com/pricing">pricing page</a> separates messaging and displays-only plans. Those capabilities make Privy a candidate for sending, rather than an automatic temporary popup tool. Vendor feature descriptions establish evaluation scope; they do not prove a revenue lift or parity with every workflow.</p>
+        <p>Omnisend's <a href="https://support.omnisend.com/en/articles/8172193-get-started-with-omnisend">getting-started guide</a> covers capture, ecommerce segments, automated journeys and email, SMS and push. Capture is not absent from its toolkit. If your current Omnisend form already handles the intended targeting and offer, adding a second display provider needs a more specific reason than “Privy is for capture.”</p>
+        <h2>Choose an architecture before comparing form conversion</h2>
+        <p>Price three options: Omnisend for capture and messaging; Privy for capture and email/SMS; or Privy displays feeding an existing Omnisend program. The third option can preserve useful templates and journeys while changing the onsite experience. It also adds a handoff: who owns a contact update that arrives late, a changed permission or a customer submitting the same form again?</p>
+        <p>Do not assume a direct Omnisend connection from a general claim that Privy supports third-party platforms. Its pricing page names Shopify and selected senders, but the exact intended route still needs confirmation. Trace the display submission through the supported connector or store integration, record which fields survive, and verify what event starts welcome. A record appearing in both tools does not prove a subscription event was delivered.</p>
+        <h2>Proposed display test: protect the promise, not just the submission count</h2>
+        <p>For an illustrative accessories store, compare a mobile exit offer with a persistent embedded signup. Use the same offer and traffic eligibility where possible; keep device, acquisition source and returning-customer status visible. A popup that interrupts a product selection can collect more addresses while reducing orders. Inspect dismissal behavior, accessibility, coupon delivery and completed purchases alongside submissions.</p>
+        <p>Define the denominator before reading results. Hypothetically, 300 new eligible email subscribers from 10,000 eligible sessions is 3%. It is not a 3% rate for all site traffic if only those sessions could see the form, and a person already subscribed is not a new subscriber. Record unique contacts, consent by channel and actual offer redemptions; do not count repeat submissions as list growth.</p>
+        <p>Submit email, then close before the phone step. Submit again as an existing customer and once with an already subscribed address. The expected outcome is the promised email treatment without invented SMS permission or repeated acquisition discounts. Omnisend's <a href="https://support.omnisend.com/en/articles/7325323-create-multi-step-signup-forms">multi-step form guide</a> notes that the first completed step counts as a signup even if later steps are closed. That makes partial completion a concrete case to test, not a reason to assume all form visitors joined every channel.</p>
+        <h2>Welcome: one offer needs one delivery owner</h2>
+        <p>In a split stack, decide whether the display success screen reveals the code, a sender delivers it, or both deliberately do so. Disable competing automatic welcome paths before enabling the new one. Keep signup source and offer identity so a quiz result and a general footer signup do not receive an unrelated promotion. The operator should be able to find the source of a wrong offer without searching two campaign calendars.</p>
+        <p>Omnisend's <a href="https://support.omnisend.com/en/articles/9653272-welcome-automation">welcome documentation</a> distinguishes trigger filters and first subscription. Demonstrate those filters with the intended external source rather than assuming every imported profile enters welcome. For Privy, bring the same source-specific requirement to its builder demonstration. Compare the actual configuration and maintenance steps instead of calling one product's welcome permanently basic.</p>
+        <h2>Cart recovery and post-purchase should share customer state</h2>
+        <p>A cart-saver display operates while a visitor is onsite; it is a different intervention from a later cart email or SMS. For either sender, rehearse a signup followed by cart abandonment and purchase while welcome is waiting. Require the recovery message to reflect the purchased state and the intended discount policy. Include guest checkout later matched to an existing customer and a replayed event, so matching or retries do not create duplicate journeys.</p>
+        <p>For a food store, separate preparation advice after a first order from a later replenishment suggestion. Use the relevant purchased product and proposed consumption interval, then demonstrate how a second purchase, cancellation or subscription order changes eligibility. There is no established repeat-rate improvement here. This exercise exposes the specific data and branching your program requires without assuming Privy cannot handle retention or Omnisend automatically configures it correctly.</p>
+        <h2>Quote the configuration you will actually operate</h2>
+        <p>Privy's published model distinguishes email priced by mailable contacts, an SMS credit add-on and a pageview-based displays-only option. A “contacts plus pageviews” label for every Privy deployment obscures that choice. Obtain a quote for the selected arrangement and confirm display inclusion and usage limits. For Omnisend, match contact definitions, expected email sends, SMS destinations and current account eligibility rather than relying on an entry email price.</p>
+        <p>Include connector charges, overlapping subscriptions during migration, template work and the time spent reconciling two systems. A retained popup should earn its incremental cost through a useful experience, not a guaranteed signup multiplier. Hypothetically, a $120 monthly incremental display cost and $24 contribution per additional order requires five incremental orders merely to cover that cost, before added labor. Attributed orders are not automatically incremental; an eligible holdout can help distinguish an added purchase from an order that would have occurred anyway.</p>
+        <h2>Migration acceptance is more useful than a two-day promise</h2>
+        <p>If consolidating into Privy or Omnisend, inventory every active display, campaign and journey before switching. Move subscription and suppression state separately from profile fields. Confirm domain authentication, links, product content, coupon handling and a returning customer's exclusions. Keep transactional order notices assigned to their existing owner unless their migration is explicitly part of the project.</p>
+        <p>Choose a cutover owner who can pause both old and new welcome paths and identify jobs already queued. Retain a reconciliation list of records that failed import or mapping; do not replay the whole subscriber history as new signups. Migration assistance is useful support, but the completion date depends on this store's data and acceptance results.</p>
+        <h2>When a separate email alternative belongs on the shortlist</h2>
+        <p>Sequenzy can be included in an email-tool evaluation when the merchant has a named email requirement to solve. Request the actual Shopify data path, offer routing and exclusion demonstration used for the other candidates. It should not be added as a vaguely defined “lifecycle brain” on top of two systems that already send email. Keep the comparison tied to the job, total cost and person responsible for the resulting workflow.</p>
+        <h2>Decision</h2>
+        <p>Retain Omnisend alone when its capture and journeys meet the requirements and a second form tool adds little. Evaluate Privy as a full email/SMS candidate when consolidating those tasks there is practical. Retain Privy displays beside Omnisend when a particular onsite experience is worth the verified handoff and extra cost. Choose from the demonstrated offer-to-purchase path and operating effort, rather than arbitrary subscriber, order or conversion-rate gates.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -175,40 +114,5 @@ const faqs = [
       </div>
     </div>
   </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: quiet hours configured by…</h2>
-      <p>For <strong>compare omnisend vs privy</strong>, quiet hours configured by customer timezone not HQ timezone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: cost-per-message modeling including carrier…</h2>
-      <p>For <strong>compare omnisend vs privy</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
   <FaqSection faqs={faqs} title="Omnisend vs Privy FAQ" />
 </BaseLayout>
