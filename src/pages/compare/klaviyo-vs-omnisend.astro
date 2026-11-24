@@ -26,9 +26,9 @@ const tools = [
 ];
 
 const faqs = [
-  { question: 'Is Klaviyo or Omnisend better for Shopify SMS?', answer: 'Klaviyo is usually the better fit for deep event data and complex segmentation. Omnisend is usually the faster fit for a small or mid-sized team that wants email, SMS, and push journeys live quickly. Test both with the same flows and suppression rules; neither result is universal.' },
+  { question: 'Is Klaviyo or Omnisend better for Shopify SMS?', answer: 'Evaluate both against your actual events, segmentation and maintenance requirements. Verify current email, SMS and push availability, destinations and plan eligibility independently; a module name or suite label does not establish channel scope. Build the same journeys and compare safe operation rather than assuming data depth or faster launch determines the winner.' },
   { question: 'Are the prices in this comparison guarantees?', answer: 'No. They are buying-model notes, not quotes. Contact tiers, message volume, carrier fees, regional availability, add-ons, contracts, and plan names change. Use the linked official pricing or sales pages and request a written estimate for your list and send mix.' },
-  { question: 'Should a Shopify store use both email and SMS?', answer: 'Often, but only with a channel map. Use SMS for timely, permissioned interruptions and email for education, proof, and longer content. Suppress the second channel after a conversion or define a deliberate fallback; sending the same offer twice is not a strategy.' },
+  { question: 'Should a Shopify store use both email and SMS?', answer: 'Use a purpose and channel map before combining email and SMS. Confirm permission for the intended message, then recheck current opt-out, suppression, purchase and subscription state at dispatch. Assign sender and queue ownership to each journey, cancel stale messages after conversion and deduplicate replayed events. A documented fallback must respect current eligibility; permission for one channel does not authorize another.' },
 ];
 ---
 
@@ -44,7 +44,7 @@ const faqs = [
     <header class="max-w-4xl">
 <p class="badge">Shopify buying guide</p>
 <h1 class="hero-title mt-5">Klaviyo vs Omnisend for Shopify SMS</h1>
-<p class="mt-7 text-xl leading-9 text-cyan-100">Klaviyo wins the data-depth question; Omnisend wins the speed-to-live question. But most stores are not choosing in a vacuum. This guide places both against twelve relevant tools so the decision reflects your audience, consent model, catalog, team, and actual channel mix.</p>
+<p class="mt-7 text-xl leading-9 text-cyan-100">Compare data requirements, safe workflow edits and ongoing maintenance in each current account. This guide places both candidates against twelve other tools so the evaluation reflects audience, permission scope, catalog, team and channel mix. Data-depth and speed-to-live rankings are hypotheses to test, not documented results.</p>
 <p class="mt-5 text-lg leading-8 text-cyan-100/90">Claims below are fit judgments, not vendor promises. Features, pricing, SMS availability, and carrier rules change. Follow official links, ask for written commercial terms, and run the same permissioned pilot in each finalist.</p>
 </header>
 
@@ -91,9 +91,9 @@ const faqs = [
     <article class="prose-shopify mt-12 max-w-4xl">
 <h2>How to interpret this comparison</h2>
 <p>Shopify SMS software is a permissioned messaging system, not a shorter email editor. The useful comparison is whether a tool can capture and preserve consent, recognize Shopify events, enforce quiet hours and exclusions, make message cost visible, and tell an operator what happened after a send. A feature checkbox does not prove any of those things works in your store.</p>
-<p>Klaviyo is the safer default for a team that will invest in event naming, segment ownership, deliverability, and holdouts. Omnisend is the safer default for a team that values prebuilt commerce journeys and wants email, SMS, and push in one operating surface. Both can be the wrong choice if the real gap is permissioned list growth, reply handling, or an unowned suppression process.</p>
+<p>Use the same requirements for event naming, segment ownership, deliverability and experiment design in both accounts. Verify which prebuilt journeys and channels are available in the proposed plan and market rather than assuming a safer default. Either candidate can miss the actual requirement if permissioned capture, reply handling or an unowned suppression process is the unresolved problem.</p>
 <h2>What changes the answer</h2>
-<p>Start with message jobs: cart recovery, back-in-stock, launch access, replenishment, service notification, or broad promotion. These jobs have different consent expectations and different economics. A cart reminder can be time-sensitive; a replenishment reminder needs product and purchase context; a promotion may need a stricter frequency cap. Choose the system that exposes those distinctions before you add volume.</p>
+<p>Start with message jobs: cart recovery, back-in-stock, launch access, replenishment, service notification and broad promotion. Establish permission for each purpose and channel instead of treating a phone number or email address as universal authorization. Check current purchase, subscription, opt-out and suppression state at dispatch. A timely reminder still needs a valid event, an accountable sender and a queue that can cancel stale messages.</p>
 <p>Then price the whole program. Include platform fee, contact or profile tier, email volume, SMS segments, carrier surcharges, MMS, discounts, creative labor, migration time, and the cost of opt-outs or complaints. “Revenue attributed” is not contribution margin and is not incremental lift. Keep a holdout wherever the platform makes that possible.</p>
 </article>
 
@@ -171,7 +171,7 @@ const faqs = [
 <li>Days 6–10: send to a limited eligible cohort; keep a holdout and record delivered messages, fees, discounts, replies, opt-outs, and orders.</li>
 <li>Days 11–14: calculate incremental contribution margin and operator hours; inspect failed triggers, duplicate sends, and stale catalog data before choosing.</li>
 </ol>
-<p>Choose the platform that makes safe changes legible during a busy launch, not the one with the longest feature list. If neither does, retain the current stack and fix the operating rule that the pilot exposed.</p>
+<p>Treat the fourteen-day heading as an illustrative planning window, not a deadline or proof of sufficient experiment power. Before any activation, assign sender and queue ownership, cancel superseded messages and test replay deduplication. A conversion must update other eligible queues promptly. Choose from safe-edit and maintenance evidence; randomize an eligible holdout with a defined outcome window and uncertainty reporting before calling attributed orders incremental lift.</p>
 </article>
 
     <div class="mt-12 card overflow-x-auto">
