@@ -1,9 +1,12 @@
-# shopifysmsapps.com
+# Shopify SMS Apps
 
-This site publishes Shopify email marketing and automation guides. Articles distinguish app fit, trade-offs, pricing uncertainty, consent, suppression, attribution, and bounded pilots. Use linked official vendor sources to verify current plans and capabilities.
+Editorial guides for choosing and operating Shopify email and SMS workflows.
 
 ## Scope
 
-- Shopify email, SMS, abandoned-cart, retention, and lifecycle apps
-- Store-specific implementation guidance
-- Evidence-safe comparisons and FAQ content
+- App reviews and comparisons: /apps and /compare
+- Store-specific operating questions: /for
+- Lifecycle eligibility, ownership and proposed measurement plans: /use-cases
+- Consent, pricing, delivery and coordination topics: /guides
+
+Examples and proposed evaluations are not merchant test results or provider rankings. Consult the linked official supplier sources for current plans and account-specific capabilities. A guide does not establish permission to send or certify compliance.

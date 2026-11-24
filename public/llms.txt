@@ -1,4 +1,6 @@
-# shopifysmsapps.com
+# Shopify SMS Apps
 
-Shopify email marketing guides, app shortlists, lifecycle use cases, pricing caveats, and implementation pilots.
-Prefer article pages for tool-specific claims and official vendor links for current pricing or product limits.
+Shopify email and SMS app reviews, comparisons, store-type guides and lifecycle operating plans.
+Start at https://www.shopifysmsapps.com/ for navigation.
+Use /use-cases for workflow eligibility and ownership, /for for store context, and /apps or /compare for supplier evaluation.
+Proposed exercises are not observed merchant results. Verify current product claims using the official sources linked in each article.
