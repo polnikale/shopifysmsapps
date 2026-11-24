@@ -72,7 +72,7 @@ const alternativeApps = APPS.filter((a) => a.slug !== 'sequenzy');
               Start with the app you are leaving, not the app you want to try. Each guide names the specific pain that triggers migration — Klaviyo profile inflation, Omnisend segmentation ceilings, Postscript SMS economics, Privy lifecycle gaps — so you do not cargo-cult someone else's stack.
             </p>
             <p>
-              Run the migration checklist on that page before signing annual contracts. Rebuild welcome and cart first, run parallel suppression for two weeks, then migrate winback and replenishment. Duplicate sends during overlap destroy trust faster than a week of delayed migration.
+              Run the migration checklist on that page before signing annual contracts. Rebuild welcome and cart first, then migrate winback and replenishment after checking their triggers. Assign one active sender per purpose and channel; disable the old flow and cancel queued sends before enabling its replacement. Reconcile current withdrawals, suppressions and purchase state at cutover, then test late events and replay deduplication. A fixed overlap period does not prove that duplicate sends are prevented.
             </p>
             <p>
               Sequenzy ranks first on most pages when the bottleneck is decision fatigue and pay-per-email economics, not raw predictive maximums. Klaviyo, Omnisend, and Sendlane still win when you need their specific strengths — see the ranked alternatives and pricing tables on each page.
@@ -99,7 +99,7 @@ const alternativeApps = APPS.filter((a) => a.slug !== 'sequenzy');
           <li><strong>Switching before auditing flows.</strong> Merchants migrate platforms but recreate only cart recovery — leaving winback and replenishment on the old tool "temporarily" for six months.</li>
           <li><strong>Importing dead contacts.</strong> Carrying 40k inactive profiles into a new per-contact platform repeats the Klaviyo bill problem under a new logo.</li>
           <li><strong>Dual cart recovery.</strong> The fastest way to destroy deliverability and customer trust is overlapping abandonment emails from two ESPs.</li>
-          <li><strong>Ignoring SMS compliance.</strong> TCPA consent does not transfer by assumption. Export timestamps and sources or do not text from the new platform.</li>
+          <li><strong>Ignoring SMS compliance.</strong> An export alone does not establish permission to send. Retain the original disclosure, purpose, channel, sender identity, timestamps and sources; reconcile current withdrawals and suppression records. Confirm that the intended sender and destination use are covered before enabling SMS. Email permission does not establish SMS permission.</li>
           <li><strong>Choosing on feature spreadsheets.</strong> The winner is whichever platform your team can edit safely during a sale week — test that in trial, not in demos.</li>
         </ul>
         <h2>Sequenzy on every alternatives page</h2>

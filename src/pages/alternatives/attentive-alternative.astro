@@ -19,7 +19,7 @@ const faqs = [
   { question: 'Can small stores use Attentive?', answer: 'Technically yes; economically rare. Attentive fits high-volume DTC with list economics justifying enterprise spend.' },
   { question: 'Export from Attentive?', answer: 'Work with account team for subscriber export and compliance records — plan longer lead time than self-serve tools.' },
   { question: 'Sequenzy vs Attentive?', answer: 'Different categories — Sequenzy email lifecycle; Attentive enterprise SMS/email orchestration. Many leave Attentive SMS cost for Postscript while moving email to Sequenzy.' },
-  { question: 'Migration timeline?', answer: '4–8 weeks typical for enterprise exit — contract notice, number porting, journey rebuild.' },
+  { question: 'Migration timeline?', answer: 'Schedule around confirmed contract notice, export access, any number-porting requirements and journey rebuild. Set cutover only after permission reconciliation, queue cancellation and replay tests pass; there is no universal enterprise exit timeline.' },
   { question: 'Attentive email module?', answer: 'Some stores use Attentive primarily for SMS — evaluate whether email also moves to Sequenzy or Klaviyo on exit.' },
   { question: 'When to stay on Attentive?', answer: 'Stay with strong ROI on two-tap acquisition, managed creative services in use, and volume that keeps CPM economics favorable.' },
 ];
@@ -57,11 +57,11 @@ const faqs = [
         <h2>Attentive migration checklist</h2>
         <ol>
           <li><strong>Review contract exit terms</strong> and notice periods.</li>
-          <li><strong>Request subscriber export</strong> with full compliance metadata.</li>
-          <li><strong>Separate SMS vs email journey inventory</strong> — rebuild priority by revenue.</li>
-          <li><strong>Plan number porting to Postscript or Klaviyo SMS</strong> — 2–4 week lead.</li>
+          <li><strong>Request subscriber export</strong> with original disclosures, purpose, channel, sender identity, opt-in sources and timestamps. Reconcile current withdrawals and suppressions; an export alone does not establish permission for the new sender.</li>
+          <li><strong>Separate SMS vs email journey inventory</strong> — distinguish marketing from transactional purposes and prioritize critical workflows. Attribute revenue consistently, but do not treat attributed recovery as causal lift; use a suitable holdout where feasible and disclose uncertainty.</li>
+          <li><strong>Confirm number-porting requirements</strong> with both providers, including sender ownership, eligibility and timing; do not assume a fixed lead time or that a number can transfer.</li>
           <li><strong>Stand up Sequenzy or Klaviyo email</strong> before SMS cutover if email also moves.</li>
-          <li><strong>Disable Attentive journeys in phases</strong> — cart first, then campaigns.</li>
+          <li><strong>Disable Attentive journeys in phases</strong> — cart first, then campaigns. Assign one active sender per purpose and channel, cancel old queues, and recheck current permission, suppression and purchase state before each send. Test delayed events and replay deduplication before switching traffic.</li>
           <li><strong>Rebuild acquisition opt-in flows</strong> on new SMS tool — two-tap ≠ standard popup.</li>
           <li><strong>Audit creative services dependencies</strong> — replace with in-house or agency if needed.</li>
         </ol>
@@ -76,7 +76,7 @@ const faqs = [
         <ToolReview app={alternatives[4]} rank={5} paragraphs={['SMSBump if Yotpo stack already paid — evaluate modular vs Attentive single bill.']} />
         <ToolReview app={alternatives[5]} rank={6} paragraphs={['Sendlane guided retention for brands wanting human migration help post-Attentive without re-entering enterprise contracts.']} />
         <ToolReview app={alternatives[6]} rank={7} paragraphs={['Recart narrow cart SMS when Attentive broadcast programs were cost driver — strip to recovery-only.']} />
-        <ToolReview app={alternatives[7]} rank={8} paragraphs={['Yotpo Email & SMS if reviews suite consolidation replaces Attentive breadth — audit module costs carefully.']} />
+        <ToolReview app={alternatives[7]} rank={8} paragraphs={['Evaluate the separately contracted Yotpo messaging product and its current Shopify integration; Reviews or Loyalty capability does not establish messaging capability. Confirm product identity and module costs before comparing it with Attentive.']} />
       </section>
 
       <div class="container mb-12 max-w-4xl card overflow-x-auto">
