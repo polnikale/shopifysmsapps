@@ -1,227 +1,49 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
 import { appBySlug } from '../../data/apps';
-
-const uc = useCaseBySlug('email-design')!;
 const path = '/use-cases/email-design';
 const title = pageTitle(site, 'use-cases/email-design');
 const desc = description(site, 'use-cases/email-design');
-
-const featuredSlugs = ['sequenzy', 'klaviyo', 'omnisend', 'shopify-email', 'yotpo-email-sms'];
-const featuredApps = featuredSlugs.map((s) => appBySlug(s)!).filter(Boolean);
-
-const comparisonApps = [
-  'sequenzy', 'klaviyo', 'omnisend', 'shopify-email', 'yotpo-email-sms', 'drip',
-  'mailchimp', 'brevo', 'tinyemail', 'privy',
-].map((s) => appBySlug(s)!).filter(Boolean);
-
+const candidates = ["sequenzy", "klaviyo", "omnisend", "shopify-email", "yotpo-email-sms", "drip", "mailchimp", "brevo", "tinyemail", "privy"].map(s => appBySlug(s)!).filter(Boolean);
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
-  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="text-sm font-bold text-cyan-300 hover:text-white">← All use cases</a>
-      <p class="badge mt-6">Email design</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify SMS apps for email design</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        Email design for Shopify is product merchandising in a 600px column — not a miniature landing page. Dynamic product blocks must pull live price and inventory, CTAs must survive thumb reach on iPhone Mail, and editorial prose must render when images are blocked. The right app pairs Shopify catalog sync with templates that default mobile-first, not desktop mockups shrunk after the fact.
-      </p>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        This playbook ranks apps for {uc.job}. We evaluated dynamic product rendering, mobile QA workflows, accessibility defaults, and whether design systems survive lifecycle volume — not drag-drop novelty.
-      </p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="/apps">Full app rankings</a>
-        <a class="btn btn-secondary" href="/use-cases/browse-abandonment">Browse abandonment</a>
-        <a class="btn btn-secondary" href="/for/fashion">Fashion guide</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container pb-12">
-    <TldrBox
-      title="Top Shopify SMS apps for email design"
-      picks={[
-        { label: 'Best lifecycle design', tool: 'Sequenzy', reason: 'Product-led templates aligned to workflow goals — single-product focus for browse/cart, education blocks for post-purchase.' },
-        { label: 'Best template depth', tool: 'Klaviyo', reason: 'Dynamic product blocks, variant imagery, and largest agency template ecosystem.' },
-        { label: 'Best fast design', tool: 'Omnisend', reason: 'Prebuilt mobile-friendly ecommerce templates with product picker.' },
-        { label: 'Best native Shopify', tool: 'Shopify Email', reason: 'Zero-friction product blocks from catalog for simple campaigns.' },
-        { label: 'Best UGC design', tool: 'Yotpo Email & SMS', reason: 'Review and visual UGC blocks embedded in product-led layouts.' },
-      ]}
-    />
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Three email design merchant scenarios</h2>
-      <p>
-        <strong>Scenario A — Fashion DTC, variant imagery.</strong> Klaviyo dynamic blocks pulled size-specific images in cart recovery — mobile click rate up 27% versus static generic product shot. Single-column template enforced across all flows.
-      </p>
-      <p>
-        <strong>Scenario B — Supplement brand, compliance copy.</strong> Sequenzy post-purchase template with fixed education block above single product CTA — legal review once, reused across SKUs via metafield insert. Complaint rate on design clutter dropped.
-      </p>
-      <p>
-        <strong>Scenario C — Young POD store, design bandwidth zero.</strong> Omnisend product picker templates live in hours; tinyEmail AI drafted sale copy. Graduated to Sequenzy when browse emails needed single-product focus layout.
-      </p>
-    </div>
-
-    <div class="card mb-12">
-      <p class="badge">Execution playbook</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Email design operating contract</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-2 text-cyan-100">
-        <div><h3 class="font-black text-white">Trigger</h3><p class="mt-2 text-[17px] leading-8">{uc.trigger}</p></div>
-        <div><h3 class="font-black text-white">Timing</h3><p class="mt-2 text-[17px] leading-8">{uc.timing}</p></div>
-      </div>
-      <div class="mt-8"><h3 class="font-black text-white">Exclusions</h3>
-        <ul class="mt-3 space-y-2">{uc.exclusions.map((e) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{e}</li>)}</ul>
-      </div>
-      <div class="mt-8"><h3 class="font-black text-white">Metrics</h3>
-        <ul class="mt-3 space-y-2">{uc.metrics.map((m) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{m}</li>)}</ul>
-      </div>
-    </div>
-
-    <div class="card mb-12 overflow-x-auto">
-      <p class="badge">Comparison table</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">10 Shopify apps for email design</h2>
-      <table class="mt-8 w-full min-w-[720px] text-left text-sm">
-        <thead>
-          <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
-            <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Design fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
-          </tr>
-        </thead>
-        <tbody class="text-cyan-100">
-          {comparisonApps.map((app, i) => (
-            <tr class="border-b border-cyan-300/20/8">
-              <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
-              <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
-              <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="container space-y-12 pb-16">
-    <p class="badge">Detailed reviews</p>
-    <h2 class="font-serif text-4xl font-black text-white">Five apps for Shopify SMS design</h2>
-
-    <ToolReview app={featuredApps[0]} rank={1} badge="SMS-native pick" paragraphs={[
-      'Sequenzy leads email design for Shopify because lifecycle emails need different layouts — not one hero template for everything. Browse and cart want single-product focus; post-purchase wants education block first; launch wants urgency without spam aesthetics.',
-      'Agent-generated layouts start from workflow goal — reduces blank-canvas paralysis for teams without dedicated email designer.',
-      'Shopify product sync in templates respects live price — stale pricing in design erodes trust faster than ugly fonts.',
-      'Design depth trails Klaviyo agency ecosystem — pair with brand guidelines doc for typography and color consistency.',
-    ]} />
-
-    <ToolReview app={featuredApps[1]} rank={2} paragraphs={[
-      'Klaviyo design power is dynamic product infrastructure — variant images, collection grids, price drop callouts from live catalog.',
-      'Template library and agency marketplace accelerate seasonal redesigns — fashion and beauty benefit most.',
-      'Flow-level template testing isolates design impact on revenue per recipient — not just click vanity.',
-      'Learning curve steep for non-designers — powerful blocks require training to avoid mobile-broken grids.',
-    ]} />
-
-    <ToolReview app={featuredApps[2]} rank={3} paragraphs={[
-      'Omnisend templates default mobile-friendly — practical for SMB without design team. Product picker accelerates campaign builds.',
-      'Less flexible custom HTML than Klaviyo — acceptable when brand system is simple.',
-      'SMS and push creative consistency with email requires separate design pass — no unified design system.',
-      'Strong bridge for stores shipping first designed automations quickly.',
-    ]} />
-
-    <ToolReview app={featuredApps[3]} rank={4} paragraphs={[
-      'Shopify Email design is intentionally simple — product blocks from catalog, brand colors from store settings. Lowest friction for merchant-first campaigns.',
-      'No advanced dynamic variant logic or flow template families — campaigns not lifecycle design system.',
-      'Useful reference for product card styling before migrating to lifecycle platform.',
-      'Graduate when automations need distinct layouts per workflow.',
-    ]} />
-
-    <ToolReview app={featuredApps[4]} rank={5} paragraphs={[
-      'Yotpo design differentiator is social proof blocks — review stars, customer photos, UGC carousels in product emails.',
-      'Layout templates optimized for proof-forward conversion — browse and cart benefit when skepticism is high.',
-      'Modular suite design consistency when loyalty and review modules active.',
-      'Email-only design needs may not justify full Yotpo — evaluate module cost.',
-    ]} />
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Mobile QA checklist</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Before every send</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Preview iOS Mail and Gmail app. Tap primary CTA with thumb — 44px min height. Read with images off. Check alt text on product images. Confirm single-column below 480px. Dark mode spot check on logo.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Workflow templates</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">One layout family per job</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Template A: single product + proof (browse, cart). Template B: education + soft CTA (post-purchase). Template C: hero + two product grid (promo). Template D: text-forward editorial (VIP, winback proof-first). Do not reuse promo grid for cart recovery.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="prose-shopify">
-      <h2 class="font-serif text-4xl font-black text-white">Design serves lifecycle goals</h2>
-      <p>Beautiful templates that violate <a class="link" href="/use-cases/discount-strategy">discount strategy</a> or crowd mobile CTAs hurt revenue. Design review includes strategy check — what is this email trying to get the customer to do?</p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Accessibility</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Design for image-off and screen readers</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Meaningful alt text on product images — "Blue linen blazer, size M" not "product image." Semantic heading order in HTML templates. Sufficient contrast on CTA buttons. Link text descriptive — "Shop the blazer" not "click here." Accessibility reduces complaints and expands reachable audience; also improves rendering when images blocked.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Plain-text version manually edited for key campaigns — auto-generated plain text often strips product names. <a class="link" href="/use-cases/deliverability">Deliverability</a> benefits from balanced text-to-image ratio.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Brand system</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Template tokens across flows</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Define header, footer, CTA button style, and typography once — reuse across welcome, cart, post-purchase. Klaviyo universal content blocks; Sequenzy template families; Omnisend saved rows. Inconsistent cart versus welcome design signals scam to customers trained by phishing awareness.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="prose-shopify">
-      <h2 class="font-serif text-3xl font-black text-white">Quarterly design system review</h2>
-      <p>Mobile click rate by template family — single-product versus grid promo. Retire underperforming layouts. Dark mode spot check on top three templates after iOS updates.</p>
-      <p>Brand consistency audit across flows — header, footer, CTA match. New team members should not invent cart template from scratch.</p>
-      <p>Accessibility pass on hero campaigns before <a class="link" href="/use-cases/black-friday">BFCM</a> — alt text and contrast failures spike complaints under volume.</p>
-      <p>Dark mode logos need dedicated asset variants — test every major template refresh on iOS dark mode before peak send. Broken logo on dark background reads as phishing to trained customers.</p>
-    </div>
-  </section>
-
-  <section class="container pb-8">
-    <div class="flex flex-wrap gap-4 text-sm font-bold">
-      <a class="link" href="/apps">All apps →</a>
-      <a class="link" href="/use-cases/reviews-and-ugc">Reviews & UGC →</a>
-      <a class="link" href="/compare/klaviyo-vs-mailchimp">Klaviyo vs Mailchimp →</a>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-
-
-
+<ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+<article class="container prose-shopify py-16">
+<a href="/use-cases">All use cases</a>
+<h1>Design Shopify emails around the next customer decision</h1>
+<p>A cart reminder, a product-care lesson and a gift guide should not share the same content hierarchy. Start with what the recipient needs to decide, then choose the smallest useful layout. This is a proposed design and acceptance workflow, not a report of performed inbox tests or merchant conversion results.</p>
+<h2>Choose a layout family before opening the editor</h2>
+<p>For browse and cart follow-up, try one relevant product, a short reason to return, useful proof and one primary action. For post-purchase, put setup or care instructions ahead of another purchase request. For a promotion, a hero and a small product selection can help comparison, but each extra tile competes with the main action. An editorial VIP note can be mostly text when access details matter more than photography.</p>
+<p>Write the message in plain text first. If the offer, product and action cannot be understood without the hero image, move those details into real text. Keep a visible fallback for missing product data. A browser session or abandoned order may refer to an unavailable variant; replacing it silently with another size is not a harmless design choice.</p>
+<h2>Separate catalog insertion from live send behavior</h2>
+<p><a href="https://support.omnisend.com/en/articles/1061865-use-product-picker-in-product-listing-item">Omnisend documents Product Picker</a> for adding store product details to campaigns and automations. That convenience does not establish that an existing email updates every field at dispatch. Demonstrate what happens after changing a product price, image, stock state or URL between composition and send.</p>
+<p>Record the source and refresh behavior of each field. A product name may come from the current catalog while a variant label comes from the original event. Specify whether the message should skip the item, show a safe alternative or cancel when a required field disappears. Previewing a populated example cannot prove the missing-data path works.</p>
+<h2>Build reusable content with controlled updates</h2>
+<p><a href="https://help.klaviyo.com/hc/en-us/articles/115005413888">Klaviyo documents universal and saved content</a> for reusing blocks and sections. Reuse can reduce repeated editing, but shared updates also require review across the messages that use them. Decide which footer or navigation changes should propagate and which campaign content should stay fixed.</p>
+<p>Define typography, spacing, button treatment, header and footer as a short brand specification. Maintain a compact set of approved template families rather than letting each flow owner invent a new header. Keep a change log and nominate a reviewer. Before publishing a shared change, check a long product name, a multi-item order and the simplest text-led message; all three can expose different layout problems.</p>
+<h2>Proposed exercise: fashion cart with variant detail</h2>
+<p>Create fixtures for a short and long product name, multiple sizes and an unavailable color. Check that image, variant description and destination agree. Compare a single-product message with a product grid only if both answer the same customer question. Preserve the selected variant in the destination where your integration supports it; do not infer this from a generic product link.</p>
+<p>Define success as a correct, readable message before measuring clicks. If a later experiment compares layouts, keep offer, audience and timing consistent and record eligible recipients. A click-rate increase alone would not show incremental purchases or improved contribution.</p>
+<h2>Proposed exercise: product education with required copy</h2>
+<p>For a supplement or care-sensitive product, place approved instructions above the optional shopping action. Give the reviewer the longest approved copy, not just a short placeholder. Check that narrow screens do not bury essential information below an oversized hero. If instructions differ by SKU, validate each supported mapping and define a fallback that does not invent advice.</p>
+<p>Store the approval date and copy owner with the template specification. Reusable content helps consistency only when the right version reaches the right products. Avoid promising that an AI-generated layout or a metafield automatically satisfies legal or product-review requirements.</p>
+<h2>Proposed exercise: a small store with little design capacity</h2>
+<p>Start with one product-led template and one text-led template. Use representative catalog data rather than polished demo imagery. Estimate the time required to update a price, replace an image, correct the footer and restore a previous version. Choose the editor your operator can maintain reliably; advanced branching is little help if routine changes repeatedly break the email.</p>
+<p>Evaluate a catalog picker, saved content and custom HTML as different maintenance choices. A picker reduces manual insertion, reusable blocks reduce repeated edits, and custom HTML gives control at the cost of specialist upkeep. Do not rank an editor by the number of templates alone.</p>
+<h2>Mobile, image-off and accessibility acceptance</h2>
+<p>Send controlled previews to the email clients your audience uses. Check narrow screens, long translated labels, large text settings and dark backgrounds. Make primary actions easy to tap and keep adjacent links apart. Treat any button dimension in your specification as a design target to verify, not a universal rendering guarantee.</p>
+<p>Read the message with images hidden. Include meaningful alternative text where images convey information; avoid repeating decorative text unnecessarily. Keep the offer and expiry in selectable text. Use descriptive links, a sensible heading order and sufficient foreground/background contrast. Inspect the logo in both light and dark contexts rather than assuming a transparent asset will stay visible.</p>
+<p>Review the plain-text alternative for product names, destinations and a readable action. Automated text extraction can produce a confusing order. Accessibility work aims to make the message understandable; it is not evidence that a particular text-to-image ratio improves inbox placement.</p>
+<h2>Release checklist and rollback</h2>
+<p>Before approval, record the template version, populated fixtures, missing-field fixtures, client previews, destination checks and reviewer. Confirm footer and unsubscribe behavior through the sending system. Keep marketing and service-message requirements explicit rather than removing navigation or opt-out elements merely to simplify the design.</p>
+<p>Schedule a rehearsal after major editor or shared-block changes. Define who can pause an affected flow and restore its prior template. A quarterly review can compare layout families, stale assets and recurring support questions. Retire a layout because it fails a useful requirement or a sound experiment, not because a single campaign had fewer clicks.</p>
+<h2>Keep design connected to the workflow</h2>
+<p><a href="/use-cases/holiday-gifting">Holiday gifting</a> owns recipient identity and delivery promises; this page owns how those promises remain legible. <a href="/use-cases/discount-strategy">Discount strategy</a> owns offer eligibility and checkout economics; the template must display the approved offer faithfully. A visually attractive button cannot repair an invalid code or a missed cutoff.</p>
+<p>For social proof, confirm permission, product relevance and the handling of missing reviews before allocating space to a review module. For SMS, design a separate concise message and destination experience. An email layout does not transfer to a text message, and adding a second channel requires its own eligibility and coordination checks.</p>
+<h2>App discovery without a feature verdict</h2>
+<p>These are research starting points, not a tested ranking. Ask suppliers to demonstrate your required data, permissions, template behavior and failure cases in the plan you would buy. Confirm current pricing directly; an email editor does not establish SMS support or a shared suppression system.</p>
+<ul>{candidates.map(app => <li><a href={`/apps/${app.slug}`}>{app.name}</a></li>)}</ul>
+</article>
 </BaseLayout>
