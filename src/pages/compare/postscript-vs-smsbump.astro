@@ -5,41 +5,41 @@ import TldrBox from '../../components/TldrBox.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 const path = '/compare/postscript-vs-smsbump';
-const title = 'Postscript vs SMSBump for Shopify: 2026 Comparison';
-const desc = 'Postscript vs SMSBump (Yotpo SMS) for Shopify — dedicated SMS infrastructure vs bundled loyalty-and-reviews stack economics, compliance, and channel ownership.';
+const title = 'Postscript vs SMSBump: Shopify Migration Guide (2026)';
+const desc = 'SMSBump is decommissioned. Plan a Shopify messaging migration to Postscript while separating retained Yotpo Reviews and Loyalty, consent records and automation ownership.';
 
 const faqs = [
   {
     question: 'Is Postscript or SMSBump better for Shopify SMS?',
-    answer: 'Postscript is SMS-native with deeper TCPA tooling, two-way conversations, and DTC campaign patterns refined over years. SMSBump (Yotpo SMS) bundles SMS with Yotpo reviews and loyalty — strong when you already pay Yotpo and want one vendor for post-purchase touchpoints. Choose Postscript when SMS is a primary revenue channel. Choose SMSBump when Yotpo stack consolidation and moderate SMS volume matter more than specialization.',
+    answer: "SMSBump is no longer an active alternative: its login page confirms decommissioning. Evaluate Postscript as a replacement using your recoverable subscriber records, required journeys and retained Yotpo integrations, rather than a historical feature ranking.",
   },
   {
     question: 'Can SMSBump replace Postscript entirely?',
-    answer: 'For moderate SMS volume on brands already running Yotpo reviews and loyalty, yes — SMSBump covers broadcasts, automations, and cart recovery adequately. Postscript wins when SMS exceeds ~25% of retention revenue, two-way reply volume is high, or compliance scrutiny demands SMS-first guardrails SMSBump treats as one feature among many.',
+    answer: "No. Yotpo scheduled Email and SMS deprecation for December 31, 2025, and the SMS application now reports that its dashboard and background services are inactive. Do not plan a new Postscript-to-SMSBump migration.",
   },
   {
     question: 'How does Postscript vs SMSBump pricing compare?',
-    answer: 'Postscript uses plan plus per-message usage with transparent spike costs during drops. SMSBump pricing often bundles into Yotpo contracts or tiered SMS credits — can look cheaper on paper when reviews and loyalty are already line items. Unbundle SMS message fees from Yotpo platform costs before comparing; bundled discounts hide true SMS economics.',
+    answer: "Compare a current Postscript proposal with your actual replacement budget, not an old SMSBump price. Separate messaging charges, implementation, number provisioning, support and retained Yotpo Reviews or Loyalty fees. Historical invoices help reconcile spend but are not a current offer.",
   },
   {
     question: 'Does Yotpo loyalty integration favor SMSBump over Postscript?',
-    answer: 'SMSBump triggers on loyalty tier changes, review requests, and points expiry natively within Yotpo. Postscript requires integration work or middleware for the same events — doable but not zero-config. A jewelry brand on Yotpo VIP tiers sent tier-upgrade SMS via SMSBump in one click; Postscript needed a Zapier bridge until they prioritized engineering time.',
+    answer: "Retaining Yotpo Loyalty does not restore SMSBump. Define which tier, balance and reward-expiry events must reach the new sender, then demonstrate the supported integration path and field freshness. A historical native connection does not prove current Postscript parity.",
   },
   {
     question: 'Should I also consider Sequenzy instead of Postscript or SMSBump?',
-    answer: 'Sequenzy handles email lifecycle with pay-per-email pricing — neither Postscript nor SMSBump replaces email depth. Pair Sequenzy with Postscript for specialized SMS, or keep email on your ESP while SMSBump covers moderate text inside Yotpo. Sequenzy plus Postscript is the lean stack when Yotpo bundling is not already sunk cost.',
+    answer: "Consider Sequenzy as an email evaluation candidate if you are rebuilding email separately. Keep SMS migration responsibility explicit and compare that split with the Postscript Email offering available to your account; neither choice recovers missing legacy records automatically.",
   },
   {
     question: 'Which has better TCPA compliance tooling?',
-    answer: 'Postscript leads — keyword management, opt-out dashboards, and pre-send compliance reviews are built for SMS operators. SMSBump compliance is adequate for moderate volume but Yotpo-native teams sometimes treat SMS like email with shorter copy. High SMS revenue or list-import history favors Postscript guardrails.',
+    answer: "This guide does not rank legal protection. Reconcile documented opt-ins and suppressions before importing, and demonstrate opt-out handling on the replacement configuration. Software features alone do not establish whether a particular list may be messaged.",
   },
   {
     question: 'Which handles cart abandonment SMS better?',
-    answer: 'Both recover carts via Shopify events. Postscript wins on timing flexibility, two-way sizing replies, and conversational polish for fashion and beauty. SMSBump wins when cart SMS should also reference loyalty points balance or review incentives in the same Yotpo ecosystem — one data model, fewer sync failures.',
+    answer: "SMSBump is decommissioned, so the task is to rebuild and validate cart recovery in the replacement. Test purchase cancellation, duplicate events, reply ownership and interaction with existing email flows before enabling live sends.",
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Run keyword opt-in from popup, cart abandonment SMS with reply handling, loyalty-tier promotional broadcast, and BFCM flash send with quiet hours. If Yotpo loyalty and reviews are core stack, SMSBump integration tests matter. If SMS is standalone revenue with compliance rigor, Postscript should win operational tests regardless of Yotpo bundling.',
+    answer: "Use a proposed loyalty-reward cutover rehearsal: a tier change, a points redemption before send, an opt-out while queued and a duplicate event. Require the expected eligibility and suppression outcomes before approving the replacement. These are proposed checks, not reported test results.",
   },
 ];
 ---
@@ -56,21 +56,19 @@ const faqs = [
       </nav>
 
       <header class="max-w-4xl">
-        <p class="badge">Head-to-head</p>
+        <p class="badge">Migration guide</p>
         <h1 class="hero-title mt-5">Postscript vs SMSBump for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          SMSBump lives inside Yotpo's reviews-and-loyalty orbit; Postscript lives and breathes Shopify SMS alone. We evaluated both through a fine jewelry brand consolidating onto Yotpo SMSBump to reduce vendors, a candle DTC shop staying on Postscript after SMSBump compliance gaps during a list import, and a sports nutrition label running Yotpo loyalty but outsourcing high-volume drops to Postscript anyway.
+          SMSBump is retired, so this is a migration decision for Shopify teams with legacy Yotpo messaging records and ongoing Reviews or Loyalty programs. Assess whether Postscript can take over the required SMS journeys, whether email should move too, and which reward data must cross the new boundary. No merchant outcomes or comparative performance tests are claimed here.
         </p>
       </header>
 
       <div class="mt-12 max-w-4xl">
         <TldrBox
           picks={[
-            { label: 'SMS specialization', tool: 'Postscript', reason: 'TCPA depth, two-way replies, and drop-campaign maturity.' },
-            { label: 'Yotpo stack bundle', tool: 'SMSBump', reason: 'Native loyalty, reviews, and SMS in one contract.' },
-            { label: 'Flash sale execution', tool: 'Postscript', reason: 'Quiet hours, segmentation, and conversational recovery at scale.' },
-            { label: 'Loyalty-triggered SMS', tool: 'SMSBump', reason: 'Tier upgrades and points expiry without middleware.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Email lifecycle outside Yotpo — pair with whichever SMS wins.' },
+            { label: 'Legacy messaging', tool: 'SMSBump', reason: 'Decommissioned; recover records rather than plan new campaigns.' },
+            { label: 'Replacement candidate', tool: 'Postscript', reason: 'Evaluate SMS and account access to its announced Email offering.' },
+            { label: 'Retained programs', tool: 'Yotpo Reviews / Loyalty', reason: 'Keep product contracts and event ownership separate from messaging.' },
           ]}
         />
       </div>
@@ -82,84 +80,47 @@ const faqs = [
             <tr><th>Dimension</th><th>Postscript</th><th>SMSBump (Yotpo SMS)</th></tr>
           </thead>
           <tbody>
-            <tr><td>Best for</td><td>SMS-native Shopify marketing</td><td>Yotpo ecosystem SMS layer</td></tr>
-            <tr><td>Starting price</td><td>Usage-based plans</td><td>Yotpo bundle / SMS credits</td></tr>
-            <tr><td>Billing model</td><td>Plan + per-message</td><td>Often bundled with Yotpo SKUs</td></tr>
-            <tr><td>Yotpo loyalty tie-in</td><td>Integration required</td><td>Native</td></tr>
-            <tr><td>Two-way SMS</td><td>Core strength</td><td>Available, less mature</td></tr>
-            <tr><td>Compliance tooling</td><td>SMS-first guardrails</td><td>Adequate for moderate volume</td></tr>
-            <tr><td>Email</td><td>Not primary — pair required</td><td>Yotpo Email available separately</td></tr>
-            <tr><td>Typical role</td><td>Dedicated SMS channel owner</td><td>SMS within Yotpo retention stack</td></tr>
+            <tr><td>Current status</td><td>SMS platform with announced Email offering</td><td>Messaging application decommissioned</td></tr>
+            <tr><td>Decision</td><td>Validate replacement scope and access</td><td>Recover existing records where available</td></tr>
+            <tr><td>Loyalty data</td><td>Demonstrate supported event and field mapping</td><td>Historical connections are not a live sending option</td></tr>
+            <tr><td>Cost basis</td><td>Current written proposal</td><td>Historical invoices and closure reconciliation</td></tr>
+            <tr><td>Email</td><td>Confirm rollout access and migration scope</td><td>Yotpo Email was also scheduled for retirement</td></tr>
           </tbody>
         </table>
       </div>
 
       <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Merchants search "Postscript vs SMSBump" when Yotpo account managers bundle SMS into renewal conversations — or when Postscript bills make them wonder if SMSBump is "good enough" inside existing contracts. SMSBump is not a Postscript clone; it is SMS optimized for brands already living in Yotpo reviews and loyalty. Treating them as interchangeable underestimates either bundling value or SMS specialization.
-        </p>
-        <p>
-          The jewelry brand paid Yotpo for reviews, UGC, and VIP loyalty tiers. Adding SMSBump eliminated a Postscript line item and let tier-upgrade texts fire from the same customer record as review requests. Engineering time saved: roughly 15 hours per quarter on sync maintenance. SMS conversion on limited drops dipped 8% versus Postscript — acceptable tradeoff for finance's vendor consolidation mandate.
-        </p>
+        <h2>The retirement changes the decision</h2>
+        <p>Yotpo's <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">migration announcement</a> scheduled Email and SMS deprecation for December 31, 2025. The <a class="link" href="https://www.smsbump.com/users/login">SMSBump login notice</a> now confirms that the dashboard and associated background services are inactive. This is no longer a comparison between two available SMS subscriptions.</p>
+        <p>Yotpo's migration announcement names Attentive and Omnisend as recommended partners. Postscript remains a candidate to evaluate against your own requirements, rather than a replacement endorsed by that announcement. The retirement concerns messaging; it does not mean that a retained Reviews or Loyalty program must be removed. Keep those contracts, widgets, reward rules and owners on a separate worklist.</p>
 
-        <h2>Workflow test: loyalty tier promotional SMS</h2>
-        <p>
-          SMSBump triggered "You've reached Gold — here's early access" within minutes of Yotpo tier recalculation — no webhook middleware, no delayed Zapier steps. The jewelry brand attributed $12k from one VIP early-access text. Postscript could replicate with custom Shopify metafields and integration labor; SMSBump won this test on integration simplicity alone.
-        </p>
-        <p>
-          The sports nutrition label kept Yotpo loyalty but ran Black Friday SMS on Postscript — SMSBump throttled segment logic during peak send windows and lacked the conversational reply routing their athletes expected. Stack sprawl returned, but revenue justified it.
-        </p>
+        <h2>Start with the records you actually have</h2>
+        <p>Inventory archived subscriber exports, suppression files, opt-in evidence, flow diagrams, campaign reports and invoices. Record the date and source of each artifact. A phone number in Shopify or a loyalty membership record is not, by itself, evidence of permission to send promotional texts. Quarantine records with unresolved permission or conflicting opt-out status instead of silently treating an import as approval.</p>
+        <p>Because the old dashboard is inactive, do not promise a fresh self-service export. Ask the former provider which records remain recoverable and through what process; recovery availability and your account's retention terms remain unresolved until answered. If a saved export predates later opt-outs, reconcile those later records before using it. Keep original files unchanged and document each transformation in the working copy.</p>
+        <p>Build a flow inventory with trigger, eligibility, message content, delay, exit condition and current replacement owner. Mark missing branches explicitly. Historical revenue reports may help prioritize reconstruction, but their attribution windows cannot establish that the same results will recur on a different platform.</p>
 
-        <h2>Workflow test: keyword opt-in and list hygiene</h2>
-        <p>
-          Postscript's keyword library and pre-send compliance scan flagged the candle shop's imported list — 4,200 numbers lacked documented keyword opt-in. Send blocked until remediation. SMSBump would have allowed configured sends with weaker pre-flight warnings; the ops lead credited Postscript with avoiding a TCPA exposure that email-native habits would have missed.
-        </p>
-        <p>
-          For organic growth, Postscript popup-to-keyword flows converted at 9.4% on mobile for the candle brand. SMSBump opt-in units worked but required more manual compliance copy review — fine for moderate volume, risky when SMS becomes aggressive growth channel.
-        </p>
+        <h2>Retain loyalty value without retaining a retired sender</h2>
+        <p>For a store keeping Yotpo Loyalty, the useful question is whether the replacement can act on the right reward state. Map customer identifiers, tier, spendable points, redemption status and expiry timestamp to the journey that uses them. Decide whether each value is an event snapshot or a fresh lookup at send time; a cached balance can make an otherwise correct message misleading after redemption.</p>
+        <p>Ask the implementer to show the actual supported integration route for your account, including retries, update latency and missing-customer handling. Do not assume either a native connector or middleware is required without that demonstration. Separately identify who sends review requests so a rebuilt post-purchase flow does not duplicate a retained Reviews request.</p>
 
-        <h2>Workflow test: cart abandonment via SMS</h2>
-        <p>
-          Postscript cart SMS at 22 minutes included dynamic product image links and reply-to-human for gift message questions — the jewelry brand recovered high-AOV carts email never touched. SMSBump cart flows referenced loyalty points ("Earn 200 pts if you complete checkout") — effective for repeat buyers, less compelling for first-time visitors without points balance.
-        </p>
-        <p>
-          Suppression mattered: both platforms needed purchase event sync to stop sequences after conversion. SMSBump's advantage was single Yotpo customer ID; Postscript's was faster iteration on message copy during sale weeks without opening tickets to Yotpo support tiers.
-        </p>
+        <h2>A proposed reward-expiry cutover rehearsal</h2>
+        <p>Use controlled test profiles and approved test destinations. Create one eligible reward-expiry event, then redeem the reward before the scheduled message. The proposed acceptance outcome is cancellation or content recalculation, according to the documented policy, rather than a stale expiry warning. Repeat with an opt-out during the delay: the promotional send should remain suppressed.</p>
+        <p>Next, deliver the same tier-change event twice and deliver an older balance update after a newer one. Check that the system does not issue duplicate early-access invitations or overwrite current reward state with the older value. Record the event identifiers, timestamps, expected state and actual result; a successful import alone does not establish these behaviors.</p>
+        <p>Finally, reply with a reward question and confirm who receives it, what happens outside staffed hours and whether a human can see the relevant reward context. These checks are proposed acceptance work, not experiments performed for this article. If a required reward field cannot be kept current, launch the simpler eligible SMS journeys first and keep that reward message disabled.</p>
 
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          Postscript per-message fees show up clearly on finance dashboards — spikes hurt but attribute cleanly. SMSBump costs often hide inside Yotpo renewal quotes — compare incremental SMS spend, not "free with bundle" marketing. The jewelry brand's consolidated Yotpo invoice rose 18% year-over-year; removing Postscript saved $340/mo platform but SMS CPM within Yotpo was opaque until they audited message line items.
-        </p>
-        <p>
-          Break-even favors SMSBump when Yotpo reviews and loyalty are non-negotiable sunk costs and SMS volume stays under ~40k promotional messages monthly. Postscript wins when SMS revenue justifies dedicated tooling and compliance overhead regardless of Yotpo relationship.
-        </p>
+        <h2>Postscript now has an email decision too</h2>
+        <p>The <a class="link" href="https://postscript.io/email">Postscript Email page</a> advertises its email offering and invites merchants to get on the list. Its <a class="link" href="https://www.prweb.com/releases/postscript-launches-email-on-a-new-ai-native-retention-marketing-platform-302884359.html">September 2026 company announcement</a> describes rollout beginning with existing customers. Confirm access, onboarding date and the migration work included for your account before retiring an existing email sender.</p>
+        <p>You can evaluate consolidating email and SMS, or keep email with a separate provider while replacing only SMS. For either architecture, assign one owner to each cart, welcome and reward journey. Rebuild purchase exits and channel suppressions explicitly; sharing a customer profile does not by itself prove that two independently scheduled messages will coordinate.</p>
 
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Postscript if:</strong></p>
-        <ul>
-          <li>SMS is 25%+ of retention revenue with its own operator</li>
-          <li>Two-way conversations and drop campaigns drive your calendar</li>
-          <li>TCPA compliance rigor outweighs Yotpo bundling convenience</li>
-          <li>You do not run Yotpo loyalty as a core retention pillar</li>
-        </ul>
-        <p><strong>Choose SMSBump if:</strong></p>
-        <ul>
-          <li>Yotpo reviews, UGC, and loyalty are already central stack components</li>
-          <li>SMS volume is moderate and tier-triggered messages matter more than conversational depth</li>
-          <li>Vendor consolidation reduces finance and ops overhead</li>
-          <li>Your team prefers one account manager for post-purchase touchpoints</li>
-        </ul>
+        <h2>Budget for reconstruction, not a historical bundle</h2>
+        <p>Request a written quote for the actual channel mix, destinations, message types, expected segments, carrier charges, support and implementation work. Keep retained Yotpo Reviews and Loyalty costs separate. Savings from closing a retired messaging line cannot be counted again as savings from switching between two active vendors.</p>
+        <p>Hypothetical implementation budget: reconstructing six reward-related journeys at three hours each plus four hours of data reconciliation requires 22 hours. At an assumed internal rate of $50 per hour, that is $1,100 of internal work, before supplier fees. This is planning arithmetic, not a vendor quote or observed merchant cost. Replace the assumptions with your inventory and include unresolved recovery work as a separate estimate.</p>
 
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          Yotpo Email exists, but many brands pair Yotpo reviews with Klaviyo or another ESP for lifecycle depth. Sequenzy offers guided email playbooks with pay-per-email economics — stack with SMSBump if you consolidate SMS inside Yotpo, or with Postscript if SMS stays specialized. Sequenzy simplifies email strategy without forcing Yotpo Email migration. Document suppression between email and whichever SMS platform you choose.
-        </p>
+        <h2>Where Sequenzy fits</h2>
+        <p>If email needs a separate rebuild, include Sequenzy in the email evaluation alongside the Postscript offering accessible to your account. Bring the same welcome, post-purchase and reward-message requirements to that evaluation. Do not infer automatic Yotpo data recovery, equivalent loyalty integrations or production SMS replacement from an email product recommendation. Require a demonstrated event path and clear SMS ownership before choosing a split stack.</p>
 
-        <h2>Verdict</h2>
-        <p>
-          Postscript vs SMSBump is a bundling versus specialization bet. Postscript wins operators who treat SMS as a primary channel with compliance and conversational requirements. SMSBump wins Yotpo-native merchants who prioritize loyalty-triggered text and vendor consolidation over SMS depth. The jewelry brand chose SMSBump; the candle shop chose Postscript after a compliance scare; the nutrition label runs both — messy but honest about channel economics.
-        </p>
+        <h2>Approve a replacement against a recoverable scope</h2>
+        <p>Choose Postscript only after confirming the offered account scope, resolving usable consent records and demonstrating the journeys you intend to activate. Keep recovery gaps and unsupported reward paths visible in the launch decision. A working replacement can preserve a separate Yotpo Reviews or Loyalty program; it cannot make SMSBump an active alternative again.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -174,53 +135,5 @@ const faqs = [
       </div>
     </div>
   </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: two-way SMS reply inbox…</h2>
-      <p>For <strong>compare postscript vs smsbump</strong>, two-way SMS reply inbox ownership assigned to one operator is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: MMS surcharge impact on…</h2>
-      <p>For <strong>compare postscript vs smsbump</strong>, MMS surcharge impact on promo-heavy verticals is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 3: keyword opt-in campaigns audited…</h2>
-      <p>For <strong>compare postscript vs smsbump</strong>, keyword opt-in campaigns audited for disclosure drift is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
   <FaqSection faqs={faqs} title="Postscript vs SMSBump FAQ" />
 </BaseLayout>
