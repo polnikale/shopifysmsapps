@@ -16,7 +16,7 @@ const alternatives = altSlugs.map((s) => appBySlug(s)!);
 const faqs = [
   {
     question: 'Why do Shopify stores leave ActiveCampaign?',
-    answer: 'The most common trigger is buying a CRM when they needed ecommerce lifecycle automation. ActiveCampaign excels at deal pipelines and sales follow-up, but Shopify browse events, variant-level merchandising, and replenishment logic feel bolted on. Per-contact pricing also punishes popup-heavy lists where 60% of contacts never enter a purchase workflow.',
+    answer: 'One reason to reconsider the stack is buying a CRM when the requirement was ecommerce lifecycle automation. ActiveCampaign excels at deal pipelines and sales follow-up, but Shopify browse events, variant-level merchandising, and replenishment logic feel bolted on. For a popup-heavy list, inspect actual workflow participation and the current billing rules rather than assuming a universal inactive percentage.',
   },
   {
     question: 'Is Sequenzy a good ActiveCampaign replacement for Shopify?',
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: 'Can I migrate ActiveCampaign automations to Klaviyo?',
-    answer: 'Not natively. Export automation maps as documentation — triggers, conditions, wait steps, tags — and rebuild using Shopify events in Klaviyo. ActiveCampaign tags become Klaviyo segments or profile properties. Budget rebuild time; the value is simplifying logic during migration, not cloning every branch.',
+    answer: 'Confirm current migration tooling and supported exports before planning the transfer. Document triggers, conditions, wait steps and goals, then rebuild and test against supported Shopify events. Tags do not automatically become equivalent segments: map properties explicitly, define segment rules and verify membership with test records. Preserve permission and suppression evidence separately from marketing tags.',
   },
   {
     question: 'How long does ActiveCampaign migration take for Shopify?',
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     question: 'What happens to ActiveCampaign tags during migration?',
-    answer: 'Export tag membership with timestamps and source. Map high-value tags (VIP, wholesale, product interest) to dynamic segments in the new platform. Sunset legacy campaign tags from 2021 flash sales — importing tag debt recreates ActiveCampaign sprawl in a new UI.',
+    answer: 'Export available tag membership and retain timestamps and source where available; verify export completeness. Define VIP, wholesale and product-interest properties and dynamic segment rules explicitly, then compare expected and actual membership, including subsequent purchases and withdrawals. Archive obsolete campaign tags only after checking workflow dependencies. Tags alone are not permission evidence.',
   },
   {
     question: 'Which ActiveCampaign alternative is cheapest at 20,000 contacts?',
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     question: 'Does leaving ActiveCampaign mean losing SMS?',
-    answer: 'ActiveCampaign SMS is limited compared to Postscript or Omnisend. Most Shopify merchants migrating off ActiveCampaign consolidate SMS into Omnisend, Postscript, or Klaviyo SMS rather than keeping AC for texts alone. Run one SMS platform during migration to avoid TCPA overlap.',
+    answer: 'Check current SMS availability, destination support, sender registration, and consent-transfer requirements for each candidate before choosing a replacement. Assign one sender owner per purpose and channel; disable old enrollments and cancel queued jobs before enabling replacement flows. Proposed tests should cover purchase, withdrawal, unsubscribe, delayed events, and replay deduplication. A single platform alone does not establish legal compliance.',
   },
   {
     question: 'When should I stay on ActiveCampaign?',
@@ -107,17 +107,17 @@ const faqs = [
         <p>Run this sequence before disconnecting ActiveCampaign from Shopify. CRM and ecommerce automations need separate audit tracks — do not migrate sales pipelines you still use.</p>
         <ol>
           <li><strong>Split CRM from ecommerce automations.</strong> List every automation touching Shopify webhooks vs deal stage changes. CRM stays or exports separately; DTC lifecycle migrates.</li>
-          <li><strong>Export consent records.</strong> CSV with email, SMS consent, consent timestamp, and source. TCPA requires provable opt-in if SMS moves platforms.</li>
+          <li><strong>Export consent records.</strong> Export channel and purpose permissions, timestamps, source and disclosure evidence, plus withdrawals and suppression status. Verify applicable consent and sender requirements for the intended messages and jurisdictions before activating SMS; an email opt-in is not SMS permission.</li>
           <li><strong>Audit contact bloat.</strong> Count inactive contacts inflating billing using your actual account data; do not assume a universal inactive percentage. Document sunset rules before import.</li>
           <li><strong>Document live automations.</strong> Screenshot triggers, conditions, wait steps, and goals. Note which Shopify events each flow uses.</li>
           <li><strong>Map integrations.</strong> List connected apps feeding ActiveCampaign tags — helpdesk, forms, subscription tools. Each may break on migration.</li>
-          <li><strong>Install and sync the new platform.</strong> Connect Shopify first. Verify product catalog, order history, and browse events before bulk contact import.</li>
+          <li><strong>Install and sync the new platform.</strong> Connect Shopify first. Verify which product, order and browse events are actually supported by the installed integration before bulk contact import. Test identity matching, event timing and field definitions rather than assuming every historical event transfers.</li>
           <li><strong>Rebuild welcome and cart first.</strong> Test proposed flows with controlled orders before activation. Recheck current channel permission, suppression, purchase and subscription state at send time; a historical export is not sufficient. Give each trigger a stable deduplication key so replay cannot enroll the same recovery twice.</li>
           <li><strong>Assign one sender owner per purpose and channel.</strong> Use an observation period, not a fixed fourteen-day readiness rule. Disable old enrollments and cancel queued recovery jobs before enabling replacements; test purchase, withdrawal, unsubscribe, delayed-event replay, and duplicate-event suppression in both systems.</li>
           <li><strong>Migrate post-purchase, winback, replenishment.</strong> Rebuild with simpler logic — resist copying every ActiveCampaign branch.</li>
-          <li><strong>Redirect signup forms.</strong> Update popups and checkout integrations to feed the new platform. Stale list growth breaks consent continuity.</li>
-          <li><strong>Warm sending domain if switching ESP.</strong> Ramp volume over 7–14 days if sending infrastructure changes. See our <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
-          <li><strong>Archive ActiveCampaign 90 days.</strong> Keep read access for automation reference before downgrading CRM-only seats or canceling.</li>
+          <li><strong>Redirect signup forms.</strong> Update popups and checkout integrations to feed the new platform. Verify that the new destination retains purpose/channel disclosures, withdrawal handling and suppression updates; list membership or tags alone do not prove consent.</li>
+          <li><strong>Warm sending domain if switching ESP.</strong> If infrastructure changes, plan a monitored ramp based on authentication, sending history, recipient engagement and provider guidance; a fixed number of days is not a readiness test. See our <a class="link" href="/use-cases/deliverability">deliverability guide</a>.</li>
+          <li><strong>Plan archive access and retention.</strong> Preserve needed automation references and permission/suppression evidence under an agreed retention policy before changing seats or canceling. Confirm export completeness and access terms; do not assume ninety days is universally appropriate.</li>
         </ol>
       </article>
 
@@ -151,7 +151,7 @@ const faqs = [
           rank={3}
           paragraphs={[
             'Omnisend fits ActiveCampaign refugees who want multichannel live before next quarter\'s launch. Prebuilt welcome, cart, and post-purchase journeys install in days — email, SMS, and push share one suppression model without CRM setup tax.',
-            'Segmentation is less flexible than ActiveCampaign for exotic boolean logic, but sufficient for catalogs under 1,000 SKUs. Teams leaving ActiveCampaign because "we never finished configuring it" often finish Omnisend in a week.',
+            'Test the required segment logic with representative catalog and customer records. SKU count alone does not establish suitability, and a proposed implementation schedule is not an observed migration result.',
             'Omnisend is a credible permanent home for SMB DTC, not just a bridge away from CRM overbuild.',
           ]}
         />
@@ -180,7 +180,7 @@ const faqs = [
           rank={6}
           paragraphs={[
             'Mailchimp is the lateral move when ActiveCampaign felt overwhelming and you want familiar editor simplicity. Shopify lifecycle stores outgrow quickly — Mailchimp rarely satisfies merchants who already tasted ActiveCampaign\'s branching power.',
-            'Choose Mailchimp only after honest workflow audit shows you need broadcasts and basic welcome, not CRM or advanced segmentation. Budget for another migration within 18 months if retention becomes priority again.',
+            'Choose Mailchimp only after honest workflow audit shows you need broadcasts and basic welcome, not CRM or advanced segmentation. Review fit again when workflow requirements change; do not infer a fixed migration deadline.',
           ]}
         />
 
@@ -197,7 +197,7 @@ const faqs = [
           app={alternatives[7]}
           rank={8}
           paragraphs={[
-            'Shopify Email is the reset button when ActiveCampaign was massive overkill — sale blasts and product announcements, not pipelines. No advanced automation, no SMS, no CRM.',
+            'Evaluate Shopify Email against the actual welcome, cart and post-purchase workflows you need. Confirm current automation and channel support in official documentation and your account rather than assuming that it only sends broadcasts.',
             'Useful as a 90-day pause while rebuilding strategy in Sequenzy or Omnisend. Most stores that left ActiveCampaign for capability reasons boomerang to a dedicated platform within two quarters if they land on Shopify Email alone.',
             'Treat Shopify Email as temporary, not a retention growth platform.',
           ]}
@@ -236,7 +236,7 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>SMS on Shopify is not a faster email channel. Before activation, determine the permission, disclosure, withdrawal and timing requirements for the message purpose, destination and sender. Record opt-in evidence and current suppression state, configure applicable quiet hours, and model platform fees, carrier surcharges and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
