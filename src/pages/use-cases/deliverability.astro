@@ -1,227 +1,33 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
 import { appBySlug } from '../../data/apps';
-
-const uc = useCaseBySlug('deliverability')!;
 const path = '/use-cases/deliverability';
 const title = pageTitle(site, 'use-cases/deliverability');
 const desc = description(site, 'use-cases/deliverability');
-
-const featuredSlugs = ['sequenzy', 'klaviyo', 'sendlane', 'brevo', 'omnisend'];
-const featuredApps = featuredSlugs.map((s) => appBySlug(s)!).filter(Boolean);
-
 const comparisonApps = [
   'sequenzy', 'klaviyo', 'sendlane', 'brevo', 'omnisend', 'drip',
   'mailchimp', 'activecampaign', 'shopify-email', 'yotpo-email-sms',
 ].map((s) => appBySlug(s)!).filter(Boolean);
-
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
-  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="text-sm font-bold text-cyan-300 hover:text-white">← All use cases</a>
-      <p class="badge mt-6">Deliverability</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify SMS apps for deliverability</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        Deliverability is the ceiling on every lifecycle workflow. Perfect cart recovery creative lands in spam — zero revenue. Gmail and Yahoo tightened sender requirements; complaint rates are public health metrics for your domain. The right Shopify SMS app supports engagement segmentation, sunset automation, authenticated sending, and sending discipline — not just pretty dashboards after damage is done.
-      </p>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        This playbook ranks apps for {uc.job}. We evaluated domain authentication support, engagement-based suppression tooling, post-peak recovery workflows, and unified transactional/marketing reputation — not claimed inbox placement percentages. Deliverability is infrastructure; treat it like SSL certificates, not a marketing afterthought. A single unauthenticated sending domain can drag down welcome, cart, and post-purchase performance simultaneously.
-      </p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="/apps">Full app rankings</a>
-        <a class="btn btn-secondary" href="/use-cases/segmentation">Segmentation</a>
-        <a class="btn btn-secondary" href="/use-cases/black-friday">Black Friday</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container pb-12">
-    <TldrBox
-      title="Top Shopify SMS apps for deliverability"
-      picks={[
-        { label: 'Best overall', tool: 'Sequenzy', reason: 'Unified transactional + marketing reputation, deliverability-aware send discipline, and engagement-first lifecycle defaults.' },
-        { label: 'Best at scale', tool: 'Klaviyo', reason: 'Engagement segments, deliverability reporting, and deliverability team resources at high volume.' },
-        { label: 'Best guided support', tool: 'Sendlane', reason: 'Hands-on deliverability review for brands investing in retention programs.' },
-        { label: 'Best budget infra', tool: 'Brevo', reason: 'Solid sending infrastructure and volume pricing with practical compliance tooling.' },
-        { label: 'Best SMB hygiene', tool: 'Omnisend', reason: 'Engagement segments and sunset workflows accessible without enterprise overhead.' },
-      ]}
-    />
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Three deliverability merchant scenarios</h2>
-      <p>
-        <strong>Scenario A — Beauty brand post-BFCM spam spike.</strong> Complaint rate hit 0.42% after daily blasts to full file. Sequenzy-guided pause: 10-day promotional stop, sunset unengaged 180d, resume to engaged-only weekly value content. Complaint rate below 0.2% in three weeks; inbox placement recovered.
-      </p>
-      <p>
-        <strong>Scenario B — Supplement DTC, list import pollution.</strong> Klaviyo engagement segments identified 22% profiles with zero opens 12 months — suppressed from paid sends. Hard bounce rate dropped from 3.1% to 0.8%. SPF/DKIM/DMARC audit fixed subdomain misconfiguration.
-      </p>
-      <p>
-        <strong>Scenario C — Growing home goods, new sending domain.</strong> Sendlane migration included warm-up plan — volume ramped 20% weekly over five weeks. Brevo considered for backup transactional; chose Sequenzy unified approach to avoid subdomain reputation split.
-      </p>
-    </div>
-
-    <div class="card mb-12">
-      <p class="badge">Execution playbook</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Deliverability operating contract</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-2 text-cyan-100">
-        <div><h3 class="font-black text-white">Trigger</h3><p class="mt-2 text-[17px] leading-8">{uc.trigger}</p></div>
-        <div><h3 class="font-black text-white">Timing</h3><p class="mt-2 text-[17px] leading-8">{uc.timing}</p></div>
-      </div>
-      <div class="mt-8"><h3 class="font-black text-white">Exclusions</h3>
-        <ul class="mt-3 space-y-2">{uc.exclusions.map((e) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{e}</li>)}</ul>
-      </div>
-      <div class="mt-8"><h3 class="font-black text-white">Metrics</h3>
-        <ul class="mt-3 space-y-2">{uc.metrics.map((m) => <li class="flex gap-2 text-[17px] leading-8"><span class="text-cyan-300">→</span>{m}</li>)}</ul>
-      </div>
-    </div>
-
-    <div class="card mb-12 overflow-x-auto">
-      <p class="badge">Comparison table</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">10 Shopify apps for deliverability</h2>
-      <table class="mt-8 w-full min-w-[720px] text-left text-sm">
-        <thead>
-          <tr class="border-b border-cyan-300/20/15 text-xs font-black uppercase tracking-wider text-cyan-300">
-            <th class="py-3 pr-4">App</th><th class="py-3 pr-4">Deliverability fit</th><th class="py-3 pr-4">Pricing</th>
-            <th class="py-3 pr-4">Shopify depth</th><th class="py-3 pr-4">Automation</th>
-          </tr>
-        </thead>
-        <tbody class="text-cyan-100">
-          {comparisonApps.map((app, i) => (
-            <tr class="border-b border-cyan-300/20/8">
-              <td class="py-3 pr-4 font-bold text-white"><a class="link" href={`/apps/${app.slug}`}>{i + 1}. {app.name}</a></td>
-              <td class="py-3 pr-4">{app.bestFor}</td><td class="py-3 pr-4">{app.pricing}</td>
-              <td class="py-3 pr-4">{app.shopifyDepth}</td><td class="py-3 pr-4">{app.automationDepth}</td>
-              
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="container space-y-12 pb-16">
-    <p class="badge">Detailed reviews</p>
-    <h2 class="font-serif text-4xl font-black text-white">Five apps for deliverability</h2>
-
-    <ToolReview app={featuredApps[0]} rank={1} badge="SMS-native pick" paragraphs={[
-      'Sequenzy leads deliverability because lifecycle volume without discipline kills domains. Unified transactional and marketing sending protects order confirmation reputation while promotional sends ramp — subdomain sprawl is a common self-inflicted wound.',
-      'Playbooks default engagement-aware frequency — fewer blasts to cold segments, more value to engaged — aligns with Gmail engagement signals.',
-      'Sunset and re-engagement sequences documented as deliverability infrastructure, not optional advanced features.',
-      'Newer Shopify-native depth than Klaviyo — deliverability wins on sending architecture and operational guidance for lean teams.',
-    ]} />
-
-    <ToolReview app={featuredApps[1]} rank={2} paragraphs={[
-      'Klaviyo deliverability tooling matures at scale — engagement segments, bounce management, deliverability hub reporting for high-volume senders.',
-      'Sunset flows integrate with list hygiene — suppress unengaged from campaigns while retaining for possible re-engagement winback.',
-      'Agency ecosystem includes deliverability specialists — valuable during BFCM prep and post-migration.',
-      'Profile bloat from inactive contacts hurts metrics and cost — hygiene is operational requirement not platform feature alone.',
-    ]} />
-
-    <ToolReview app={featuredApps[2]} rank={3} paragraphs={[
-      'Sendlane includes human deliverability review in onboarding and quarterly check-ins — fits brands without in-house deliverability owner.',
-      'Migration support often fixes authentication gaps inherited from prior platform.',
-      'Higher investment — justified when email revenue exceeds $50k monthly and downtime is costly.',
-      'Compare self-serve Sequenzy if team can own weekly metrics review.',
-    ]} />
-
-    <ToolReview app={featuredApps[3]} rank={4} paragraphs={[
-      'Brevo sending infrastructure solid for volume-heavy programs on budget — SPF/DKIM setup guided in dashboard.',
-      'Lighter Shopify lifecycle integration — deliverability strong, segmentation for engagement sunset less ecommerce-native.',
-      'Good fit for merchants prioritizing inbox placement on straightforward campaign calendar.',
-      'Pair with Shopify-specific lifecycle tool if ecommerce segmentation complexity grows.',
-    ]} />
-
-    <ToolReview app={featuredApps[4]} rank={5} paragraphs={[
-      'Omnisend engagement segments accessible for SMB — sunset unengaged without enterprise deliverability team.',
-      'Multichannel volume (SMS, push) can distract from email reputation monitoring — email metrics need separate weekly review.',
-      'Pre-BFCM templates tempt over-send — deliverability discipline still merchant-owned.',
-      'Practical first platform with basic hygiene before Klaviyo or Sequenzy scale.',
-    ]} />
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Authentication</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">SPF DKIM DMARC checklist</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Custom domain in email platform. SPF includes platform send servers. DKIM signing enabled. DMARC record published. One-click unsubscribe in marketing emails. Test with mail-tester.com before high-volume send.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Sunset sequence</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Re-engage then suppress</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Day 90 no open: re-engagement email with value prop. Day 120 no open: final notice. Day 150: suppress from promotional; optional archive. Document in <a class="link" href="/use-cases/segmentation">segmentation</a> as engaged definition.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="prose-shopify">
-      <h2 class="font-serif text-4xl font-black text-white">Deliverability before more automations</h2>
-      <p>Adding flows to a polluted list amplifies damage. Audit hygiene before launching <a class="link" href="/use-cases/welcome-series">welcome</a> or <a class="link" href="/use-cases/winback">winback</a> to cold imports.</p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">List sources</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Where bad deliverability starts</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Giveaway imports, scraped lists, and checkout pre-checked marketing without clear consent poison domains. Audit acquisition sources quarterly — Privy popup consent copy, Shopify checkout email marketing checkbox, partner lead shares. One bad import can take months to remediate.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Double opt-in for EU and high-complaint categories reduces risk. US CAN-SPAM allows single opt-in but engagement quality improves with confirmed subscribers.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="card">
-      <p class="badge">Warm-up</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">New domain or platform migration</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        New sending subdomain ramps volume 20% weekly on engaged segment only. Full migration from Mailchimp to Sequenzy or Klaviyo: pause cold segments first week, enable automations gradually. Sudden 10× volume spike from new platform triggers Gmail throttling. Sendlane migrations include warm-up plans — replicate discipline self-serve.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-12">
-    <div class="prose-shopify">
-      <h2 class="font-serif text-3xl font-black text-white">Quarterly deliverability audit</h2>
-      <p>Pull twelve-week trend: hard bounce rate, complaint rate, open rate on engaged segment, sunset list size. Gmail Postmaster Tools and Microsoft SNDS if volume warrants. Compare pre and post <a class="link" href="/use-cases/black-friday">BFCM</a> — sustained complaint elevation needs list surgery not creative refresh.</p>
-      <p>Re-verify SPF DKIM DMARC after any DNS provider change. Confirm one-click unsubscribe works on latest campaign template. Test inbox placement with seed list or third-party tool quarterly.</p>
-      <p>New flows launching? Default to engaged segment first send — expand only after two clean weeks. <a class="link" href="/use-cases/segmentation">Segmentation</a> engaged definition should match deliverability engaged definition or teams talk past each other.</p>
-      <p>Transactional email volume spikes during holidays — confirm transactional subdomain reputation healthy separately if using split infrastructure. Marketing complaints should not poison order confirmation path.</p>
-    </div>
-  </section>
-
-  <section class="container pb-8">
-    <div class="flex flex-wrap gap-4 text-sm font-bold">
-      <a class="link" href="/apps">All apps →</a>
-      <a class="link" href="/use-cases/analytics">Analytics →</a>
-      <a class="link" href="/compare/sequenzy-vs-klaviyo">Sequenzy vs Klaviyo →</a>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-
-
-
+<ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+<article class="container prose-shopify py-16">
+<a href="/use-cases">All use cases</a>
+<h1>Diagnose email and SMS delivery separately</h1>
+<p>Delivery failures need channel-specific evidence. An email accepted by a receiving server is not proof of inbox placement, and an SMS delivery receipt is not proof that a customer read it. This is a diagnostic workflow, not a platform ranking or a claim that switching apps repairs reputation.</p>
+<h2>Scope the incident</h2><p>Record the affected channel, sender identity, recipient provider or destination, message type, first failure time, and recent changes. Compare marketing with order notifications and separate rejection, deferral, bounce, complaint, and unsubscribe signals. Preserve representative error codes and message identifiers for support; remove customer details from broadly shared incident notes.</p>
+<h2>Check email authentication on an actual message</h2><p>Inspect received headers and the supplier's domain setup instructions. Confirm the intended From domain and authentication alignment rather than assuming a published DNS record proves every route is correct. Recheck after a DNS change or platform migration. Do not add a second SPF record as a shortcut.</p>
+<p><a href="https://support.google.com/a/answer/81126?hl=en">Google's sender requirements</a> distinguish all senders from bulk senders to personal Gmail accounts. The bulk requirements include SPF, DKIM, DMARC, alignment, and one-click unsubscribe for marketing and subscribed messages. Apply the requirements relevant to your traffic; authentication alone does not promise inbox placement.</p>
+<h2>Investigate audience sources</h2><p>Break failures down by acquisition source, signup period, and recent activity. Quarantine an unexplained import while investigating permission records and suppression history. A customer profile or prior order alone is not evidence of SMS marketing permission. Do not use a re-engagement blast to ask an unverified list whether it wanted the first blast.</p>
+<h2>Contain and resume deliberately</h2><p>Pause the affected promotional path while preserving necessary service notifications through a reviewed route. Coordinate with the supplier when deferrals or reputation problems appear. Define a monitored restart audience and expansion criteria using actual response trends; there is no universal percentage ramp or ten-day cure. Keep an operator able to stop queued messages.</p>
+<h2>Use a separate SMS investigation</h2><p>Inspect the provider's reason codes, sender registration status where applicable, destination eligibility, message segmentation, and opt-out handling. Compare carriers and countries before blaming creative. Confirm that a withdrawn subscriber stays suppressed across imports and retries. Request the supplier's current requirements for the affected route instead of borrowing email warm-up advice.</p>
+<h2>Choose support by the evidence it exposes</h2><p>Ask prospective suppliers to demonstrate raw delivery events, suppression exports, authentication setup, incident escalation, and what data survives migration. Clarify shared versus dedicated infrastructure and ownership of domains or numbers. A unified dashboard can help operations but does not itself protect transactional reputation from promotional mistakes.</p>
+<h2>Close with a reproducible record</h2><p>Document the suspected cause, change made, observation window, and remaining uncertainty. Monitor by provider and source after resuming. Seed messages can reveal a symptom but are not a population-wide placement measurement. Avoid judging inactivity only from opens; privacy features and automated activity can distort them.</p>
+<p><a href="/use-cases/black-friday">Black Friday operations</a> manages peak campaign collisions. <a href="/use-cases/browse-abandonment">Browse follow-up</a> validates event relevance. Neither replaces this channel-level incident investigation.</p>
+<h2>App discovery and demonstration checklist</h2>
+<p>Use these profiles as starting points. Ask each supplier to demonstrate this workflow with your events, markets, permissions, and failure cases before buying. Listing is not a verified feature comparison or performance ranking; confirm current plans and destination charges directly.</p>
+<ul>{comparisonApps.map(app => <li><a href={`/apps/${app.slug}`}>{app.name}</a></li>)}</ul>
+</article>
 </BaseLayout>
