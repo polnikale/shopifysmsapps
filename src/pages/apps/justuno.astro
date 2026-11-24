@@ -24,7 +24,7 @@ const desc = description(site, 'apps/justuno');
         Justuno is what happens when list capture becomes segmentation strategy — not just a spin wheel collecting emails. Product quizzes, smart popups with behavioral targeting, gamification, and AI onsite recommendations convert traffic into tagged subscribers your lifecycle ESP can actually use. It does not send winback or cart recovery at scale. Pair with Sequenzy or Klaviyo; Justuno makes downstream email smarter by fixing upstream capture quality.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Justuno on a skincare quiz funnel, a fashion store with collection-specific exit intent, and a supplement shop comparing Privy. Quiz-sourced welcome outperformed footer capture by 24% click rate. Automation: {app.automationDepth}.
+        Proposed evaluations cover a skincare quiz funnel, a fashion store with collection-specific exit intent, and a supplement shop comparing Privy. These are illustrative scenarios; no observed test or click-rate improvement is established here. Automation: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/privy">Privy review</a>
@@ -72,7 +72,7 @@ const desc = description(site, 'apps/justuno');
         <strong>Gaps:</strong> Not an email sender for lifecycle depth. Setup complexity exceeds Privy — requires experimentation mindset. Traffic-based pricing surprises during influencer spikes. Onsite performance depends on theme compatibility — test mobile thoroughly.
       </p>
       <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Handoff requirement:</strong> Map every Justuno tag to ESP segment within 24 hours of launch. Document in shared glossary: justuno_quiz_dry_skin → welcome branch A. Without mapping, quiz is expensive entertainment.
+        <strong>Handoff requirement:</strong> Map and validate tags before enabling downstream sends, without a fixed launch deadline. Document justuno_quiz_dry_skin → welcome branch A in a shared glossary. A quiz answer is segmentation data, not channel permission. Verify permission evidence and current suppression at the destination, assign one sender per welcome step, cancel stale queues and deduplicate replayed signup events.
       </p>
     </div>
 
@@ -93,7 +93,7 @@ const desc = description(site, 'apps/justuno');
     </div>
 
     <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+      <h2 class="font-serif text-4xl font-black text-white">Four proposed workflow evaluations on Shopify</h2>
 
       <h3 class="font-serif text-2xl font-black text-white">1. Skincare quiz — tag sync to Sequenzy welcome</h3>
       <p>
@@ -108,7 +108,7 @@ const desc = description(site, 'apps/justuno');
         <strong>Scenario:</strong> Home goods; exit intent only when cart exceeds $120 and no purchase in session. <strong>Justuno setup:</strong> Free shipping offer popup; suppress repeat viewers 7 days.
       </p>
       <p>
-        <strong>Result:</strong> Capture rate 8.1% on qualified exits vs 3.4% blanket exit intent prior — fewer low-intent subscribers inflating ESP bill.
+        <strong>Evaluation:</strong> Compare qualified-exit and blanket capture policies in randomized eligible traffic with defined signup and subsequent purchase denominators. Check current purchase and subscription state before displaying the offer. Historical rates alone cannot establish improved subscriber quality; measure uncertainty and matched all-in capture, ESP, integration and operating costs.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Collection-specific popup — denim landing traffic</h3>
@@ -116,7 +116,7 @@ const desc = description(site, 'apps/justuno');
         <strong>Scenario:</strong> Fashion; Instagram ads land on /collections/denim. <strong>Justuno setup:</strong> Denim-specific creative and offer; UTM source tagging.
       </p>
       <p>
-        <strong>Result:</strong> Klaviyo welcome using collection tag saw 31% first-purchase rate vs 18% generic — capture source data flowed correctly.
+        <strong>Evaluation:</strong> Verify collection and UTM tags independently of revenue outcomes. Randomize eligible subscribers between collection-specific and generic welcome content, rechecking current purpose/channel permission and suppression before each step. Report first-purchase denominators, refunds, discounts and uncertainty; attributed purchases do not establish incremental lift.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Onsite AI recommendations — AOV lift without email</h3>
@@ -167,7 +167,7 @@ const desc = description(site, 'apps/justuno');
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">Justuno plus ESP operating playbook</h2>
       <p>
-        Week one: launch single popup or quiz; verify Shopify tag creation. Week two: map tags to ESP welcome branches; test with internal signups. Week three: enable A/B test on headline or offer. Week four: review signup quality — open rate on welcome from Justuno vs other sources.
+        Use readiness gates rather than a four-week calendar: validate one popup or quiz, Shopify tag creation, consent evidence and downstream mapping before enabling welcome sends. Check unsubscribe, purchase and subscription changes at execution and test event replay without duplicate entries. Then design a randomized headline or offer test with an adequate sample; judge signup quality using clicks, eligible purchases and contribution with uncertainty, rather than opens alone.
       </p>
       <p>
         Suppress Justuno popups for existing subscribers and recent purchasers — nothing erodes brand trust like 10% off popup when customer bought yesterday. Coordinate with ESP suppression lists via Shopify tags.
@@ -180,7 +180,7 @@ const desc = description(site, 'apps/justuno');
         <strong>Skincare quiz plus Sequenzy:</strong> Justuno quiz tags feed Sequenzy welcome branches — 24% welcome click lift vs footer capture. Capture and execution both required; either alone underperformed.
       </p>
       <p>
-        <strong>Fashion UTM popups:</strong> Collection-specific Justuno creative on paid social landers; Klaviyo welcome uses capture source tag. First-purchase rate 31% on segmented path.
+        <strong>Fashion UTM popup scenario:</strong> Evaluate collection-specific creative on paid social landers with a downstream welcome branch using capture source tags. Verify handoff accuracy separately from randomized first-purchase outcomes; no purchase rate has been measured here.
       </p>
       <p>
         <strong>Low traffic misfit:</strong> 25k sessions/mo — downgraded to Privy. Justuno A/B program needs volume to reach statistical significance within reasonable test windows.
@@ -209,7 +209,7 @@ const desc = description(site, 'apps/justuno');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>

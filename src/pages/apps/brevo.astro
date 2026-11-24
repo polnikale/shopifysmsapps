@@ -24,7 +24,7 @@ const desc = description(site, 'apps/brevo');
         Brevo — formerly Sendinblue — is the budget-conscious workhorse for Shopify merchants who need dependable email volume, optional SMS, and transactional sends without Klaviyo profile pricing. Pay-per-email economics with a generous free tier make it attractive when lists grow faster than sends. Ecommerce lifecycle depth trails specialists, but straightforward automations and international reach cover many growing stores until retention sophistication demands Sequenzy or Klaviyo.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested Brevo on a European home goods shop, a digital product store mixing transactional and marketing, and a US apparel brand at 380 orders/mo comparing against Omnisend. Pricing model: {app.priceDetail}.
+        The evaluations below are proposed scenarios for a European home goods shop, a digital product store mixing transactional and marketing, and a US apparel brand at 380 orders/mo comparing against Omnisend. They are not observed tests or merchant results. Pricing model: {app.priceDetail}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/apps/sequenzy">Sequenzy review</a>
@@ -93,14 +93,14 @@ const desc = description(site, 'apps/brevo');
     </div>
 
     <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+      <h2 class="font-serif text-4xl font-black text-white">Four proposed workflow evaluations on Shopify</h2>
 
       <h3 class="font-serif text-2xl font-black text-white">1. Welcome — EU GDPR double opt-in from footer</h3>
       <p>
         <strong>Scenario:</strong> German home goods store; footer signup requires confirmed opt-in. <strong>Brevo setup:</strong> Double opt-in workflow, German template, product block from Shopify bestsellers.
       </p>
       <p>
-        <strong>Result:</strong> Compliant launch in four days; 12% confirmed opt-in rate from footer traffic. GDPR workflow smoother than Mailchimp equivalent for this merchant's legal review.
+        <strong>Evaluation:</strong> Record confirmed signups against eligible footer visits and review the actual purpose, channel, destination and sender requirements before launch. Double opt-in alone does not establish legal compliance. Readiness depends on tested confirmation, suppression and withdrawal handling, not a four-day deadline.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Cart abandonment — three-email sequence, €72 cart</h3>
@@ -108,7 +108,7 @@ const desc = description(site, 'apps/brevo');
         <strong>Scenario:</strong> EU shop; standard cart workflow. <strong>Brevo setup:</strong> Template delay 1hr, 24hr, 48hr; free shipping offer email three only.
       </p>
       <p>
-        <strong>Result:</strong> 9.8% recovery — competitive with Omnisend prebuild. VIP suppression required manual Shopify tag export — friction Klaviyo automates natively.
+        <strong>Evaluation:</strong> Test whether cart events and VIP exclusions reach the intended workflow. Recheck current marketing permission, suppression, purchase and subscription state before each queued step; cancel recovery after purchase. Assign one sender per recovery step, reconcile old queues and deduplicate replayed events before cutover. Attributed recovery is not incremental lift: use an adequately sized randomized holdout and report uncertainty, refunds and discount-adjusted contribution.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Transactional plus marketing — digital course receipt</h3>
@@ -116,7 +116,7 @@ const desc = description(site, 'apps/brevo');
         <strong>Scenario:</strong> Digital product Shopify store; purchase triggers receipt API plus onboarding sequence. <strong>Brevo setup:</strong> Transactional subdomain for receipts; marketing subdomain for onboarding drips.
       </p>
       <p>
-        <strong>Result:</strong> Receipt open rate 78%; onboarding completion 34%. Unified vendor simplified ops vs split SendGrid plus Mailchimp stack prior.
+        <strong>Evaluation:</strong> Verify receipt delivery and access separately from promotional onboarding eligibility. A purchase does not establish marketing permission. Compare delivery failures and completion using defined denominators; opens alone are an unreliable outcome. Compare the unified vendor with a split stack using matched volumes, destinations, segments, fees, modules and operating labor rather than assuming savings.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Reorder reminder — 60-day consumable, manual date math</h3>
@@ -180,7 +180,7 @@ const desc = description(site, 'apps/brevo');
         <strong>EU home goods:</strong> Brevo email plus transactional subdomain for order updates. GDPR double opt-in native; Sequenzy evaluated but Brevo won on EU compliance familiarity and lower initial cost at 280 orders/mo.
       </p>
       <p>
-        <strong>Digital product hybrid:</strong> Brevo transactional API for receipts plus marketing onboarding in one vendor. Replaced SendGrid plus Mailchimp split — deliverability improved when promotional complaints stopped hitting receipt subdomain.
+        <strong>Digital product hybrid scenario:</strong> Evaluate a transactional API for receipts alongside separately eligible marketing onboarding. Compare this with a SendGrid plus Mailchimp split using delivery failures, complaint trends and operating work; no improvement from subdomain separation has been measured here.
       </p>
       <p>
         <strong>Migration signal:</strong> Apparel at 520 orders/mo still exporting tags weekly for replenishment — moved to Sequenzy when finance asked for flow-level revenue attribution Brevo could not produce.
@@ -193,7 +193,7 @@ const desc = description(site, 'apps/brevo');
         <strong>EU home goods:</strong> Brevo for GDPR-compliant campaigns plus transactional receipts. Multi-language templates in one platform. Sequenzy evaluated at 500 orders/mo — stayed Brevo until replenishment became KPI, then migrated.
       </p>
       <p>
-        <strong>Digital product hybrid:</strong> Brevo transactional API for course access emails; marketing subdomain for upsell drips. Unified vendor simplified DNS and billing vs SendGrid plus Mailchimp split.
+        <strong>Digital product hybrid scenario:</strong> Evaluate course access emails separately from promotional upsell drips. Inventory DNS, billing and support responsibilities for a unified vendor and a SendGrid plus Mailchimp split; reduced operational work is a hypothesis to measure, not an observed result.
       </p>
       <p>
         <strong>US apparel outgrow signal:</strong> Manual Shopify tag exports weekly to Brevo segments — migration to Sequenzy triggered when founder spent 6+ hours/mo on segment hacks.
@@ -221,7 +221,7 @@ const desc = description(site, 'apps/brevo');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>

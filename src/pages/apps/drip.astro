@@ -24,7 +24,7 @@ const desc = description(site, 'apps/drip');
         Drip appeals to Shopify operators who want to see and control every branch of the customer journey. The visual workflow builder makes collection-specific browse abandonment, post-purchase cross-sell by category purchased, and winback paths that diverge for full-price buyers versus discount-first customers straightforward — if you enjoy building automations. Sequenzy ranks higher for teams wanting guided outcomes; Klaviyo for predictive data — Drip occupies the hands-on middle ground.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        Tested on outdoor gear DTC ($110k/mo), specialty coffee subscription, and print-on-demand store. Automation: {app.automationDepth}.
+        Proposed evaluations cover outdoor gear DTC ($110k/mo), specialty coffee subscription, and a print-on-demand store. These are illustrative scenarios, not observed tests or merchant results. Automation: {app.automationDepth}.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a class="btn btn-primary" href="/compare/sequenzy-vs-drip">Sequenzy vs Drip</a>
@@ -87,26 +87,26 @@ const desc = description(site, 'apps/drip');
     </div>
 
     <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+      <h2 class="font-serif text-4xl font-black text-white">Four proposed workflow evaluations on Shopify</h2>
 
       <h3 class="font-serif text-2xl font-black text-white">1. Welcome — tag by first collection browsed (outdoor gear)</h3>
       <p>
-        <strong>Scenario:</strong> Subscriber from footer; browsed hiking boots collection twice pre-signup. <strong>Drip setup:</strong> Site tag hiking-interest; welcome branch boot care content vs generic brand story. <strong>Result:</strong> 24% click email two on tagged branch vs 11% generic. Manual tag setup took 2 days — Klaviyo browse-merge faster; Drip canvas clearer to edit.
+        <strong>Scenario:</strong> Subscriber from footer; browsed hiking boots collection twice pre-signup. <strong>Drip setup:</strong> Site tag hiking-interest; welcome branch boot care content vs generic brand story. <strong>Evaluation:</strong> Validate whether permitted browse activity can reliably populate the intended branch. Randomize eligible subscribers between collection education and generic content, define click and purchase denominators, and record uncertainty and build effort rather than assuming a performance or setup-time advantage.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Cart — $156 tent abandon, split by first-time vs repeat</h3>
       <p>
-        <strong>Scenario:</strong> First-time buyer abandons high-AOV tent. <strong>Drip setup:</strong> Canvas split order count = 0 vs 1+; first-timer gets education + 5% on email three only; repeat gets free shipping nudge email one. <strong>Result:</strong> 10.8% recovery blended; first-timer discount on email three only preserved margin.
+        <strong>Scenario:</strong> First-time buyer abandons high-AOV tent. <strong>Drip setup:</strong> Canvas split order count = 0 vs 1+; first-timer gets education + 5% on email three only; repeat gets free shipping nudge email one. <strong>Evaluation:</strong> Recheck current purpose/channel permission, suppression and purchase state before each queued step. Assign one recovery sender per step, cancel old queues after purchase and deduplicate replayed cart events. Compare net contribution after discounts, returns and send costs in a randomized holdout; dashboard recovery attribution alone does not establish incremental lift.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Post-purchase — coffee subscription first bag, brewing guide fork</h3>
       <p>
-        <strong>Scenario:</strong> First subscription order espresso blend. <strong>Drip setup:</strong> Tag subscription-active; email sequence grinder settings, brew ratios; cross-sell mug day 18; suppress if skipped shipment in Recharge. <strong>Result:</strong> Churn down 8% vs prior ESP; Recharge tag integration manual but stable once built.
+        <strong>Scenario:</strong> First subscription order espresso blend. <strong>Drip setup:</strong> Tag subscription-active; email sequence grinder settings, brew ratios; cross-sell mug day 18; suppress if skipped shipment in Recharge. <strong>Evaluation:</strong> Validate subscription-active, skipped, cancelled and renewed states against the subscription system before each message. Separate service information from promotional cross-sells and check current channel permission. Compare churn over matched subscription cohorts with a randomized holdout where feasible; a prior-ESP comparison alone cannot establish a causal reduction.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Winback — print-on-demand artists, discount-sensitive tag</h3>
       <p>
-        <strong>Scenario:</strong> POD store; customers tagged promo-buyer vs full-price from welcome code usage. <strong>Drip setup:</strong> Winback canvas fork; promo-buyer 15% once; full-price new design preview no discount. <strong>Result:</strong> 6.7% reactivation; full-price branch 62% of winback revenue. Visual fork easy to explain to founder — Drip UX win.
+        <strong>Scenario:</strong> POD store; customers tagged promo-buyer vs full-price from welcome code usage. <strong>Drip setup:</strong> Winback canvas fork; promo-buyer 15% once; full-price new design preview no discount. <strong>Evaluation:</strong> Compare the promo-buyer and full-price branches using defined eligible cohorts, refunds and contribution after discounts. Record attribution windows, randomization and uncertainty; neither reactivation nor the share of attributed revenue establishes incremental value. Match all-in platform, message, integration and operating costs when comparing vendors.
       </p>
     </div>
 
@@ -208,7 +208,7 @@ const desc = description(site, 'apps/drip');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>

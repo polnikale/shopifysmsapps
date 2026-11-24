@@ -93,14 +93,14 @@ const desc = description(site, 'apps/firepush');
     </div>
 
     <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
+      <h2 class="font-serif text-4xl font-black text-white">Four proposed workflow evaluations on Shopify</h2>
 
       <h3 class="font-serif text-2xl font-black text-white">1. Desktop cart push — electronics comparison shopping</h3>
       <p>
         <strong>Scenario:</strong> Gadget shop; 62% desktop traffic; $130 cart abandoned. <strong>Firepush setup:</strong> Push 30 minutes post-abandon with cart link; no discount.
       </p>
       <p>
-        <strong>Result:</strong> 8.1% push recovery on opted-in cohort — incremental over email alone in holdout test. Mobile push opt-in too low to measure meaningfully.
+        <strong>Evaluation:</strong> Verify current browser permission, device support and subscription validity, then randomize eligible cart abandoners between email alone and email plus push. Recheck suppression and purchase state before execution, assign one sender to each step, cancel stale queues and deduplicate replayed events. Report sample size, uncertainty and net contribution; no recovery or incremental lift has been measured here.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Back-in-stock push — single SKU hype product</h3>
@@ -108,7 +108,7 @@ const desc = description(site, 'apps/firepush');
         <strong>Scenario:</strong> Limited gadget restock; 400 push subscribers waitlisted via onsite opt-in. <strong>Firepush setup:</strong> Instant push on inventory positive in Shopify.
       </p>
       <p>
-        <strong>Result:</strong> Sold 85 units in 4 hours; push drove 61% of restock purchases vs email 39%. Speed advantage clear.
+        <strong>Evaluation:</strong> Measure eligible waitlist delivery, stock availability at click and completed purchases. Attributed channel shares depend on overlapping messages and windows; they do not establish a speed advantage or causal sales lift. Use a randomized holdout where stock constraints permit and report uncertainty and stockout effects.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. SMS cart recovery — budget alternative to Postscript</h3>
@@ -116,7 +116,7 @@ const desc = description(site, 'apps/firepush');
         <strong>Scenario:</strong> Startup fashion; 280 orders/mo; testing SMS before Postscript budget. <strong>Firepush setup:</strong> Two-touch SMS cart sequence with 10% cap email two equivalent.
       </p>
       <p>
-        <strong>Result:</strong> 9.4% SMS recovery — adequate at volume. Compliance documentation less rigorous than Postscript — upgraded at 600 orders/mo.
+        <strong>Evaluation:</strong> Validate purpose/channel permission, opt-outs, quiet-hour controls and reply ownership before enabling the proposed two-touch sequence. Assess current vendor controls rather than assuming an order-count threshold establishes readiness. Compare matched all-in platform, carrier, segment, destination, integration and labor costs, with discounts and returns included in contribution.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Price drop alert — viewed product notification</h3>
@@ -124,7 +124,7 @@ const desc = description(site, 'apps/firepush');
         <strong>Scenario:</strong> Home goods; customer viewed $240 lamp, no purchase; price reduced 15%. <strong>Firepush setup:</strong> Push alert to viewers who opted in within 14 days.
       </p>
       <p>
-        <strong>Result:</strong> 12% conversion on price drop push cohort — incremental revenue without blanket sale email to full list.
+        <strong>Evaluation:</strong> Check current channel permission, suppression, purchase and subscription state before dispatch. Define the eligible viewer cohort and measure discount-adjusted contribution against a randomized holdout; attributed conversions alone do not show incremental revenue. The 14-day audience window is a proposed test parameter, not continuing permission.
       </p>
     </div>
 
@@ -180,7 +180,7 @@ const desc = description(site, 'apps/firepush');
         <strong>Gadget shop desktop-heavy:</strong> Firepush web push plus Sequenzy email — push incremental 4.2% cart recovery on opted-in desktop cohort at $12/mo early stage.
       </p>
       <p>
-        <strong>Back-in-stock hype SKU:</strong> Firepush push sold 61% of restock units in 4 hours — speed beat email for waitlisted subscribers watching inventory.
+        <strong>Back-in-stock hype SKU scenario:</strong> Evaluate push and email for the same eligible waitlist with comparable timing and available inventory. Record deliveries, purchases and stockouts; no channel share or speed advantage is established here.
       </p>
       <p>
         <strong>900 orders/mo graduation:</strong> Retained Firepush push at $35/mo; moved SMS to Postscript for compliance depth as volume scaled. Push channel capped at two promotional sends weekly.
@@ -209,7 +209,7 @@ const desc = description(site, 'apps/firepush');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>Before sending, establish the requirements for the message purpose, channel, destination and sender. Retain permission evidence and withdrawal history; check current suppression, quiet-hour rules and subscription state at execution. A purchase, email signup or imported phone number alone does not establish permission for promotional SMS. Confirm each vendor's current controls and assign ownership of checkout, popup and keyword consent copy and reply handling.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
