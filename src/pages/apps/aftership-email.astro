@@ -21,7 +21,7 @@ const desc = description(site, 'apps/aftership-email');
       <p class="badge mt-6">Post-purchase timing · Rank #16</p>
       <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
       <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        AfterShip Email is post-purchase messaging tied to shipping reality — not another general ESP fighting Klaviyo on welcome series depth. When your retention moments depend on delivery confirmation, delay exceptions, return initiation, and review timing anchored to doorstep arrival, AfterShip Email leverages tracking infrastructure most lifecycle platforms approximate with fulfillment webhooks. Best when you already run AfterShip Tracking; weak as standalone email strategy for entire Shopify store.
+        Evaluate the specific AfterShip product and account before assigning post-purchase messaging. Email, Tracking and Returns are distinct products; access to carrier events or returns data in one does not establish email automation capability in another. For delivery confirmation, delay exceptions, returns and review timing, verify the actual event source, integration, entitlement and queue owner. Retained suite comparisons and merchant anecdotes below lack primary verification and do not establish observed results.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
         We tested AfterShip Email on a perishable food brand with cold-chain anxiety, a furniture store with long lead times, and a beauty shop pairing with Sequenzy for pre-purchase lifecycle. Category: {app.category}.
@@ -100,7 +100,7 @@ const desc = description(site, 'apps/aftership-email');
         <strong>Scenario:</strong> Meal kit brand; reviews requested too early caused 1-star "arrived warm" when delivery delayed. <strong>AfterShip setup:</strong> Review email 36 hours after carrier "delivered" scan; suppress if exception flagged.
       </p>
       <p>
-        <strong>Result:</strong> Average review score improved 4.1 to 4.5 stars; premature complaint reviews dropped 62%. Delivery trigger essential for this vertical.
+        <strong>Result:</strong> Proposed check: validate event freshness and delivery exceptions before scheduling an eligible review request. Compare review response and complaint rates with comparable cohorts; no review-score improvement has been verified.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">2. Shipment delay proactive email — custom furniture</h3>
@@ -108,7 +108,7 @@ const desc = description(site, 'apps/aftership-email');
         <strong>Scenario:</strong> 6-week lead time furniture; carrier delay on final mile. <strong>AfterShip setup:</strong> Exception trigger sends apology, updated ETA, support contact — before customer discovers delay independently.
       </p>
       <p>
-        <strong>Result:</strong> Support tickets on delayed orders down 34%. No direct revenue attribution — operational ROI clear.
+        <strong>Result:</strong> Proposed check: confirm delay-event accuracy, permitted service-message purpose and support ownership. Measure ticket volume and staff time against comparable shipments; no support reduction or operational ROI is established.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Post-delivery cross-sell — beauty, paired with Sequenzy</h3>
@@ -124,7 +124,7 @@ const desc = description(site, 'apps/aftership-email');
         <strong>Scenario:</strong> Apparel 28% return rate; return initiated in AfterShip Returns. <strong>AfterShip setup:</strong> Email with return status, exchange suggestion, label reminder — not winback discount yet.
       </p>
       <p>
-        <strong>Result:</strong> Exchange rate on return flow 19% vs 11% prior email-less returns portal. Reduced refund-only outcomes.
+        <strong>Result:</strong> Proposed check: verify return-state updates and cancel obsolete reminders when the return closes. Keep service notifications distinct from promotional exchange offers, which need an applicable permission basis. No exchange-rate result is verified.
       </p>
     </div>
 
@@ -167,7 +167,7 @@ const desc = description(site, 'apps/aftership-email');
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">AfterShip plus ESP stack discipline</h2>
       <p>
-        Create message ownership matrix: ESP owns pre-purchase and long-cycle lifecycle; AfterShip owns shipment through delivery plus returns. Disable overlapping triggers in ESP before enabling AfterShip equivalents. Review matrix quarterly when adding new flows.
+        Create a message ownership matrix only after verifying each product and integration. Assign one sender and queue owner per purpose. Before dispatch, recheck current permission, suppression, purchase, shipment and subscription state. Disable old triggers, cancel pending messages and deduplicate replayed events before enabling replacements. Review ownership whenever flows change.
       </p>
       <p>
         Gift order suppression flows from Shopify tags — both tools must respect gift_message or custom gift tags. Review asks to gift recipients damage NPS and generate unfair product feedback.
@@ -193,7 +193,7 @@ const desc = description(site, 'apps/aftership-email');
         <strong>Perishable food plus Sequenzy:</strong> Sequenzy welcome and cart; AfterShip delivery-confirmed review asks. Review scores improved when timing matched actual delivery not warehouse scan.
       </p>
       <p>
-        <strong>Furniture long lead time:</strong> AfterShip delay exception emails reduced WISMO tickets 34%. Support labor savings justified AfterShip suite independent of email-attributed revenue.
+        <strong>Furniture long lead time:</strong> Illustrative delay-message evaluation: verify which product supplies exceptions and which sender owns the queue. Compare measured support labor, all-in suite charges and integration work against a suitable baseline; no 34% ticket reduction or savings is evidenced.
       </p>
       <p>
         <strong>Online-only apparel misfit:</strong> Installed AfterShip Email without Tracking — poor standalone value. Uninstalled after 60 days; Sequenzy post-purchase sufficient for simple domestic shipping.
