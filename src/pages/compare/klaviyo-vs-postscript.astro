@@ -11,11 +11,11 @@ const desc = 'Klaviyo vs Postscript for Shopify stores — full retention stack 
 const faqs = [
   {
     question: 'Is Klaviyo or Postscript better for Shopify SMS?',
-    answer: 'Postscript is SMS-native — compliance tooling, two-way conversations, keyword opt-in, and cart recovery via text are core. Klaviyo offers strong SMS integrated with email flows and unified suppression. Choose Postscript when SMS is a primary revenue channel with dedicated ownership. Choose Klaviyo SMS when you want one platform for email-plus-SMS lifecycle with shared segments.',
+    answer: 'Evaluate SMS ownership against current integration, destination and plan scope in both accounts. Demonstrate permission capture, opt-outs, quiet hours, replies and dispatch-time exclusions on the same scenarios. Choose from safe operation and the support your team requires; a platform label does not establish a universal SMS winner.',
   },
   {
     question: 'Can Postscript replace Klaviyo entirely?',
-    answer: 'No for most stores. Postscript is SMS-first — it does not replace Klaviyo\'s email depth, browse abandonment, predictive CLV, or full flow builder for email. Typical stack: Klaviyo for email lifecycle, Postscript for SMS. Some brands run Klaviyo for both channels when SMS volume is moderate and unified reporting matters more than Postscript\'s SMS specialization.',
+    answer: 'Inventory every required email, SMS, reporting and integration function before deciding whether either current product can replace the other. Confirm available channels, modules, destinations and plan entitlements in writing. A replacement must preserve permission records, suppressions, journey logic and operational ownership; do not infer email availability or absence from SMS-first positioning.',
   },
   {
     question: 'How does Klaviyo vs Postscript pricing compare for SMS?',
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: 'Which has better TCPA compliance tooling?',
-    answer: 'Postscript leads — keyword management, opt-out handling, quiet hours, and compliance dashboards are built for SMS-first operators. Klaviyo SMS compliance is solid but email-native teams sometimes underestimate TCPA risk. If SMS is 30%+ of retention revenue, Postscript\'s guardrails justify consideration.',
+    answer: 'Compare the actual permission evidence, STOP/HELP handling, quiet-hour configuration, reply ownership and audit exports in the proposed accounts. Validate requirements for the intended purpose, sender and destination with the responsible reviewer. A share of attributed revenue does not determine legal requirements, and tooling alone does not establish compliance or a supplier winner.',
   },
   {
     question: 'Which handles cart abandonment better?',
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'If evaluating SMS ownership: run cart abandonment SMS, flash sale broadcast with quiet hours, keyword opt-in from popup, and two-way reply handling. Postscript should win SMS-specific tests. If evaluating full retention: run email welcome, browse abandonment, and winback in Klaviyo — Postscript is not in that race. Most stores need both tools or Klaviyo alone, not Postscript alone.',
+    answer: 'Propose the same cart SMS, peak broadcast, keyword acquisition and two-way reply scenarios in each eligible account. Check current channel and plan scope first, then permission for the intended purpose and channel, current suppression, purchase and subscription state at dispatch. Assign sender and queue ownership, cancel stale messages and test replay deduplication. Evaluate email requirements separately. Dashboard attribution is not causal lift; use an eligible randomized holdout and report uncertainty before claiming incremental recovery.',
   },
 ];
 ---
@@ -55,7 +55,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Klaviyo vs Postscript for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Another comparison that is often framed wrong. Klaviyo is a full retention platform with strong SMS. Postscript is SMS-native infrastructure that assumes email lives elsewhere. We evaluated both through a $110k/mo streetwear label running Klaviyo email plus Postscript SMS, a beauty brand consolidating onto Klaviyo-only to reduce stack sprawl, and a supplement shop that mistakenly tried Postscript as its only marketing tool.
+          Use proposed streetwear, beauty and supplement scenarios to evaluate separate channel ownership, consolidation and full-platform replacement. These are evaluation plans, not documented merchant tests or mistakes. Verify current email and SMS modules, supported destinations, integrations and plan scope before assuming that either product requires a companion or replaces the whole stack.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -97,12 +97,12 @@ const faqs = [
           Merchants search "Klaviyo vs Postscript" when SMS bills spike or when an agency recommends splitting channels. The decision is rarely either/or — it is whether SMS deserves a specialized tool on top of Klaviyo email, or whether Klaviyo's bundled SMS is sufficient for your volume and risk tolerance. Postscript as your only marketing platform is a category error the supplement shop learned expensively.
         </p>
         <p>
-          The streetwear label treated SMS as 35% of attributable retention revenue. Postscript's keyword campaigns, drop alerts, and conversational cart recovery justified dedicated SMS ownership. Klaviyo still ran email browse abandonment and post-purchase cross-sell — channels Postscript does not replace.
+          For the streetwear scenario, test keyword acquisition, drop alerts and conversational cart recovery alongside browse and post-purchase email requirements. Document the actual product and plan responsible for each function, including reply handling. A proposed 35% attributed SMS share does not establish incremental revenue or justify a particular architecture.
         </p>
 
         <h2>Workflow test: abandoned cart via SMS</h2>
         <p>
-          Postscript fired cart SMS within 15 minutes with compliant opt-out language and dynamic short links. Two-way replies routed to a human for sizing questions on limited drops — revenue Klaviyo SMS could approximate but with less conversational polish. Klaviyo SMS cart recovery integrated with email suppression so shoppers who converted via email did not receive redundant texts.
+          Propose cart tests with identical eligible audiences, event windows and purchase exclusions. Demonstrate current opt-out language, links, reply routing and quiet-hour handling in each account. Recheck purpose-specific channel permission, suppression, purchase and subscription state at dispatch. No fifteen-minute recovery, conversational advantage or unified suppression outcome has been measured here.
         </p>
         <p>
           The streetwear label sequenced Postscript SMS at 20 minutes, Klaviyo email at 90 minutes — complementary timing. Duplicate messaging occurred until they synced purchase events bidirectionally; a week of sloppy overlap cost complaints and unsubscribes.
@@ -113,7 +113,7 @@ const faqs = [
           Postscript broadcast to 41k opted-in subscribers with quiet hours, segment by purchase recency, and real-time opt-out processing. Bill for the drop: $2,400 in message fees — painful but attributable revenue was $38k. Klaviyo SMS broadcast was operationally similar but the beauty brand consolidating to Klaviyo-only valued unified email-plus-SMS reporting in one BFCM dashboard.
         </p>
         <p>
-          Compliance edge case: the supplement shop sent promotional SMS without documented keyword opt-in from a list import. Postscript's compliance review flagged the risk pre-send. Klaviyo would have sent with configured consent — the lesson is SMS-native tooling catches mistakes email-native teams make.
+          Use an imported supplement audience as a controlled permission-review scenario. An import is not new consent, and keyword capture is not the only possible evidence format. Verify the actual permission scope, sender, purpose and destination requirements before enabling a message. Test both accounts with ineligible profiles; no supplier intervention or hypothetical send permission is established here.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
@@ -126,17 +126,17 @@ const faqs = [
 
         <h2>Shopify data depth in production</h2>
         <p>
-          Klaviyo's browse abandonment, predictive CLV, and email flow logic have no Postscript equivalent. Postscript triggers on Shopify cart, checkout, and order events for SMS — appropriately scoped. If your retention strategy requires email behavioral depth, Postscript cannot be your primary platform regardless of SMS performance.
+          Inventory browse, predictive, email and SMS requirements separately. Verify each current module, integration and plan rather than assuming email depth is absent from an SMS-focused product. A primary-platform decision depends on demonstrated coverage, data portability and ownership of active journeys; it cannot be inferred from a category label.
         </p>
         <p>
-          Postscript's advantage is SMS operational maturity: reply handling, subscriber growth tools tied to TCPA, and Shopify-specific automations refined over years of DTC focus. That specialization matters when text is not an afterthought.
+          Compare reply routing, permission evidence, subscriber acquisition and Shopify event handling in the actual proposed accounts. Check who monitors failures, updates suppressions and maintains the integration after handover. Specialization is an evaluation hypothesis, not proof of compliance or an observed operational advantage.
         </p>
 
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Klaviyo (including SMS) if:</strong></p>
         <ul>
           <li>You want one platform for email and moderate SMS with unified segments</li>
-          <li>SMS is under 20% of retention revenue and compliance risk is managed</li>
+          <li>Current channel scope and permission controls meet your requirements</li>
           <li>Reporting simplicity outweighs SMS specialization</li>
           <li>Your team lacks bandwidth to operate two lifecycle tools</li>
         </ul>
@@ -144,7 +144,7 @@ const faqs = [
         <ul>
           <li>SMS is a dedicated revenue channel with its own owner</li>
           <li>Two-way conversations and keyword campaigns drive drops</li>
-          <li>TCPA compliance rigor is non-negotiable for your legal comfort</li>
+          <li>Your responsible reviewer has validated purpose, sender and destination requirements</li>
           <li>Mobile-first shoppers convert better via text than email for urgency</li>
         </ul>
 
@@ -155,7 +155,7 @@ const faqs = [
 
         <h2>Verdict</h2>
         <p>
-          Klaviyo vs Postscript is not a replacement decision — it is a channel architecture decision. Klaviyo wins email and offers sufficient SMS for many stores. Postscript wins SMS depth and belongs in stacks where text revenue justifies specialized tooling. The supplement shop's mistake was choosing Postscript instead of Klaviyo; the streetwear label's win was pairing them with clear ownership boundaries. Map your channel mix before picking vendors.
+          Decide whether this is a channel replacement, consolidation or complementary-stack evaluation from verified current scope. Map every required journey to a sender and queue owner, test cancellation and replay deduplication, and assess maintenance responsibilities. No supplement-store failure or streetwear pairing win is documented here; choose from the evidence gathered on the same scenarios.
         </p>
       </article>
 
