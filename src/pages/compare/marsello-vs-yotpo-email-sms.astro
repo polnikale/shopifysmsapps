@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     question: 'Which has better loyalty-triggered email?',
-    answer: 'Both handle loyalty natively when loyalty module is active. Marsello integrates POS earn events without third-party sync — stronger for hybrid retail. Yotpo Loyalty plus Email triggers on point milestones with review status segmentation — stronger for UGC-heavy beauty and supplement brands. Choose based on whether checkout happens in-store or online.',
+    answer: 'Separate loyalty state from email delivery. Demonstrate a qualifying purchase, tier change and return in the ledger, then trace the event to the supported sender. Compare the actual integration contract and current product availability; a suite label does not prove that a loyalty milestone can safely enqueue a message.',
   },
   {
     question: 'Can I use Marsello for loyalty and Yotpo for reviews only?',
-    answer: 'Possible but fragile — duplicate post-purchase emails asking for reviews and points create customer fatigue. Coordinate triggers so review request fires once. Many brands pick one loyalty owner: Marsello for retail POS or Yotpo for reviews-led DTC. Splitting increases integration maintenance without clear ROI.',
+    answer: 'Assign one loyalty ledger and one review-request sender. Map delivery events, current return state and replay IDs before enabling either workflow. A points confirmation and a review request have different jobs; coordinate their timing and stop old queued requests during migration rather than assuming that a shared customer profile prevents duplicates.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Marsello or Yotpo?',
@@ -31,15 +31,15 @@ const faqs = [
   },
   {
     question: 'Which platform handles review request email better?',
-    answer: 'Yotpo natively — review request timing, visual UGC blocks in campaigns, and segmentation by review status are core. Marsello focuses on loyalty triggers over review collection — pair Judge.me or Yotpo Reviews separately if reviews matter. UGC-heavy brands lean Yotpo; loyalty-heavy retail leans Marsello.',
+    answer: 'Evaluate delivered-item eligibility, return exclusions, review submission deduplication and moderation ownership. For visual content, separately record permission and approved channels of reuse. Review collection is a different job from awarding loyalty points, and an existing Reviews account does not establish current email sender availability.',
   },
   {
     question: 'Does Yotpo SMS match Marsello for retail?',
-    answer: 'Neither is SMS-first for retail associates. Yotpo SMS handles promotional and loyalty texts for online subscribers. Marsello SMS capabilities are limited — email remains primary. For retail SMS at checkout opt-in, evaluate Attentive or Postscript alongside either platform.',
+    answer: 'Confirm current SMS product availability and supported integrations before comparing retail messaging. For a POS customer, inspect the purpose-specific opt-in record, current suppression state and sender responsible for waiting texts. A loyalty account or review submission alone is not permission for promotional SMS.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Build POS purchase follow-up with points earn, loyalty tier upgrade, post-purchase review request, abandoned cart with social proof, and winback with loyalty incentive. If POS is live and associates reference points at checkout, score Marsello. If Reviews module drives UGC and you segment by reviewer status, score Yotpo.',
+    answer: 'For loyalty, test a POS purchase followed by an online return and identity merge. For reviews, test delivered, delayed and returned line items plus a repeated delivery event. Require one correct ledger and one eligible review request, with a named sender and documented content reuse permission.',
   },
 ];
 ---
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Marsello vs Yotpo Email & SMS for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Two retention suites with different centers of gravity. Marsello optimizes for retail loyalty — points earned in-store, redeemed online, email reinforcing the loop. Yotpo optimizes for UGC-led retention — reviews collected post-purchase, loyalty points layered on, email and SMS in one modular ecosystem. We evaluated both through a boutique skincare brand on Yotpo Reviews weighing loyalty add-on, a multi-location candle retailer on Marsello expanding email, and a supplement DTC drowning in duplicate post-purchase messages.
+          This comparison separates two jobs: reconciling loyalty across retail and online checkout, and collecting reviews with permission to reuse customer content. The candle-retailer, skincare and supplement scenarios below are proposed evaluations, not merchant observations. Existing Reviews or Loyalty usage does not establish current availability of an Email or SMS product; confirm the supported sender and integration before planning a consolidation.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -98,18 +98,18 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Marsello and Yotpo Email & SMS both promise retention beyond bare email — but they anchor on different loops. Marsello asks: how do we make customers return to our store, physically or digitally, through points and tiers? Yotpo asks: how do we turn purchasers into reviewers, advocates, and loyalty members through UGC? The candle retailer's customers visited quarterly in person and browsed online between visits — Marsello's POS sync made those touchpoints one profile. The skincare brand never saw customers in person — Yotpo's review photos in cart recovery emails drove conversion.
+          For a candle retailer, a POS receipt and a later refill order must resolve to the correct loyalty member. For a skincare store, a delivered product must resolve to the correct review request, while any photo used in marketing needs appropriate reuse permission. Those are different acceptance criteria. Compare them separately rather than treating more modules as evidence of a better customer journey.
         </p>
         <p>
-          The supplement DTC had Yotpo Reviews, attempted Yotpo Loyalty, and Marsello trial simultaneously — three post-purchase emails within five days destroyed trust faster than either platform alone. Suite comparisons must include operational discipline, not just feature checklists.
+          Proposed supplement-store audit: map the delivery event to every review request, points confirmation and marketing follow-up it can enqueue. Record the sender, eligibility rule and cancellation owner for each. Multiple messages are not evidence of damaged trust by themselves; examine purpose, timing, permission and complaints without inventing a merchant outcome.
         </p>
 
         <h2>Merchant scenario: candle retailer with four POS locations</h2>
         <p>
-          Seasonal shoppers bought gift sets in-store during holidays and reordered refills online in spring. Marsello linked POS purchases to online profiles — gift buyer in December received replenishment email in March with points balance from in-store earn. Yotpo trial required Loyalty module configuration without native associate iPad view at checkout — online loyalty worked, in-store earn needed workarounds.
+          Proposed candle-retailer evaluation: mark a holiday gift purchase separately from a personal refill purchase. Join POS and online records using a reconciled customer identity, then test a return and a merged account. A gift buyer should not automatically enter the recipient refill journey, and a reversed purchase should not continue to qualify the member for an earned benefit.
         </p>
         <p>
-          Marsello attributed 31% of online refill revenue to loyalty-triggered email cross-channel. Yotpo would have needed POS integration investment the team deferred. Retail footprint determined the winner before email depth was tested.
+          No 31% cross-channel revenue result is established here. Trace a refill order back to eligible loyalty events and the designated sender, while retaining orders that occurred without message exposure. Attribution can describe a reporting rule; incremental refill revenue requires a suitable comparison group and explicit treatment of seasonality and gift purchases.
         </p>
 
         <h2>Merchant scenario: skincare DTC on Yotpo Reviews</h2>
@@ -122,7 +122,7 @@ const faqs = [
 
         <h2>Workflow test: post-purchase review request</h2>
         <p>
-          Yotpo fired review request 10 days post-delivery with product image from line item and one-click review form — 18% review conversion on hero SKUs. Marsello post-purchase focused on points earn confirmation — review collection required Judge.me integration and separate trigger timing.
+          Proposed review-request test: use a delivered line item, a delayed shipment and a returned item. Check the request against delivery and return state immediately before sending. Record one request per eligible item or documented order-level policy, and replay the delivery event to check deduplication. No 18% review-conversion result or observed timing is established here.
         </p>
         <p>
           For brands where UGC fuels paid social and cart recovery, Yotpo's native loop saves weekly hours. For brands where repeat visit rate matters more than review volume, Marsello's points confirmation email drives different KPI.
@@ -133,7 +133,7 @@ const faqs = [
           Yotpo cart email two pulled five-star review snippets for cart SKUs dynamically — credible social proof without manual creative updates. Marsello cart email two showed points balance toward free product — incentive-based rather than proof-based recovery.
         </p>
         <p>
-          A/B tests on the supplement catalog favored UGC blocks for cold traffic and points reminders for loyalty members — segmentation discipline required regardless of platform.
+          A proposed content experiment should compare approved review content with a clearly defined alternative for the same eligible audience. Keep offer, send timing and attribution window comparable, and retain a no-message holdout if estimating incremental orders. No supplement-store A/B result is asserted here.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
@@ -164,7 +164,7 @@ const faqs = [
 
         <h2>Verdict</h2>
         <p>
-          Marsello wins when retail POS and unified loyalty are your retention engine. Yotpo Email & SMS wins when Reviews and UGC already anchor your stack and modular consolidation reduces vendor sprawl. Run the post-purchase workflow test — review request versus points earn — on your actual customer journey. The winner matches where checkout happens and what behavior you are trying to repeat.
+          Choose a workflow owner before choosing a suite. The retail test should pass identity reconciliation, return reversal and associate lookup; the reviews test should pass delivery eligibility, one-request ownership and content reuse permission. A product label does not prove that an available sender supports either integration. Keep the current messaging product and migration path unresolved until documented.
         </p>
       </article>
 
