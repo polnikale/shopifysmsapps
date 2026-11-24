@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     question: 'Which has better Shopify ecommerce automation?',
-    answer: 'Comparable depth for core lifecycle — cart, welcome, post-purchase, winback. Drip\'s visual canvas offers more transparent custom branching for operators who want to see every node. Sendlane offers ecommerce-first templates and guided flow recreation during migration — faster time-to-live when internal team lacks ESP build experience.',
+    answer: 'Evaluate the same welcome, cart, post-purchase and winback journeys in each account. Confirm the current Shopify integration, event payloads, branching and support included in the proposed plan. Compare edit safety and your team\'s maintenance workload rather than assuming template availability or faster launch.',
   },
   {
     question: 'Can Sendlane help with migration from Drip or to Drip?',
-    answer: 'Sendlane positions guided migration for DTC brands — useful when leaving Klaviyo, Mailchimp, or legacy ESPs with hands-on flow recreation. Migrating from Drip to Sendlane is uncommon; more typical is Sendlane as Klaviyo alternative vs Drip as self-serve intermediate. Migrating Drip to Sendlane: export contacts, rebuild flows with Sendlane onboarding help — budget 2–4 weeks with guided support vs 2–3 weeks self-serve on Drip.',
+    answer: 'Confirm the current migration service and its written scope in each proposal. Inventory contacts, permission records, suppressions, event history and active journeys; establish which fields transfer and which flows require rebuilding. Schedule cutover from verified dependencies and acceptance checks rather than a fixed number of weeks. Assign one sender and queue owner per journey, cancel old queued messages, and test replay deduplication before activation.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Drip or Sendlane?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Which handles migration from Klaviyo better?',
-    answer: 'Sendlane leads with white-glove onboarding, deliverability consultation, and flow recreation coaching — valuable when leaving Klaviyo because the team cannot maintain it alone. Drip requires self-serve canvas rebuild — powerful results but 2–3 weeks of operator time. Choose Sendlane when migration bandwidth is the constraint; Drip when the operator has build capacity.',
+    answer: 'Compare the actual migration scope offered for your account: data mapping, flow recreation, sender authentication, suppression transfer, support and acceptance testing. Do not assume either supplier must be self-serve or that guided support guarantees a faster launch. Select the service your team can operate after handover, with explicit ownership of old and new queues.',
   },
   {
     question: 'Does Drip\'s self-serve model matter vs Sendlane support?',
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Build welcome (branch by signup source), three-step cart (winback suppression), post-purchase cross-sell, winback (VIP vs one-time buyer). Score time-to-live, edit safety during sales, and whether your team will self-maintain or needs guided support. If operator bandwidth exists, lean Drip. If migration complexity and retention investment justify hands-on help, lean Sendlane.',
+    answer: 'Propose four journeys: welcome by signup source, cart recovery, post-purchase cross-sell and winback by purchase history. Confirm current channel and plan scope, then check purpose-specific channel permission, suppression, purchase and subscription state again at dispatch. Define sender and queue ownership, cancellation and replay deduplication across journeys. Score setup effort, safe edits and ongoing maintenance. Dashboard attribution is not causal lift; a randomized holdout needs a defined eligible cohort and uncertainty reporting.',
   },
 ];
 ---
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Drip vs Sendlane for Shopify SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Self-serve visual automation versus guided ecommerce retention platform. Drip serves operators who design behavior-based journeys on a canvas and maintain them without external help. Sendlane serves DTC brands with enough order volume to justify migration support, deliverability consultation, and ecommerce-first templates with human onboarding. We compared both on a $135k/mo home goods store migrating off Klaviyo with Sendlane guidance, a $78k/mo pet supplies brand whose operator built custom replenishment logic in Drip, and a high-end audio retailer that chose Sendlane for guided setup when internal bandwidth could not support a self-serve rebuild.
+          Compare workflow control and migration support against your own Shopify requirements. A home goods store rebuilding neglected Klaviyo journeys, a pet supplies brand designing replenishment by bag size, and an audio retailer with a long consideration cycle are proposed evaluation scenarios, not documented merchant results. Confirm current email and SMS availability, destinations, integration and plan scope before treating either product as a channel replacement; the SMS heading does not establish that capability.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -98,7 +98,7 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Drip and Sendlane both target serious Shopify retention — not newsletter casuals. The fork is how your team wants to implement and maintain. Drip assumes you have (or will hire) an operator who enjoys canvas building and self-serve iteration. Sendlane assumes you will invest in a platform with human onboarding because migration complexity or bandwidth constraints make self-serve rebuilds risky. The home goods store left Klaviyo not because features failed but because nobody maintained flows for nine months — Sendlane's guided migration recreated four core journeys in two weeks with deliverability warm-up coaching included.
+          Use the home goods scenario to evaluate responsibility for implementing and maintaining journeys. Inventory the four core flows, event dependencies and existing queues before comparing a self-managed rebuild with contracted help. Ask each supplier to demonstrate the current tools and state which migration and deliverability tasks its proposed service includes. No nine-month maintenance lapse, two-week rebuild or merchant outcome is established here.
         </p>
         <p>
           The pet supplies brand had the opposite profile: one retention owner who migrated from Mailchimp to Drip in twelve days, built replenishment branches by bag size on the canvas, and edits winback logic before every promo. Sendlane's premium would have bought support they would not use. Drip's economics and transparency matched their operator-first culture.
@@ -109,7 +109,7 @@ const faqs = [
           Drip built welcome on canvas with explicit nodes for popup vs footer signup and first-category-viewed branch — one afternoon, fully auditable. Sendlane activated ecommerce welcome templates during guided onboarding, then customized exclusion for wholesale-tagged customers with onboarding specialist review — live in three days with fewer operator hours but higher platform cost. For teams with build capacity, Drip wins economics. For teams without, Sendlane wins time-to-revenue.
         </p>
         <p>
-          The high-end audio retailer wanted welcome to emphasize warranty registration before any cross-sell. Sendlane's onboarding team structured the trust-first sequence from comparable migrations — pattern recognition the solo Drip operator would have built from scratch over two weeks of testing.
+          For the proposed audio retailer, evaluate a welcome sequence that explains warranty registration before cross-sell. Separate service information from promotional messages and verify the permission required for each purpose and channel. Ask both teams to build the same branches and document who maintains them; neither a supplier advantage nor a two-week implementation time has been measured.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
@@ -117,7 +117,7 @@ const faqs = [
           Both recovered carts effectively for $110–$175 AOV tests. Drip's cart workflow showed discount-sensitive branching with canvas clarity — the pet supplies operator A/B tested education vs 10% off with visible node paths. Sendlane cart templates shipped faster during migration with recommended three-step structure; customization for VIP exclusion required support ticket vs self-serve canvas edit depending on package level.
         </p>
         <p>
-          Cross-journey suppression — exclude shoppers in active winback — was achievable on both after proper setup. Drip's visual rules made sale-week edits safer for the pet supplies operator who works alone. Sendlane's quarterly performance reviews caught a suppression gap the home goods team had normalized — external review value the Drip-only shop would need to self-audit.
+          Evaluate cross-journey suppression explicitly rather than assuming setup solves it. At dispatch, recheck permission for the intended purpose and channel, current opt-out and suppression state, completed purchases and relevant subscriptions. Assign cart and winback sender and queue ownership, cancel stale scheduled messages and deduplicate replayed events. Compare sale-week edit safety and the review service actually included; no suppression audit outcome is documented here.
         </p>
 
         <h2>Pricing reality: autonomy vs support premium</h2>
@@ -130,23 +130,23 @@ const faqs = [
 
         <h2>Shopify data depth in production</h2>
         <p>
-          Both cover standard ecommerce triggers well — cart, order, product, tags. Drip goes deeper on custom field branching visible on canvas — natural for irregular replenishment and VIP segmentation the pet supplies brand built. Sendlane offers revenue attribution and A/B testing with ecommerce-first defaults — sufficient for most DTC catalogs with onboarding help for edge cases like the audio retailer's long consideration window.
+          Check the actual Shopify payloads for cart, order, product and tag events in each proposed integration. Use the pet supplies scenario to test custom fields, bag-size replenishment and VIP exclusions; use the audio scenario to test a long consideration window. Verify current attribution and experiment features in the selected plan rather than inferring capability from a platform label. Attributed revenue does not establish incremental recovery.
         </p>
         <p>
-          The high-end audio retailer's 140-day purchase cycle required trust sequences before promo — Sendlane migration included winback audit cadence quarterly; reactivation rate stable, unsubscribes down 18% after guided restructure. Drip could achieve identical outcomes with a skilled operator; Sendlane compressed the learning curve with pattern libraries from comparable migrations.
+          A hypothetical 140-day audio purchase cycle can test whether educational messages and winback eligibility remain appropriate as customer state changes. Record how each account handles purchase suppression, late events and service-versus-marketing purpose. If testing reactivation, randomize an eligible holdout and report uncertainty alongside unsubscribes and completed orders; no stable reactivation rate, 18% unsubscribe reduction or identical supplier outcome has been observed.
         </p>
 
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Drip if:</strong></p>
         <ul>
           <li>You have a retention operator who will maintain the canvas monthly</li>
-          <li>Self-serve migration from Mailchimp or basic ESP is realistic in 2–3 weeks</li>
+          <li>Your migration inventory and acceptance tests support a self-managed cutover</li>
           <li>Transparent workflow logic matters more than white-glove onboarding</li>
           <li>Budget favors lower platform TCO when operator bandwidth exists</li>
         </ul>
         <p><strong>Choose Sendlane if:</strong></p>
         <ul>
-          <li>Order volume exceeds 5,000/month and retention investment is strategic</li>
+          <li>Journey complexity and maintenance needs justify the proposed support scope</li>
           <li>Leaving Klaviyo or complex ESP because the team cannot maintain it alone</li>
           <li>Migration complexity exceeds internal bandwidth — October cutover risk is real</li>
           <li>You will use guided onboarding, deliverability review, and quarterly audits</li>
