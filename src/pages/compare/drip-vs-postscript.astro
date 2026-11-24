@@ -11,11 +11,11 @@ const desc = 'Drip vs Postscript for Shopify stores — visual email workflow co
 const faqs = [
   {
     question: 'Is Drip or Postscript better for a Shopify store doing $80k/mo?',
-    answer: 'Neither alone. Drip owns email lifecycle with visual workflow control — welcome, cart, post-purchase, winback. Postscript owns SMS with superior compliance, two-way conversations, and keyword campaigns. At $80k/mo, most stores need Drip (or similar ESP) for email plus Postscript for SMS depth. Postscript cannot replace Drip\'s email canvas; Drip cannot match Postscript\'s SMS specialization.',
+    answer: 'Revenue alone does not determine the stack. Evaluate email lifecycle ownership and the SMS use cases separately: welcome, cart, post-purchase and winback email, then permissioned text recovery and replies. Verify the current contracted channels and integrations in each account. Choose one or two tools only after checking workflow coverage, staffing and dispatch-time suppression; a revenue milestone is not evidence that both are needed.',
   },
   {
     question: 'Can Postscript replace Drip entirely?',
-    answer: 'No for most stores. Postscript is SMS-first — it does not replace Drip\'s email depth, visual workflow canvas, or behavior-based branching. Typical architecture: Drip for email automation, Postscript for SMS broadcasts and conversational recovery. Some stores use Drip for moderate SMS when volume is low, but SMS-heavy brands outgrow Drip text quickly.',
+    answer: 'Compare the current contracted product scopes before deciding. Map every email journey, segment and integration you would lose or rebuild, and test it in the destination account. An SMS workflow is not an email replacement, and do not assume Drip includes a native SMS sender. Establish the actual sender and queue owner for each channel before switching traffic.',
   },
   {
     question: 'How does Drip vs Postscript pricing compare?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Should I use Drip and Postscript together?',
-    answer: 'Common when SMS drives 15%+ of retention revenue. Drip owns email workflows with canvas visibility; Postscript owns SMS drop alerts, cart recovery texts, and keyword opt-in. Sync suppression to prevent duplicate cart touches across channels. The mistake is paying for both without coordination logic or shared exclusion rules.',
+    answer: 'Use both only when each has a defined job and your team can coordinate them. Document which tool owns each email or SMS step, the permitted purpose and channel, and the current purchase, subscription and suppression state. Cancel queued recovery after purchase or opt-out, and deduplicate event replay using stable event identifiers. Tags alone do not establish SMS permission.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Drip or Postscript?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Which has better TCPA compliance tooling?',
-    answer: 'Postscript leads for SMS-specific compliance — keywords, opt-out handling, quiet hours, and conversational consent flows. Drip SMS compliance is solid but email-native teams may underestimate TCPA risk at scale. High SMS revenue stores should weigh Postscript guardrails seriously before relying on Drip text alone.',
+    answer: 'Evaluate the SMS controls actually available in the contracted account and destination regions: opt-in evidence, opt-out processing, quiet hours, reply handling and audit exports. Do not infer legal compliance from a vendor label or email permission. Current requirements and configuration need review for the proposed message purpose and recipients; product guardrails do not certify a campaign.',
   },
   {
     question: 'Which handles cart abandonment better?',
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'For email: build welcome (branch by signup source), three-step cart (winback suppression), post-purchase cross-sell — Drip wins. For SMS: cart abandonment text, flash broadcast with quiet hours, keyword opt-in, two-way reply — Postscript wins SMS tests. Most stores need Drip (or similar ESP) plus optional Postscript — not Postscript alone as a full retention stack.',
+    answer: 'Build proposed tests rather than preselecting a winner: welcome branched by signup source, a three-step cart journey, and post-purchase cross-sell for email; permissioned recovery, quiet-hour scheduling, keyword opt-in and replies for SMS. Verify current plan and integration support first. Score event accuracy, suppression propagation, queue cancellation, replay deduplication and operator effort with synthetic profiles before any approved live experiment.',
   },
 ];
 ---
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Drip vs Postscript for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          A category mismatch merchants still search. Drip is visual email automation for operators who design behavior-based workflows on a canvas. Postscript is SMS infrastructure that assumes email lives elsewhere. We evaluated both through a $92k/mo streetwear label pairing Drip email nurture with Postscript drop alerts, a supplements shop that wrongly treated Postscript as its only marketing platform, and a $58k/mo skincare brand whose retention owner built custom cart branching in Drip while outsourcing SMS to Postscript.
+          Treat this as a proposed architecture evaluation, not a record of merchant tests. Compare Drip email workflow design with the current Postscript channel offering and the integrations available in your account. A hypothetical streetwear label could test drop alerts alongside email nurture; a supplements shop could map education and recovery; a skincare team could test category-based branching. These scenarios have no verified revenue or observed results. Confirm current product, plan and regional scope before deciding which system owns each journey.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -68,7 +68,7 @@ const faqs = [
         <TldrBox
           picks={[
             { label: 'Email workflows', tool: 'Drip', reason: 'Visual canvas for branching, tags, and behavior triggers.' },
-            { label: 'SMS specialization', tool: 'Postscript', reason: 'Compliance, two-way text, and Shopify SMS focus.' },
+            { label: 'SMS specialization', tool: 'Postscript', reason: 'Evaluate SMS controls, reply handling, and Shopify fit.' },
             { label: 'Operator control', tool: 'Drip', reason: 'Hands-on logic without enterprise overhead.' },
             { label: 'SMS revenue focus', tool: 'Postscript', reason: 'When text is a primary channel, not an add-on.' },
             { label: 'Also consider', tool: 'Sequenzy', reason: 'Email playbooks paired with Postscript for SMS depth.' },
@@ -86,7 +86,7 @@ const faqs = [
             <tr><td>Best for</td><td>Visual email workflow operators</td><td>SMS-native Shopify marketing</td></tr>
             <tr><td>Starting price</td><td>From ~$39/mo</td><td>Usage-based plans</td></tr>
             <tr><td>Email</td><td>Core product</td><td>Not primary</td></tr>
-            <tr><td>SMS depth</td><td>Moderate — journey-integrated</td><td>Best-in-class for Shopify</td></tr>
+            <tr><td>SMS depth</td><td>Verify current sender and integration scope</td><td>Evaluate current Shopify SMS scope</td></tr>
             <tr><td>Workflow UI</td><td>Visual canvas</td><td>SMS automations</td></tr>
             <tr><td>Compliance</td><td>Solid for email</td><td>SMS-first guardrails</td></tr>
             <tr><td>Shopify depth</td><td>Native — orders, tags, products</td><td>Native — SMS events</td></tr>
@@ -98,18 +98,18 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Drip and Postscript solve different problems — yet merchants search them head-to-head because both appear in Shopify app stores and both touch retention revenue. Drip assumes your team wants to design email journeys from a visual canvas with every branch auditable. Postscript assumes SMS is serious enough to warrant dedicated infrastructure, compliance tooling, and conversational recovery. The streetwear label needed both: Drip for post-purchase education and browse nurture, Postscript for Thursday drop texts that convert in minutes.
+          Drip and Postscript appear in retention-stack comparisons, but tool labels do not define the current contracted scope. Start with a journey map: email education, browse nurture, permissioned text alerts and reply handling. In a hypothetical streetwear shop, test whether separate tools give the operator useful control over post-purchase education and drop announcements. Do not presume that speed or a channel label predicts conversion.
         </p>
         <p>
-          The supplements shop made the expensive mistake of evaluating Postscript as a Klaviyo replacement. They launched SMS cart recovery and keyword campaigns — strong results on text — but had no equivalent for welcome series, post-purchase cross-sell, or winback. Eight weeks later they added Drip for email and spent another month syncing suppression between platforms. Postscript was never wrong; treating it as a full ESP was.
+          For a proposed supplements-shop evaluation, inventory welcome, post-purchase cross-sell and winback alongside cart recovery and keyword acquisition. Check that the intended destination supports each required channel, trigger and exclusion. Rehearse exports, field mappings and suppression propagation before switching; there is no verified eight-week migration or measured outcome behind this example.
         </p>
 
         <h2>Workflow test: welcome and onboarding</h2>
         <p>
-          Drip built welcome on canvas with explicit nodes for popup vs footer signup, first-product-viewed branch, and SMS opt-in handoff to Postscript via tag sync. Build time: one afternoon for an experienced operator. Postscript offers SMS welcome sequences and keyword opt-in flows — excellent for text-first acquisition — but no email welcome depth. For brands where email still drives 60–80% of automation revenue, Drip owns this test.
+          For the welcome test, propose branches for popup versus footer signup and first product viewed. Verify that the required events, identifiers and integration actions exist in the current plan. Test SMS handoff only for profiles with permission for the intended text purpose; a tag is not consent. Record operator effort and event latency instead of promising an afternoon setup or declaring a winner from an assumed revenue mix.
         </p>
         <p>
-          The skincare brand wanted welcome email three to feature the category of first product viewed, then SMS opt-in on email two for restock alerts. Drip handled email branching; Postscript received tagged subscribers for SMS-only journeys. Clean handoff — but required documented tag rules both teams understood before BFCM edits.
+          A hypothetical skincare team could make welcome email three reflect the first category viewed and invite a separate text opt-in for restock alerts. Verify category-event coverage and field mapping, then test whether permission and suppression propagate correctly. Assign the sending tool, queue owner and cancellation responsibility before seasonal changes. This is an evaluation scenario, not an observed successful handoff.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
@@ -117,7 +117,7 @@ const faqs = [
           Drip's cart workflow showed exactly which branch fired for discount-sensitive tags — valuable when the streetwear label A/B tested education vs 10% off in step two. Cross-journey suppression — exclude shoppers in active winback — was tighter in Drip's visual rules after setup. Postscript cart texts fired faster on mobile — incremental recovery on drop-day urgency when email sat unopened for four hours.
         </p>
         <p>
-          Best practice for the streetwear label: Drip email steps one and three, Postscript text at step two for mobile shoppers who opted into SMS. Coordinated timing required shared exclusion lists — shoppers who purchased via email step one never received the Postscript text. Without that sync, duplicate touches eroded margin and annoyed VIPs.
+          For the proposed streetwear test, assign email steps one and three and an optional text step two only to shoppers permitted to receive that purpose and channel. Recheck purchase, subscription and suppression state immediately before dispatch. Document which sender cancels queued messages and how retries or replayed events are deduplicated; a shared list alone does not prove that cancellation has happened.
         </p>
 
         <h2>Pricing reality for combined stacks</h2>
@@ -130,10 +130,10 @@ const faqs = [
 
         <h2>Shopify data depth in production</h2>
         <p>
-          Drip goes deep on custom fields, tag-driven logic, and product-based delays when Shopify customer metadata is rich. Postscript focuses on SMS-relevant events — cart, order, browse, keyword — with compliance-first data handling. Neither replaces the other on data depth; they complement when email logic and SMS urgency serve different moments in the journey.
+          Evaluate Shopify event and field coverage with synthetic orders, customer tags and product changes. Check identifiers, delay semantics and regional or plan restrictions in each current integration. Then verify that each event reaches the intended workflow once, that opt-out propagates, and that a purchase cancels recovery still in the queue. Treat complementary channel roles as a hypothesis to validate, not evidence that every store needs two systems.
         </p>
         <p>
-          The skincare brand's irregular replenishment cadence — 28 to 60 days by product line — lived naturally in Drip's canvas with custom delays. Postscript handled restock SMS for subscribers who explicitly opted into text alerts. Email owned education; SMS owned urgency. Splitting channels by intent beat forcing one platform to do both poorly.
+          For a hypothetical skincare catalog with replenishment intervals from 28 to 60 days, test product-specific delays and purchase exclusions using synthetic profiles. Restock subscription state and marketing permission need separate checks for the intended text. Compare education and urgency scenarios without asserting that a particular split performed better; the examples describe proposed tests rather than measured results.
         </p>
 
         <h2>Team fit: who should choose which</h2>
@@ -146,7 +146,7 @@ const faqs = [
         </ul>
         <p><strong>Choose Postscript if:</strong></p>
         <ul>
-          <li>SMS drives 15%+ of attributable retention revenue with dedicated ownership</li>
+          <li>Your planned SMS use cases justify dedicated ownership after a matched evaluation</li>
           <li>Two-way conversations, keyword campaigns, and TCPA guardrails matter</li>
           <li>Drop-day urgency and mobile-first flash catalogs define your channel mix</li>
           <li>Email already lives in Drip, Klaviyo, or another ESP — Postscript is the SMS layer</li>
