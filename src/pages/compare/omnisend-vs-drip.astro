@@ -10,37 +10,37 @@ const desc = 'Omnisend vs Drip for Shopify stores — prebuilt multichannel jour
 
 const faqs = [
   {
-    question: 'Is Omnisend or Drip better for a Shopify store doing $50k/mo?',
-    answer: 'Omnisend usually ships welcome, cart, and post-purchase faster with prebuilt templates and SMS/push bundled. Drip suits teams that want visual workflow control and custom branching beyond templates. At $50k/mo with one generalist marketer, Omnisend wins on speed. With an operator who enjoys building logic, Drip competes strongly.',
+    "question": "Does store revenue decide between Omnisend and Drip?",
+    "answer": "No. Map the journeys your team must maintain. Omnisend brings email, SMS and web push into one toolkit; Drip documents triggers, decisions, delays and goals for editable workflows. Revenue alone says little about data quality, channel permissions or operator capacity."
   },
   {
-    question: 'How does Omnisend vs Drip pricing compare at 12,000 contacts?',
-    answer: 'Omnisend Standard/Pro at 12k often runs $100–180/mo depending on SMS volume. Drip at 12k people typically lands $120–200/mo. Drip has no meaningful free tier at scale. Omnisend\'s free tier helps early but becomes irrelevant past ~2,500 contacts. Model SMS and push separately — Omnisend bundles channels; Drip is more email-workflow centric.',
+    "question": "How should I compare costs at 12,000 contacts?",
+    "answer": "Use the same audience and send plan in both quotes. Include imported and suppressed profiles according to each billing definition, email volume, required features, SMS destinations and segments, carrier charges and any separate sender. Add migration and ongoing editing labor; no fixed price here is a current quote."
   },
   {
-    question: 'Which has the better workflow builder?',
-    answer: 'Drip\'s visual canvas is clearer for complex branching, A/B splits, and custom field logic. Omnisend\'s workflow builder is solid with ecommerce presets that reduce build time. Choose Drip if you will customize deeply. Choose Omnisend if prebuilt journeys cover 80% of needs and you want multichannel in one UI.',
+    "question": "Which has the better workflow builder?",
+    "answer": "Use the same change request in each: exclude wholesale buyers, revise a replenishment delay and stop a promotion after purchase. Drip documents explicit decisions and goals; Omnisend offers automation workflows and presets. Choose on demonstrated edit safety and maintainability rather than assuming templates prevent custom logic."
   },
   {
-    question: 'Can I migrate from Omnisend to Drip or vice versa?',
-    answer: 'Yes. Export contacts with consent metadata. Rebuild welcome and cart first; run parallel two weeks with strict suppression to avoid duplicate sends. Omnisend push and SMS journeys need channel-specific replacements in Drip. Budget 2–3 weeks for mid-size stores with four active automations.',
+    "question": "Can I migrate from Omnisend to Drip or vice versa?",
+    "answer": "Plan a staged cutover with consent records, exclusions, event mapping and sender authentication. Assign one sender per active journey and inspect queued messages before switching. Imported history must not trigger old offers. Establish rollback criteria from your actual sync and QA results instead of promising a fixed migration duration."
   },
   {
-    question: 'Should I also consider Sequenzy instead of Omnisend or Drip?',
-    answer: 'Sequenzy fits when strategy speed beats canvas tinkering — agent-first playbooks with pay-per-email pricing. Omnisend still wins on multichannel convenience. Drip still wins for visual workflow purists. Sequenzy helps teams who find Drip maintenance heavy and Omnisend templates too generic.',
+    "question": "Should I also consider Sequenzy instead of Omnisend or Drip?",
+    "answer": "Include Sequenzy in an email evaluation if its current integration, automation and commercial terms meet your requirements. Demonstrate the same replenishment and exclusion tasks. Do not assume a pricing advantage, guided playbooks or equivalent channel coverage without evidence from the proposed setup."
   },
   {
-    question: 'Does Omnisend push notifications matter vs Drip?',
-    answer: 'Omnisend includes push; Drip does not. Push can recover mobile browse and cart intent without SMS cost — relevant for fashion and flash catalogs. If push is not in your channel strategy, Omnisend\'s advantage narrows to prebuilt templates and SMS bundling.',
+    "question": "Does Omnisend web push matter in this comparison?",
+    "answer": "It matters if browser subscribers are a useful, permitted audience for your store. Omnisend lists web push alongside email and SMS. Count reachable subscribers and define when push replaces another message; it is not automatically incremental or free of operational cost. Specify a separate push requirement when assessing a Drip stack."
   },
   {
-    question: 'Which platform handles replenishment better?',
-    answer: 'Drip allows custom delays and branches by product properties — flexible for irregular reorder cadence. Omnisend offers replenishment templates that work for standard consumables. For bespoke subscription-adjacent logic, Drip\'s canvas wins. For standard 30/60/90-day consumables, Omnisend ships faster.',
+    "question": "How should I assess replenishment workflows?",
+    "answer": "Propose two products with different expected consumption periods and a customer who buys both. Demonstrate how the workflow chooses the relevant order line, resets after a reorder, excludes subscriptions and handles refunds. These are acceptance tasks, not claims that either product has passed them."
   },
   {
-    question: 'What workflow test should decide the winner?',
-    answer: 'Build welcome (branch by signup source), cart (exclude active winback), post-purchase (gift buyer exclusion), winback (discount-sensitive split). Score time-to-live, edit safety during sales, and multichannel needs. If push or bundled SMS matter, lean Omnisend. If visual logic control matters, lean Drip.',
-  },
+    "question": "What workflow test should decide the choice?",
+    "answer": "Build signup-source welcome, purchase-aware cart, gift-aware post-purchase and product-specific replenishment paths with test profiles. Then ask a second operator to change one rule and explain queued recipients. Record errors, dependencies and editing time from your own exercise; this page reports no performed test."
+  }
 ];
 ---
 
@@ -57,21 +57,19 @@ const faqs = [
 
       <header class="max-w-4xl">
         <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Omnisend vs Drip for Shopify SMS</h1>
+        <h1 class="hero-title mt-5">Omnisend vs Drip for Shopify Email and SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Two capable automation platforms with different temperaments. Omnisend optimizes for speed — prebuilt ecommerce journeys with email, SMS, and push in one interface. Drip optimizes for control — a visual workflow canvas for operators who design behavior-based logic. We stress-tested both on a $62k/mo pet supplies brand, a coffee roaster with irregular reorder timing, and a home decor shop graduating off Mailchimp.
+          Choose how your team will maintain Shopify lifecycle logic: a combined email, SMS and web push toolkit in Omnisend, or an email workflow evaluation centered on Drip's triggers, decisions and goals. Both offer prebuilt workflows. The useful question is which setup can safely express your store's exceptions after the initial template is live.
         </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">The exercises below are proposed evaluations for pet supplies, coffee and home goods stores. They are not merchant case studies, measured setup times or revenue results.</p>
       </header>
 
       <div class="mt-12 max-w-4xl">
         <TldrBox
           picks={[
-            { label: 'Speed to live', tool: 'Omnisend', reason: 'Prebuilt cart, welcome, and post-purchase in days.' },
-            { label: 'Workflow control', tool: 'Drip', reason: 'Visual canvas for custom branching and experiments.' },
-            { label: 'Multichannel', tool: 'Omnisend', reason: 'Email + SMS + push without extra tools.' },
-            { label: 'Operator builders', tool: 'Drip', reason: 'Hands-on logic without enterprise overhead.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Guided lifecycle playbooks if both feel like wrong-fit extremes.' },
+            { label: 'Combined channels', tool: 'Omnisend', reason: 'Evaluate email, SMS and web push in one workflow plan.' },
+            { label: 'Explicit branching', tool: 'Drip', reason: 'Evaluate documented decisions, delays and purchase goals against your exceptions.' },
+            { label: 'Final choice', tool: 'Your operator', reason: 'Demonstrate the same rule change and queued-recipient review in both.' },
           ]}
         />
       </div>
@@ -83,84 +81,51 @@ const faqs = [
             <tr><th>Dimension</th><th>Omnisend</th><th>Drip</th></tr>
           </thead>
           <tbody>
-            <tr><td>Best for</td><td>SMB multichannel speed</td><td>Visual workflow operators</td></tr>
-            <tr><td>Starting price</td><td>Free tier; Standard ~$16/mo</td><td>From ~$39/mo</td></tr>
-            <tr><td>Billing model</td><td>Contacts + message volume</td><td>People in account</td></tr>
-            <tr><td>Shopify depth</td><td>Native — core events</td><td>Native — orders, tags, products</td></tr>
-            <tr><td>Prebuilt flows</td><td>Strong ecommerce defaults</td><td>Templates + custom build</td></tr>
-            <tr><td>Push</td><td>Built-in</td><td>Not available</td></tr>
-            <tr><td>Workflow UI</td><td>Journey presets</td><td>Visual canvas</td></tr>
-            <tr><td>Learning curve</td><td>Moderate</td><td>Moderate for visual thinkers</td></tr>
+            <tr><td>Starting point</td><td>Automation presets and customization</td><td>Workflow templates and component-based logic</td></tr>
+            <tr><td>Channel evaluation</td><td>Email, SMS and web push toolkit</td><td>Email workflows; specify any companion sender requirements</td></tr>
+            <tr><td>Critical demonstration</td><td>Extend a preset without losing exclusions</td><td>Edit a branch without disrupting active recipients</td></tr>
+            <tr><td>Cost comparison</td><td>Quote the planned audience and channel usage</td><td>Quote synced people, email usage and companion services</td></tr>
           </tbody>
         </table>
       </div>
 
       <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Omnisend and Drip both pass Shopify essentials: order sync, product blocks, cart triggers, revenue tracking. The fork is how your team wants to work. Omnisend assumes you will start from ecommerce presets and customize where needed. Drip assumes you will design journeys from a blank canvas with every branch visible. Neither is "better" in abstract — the pet supplies brand needed speed; the coffee roaster needed custom reorder logic.
-        </p>
-        <p>
-          The home decor shop chose Omnisend and had cart and welcome live in three days — a win for their solo marketer. Six months later they hit workflow ceilings excluding wholesale-tagged customers from promotional winback without awkward workarounds. Drip's canvas would have made that exclusion obvious from day one — a tradeoff they did not anticipate at selection time.
-        </p>
+        <h2>Choose on exceptions, not a template-versus-canvas stereotype</h2>
+        <p>Omnisend lists prebuilt templates, behavior-based triggers and automation workflows. Drip documents workflow templates as well as individual logic components. A home goods store should therefore bring its wholesale exclusion and gift-buyer rules to both demonstrations rather than assume one cannot express them. Have the future owner explain every branch and what happens to people already waiting when a rule changes.</p>
+        <p>A solo marketer may value fewer channel handoffs; a team with an automation owner may value detailed workflow documentation. Neither team size nor catalog size establishes a winner. A small coffee catalog can require complex reorder logic, while a large catalog can use a straightforward welcome journey.</p>
 
-        <h2>Workflow test: welcome series</h2>
-        <p>
-          Omnisend activated prebuilt welcome with SMS opt-in branch in under two hours. Drip built equivalent logic on canvas with explicit nodes for popup vs footer signup — clearer to audit, slower to ship. For launch-deadline stores, Omnisend wins. For teams documenting logic for future hires, Drip wins.
-        </p>
-        <p>
-          The pet supplies brand wanted welcome email three to feature the category of first product viewed. Omnisend achieved this with segment filters and product picker blocks after template customization. Drip used product-viewed events on the canvas — more transparent, similar outcome, extra build hour.
-        </p>
+        <h2>Welcome: preserve signup intent without guessing it</h2>
+        <p>For a proposed pet supplies welcome exercise, distinguish a puppy-care form from a general newsletter signup. Use explicit signup metadata to select educational content. Include a profile with no category, an existing purchaser and someone who withdraws permission while waiting. A missing product-view event should lead to a sensible default rather than an invented preference.</p>
+        <p>Drip's Shopify guide describes enabling its app embed for page and product-view tracking. That dependency matters if your proposed journey relies on browsing data. In either setup, inspect event availability and identity matching before promising personalized welcome content. Email permission does not establish SMS permission; any text branch needs its own eligibility check.</p>
 
-        <h2>Workflow test: abandoned cart</h2>
-        <p>
-          Both recovered carts effectively for $85–$140 AOV tests. Omnisend added push at step two for mobile shoppers — incremental recovery without SMS cost. Drip's cart workflow showed exactly which branch fired for discount-sensitive tags — valuable when the coffee roaster A/B tested education vs 10% off in step two.
-        </p>
-        <p>
-          Cross-journey suppression — exclude shoppers in active winback — was tighter in Drip's visual rules after setup. Omnisend required careful workflow configuration; doable but less obvious during frantic sale-week edits.
-        </p>
+        <h2>Cart: inspect the purchase race and overlapping offers</h2>
+        <p>Propose a cart reminder for an eligible shopper already in winback, then place an order while the reminder is waiting. Ask each operator to show which workflow owns the offer, when purchase state is checked and how a queued message is cancelled or made ineligible. Drip documents trigger filters for excluding people in another workflow and purchase goals for moving active people past earlier steps. Demonstrate the precise behavior required by your store rather than inferring queue guarantees from those concepts.</p>
+        <p>Include a duplicated checkout event, a guest checkout later matched to a profile and an opt-out after scheduling. Record the event identifiers, expected recipient and suppression reason. If another tool sends SMS, define who owns cross-channel cancellation and reply handling. Adding web push in Omnisend is a channel option, not evidence of incremental cart recovery.</p>
 
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          At 18k contacts, Omnisend with moderate SMS often runs $140–220/mo. Drip at 18k people lands $180–280/mo. Omnisend's multichannel bundling can look cheaper than Drip plus a separate SMS tool. Drip's value is operator time — if custom workflows reduce agency hours, TCO shifts.
-        </p>
-        <p>
-          List hygiene matters on both: popup imports and stale contacts inflate bills. Omnisend engagement segments are practical; Drip lead scoring helps prioritize but does not reduce profile counts automatically. Budget sunset campaigns on either platform before BFCM.
-        </p>
+        <h2>Replenishment: model the order line, not just the customer</h2>
+        <p>For a hypothetical coffee exercise, assign an 18-day review point to a small bag and a 45-day point to a bulk bag. These are proposed business rules, not measured consumption rates. A mixed order should not simply receive both promotions by default. Decide whether each order line maintains its own clock, whether a new purchase resets it and which message has priority.</p>
+        <p>Include a subscription buyer, a gift order, a refund and an out-of-stock product. Show how each branch resolves before a reminder becomes eligible. Drip's documented decisions and delays provide a vocabulary for this exercise; Omnisend's workflow tools should receive the same requirements. Do not infer either a replenishment limitation or a maintenance advantage without seeing the configured path.</p>
+        <p>Keep education separate from a purchase incentive. A brewing guide may remain relevant even when a promotional reorder reminder should stop. Define the permitted purpose and audience for each message instead of treating a fulfilled order as universal permission.</p>
 
-        <h2>Shopify data depth in production</h2>
-        <p>
-          Neither matches Klaviyo's predictive CLV or browse-by-collection maximums. Omnisend covers standard ecommerce triggers well — sufficient for most SMB catalogs under 1,000 SKUs. Drip goes deeper on custom fields and tag-driven logic when Shopify customer metadata is rich.
-        </p>
-        <p>
-          The coffee roaster's irregular reorder cadence — 18 to 45 days by bag size — was natural in Drip's canvas. Omnisend replenishment templates required more customization to match. For standard 30-day consumables, Omnisend's presets were faster.
-        </p>
+        <h2>Post-purchase and winback: make exclusions inspectable</h2>
+        <p>For the home goods scenario, separate care instructions, gift-recipient assumptions and a later promotional winback. A wholesale customer should be explicitly included or excluded according to the campaign policy. Ask a second operator to change that policy, locate all affected branches and identify people already queued. Preserve a before-and-after workflow record and a rollback plan.</p>
+        <p>Use purchase and refund history to explain eligibility. Do not label a customer discount-sensitive solely because they once used a coupon. If you compare education with a discount, keep assignment and exclusions stable, account for overlapping channels and inspect contribution after returns. A platform attribution total cannot by itself establish that the message caused a purchase.</p>
 
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Omnisend if:</strong></p>
-        <ul>
-          <li>You need multichannel journeys live before the next product drop</li>
-          <li>One marketer owns email, SMS, and push without multiple tools</li>
-          <li>Prebuilt ecommerce templates cover most of your journey map</li>
-          <li>You are graduating from Shopify Email, Privy, or Mailchimp</li>
-        </ul>
-        <p><strong>Choose Drip if:</strong></p>
-        <ul>
-          <li>Your retention owner thinks in workflows and wants canvas visibility</li>
-          <li>Custom branching by tags and custom fields is central</li>
-          <li>You will A/B test journey paths frequently</li>
-          <li>Push is not part of your channel strategy</li>
-        </ul>
+        <h2>Compare the same billable workload</h2>
+        <p>Prepare one audience reconciliation: Shopify customers, eligible email subscribers, suppressed profiles and channel-specific subscribers. Drip's Shopify documentation warns that syncing existing customers can increase billing. Determine how each current quote counts these groups before comparing headline tiers. An unsubscribe and a billable-profile deletion are different operations; do not discard suppression history merely to lower a count.</p>
+        <p>Attach the intended email volume and, where relevant, SMS destinations, message segments, carrier charges, number fees and companion subscriptions. Include web push allowances, required feature tiers and implementation labor. Ask how import growth, promotions, overages and renewal affect the estimate. No monthly prices or contact cutoffs on this page are represented as a current offer.</p>
+        <p>Keep contribution math separate from the platform bill. In an explicitly hypothetical order, $70 revenue minus $28 goods, $8 fulfillment, $7 discount and $2 messaging leaves $25 before other costs. Count the discount once. That positive order contribution still does not prove incremental profit: some recipients might have purchased without the reminder.</p>
 
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          If Omnisend feels too template-driven and Drip feels like maintenance debt, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing and unlimited contacts. It will not replace Omnisend's push or Drip's canvas. It can replace the strategic blank page — what flows to run, in what order, with what suppression rules — that both platforms still leave to you.
-        </p>
+        <h2>Cut over without replaying the old lifecycle</h2>
+        <p>Map each active journey, authenticated sender, event source, permission field and suppression owner. Drip documents forward-facing workflow triggers and goals; imported history must not be assumed to replay automatically or safely. Decide whether any backfill is needed, what qualifies and which prior offers must remain excluded. Reconcile counts before enabling new entry triggers.</p>
+        <p>Give each live journey one sending owner during migration. Inspect old queues before disabling a sender, and verify that rollback will not restart completed messages. For a companion SMS service, preserve its opt-outs and assign reply ownership independently of the email cutover. Migration duration depends on data mapping, sender preparation and actual QA; this page promises no fixed number of days.</p>
 
-        <h2>Verdict</h2>
-        <p>
-          Omnisend wins when speed and multichannel convenience matter more than canvas control. Drip wins when your team ships revenue through visible, editable workflows and prefers operator depth over presets. Run the four-flow test on both trials. The winner is whichever platform your marketer trusts to edit the night before a flash sale — not whichever demo looked prettier.
-        </p>
+        <h2>Where Sequenzy belongs in the evaluation</h2>
+        <p>Consider Sequenzy as another email candidate if the current proposal meets your Shopify data, editing and commercial requirements. Use the same coffee reorder and wholesale exclusion exercises. Ask for evidence of the required integrations and compare the full configured cost. There is no demonstrated playbook, unlimited-contact or pricing advantage established here, and an email alternative does not automatically replace your SMS or push setup.</p>
+
+        <h2>Decision record and evidence</h2>
+        <p>Prefer Omnisend when its combined channel setup meets your demonstrated exception rules with manageable ownership. Prefer Drip when its email workflow implementation makes those rules and later changes easier for your actual operator to audit, with any companion channels accounted for. Record passed cases, failed cases, manual work and recurring costs; do not award a winner on a revenue threshold or an unperformed speed test.</p>
+        <p>Product scope is based on <a class="link" href="https://www.omnisend.com/features/">Omnisend's feature list</a>, <a class="link" href="https://help.drip.com/hc/en-us/articles/4424702569357-Getting-Started-with-Workflows">Drip's workflow guide</a> and <a class="link" href="https://help.drip.com/hc/en-us/articles/4424695491725-Connect-Your-Shopify-Store">Drip's Shopify connection guide</a>. Vendor descriptions establish documented capabilities, not comparative outcomes. Account configuration, current quotes and destination-specific messaging requirements remain part of the proposed evaluation.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -175,40 +140,5 @@ const faqs = [
       </div>
     </div>
   </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: STOP and HELP reply…</h2>
-      <p>For <strong>compare omnisend vs drip</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: suppression for recent purchasers…</h2>
-      <p>For <strong>compare omnisend vs drip</strong>, suppression for recent purchasers gift buyers and open support tickets is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
   <FaqSection faqs={faqs} title="Omnisend vs Drip FAQ" />
 </BaseLayout>
