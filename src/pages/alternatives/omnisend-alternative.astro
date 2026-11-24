@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: 'How do I avoid duplicate cart emails during migration?',
-    answer: 'Pause Omnisend cart automation after the new platform\'s cart flow passes test checkout. Run a 14-day overlap only for campaigns, not recovery flows. Tag customers who received Omnisend cart emails in the last 7 days and suppress in the new tool.',
+    answer: 'Assign one sender per purpose and channel. Disable old cart enrollments and cancel or reconcile queued messages before enabling replacements; a test checkout alone does not clear the queue. Preserve purpose, channel and sender permission evidence and current withdrawals and suppressions. Recheck current permission, suppression and purchase state at send time, and test late events and replay deduplication. Fixed overlap or lookback periods do not establish readiness.',
   },
   {
     question: 'Should I keep Omnisend for SMS only?',
@@ -100,15 +100,15 @@ const faqs = [
         <h2>Omnisend migration checklist</h2>
         <ol>
           <li><strong>Inventory live workflows.</strong> List every automation, its entry trigger, and active subscriber count in pipeline.</li>
-          <li><strong>Export contacts with consent.</strong> Include email, phone, email consent date, SMS consent status, and subscription source.</li>
+          <li><strong>Export contacts with consent.</strong> Include disclosure, purpose, channel, sender, timestamp and subscription source, plus current withdrawals and suppressions. Email permission or a phone number does not authorize SMS.</li>
           <li><strong>Screenshot push settings.</strong> Push subscribers rarely migrate — plan re-permission campaign on new tool if push matters.</li>
-          <li><strong>Document SMS spend baseline.</strong> Compare last 90 days SMS cost vs attributed revenue — sets expectations on new platform.</li>
+          <li><strong>Document SMS spend baseline.</strong> Compare ordinary and peak volumes, destinations, SMS segments and MMS mix, platform and carrier fees, registration, modules, minimums, discounts and labor on matched assumptions. Attributed revenue does not establish causal incremental margin.</li>
           <li><strong>Connect new platform to Shopify.</strong> Verify product sync and historical order import before contact import.</li>
-          <li><strong>Rebuild welcome and cart.</strong> Pause Omnisend equivalents after QA test orders confirm triggers and suppressions.</li>
+          <li><strong>Rebuild welcome and cart.</strong> Disable old enrollments and cancel or reconcile queued sends before enabling replacements. Assign one sender per purpose and channel; test triggers, current permission, suppressions, purchases, late events and replay deduplication.</li>
           <li><strong>Migrate post-purchase and winback.</strong> Higher-touch flows after core recovery is stable.</li>
           <li><strong>Update popup integrations.</strong> Point Privy, Justuno, or Omnisend forms to new list — stop stale Omnisend growth.</li>
-          <li><strong>14-day duplicate-send watch.</strong> Monitor support tickets for "too many emails" during overlap.</li>
-          <li><strong>Cancel Omnisend after archive period.</strong> Keep export for campaign creative reference 60–90 days.</li>
+          <li><strong>Duplicate-send watch.</strong> Reconcile event and send logs across both platforms, with support complaints as an additional signal; continue until queue ownership and deduplication are demonstrated rather than assuming 14 days is sufficient.</li>
+          <li><strong>Cancel Omnisend after archive period.</strong> Confirm retention obligations, export access, reporting needs and queue shutdown before cancellation; keep authorized campaign references under a documented retention and access policy rather than assuming 60–90 days fits every store.</li>
         </ol>
       </article>
 
@@ -199,7 +199,7 @@ const faqs = [
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>SMS on Shopify is not a faster email channel. Determine applicable permission and timing requirements by purpose, destination and sender before enabling SMS. Preserve the disclosure, channel, sender, timestamp and opt-in source; check current withdrawals and suppressions at enrollment and send time. Configure quiet hours and model platform fees, carrier surcharges and discount depth. Verify the current tooling of Postscript, Attentive and Omnisend directly; merchants still own consent copy at checkout, popups and keyword campaigns.</p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
