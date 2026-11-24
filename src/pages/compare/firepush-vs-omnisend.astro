@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Can I use Firepush for push and Omnisend for email?',
-    answer: 'Yes, common hybrid pattern — Firepush owns push recovery, Omnisend owns email and SMS automations. Requires suppression coordination so cart push and cart email do not fire within minutes of each other. Document channel priority rules. Consolidating on Omnisend alone reduces stack complexity if push volume does not justify specialist tool.',
+    answer: 'A split stack is a design to validate, not a guaranteed integration. Confirm current channel and event support, identity matching and permission for each purpose and sender. Assign one queue owner per journey, propagate current purchases and suppressions, cancel obsolete queued messages and verify replay deduplication before enabling sends. A fixed delay between channels does not establish safe coordination.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Firepush or Omnisend?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Does Omnisend email depth beat Firepush email?',
-    answer: 'Yes, meaningfully. Firepush email is functional for basic campaigns and simple automations — not a Klaviyo competitor. Omnisend offers full ecommerce journey builder, segmentation, and SMS integration. Choose Firepush when push is 60%+ of attributed recovery. Choose Omnisend when email automations need equal investment.',
+    answer: 'Compare current email events, journey branches, segmentation and suppression in the actual plan and Shopify integration. Test the workflows your team needs and document maintenance effort. An attributed push-recovery share is not a universal selection threshold or causal evidence; current comparative product scope needs primary verification.',
   },
   {
     question: 'Which platform handles flash sales better?',
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Measure push opt-in rate, cart recovery via push versus email, and flash broadcast performance. Build cart abandonment across channels with suppression rules. If push alone recovers 8%+ of eligible mobile carts, Firepush earns its place. If email automations drive equal revenue and you want one UI, Omnisend wins consolidation.',
+    answer: 'Propose a disabled cart workflow across eligible channels and inspect event accuracy, opt-in evidence and current purchase and suppression state. Record reach, opt-in and attribution separately. Use randomized holdouts with uncertainty for causal incremental lift, and select against operational requirements rather than an unverified eight-percent recovery threshold.',
   },
 ];
 ---
@@ -98,7 +98,7 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Mobile traffic broke email-first assumptions years ago — shoppers browse on phone, abandon on phone, and never open cart recovery email in Gmail tabs. Web push reaches the browser directly. Firepush built its business on that channel. Omnisend added push because email-only ESPs looked incomplete. The streetwear brand's iOS Safari traffic could not receive push without careful opt-in UX — Firepush's prompt timing recovered 11% of eligible mobile carts versus 3.2% from email alone on the same cohort.
+          Use a proposed mobile streetwear scenario to evaluate browser reach rather than assuming mobile shoppers ignore email. Check current browser, OS, installation and permission requirements for each current integration and plan. Compare eligible opt-ins and supported events in an isolated setup. No 11% versus 3.2% recovery result or platform advantage has been verified; browser permission and marketing permission must match the message purpose and channel.
         </p>
         <p>
           The supplement shop had Firepush, a basic email tool, and SMSBump — three bills, three suppression nightmares. Omnisend consolidation traded Firepush push depth for operational sanity. Neither choice was wrong; channel revenue mix and team bandwidth decided.
@@ -106,7 +106,7 @@ const faqs = [
 
         <h2>Merchant scenario: streetwear brand, 71% mobile traffic</h2>
         <p>
-          Weekly drops sold out in hours — email open rates on drop day were 14%, push open rates were 38%. Firepush flash broadcast drove 62% of launch-hour revenue for opted-in subscribers. Omnisend trial matched email and SMS orchestration but push opt-in rate was 4.2% versus Firepush 9.1% after prompt optimization.
+          For a proposed weekly-drop scenario with 71% mobile traffic, record the eligible audience and opt-in path by browser before comparing channels. Measure prompt acceptance and delivery separately from campaign attribution. No 14% versus 38% open rate, 62% revenue share or 4.2% versus 9.1% opt-in result is established here. Randomized holdouts, with sample size and uncertainty reported, are needed to estimate causal incremental recovery.
         </p>
         <p>
           Brand stayed Firepush for push and added Sequenzy for email lifecycle strategy — hybrid stack with documented suppression. Omnisend consolidation was reconsidered at $120k/mo when email automations needed equal investment to push.
@@ -114,18 +114,18 @@ const faqs = [
 
         <h2>Workflow test: abandoned cart on mobile</h2>
         <p>
-          Firepush cart push at 25 minutes with product image and one-tap checkout link recovered 8.7% of push-subscribed abandoners. Omnisend cart push at same timing recovered 6.1% — functional but less optimized prompt and creative defaults. Omnisend cart email at 45 minutes recovered 2.8% on same cohort — necessary complement, not replacement for push on mobile-heavy catalogs.
+          Propose a mobile cart evaluation with product imagery and a checkout link, checking that the current product and integration support the required events and destinations. Timing is an evaluation variable, not an established 25-minute or 45-minute rule. No 8.7%, 6.1% or 2.8% recovery result has been measured here. Recheck current purchase, subscription and suppression state immediately before any eventual dispatch.
         </p>
         <p>
-          Sequencing mattered: push first, email second for non-openers, SMS third for high-value carts only — regardless of platform, channel order affects fatigue and recovery.
+          Choose channel order from the permitted purpose and the current customer state rather than prescribing push, email and SMS to everyone. Assign one sender and queue owner per journey, cancel obsolete queued messages when ownership changes and verify replay deduplication. A non-open is not permission for another channel, and entry suppression alone may not stop a message already scheduled.
         </p>
 
         <h2>Workflow test: welcome and post-purchase</h2>
         <p>
-          Omnisend welcome with SMS opt-in branch and post-purchase cross-sell went live in one day — email depth Firepush cannot match. Firepush welcome push for opt-in confirmation was 20-minute setup — sufficient when push list growth was the primary welcome goal.
+          Propose a welcome and post-purchase evaluation that traces the required events, available branches and current permission records. Confirm supported functionality in the actual plan and integration before comparing editors. Record setup and maintenance effort rather than claiming a one-day or twenty-minute launch; neither a completed test nor comparative email depth has been verified here.
         </p>
         <p>
-          Stores choosing Firepush must accept email lifecycle lives elsewhere. Stores choosing Omnisend accept push is good enough, not best-in-class.
+          Map required email lifecycle functions alongside push before choosing a tool. Verify which current product and plan supplies each trigger, template and suppression check. Separate capability coverage from the operator effort of coordinating multiple senders instead of assuming one option requires a separate email platform or that another provides adequate push by default.
         </p>
 
         <h2>Pricing reality at growing list sizes</h2>
@@ -138,7 +138,7 @@ const faqs = [
 
         <h2>iOS and browser limitations</h2>
         <p>
-          Web push on iOS Safari requires add-to-home-screen or careful prompt timing — Firepush documentation and A/B testing on prompt placement matter more than platform choice. Both platforms face same Apple constraints; Firepush's push-specialist tooling helps optimize within limits. Email remains fallback for iOS shoppers who never opt into push.
+          Verify current browser and OS eligibility, installation requirements, permission prompts and integration support before promising web push reach. Prompt timing cannot substitute for platform requirements or permission. Confirm what happens when a shopper is ineligible or declines; another channel is a fallback only when its own current purpose, subscription and permission record permits the message. No specialist advantage has been demonstrated here.
         </p>
 
         <h2>Team fit: who should choose which</h2>
@@ -164,7 +164,7 @@ const faqs = [
 
         <h2>Verdict</h2>
         <p>
-          Firepush wins when web push recovery and flash broadcasts are primary revenue levers on mobile-heavy traffic. Omnisend wins when email automations deserve equal platform investment and multichannel consolidation beats specialist push depth. Measure push opt-in rate and cart recovery attribution before choosing — the streetwear brand's 9.1% opt-in made Firepush obvious; the supplement shop's email-heavy mix made Omnisend obvious.
+          Choose using the current supported channels, required journeys and operational capacity. The streetwear and supplement examples are proposed evaluation scenarios; their selection and recovery figures are not verified merchant outcomes. Compare eligibility, opt-in and attribution separately, and use randomized holdouts to estimate causal lift with uncertainty before drawing performance conclusions.
         </p>
       </article>
 
