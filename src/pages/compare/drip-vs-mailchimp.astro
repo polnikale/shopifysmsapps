@@ -11,7 +11,7 @@ const desc = 'Drip vs Mailchimp for Shopify stores — visual ecommerce workflow
 const faqs = [
   {
     question: 'Is Drip or Mailchimp better for a Shopify store?',
-    answer: 'Drip wins for behavior-based ecommerce automation with visual workflow control. Mailchimp wins for familiar newsletters, landing pages, and stores under 400 orders/month not yet investing in lifecycle. Most Shopify-focused stores outgrow Mailchimp; Drip is a stronger intermediate than Mailchimp for operators who enjoy building journeys.',
+    answer: 'Choose by current workflow and campaign requirements, supported Shopify events and operator capacity rather than a 400-order threshold. Compare the required branches and exclusions in each current plan and integration. A newsletter-focused team and a team maintaining complex journeys can reach different decisions without either vendor being universally better.',
   },
   {
     question: 'How does Drip vs Mailchimp pricing compare at 8,000 contacts?',
@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     question: 'Which has better Shopify ecommerce automation?',
-    answer: 'Drip by a significant margin. Visual workflows, tag triggers, product-based delays, and revenue dashboards are ecommerce-oriented. Mailchimp Customer Journeys handle basic cart and welcome — generic branching, weaker Shopify event depth, no browse abandonment native.',
+    answer: 'Evaluate the current Shopify integration and plan for the events, custom fields, branches and delays your journeys require. Test browse-related behavior and missing identifiers explicitly instead of assuming permanent channel or trigger limits. Review suppression at dispatch as well as at entry; comparative capability claims need primary verification.',
   },
   {
     question: 'Can I migrate from Mailchimp to Drip easily?',
-    answer: 'Yes. Export contacts with consent metadata, import to Drip, rebuild automations on the visual canvas — expect 2–3 weeks for four journeys. Drip does not offer Omnisend-style one-click presets; you build logic but gain visibility. Pause Mailchimp journeys before enabling Drip equivalents.',
+    answer: 'Check current export and import support and preserve customer identity, consent provenance and suppressions. Rebuild and validate journeys while disabled. Assign one sender and queue owner per journey, cancel obsolete queued messages and verify replay deduplication and current purchase and subscription state before enabling the destination. Pausing an entry trigger alone may leave scheduled sends active. Set timing from validation rather than a two-to-three-week deadline.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Drip or Mailchimp?',
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Drip vs Mailchimp for Shopify SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Mailchimp is the legacy comfort zone. Drip is the operator's ecommerce automation platform — visual workflows, behavior triggers, revenue focus. We compared both on a $44k/mo gourmet food shop still on Customer Journeys, a boutique agency client that migrated to Drip in twelve days, and a home goods store that chose Mailchimp for landing pages while leaking cart revenue for eight months.
+          Compare current workflow requirements rather than assuming a familiar editor or a visual canvas determines fit. Proposed scenarios include a gourmet food shop using customer journeys, an agency client evaluating a migration and a home goods store needing landing pages and cart recovery. These are evaluation scenarios, not verified merchants: no twelve-day migration or eight months of lost revenue is established here. Confirm current product, channel, plan and integration scope before selecting either tool.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -98,18 +98,18 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Mailchimp followed many merchants to Shopify from previous businesses. Drip is a deliberate choice — usually by someone who tried Customer Journeys and hit ceilings. The gourmet food shop's Mailchimp cart journey recovered carts, but could not exclude gift-box buyers from promotional winback without weekly CSV exports. Drip's canvas made that exclusion a visible branch the owner understood without agency translation.
+          Use the gourmet food scenario to test whether gift-box buyers can be excluded from promotional winback without a manual export. Trace the actual customer identity, Shopify events and required tags in both current integrations. Have the intended operator explain the branch and fallback for missing data; no completed merchant recovery or editor advantage has been verified here.
         </p>
         <p>
-          Mailchimp still wins when email means monthly newsletters plus landing pages for lead magnets — not automated lifecycle. The home goods store needed gift guide landing pages; Mailchimp delivered. They also needed three-step cart recovery; Mailchimp delivered inadequately. Dual requirements delayed migration longer than revenue justified.
+          For the home goods scenario, assess newsletters, gift-guide landing pages and three-step cart recovery independently. Verify each required capability on the current plan, including event availability and suppression behavior. Familiarity may reduce training effort, but neither inadequacy nor lost revenue follows from a vendor name; record actual trial findings before deciding on migration.
         </p>
 
         <h2>Workflow test: welcome series</h2>
         <p>
-          Mailchimp built linear welcome in two hours — fine for coupon delivery. Drip built branched welcome on canvas — popup vs organic signup, different delays, product-interest tags from first page view. The agency client's Drip welcome went live in twelve days including copy — slower start, stronger six-month flexibility when SKU mix changed.
+          Propose a welcome evaluation that branches by popup versus organic signup and product interest, with explicit delays and missing-field fallbacks. Record implementation and copy-review time rather than asserting a two-hour build or twelve-day launch. Check permission for the current purpose and channel and the live subscription and suppression state before dispatch; signup source alone is not permission for every message.
         </p>
         <p>
-          Dynamic product imagery in welcome email three — pull from first viewed category — required manual Mailchimp updates each season. Drip merge tags from Shopify product metadata updated automatically. For catalogs that rotate quarterly, maintenance hours matter.
+          Test dynamic product imagery using a first-viewed category, if that event and template field are available in the current integration and plan. Inspect image fallback, product availability and seasonal catalog changes in a disabled configuration. Record the maintenance needed in each tool rather than claiming automatic updates or manual work occurred in a merchant account.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
@@ -139,14 +139,14 @@ const faqs = [
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Drip if:</strong></p>
         <ul>
-          <li>You have 450+ monthly orders and a retention owner who will maintain workflows</li>
+          <li>You have a retention owner who will maintain and audit the required workflows</li>
           <li>Visual branching and A/B journey tests are how your team thinks</li>
           <li>Mailchimp Customer Journeys feel limiting during promotions</li>
           <li>Tag and custom-field logic from Shopify matters for segmentation</li>
         </ul>
         <p><strong>Choose Mailchimp if:</strong></p>
         <ul>
-          <li>Orders are under 400/month and email is primarily broadcasts</li>
+          <li>Email is primarily broadcasts and the current plan meets required workflows</li>
           <li>Landing pages, surveys, and social tools justify staying</li>
           <li>Your team refuses new UI and accepts automation ceilings</li>
           <li>Migration bandwidth is unavailable despite known gaps</li>
@@ -159,7 +159,7 @@ const faqs = [
 
         <h2>Verdict</h2>
         <p>
-          Mailchimp is a newsletter tool that impersonates an automation platform in Shopify contexts. Drip is a genuine ecommerce workflow engine for operators who build logic. If the four-flow test fails twice in Mailchimp, migrate — to Drip if your team wants canvas control, to Omnisend if you prefer presets, to Klaviyo if you need maximum data depth. Staying on Mailchimp for familiarity past 500 orders/month is a choice, not a constraint.
+          Select against current requirements and the proposed four-flow evaluation. Check supported events, branch visibility, operator maintenance and migration risk in the actual plan; neither a fixed order threshold nor two failed tests proves migration is warranted. Current capability and comparative ranking claims require primary verification before publication, and attributed revenue alone does not establish causal incremental lift.
         </p>
       </article>
 

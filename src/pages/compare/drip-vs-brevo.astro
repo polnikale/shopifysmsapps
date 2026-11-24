@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Can I migrate from Brevo to Drip easily?',
-    answer: 'Yes. Export contacts with consent metadata and engagement tags. Rebuild welcome and cart first on Drip\'s visual canvas; run parallel two weeks with strict suppression. Brevo CRM deals and pipeline data do not map to Drip — document what sales teams lose if they use Brevo CRM daily. Budget 2–3 weeks for mid-size stores with four active automations.',
+    answer: 'Assess the current export and destination import first, preserving consent provenance, suppression, engagement fields and customer identity. Rebuild welcome and cart logic in a disabled configuration. Transfer each journey to one sender and queue owner only after validating current purchase and subscription state, cancellation of old queued messages and replay deduplication. Keep CRM deal and pipeline needs in a documented sales system if they do not map. Set timing from these checks rather than a fixed parallel period or migration deadline.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Drip or Brevo?',
@@ -59,7 +59,7 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Drip vs Brevo for Shopify SMS</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Visual ecommerce automation versus generalist marketing suite. Drip serves operators who design behavior-based journeys on a canvas with every branch visible. Brevo (formerly Sendinblue) serves merchants who need CRM pipelines, transactional email API, and campaigns across channels beyond a single Shopify storefront. We tested both on a $61k/mo candle brand running Shopify plus Etsy wholesale, a European skincare shop needing GDPR tooling and transactional reliability, and a US outdoor gear store whose retention owner migrated from Brevo to Drip for workflow visibility.
+          Visual ecommerce automation versus a generalist marketing suite is a useful evaluation frame, not a measured result. Consider three proposed scenarios: a candle brand combining Shopify and wholesale, a European skincare shop needing transactional reliability, and an outdoor gear store reviewing workflow visibility. Check each current product, plan, Shopify integration and supported channel before treating these as suitable options; these scenarios do not document merchant tests.
         </p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
@@ -98,18 +98,18 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>Why this comparison matters for Shopify merchants</h2>
         <p>
-          Drip and Brevo both pass Shopify essentials — order sync, product blocks, cart triggers. The fork is team shape and commerce model. Drip assumes your retention owner thinks in workflows and wants canvas control for DTC lifecycle. Brevo assumes you may run Shopify plus wholesale inquiries, marketplace fulfillment, or B2B accounts that need CRM pipelines alongside marketing sends. The candle brand needed both worlds briefly — Brevo CRM for Etsy wholesale leads, Drip for Shopify DTC automation — before consolidating on Drip when wholesale moved to a separate sales tool.
+          Evaluate order sync, product blocks and cart triggers against the current integration and plan rather than assuming both products pass. A proposed candle-brand scenario combines Shopify DTC journeys with wholesale leads that need a separate sales pipeline. Map which customer fields and events each system actually receives, which team owns the pipeline, and whether a split stack creates duplicate identities or missing exclusions before selecting a workflow tool.
         </p>
         <p>
-          The outdoor gear store chose Brevo initially for transactional reliability and European-friendly GDPR tooling inherited from Sendinblue. Eight months later their operator spent four hours weekly fighting Brevo automation limits for cart exclusion logic that Drip's canvas made obvious in twenty minutes. They migrated in three weeks — not because Brevo failed, but because workflow visibility became the bottleneck.
+          For an outdoor gear evaluation, ask the operator to construct cart exclusion logic in both current trial environments. Record setup effort and auditability rather than asserting four hours versus twenty minutes or a three-week migration. The decision should follow demonstrated event coverage, operator understanding and cutover checks; no merchant migration or measured time saving is established here.
         </p>
 
         <h2>Workflow test: welcome series</h2>
         <p>
-          Drip built welcome on canvas with explicit nodes for popup vs footer signup, first-category-viewed branch, and wholesale-tag exclusion. Build time: one afternoon. Brevo activated welcome automation with segment filters — functional, less auditable when the candle brand's solo marketer edited logic during a flash sale without breaking wholesale exclusions. For teams documenting logic for future hires, Drip wins. For teams needing CRM-linked welcome tied to deal stages, Brevo wins.
+          Propose a welcome workflow with explicit branches for popup versus footer signup, first category viewed and wholesale exclusions. Verify whether each current plan exposes the required events and conditions, and ask a second operator to trace the path before enabling it. Record build time and review failures as evaluation results; no afternoon build or comparative winner has been measured here.
         </p>
         <p>
-          The skincare shop wanted welcome email two to branch by skin concern captured at popup. Drip used custom field nodes on the canvas — transparent, one extra build hour. Brevo achieved similar outcome with contact attributes and automation conditions — workable but harder to verify during frantic campaign weeks.
+          For the skincare scenario, test a skin-concern attribute collected at signup. Confirm that the field reaches the correct customer, that the promised message purpose and channel are permitted, and that missing values take a safe fallback path. Compare how each available editor exposes those conditions without claiming a completed build or a verified time advantage.
         </p>
 
         <h2>Workflow test: abandoned cart</h2>
@@ -133,7 +133,7 @@ const faqs = [
           Drip goes deeper on custom fields, tag-driven logic, and product-based delays when Shopify customer metadata is rich. Brevo covers standard ecommerce triggers adequately — sufficient for hybrid commerce stacks where Shopify is one channel among several. Neither matches Klaviyo's predictive maximums; both serve SMB-to-mid-market operators who prioritize workflow control or suite breadth over enterprise data science.
         </p>
         <p>
-          The candle brand's irregular wholesale-to-DTC crossover — customers who bought bulk then subscribed to retail — required tag discipline both platforms could handle. Drip made the branching visible; Brevo required implicit segment logic the solo marketer struggled to audit quarterly.
+          A proposed wholesale-to-DTC crossover can test customers who buy in bulk and later subscribe to retail messages. In both products, inspect identity matching, tag propagation and missing-field behavior, then have the operator trace the resulting branch. Record actual findings rather than claiming a solo marketer struggled with one editor or that the other made the logic visible in production.
         </p>
 
         <h2>Team fit: who should choose which</h2>
