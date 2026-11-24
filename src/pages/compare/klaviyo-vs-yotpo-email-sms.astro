@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     question: 'Which has better review and UGC integration?',
-    answer: 'Yotpo natively — review request flows, visual UGC blocks in campaigns, and segmentation by review status are core. Klaviyo integrates with Yotpo and other review apps but requires configuration. If UGC-heavy campaigns and post-purchase review timing are central, Yotpo\'s native loop saves hours weekly.',
+    answer: 'Separate review collection, permission to reuse customer content and message delivery. For a skincare catalog, trace whether an approved review can be linked to the correct product variant in a campaign, and how withdrawal or moderation removes it. Owning a Reviews account does not establish current Email or SMS availability or those integration behaviors.',
   },
   {
     question: 'Can I use Klaviyo for email and Yotpo for reviews only?',
-    answer: 'Yes, and many scaled brands do. Klaviyo owns lifecycle segmentation; Yotpo owns review collection and display. Avoid running duplicate post-purchase email from both — coordinate triggers so customers are not asked for reviews in two systems. Sync loyalty point balances if Klaviyo segments by tier.',
+    answer: 'A split stack needs a documented handoff. Give review collection and lifecycle email separate owners, record which system enrolls the customer after delivery, and use a stable order identifier to prevent a replayed delivery event from creating another request. Confirm the current integration and its supported fields before relying on that design.',
   },
   {
     question: 'Should I also consider Sequenzy instead of Klaviyo or Yotpo?',
@@ -31,15 +31,15 @@ const faqs = [
   },
   {
     question: 'Which platform handles loyalty-triggered email better?',
-    answer: 'Yotpo when Loyalty module is active — point balances, tier changes, and referral milestones trigger natively. Klaviyo can segment by loyalty tags synced from Yotpo but requires integration maintenance. For loyalty-centric retention (beauty, supplements, coffee), Yotpo\'s native loop reduces friction.',
+    answer: 'Evaluate the loyalty event rather than assuming a shared brand means a shared trigger. For a tier upgrade, inspect the event identifier, customer match, points balance timestamp and reversals after a return. Then determine which system sends the announcement and how a repeated sync is deduplicated.',
   },
   {
     question: 'Does Yotpo email depth trail Klaviyo meaningfully?',
-    answer: 'Yes, for advanced use cases. Browse abandonment by collection, predictive churn, flow holdout testing, and agency ecosystem depth favor Klaviyo. Yotpo email is solid for standard ecommerce journeys — welcome, cart, post-purchase, winback — especially when enriched with review and loyalty data.',
+    answer: 'Compare the journeys your team needs in the products actually available to your account. A review module is not proof of messaging availability. Once scope is established, compare branch conditions, event history, purchase exits and reporting on the same scenario; no measured depth advantage is established here.',
   },
   {
     question: 'What workflow test should decide the winner?',
-    answer: 'Build post-purchase review request (timing by delivery), loyalty tier upgrade announcement, abandoned cart with UGC social proof, and winback with reviewer vs non-reviewer branches. If Yotpo modules are already live, score whether Klaviyo\'s incremental segmentation justifies a second platform. If starting fresh without reviews, Klaviyo usually wins outright.',
+    answer: 'Propose a post-delivery review request and a separate loyalty tier announcement for a skincare store. Include a returned order, an already submitted review and a replayed delivery event. Inspect sender ownership, permission by purpose and channel, and duplicate enrollment. This is an evaluation plan, not a reported test or a default winner.',
   },
 ];
 ---
@@ -58,9 +58,7 @@ const faqs = [
       <header class="max-w-4xl">
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Klaviyo vs Yotpo Email & SMS for Shopify</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Consolidation vs specialization. Yotpo wants to be your retention suite — reviews, loyalty, email, SMS in one vendor relationship. Klaviyo wants to be your customer data platform for everything that happens after someone browses. We evaluated both through a beauty brand already on Yotpo Reviews, a supplement shop weighing suite vs best-of-breed, and a home goods store drowning in duplicate post-purchase messages from overlapping tools.
-        </p>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">For a Shopify team already using review collection or loyalty, the decision is how those records reach the messaging sender. A proposed skincare workflow below separates delivery events, approved review content and tier changes. Current Yotpo messaging availability and integration scope must be established independently of Reviews or Loyalty; this page reports no merchant evaluation.</p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
       </header>
 
@@ -105,20 +103,14 @@ const faqs = [
         </p>
 
         <h2>Workflow test: post-purchase review request</h2>
-        <p>
-          Yotpo fired review requests based on delivery confirmation and product category — skincare vs tools got different timing. UGC photos pulled directly into follow-up campaigns for social proof. Klaviyo achieved similar outcomes with Yotpo integration enabled, but required flow configuration to respect review status and avoid duplicate asks.
-        </p>
-        <p>
-          The home goods store ran Klaviyo post-purchase and Yotpo review requests in parallel without coordination — customers received two emails within 48 hours of delivery. Churn on the support inbox spiked. Consolidation under Yotpo Email eliminated the collision. Lesson: if Yotpo Reviews is live, email ownership should be explicit.
-        </p>
+        <p>Proposed post-purchase evaluation: a skincare order contains a cleanser and a reusable applicator. Define the appropriate review timing for each product, the delivery event used to start the request and how an already submitted review stops another reminder. Identify the actual review product and messaging sender before comparing the implementations.</p>
+        <p>Include an order whose delivery event is replayed and a customer who submits a review before a reminder is dispatched. Check stable order identifiers and current review status at dispatch, then inspect both send queues. Separate ownership can work if one system owns the request and the other suppresses its duplicate; consolidation alone does not demonstrate that this happened.</p>
 
         <h2>Workflow test: abandoned cart</h2>
         <p>
           Klaviyo cart recovery with dynamic blocks and discount caps by cart value outperformed Yotpo's cart series in raw recovery rate — 19% vs 14% in our supplement shop test. Yotpo closed the gap when cart emails included recent 5-star review snippets for carted products — social proof Klaviyo needed manual UGC imports to match.
         </p>
-        <p>
-          For brands where purchase hesitation is trust-driven (beauty, baby, supplements), Yotpo's native UGC in cart emails is a genuine differentiator. For fashion flash sales where urgency beats social proof, Klaviyo's segmentation and send-time optimization won.
-        </p>
+        <p>For a trust-sensitive skincare catalog, compare approved product-specific reviews with an educational message about ingredients and use. The decision is which content answers the buyer question and can be maintained accurately. Do not infer a platform winner from the category or treat attributed cart recovery as causal lift.</p>
 
         <h2>Pricing reality at growing list sizes</h2>
         <p>
@@ -129,12 +121,8 @@ const faqs = [
         </p>
 
         <h2>Shopify data depth in production</h2>
-        <p>
-          Klaviyo's predictive CLV, churn risk, and collection-level browse abandonment remain unmatched in Yotpo Email. The beauty brand's winback program used Klaviyo predictive segments during a six-month test while Yotpo handled review and loyalty messaging — a deliberate best-of-breed split that worked because triggers were documented.
-        </p>
-        <p>
-          Yotpo's data advantage is review and loyalty context: reviewer vs non-reviewer, points-to-next-tier, referral status. Segments Klaviyo can replicate via sync but not as frictionlessly. Choose based on which data types drive your merchandising decisions.
-        </p>
+        <p>For a proposed skincare winback, distinguish a lapse in replenishment from a returned product or unresolved support issue. Trace the purchase date, product usage assumption and suppression state through the actual integration. No six-month merchant experiment or comparative predictive result is documented here.</p>
+        <p>Review status and loyalty balance have different owners and update schedules. Specify which system is authoritative for each field, how missing values are handled and what happens after a refund reverses a tier. A nightly balance snapshot should not be treated as a current upgrade event.</p>
 
         <h2>Team fit: who should choose which</h2>
         <p><strong>Choose Klaviyo if:</strong></p>
@@ -158,9 +146,7 @@ const faqs = [
         </p>
 
         <h2>Verdict</h2>
-        <p>
-          Klaviyo wins when email is the retention engine and reviews/loyalty are supporting actors. Yotpo Email & SMS wins when you are already invested in the Yotpo ecosystem and UGC-plus-loyalty context should inform every send. Greenfield stores without reviews infrastructure should default Klaviyo unless loyalty-led retention is the explicit strategy. Run the post-purchase and cart workflow tests with your actual module stack — the winner is whichever eliminates duplicate customer touches while maximizing attributable revenue.
-        </p>
+        <p>Decide first whether the current messaging products and integrations support the required review and loyalty handoffs. Keep collection, approved content reuse, loyalty state and delivery as separate responsibilities even when one supplier provides several modules. Prefer the arrangement your team can maintain with explicit queue ownership and replay handling; no supplier winner or incremental revenue result has been measured.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -186,12 +172,7 @@ const faqs = [
       <p>For <strong>compare klaviyo vs yotpo email sms</strong>, Black Friday message economics and pre-season consent audits is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
       <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
       <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
+      <ul><li>Identify the current messaging product separately from Reviews and Loyalty before scoping the integration.</li><li>Record whether a review request is service information or promotion and apply the permission appropriate to its purpose and channel.</li><li>Map delivered order, submitted review and returned order events to one authoritative system each.</li><li>Assign one sender to the review reminder and document how the other queue suppresses a duplicate.</li></ul>
     </div>
 
     <div class="prose-shopify card mt-8">
@@ -199,12 +180,7 @@ const faqs = [
       <p>For <strong>compare klaviyo vs yotpo email sms</strong>, two-way SMS reply inbox ownership assigned to one operator is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
       <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
       <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
+      <ul><li>Replay the same delivery event and check that its stable order identifier prevents a second enrollment.</li><li>Submit a review before the reminder and inspect the waiting message rather than only the flow trigger.</li><li>Reverse a loyalty tier after a return and check the timestamp and branch used by the announcement.</li><li>Keep order attribution separate from a measured incremental effect when comparing the two arrangements.</li></ul>
     </div>
 
 
