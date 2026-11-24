@@ -99,12 +99,12 @@ const desc = description(site, 'apps/privy');
 
       <h3 class="font-serif text-2xl font-black text-white">2. Cart — cart saver bar on mobile, not full recovery flow</h3>
       <p>
-        <strong>Scenario:</strong> Mobile cart abandon at $65. <strong>Privy setup:</strong> Bar shows "Complete order — free shipping today"; one follow-up email. <strong>Result:</strong> 6% recovery — below Omnisend 12% on same store. Bar drove 40% of Privy recovery; insufficient alone at scale.
+        <strong>Proposed evaluation:</strong> For an illustrative $65 mobile cart, compare a cart-saver bar and eligible follow-up with randomized eligible alternatives. Verify current display and sending capabilities, recheck purpose/channel permission, suppression and purchase state, assign sender and queue ownership, cancel stale recovery and deduplicate retries. No 6% versus 12% recovery or 40% contribution was observed; report sample sizes, net margin and uncertainty.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">3. Post-purchase — basic thank-you, no gift exclusion</h3>
       <p>
-        <strong>Scenario:</strong> Gift order during holidays. <strong>Privy setup:</strong> Generic post-purchase promo to all recent customers. <strong>Result:</strong> Awkward cross-sell to gift buyers. Lifecycle platform with order tag filtering required — Privy gap exposed.
+        <strong>Proposed evaluation:</strong> For a hypothetical holiday gift order, validate gift flags and current post-purchase filters before considering a thank-you or promotion. A gift flag, purchase or service message does not authorize marketing. Check purpose/channel permission and suppression at dispatch, assign a queue owner, cancel obsolete steps and deduplicate order events. No observed gift-buyer outcome or verified product gap is established.
       </p>
 
       <h3 class="font-serif text-2xl font-black text-white">4. Winback — single blast to 90-day lapsed</h3>
@@ -156,20 +156,20 @@ const desc = description(site, 'apps/privy');
         <strong>Organic SEO traffic:</strong> Exit intent on educational blog posts should offer category guides or quizzes, not 20% off immediately — trains discount expectation on informational content. Pass quiz answers as tags to Sequenzy welcome branches.
       </p>
       <p>
-        <strong>Returning customers:</strong> Suppress popups for logged-in purchasers viewing new collections — annoyance drives unsubscribes faster than marginal captures. Privy display rules support customer tags from Shopify; wire "recent purchaser" suppression within 14 days of order.
+        <strong>Returning customers:</strong> Evaluate popup frequency separately for existing purchasers and prospective subscribers. Verify current display rules and customer-tag mapping; a fourteen-day purchase tag is an illustrative rule, not universal eligibility. Check current permission and suppression for any subsequent message and cancel obsolete queued steps after purchase.
       </p>
       <p>
         <strong>Handoff to lifecycle ESP:</strong> Within 24 hours of Privy opt-in, subscriber should enter Sequenzy or Klaviyo welcome with source metadata intact. Delayed integration means email one arrives after customer already purchased from retargeting ads — awkward and wasteful. Document integration mapping in runbook; test weekly with fake opt-ins.
       </p>
       <p>
-        Privy at $80k/mo without lifecycle platform behind it is the most common stack mistake we audit. Capture grows list; execution monetizes list. Budget both or neither — half-stack leaves the highest ROI lever untouched.
+        For a hypothetical $80k/mo store, evaluate whether capture or lifecycle execution is the actual bottleneck. Revenue alone does not establish a platform requirement. Compare incremental net contribution, operating workload and matched all-in costs; no audit frequency or highest-ROI result is established.
       </p>
     </div>
 
     <div class="prose-shopify mb-12">
       <h2 class="font-serif text-4xl font-black text-white">Privy metrics that actually matter</h2>
       <p>
-        Popup conversion rate by URL path — not aggregate sitewide. Collection landing pages often convert 2× homepage popups because intent is narrower. Spin-to-win redemption rate within 7 days — if below 8%, incentive or friction is wrong, not traffic quality.
+        Measure popup conversion by URL path with clear eligible-visitor denominators. Test collection and homepage creative using randomized comparable traffic and report sample sizes and uncertainty. Track seven-day coupon redemption and net contribution, but no universal 2× uplift or 8% diagnostic threshold is established.
       </p>
       <p>
         Cost per captured subscriber: Privy bill plus traffic spend divided by net new opted-in contacts. Compare to Sequenzy/Klaviyo first-purchase conversion within 30 days — capture is vanity if lifecycle never converts. Jewelry store example: $1.40 capture cost, 22% welcome-to-purchase with Sequenzy behind Privy — stack ROI positive. Same Privy with Privy-only welcome: 9% purchase, stack ROI negative.
@@ -208,7 +208,9 @@ const desc = description(site, 'apps/privy');
   </section>
     <div class="prose-shopify card mt-12">
       <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
+      <p>
+        Establish requirements for each message purpose, channel, destination and sender. Preserve permission evidence and withdrawal history; purchase or email signup alone does not authorize promotional SMS. Recheck suppression, purchase and subscription state at dispatch, assign sender and queue ownership, cancel stale sends and deduplicate retries. Compare matched all-in costs including volumes, destinations, segments, carrier fees, modules, discounts and labor; verify current vendor controls.
+      </p>
       <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
       <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
     </div>
