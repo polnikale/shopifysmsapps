@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     "question": "Can I split Firepush push and Omnisend email?",
-    "answer": "Only after validating current account access, identity matching and event exchange. Assign one queue and offer owner, propagate purchases and withdrawals, and test cancellation and replay deduplication. A fixed delay does not coordinate senders."
+    "answer": "Only after validating current push-account access, identity matching and event exchange. Assign one queue and offer owner, propagate purchases and withdrawals, and test cancellation and replay deduplication. A fixed delay does not coordinate senders."
   },
   {
     "question": "Must I add Sequenzy?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     "question": "Does Firepush currently offer email and SMS?",
-    "answer": "Its current homepage emphasizes web push; the SMS marketing URL redirected to web push when checked, while a public email page still describes email campaigns. Confirm new-account channel access with the supplier; those pages do not prove a retirement date or complete current multichannel scope."
+    "answer": "No. The supplier’s email article, updated November 18, 2026, states that Firepush is now a web push app and no longer offers SMS or email campaigns. That is the article update date, not a verified shutdown date."
   },
   {
     "question": "What decides a flash-sale evaluation?",
@@ -69,7 +69,7 @@ const faqs = [
           picks={[
             {"label": "Push campaign controls", "tool": "Firepush", "reason": "Evaluate documented push templates, opt-in tools and notification expiry."},
             {"label": "Combined channels", "tool": "Omnisend", "reason": "Evaluate email, SMS and web push with one marketing team."},
-            {"label": "Channel availability", "tool": "Your account", "reason": "Confirm current Firepush email and SMS access before planning consolidation."},
+            {"label": "Channel availability", "tool": "Your account", "reason": "Firepush is web push; email and SMS campaigns are no longer offered."},
           ]}
         />
       </div>
@@ -84,8 +84,8 @@ const faqs = [
             <tr><td>Current starting point</td><td>Web push-focused homepage and message catalog</td><td>Email, SMS and web push Shopify app</td></tr>
             <tr><td>Positive fit</td><td>A bounded browser notification program</td><td>Combined storefront retention workflows</td></tr>
             <tr><td>Campaign exercise</td><td>Drop expiry, device reach and stock changes</td><td>Channel eligibility, purchase cancellation and offer priority</td></tr>
-            <tr><td>Channel caveat</td><td>Public email page and SMS redirect need account confirmation</td><td>Verify destinations, plan access and event coverage</td></tr>
-            <tr><td>Cost unit</td><td>Eligible browser subscriptions and push usage; quote any other confirmed channel</td><td>Eligible contacts, sends and destination-specific messaging</td></tr>
+            <tr><td>Channel caveat</td><td>Email and SMS campaigns are no longer offered</td><td>Verify destinations, plan access and event coverage</td></tr>
+            <tr><td>Cost unit</td><td>Eligible browser subscriptions and push usage; cost other senders separately</td><td>Eligible contacts, sends and destination-specific messaging</td></tr>
           </tbody>
         </table>
       </div>
@@ -93,10 +93,10 @@ const faqs = [
       <article class="prose-shopify mt-14 max-w-4xl">
         <h2>A bounded push job versus combined lifecycle ownership</h2>
         <p>Firepush’s <a class="link" href="https://getfirepush.com/">current homepage</a> emphasizes Shopify web push. Its <a class="link" href="https://getfirepush.com/web-push-messages/">message catalog</a> describes cart, winback, stock and price alerts, subscription tools, reporting and flash-sale expiry controls. Those are useful reasons to evaluate a browser notification program. They do not establish superior recovery or reach on every mobile browser.</p>
-        <p>Omnisend’s <a class="link" href="https://apps.shopify.com/omnisend">Shopify app listing</a> presents email, SMS and web push together. That is a useful starting point for a supplement shop considering consolidation of Firepush, a basic email tool and SMSBump. Treat the three-tool setup as a proposed inventory exercise, not an observed migration. Compare retained functions, exception handling and operator labor before deciding whether consolidation helps.</p>
-        <h2>Resolve current Firepush channel scope before buying</h2>
-        <p>When checked on November 25, 2026, the <a class="link" href="https://getfirepush.com/sms-marketing/">SMS marketing URL</a> redirected to the web push catalog. A public <a class="link" href="https://getfirepush.com/email-marketing/">email page</a> still described campaigns, cart, welcome, winback and order messages. This mismatch warrants confirmation of access for a new account and continuity for an existing account. It does not establish a retirement date. Do not budget a full email/SMS replacement based on older copy or assume email never existed.</p>
-        <p>Ask the supplier to demonstrate the channels, destinations, automations, exports and support available to the proposed account. If only push is confirmed for your use, evaluate Firepush for that bounded job and name the owners of other journeys. If broader access is confirmed, compare the actual functions rather than a historical specialist-versus-suite stereotype.</p>
+        <p>Omnisend’s <a class="link" href="https://apps.shopify.com/omnisend">Shopify app listing</a> presents email, SMS and web push together. That is a useful starting point for a supplement shop considering consolidation of Firepush, a basic email tool and legacy SMSBump records. Treat the three-tool setup as a proposed inventory exercise, not an observed migration. Compare retained functions, exception handling and operator labor before deciding whether consolidation helps.</p>
+        <h2>Current Firepush scope is web push</h2>
+        <p>Firepush’s <a class="link" href="https://getfirepush.com/blog/targeted-email-marketing/">email article, updated November 18, 2026</a>, states that it is now a web push app and no longer offers SMS or email campaigns. The update date does not establish the shutdown date. Historical email pages and the <a class="link" href="https://getfirepush.com/sms-marketing/">SMS marketing URL</a> do not override that explicit notice.</p>
+        <p>Ask the supplier to demonstrate supported browsers, push automations, exports and support for the proposed account. Evaluate Firepush for that bounded browser job. If email or SMS journeys are required, assign them to a currently supported sender and verify cross-platform cancellation and permission handling.</p>
         <h2>Streetwear: 71% mobile traffic is a reach question</h2>
         <p>For a hypothetical $45k/month streetwear store with 71% mobile traffic and weekly drops, break the audience down by browser, OS, installed web app status and existing notification permission. Confirm supported configurations in each integration. Traffic share is not an eligible subscriber count. A declined prompt or unavailable browser does not authorize email or SMS as a fallback.</p>
         <p>Propose isolated signup and delivery checks on the supported configurations. Record permission acceptance, reachable subscriptions, delivery and attributed orders separately. Do not equate push clicks with email opens. Evaluate an accessories store’s six-month reporting history as an audit input, not evidence that push outperformed email here. A $120k/month growth scenario changes the workload to model; it is not an automatic migration trigger.</p>
@@ -107,7 +107,7 @@ const faqs = [
         <p>Propose a mobile cart with product imagery and a checkout link, then purchase while a reminder waits. Verify the exact event, identity and purchase-cancellation behavior in the selected integration. Firepush describes cart reminders stopping after an order; test that behavior with late and duplicated events rather than infer a queue guarantee from marketing copy. Test missing images, changed prices and expired discounts too.</p>
         <p>With multiple senders, name one offer owner and show how the others see purchases, opt-outs and cancellations. A non-open is not permission for another channel. Check current suppression at execution, cancel obsolete queues and test replay deduplication when replacing a workflow. Choose timing from customer intent and eligibility instead of a universal 25- or 45-minute rule.</p>
         <h2>Welcome, post-purchase and winback</h2>
-        <p>Evaluate Omnisend’s combined channel offering using a supplement signup with explicit interest metadata, an existing buyer and a withdrawal during a wait. For Firepush, demonstrate the documented push welcome and winback functions and confirm any required email or SMS access first. Record build and maintenance effort after the exercise; no one-day launch or comparative editor winner is established.</p>
+        <p>Evaluate Omnisend’s combined channel offering using a supplement signup with explicit interest metadata, an existing buyer and a withdrawal during a wait. For Firepush, demonstrate the documented push welcome and winback functions; evaluate required email or SMS work with a currently supported sender. Record build and maintenance effort after the exercise; no one-day launch or comparative editor winner is established.</p>
         <p>Separate order and shipping information from promotional replenishment. Avoid duplicate Shopify receipts, gift-recipient promotions and a winback discount during an unresolved support case. Use actual purchase intervals and refund state for reorder logic. A product-use assumption should be reviewed before it controls supplement messaging.</p>
         <h2>Cost and final selection</h2>
         <p>At illustrative 10k and 15k audiences, quote browser subscriptions, email contacts and SMS destinations separately. One customer may have several browser subscriptions; a Shopify customer ID alone does not guarantee device deduplication. Include exports, integration labor and companion services in a split setup. Push has platform costs even where SMS carrier charges do not apply.</p>
