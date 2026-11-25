@@ -3,166 +3,72 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
 import FaqSection from '../../components/FaqSection.astro';
-import { site, description, pageTitle } from '../../content';
+import { site } from '../../content';
 const path = '/compare/attentive-vs-mailchimp';
-const title = 'Attentive vs Mailchimp for Shopify: 2026 Comparison';
-const desc = 'Attentive vs Mailchimp for Shopify stores — enterprise SMS personalization vs legacy ESP breadth, stack architecture, compliance, and when each channel owner wins.';
-
+const title = "Attentive vs Mailchimp for Shopify: 2026 Comparison";
+const desc = "Compare Attentive email and SMS with Mailchimp through creative ownership, support scope, channel coordination, contracts and queued-send acceptance.";
 const faqs = [
   {
-    question: 'Is Attentive or Mailchimp better for Shopify SMS?',
-    answer: 'Compare current SMS products on eligible destinations, permission records, quiet hours, segmentation, reply handling and Shopify events. Enterprise SMS and an existing email audience are evaluation contexts, not proof of a winner. Verify plan access and integration support at expected volume; a fixed share of attributed revenue does not establish the right vendor.',
+    "question": "Can Attentive replace Mailchimp for email?",
+    "answer": "Attentive has a current email product with cross-channel journeys and migration support. Test required templates, signup surfaces, integrations, reports and service continuity before accepting replacement scope."
   },
   {
-    question: 'Can Attentive replace Mailchimp entirely?',
-    answer: 'Verify the current Attentive email offering and the actual Mailchimp workflows before deciding whether replacement is feasible. Test the editor, newsletters, lifecycle branching, landing pages and event inputs needed by the store. SMS-first positioning does not establish that email must live elsewhere, and this comparison establishes neither current feature parity nor migration eligibility.',
+    "question": "Does Attentive support include all creative production?",
+    "answer": "Do not infer that from support or a creative brand kit. Put template rebuilds, revisions, approval ownership, ongoing production and escalation coverage in the written agreement."
   },
   {
-    question: 'How does Attentive vs Mailchimp pricing compare?',
-    answer: 'Request current matched all-in quotes for equal contacts, destinations, message segments and send volume. Include platform and module fees, carrier charges, minimums, discounts, integration and operating labor. Compare contribution margin and randomized causal estimates with uncertainty where feasible, rather than using a revenue threshold or attributed SMS revenue as proof of ROI.',
+    "question": "When is a split email/SMS setup appropriate?",
+    "answer": "When each journey has a clear sender, queue owner and tested cancellation and suppression handoff. Price the extra operating work alongside both contracts."
   },
   {
-    question: 'Should I keep Mailchimp for email and add Attentive for SMS?',
-    answer: 'A split stack can be evaluated if each flow has one sender and queue owner. Check current purpose- and channel-specific permission, suppression, purchase and subscription state before execution. Test purchase and opt-out cancellation of already queued work in both tools and deduplication after event replay. Contact synchronization alone does not establish safe coordination or justify a second contract.',
-  },
-  {
-    question: 'Should I also consider Sequenzy instead of Mailchimp or Attentive?',
-    answer: 'Sequenzy replaces Mailchimp for email lifecycle with pay-per-email economics and guided playbooks — pair with Postscript for SMS if Attentive contract minimums are too heavy. Attentive wins enterprise SMS depth Mailchimp cannot match. Sequenzy plus Postscript is a lean alternative to Mailchimp plus Attentive for teams graduating email without enterprise SMS commits.',
-  },
-  {
-    question: 'Which has better TCPA compliance tooling?',
-    answer: 'Verify the current account controls for keyword records, approval roles, quiet hours, opt-out handling and audit exports against the proposed program. Obtain purpose-, sender- and destination-specific review of permission and disclosures. Neither vendor tooling nor this comparison establishes legal compliance or a universal consent rule; test actual account behavior before choosing.',
-  },
-  {
-    question: 'Which handles cart abandonment better?',
-    answer: 'Propose equivalent cart tests for the channels and workflows actually supported in each account. Check current purchase, subscription and suppression state at execution, queue ownership, cancellation and replay deduplication. Measure matched costs and distinguish attributed recoveries from randomized causal lift with uncertainty. No observed recovery advantage or universal email limitation is established here.',
-  },
-  {
-    question: 'What workflow test should decide the winner?',
-    answer: 'Propose keyword opt-in, quiet-hour cart recovery, a broadcast to an illustrative 30,000 eligible subscribers and two-way reply tests, alongside welcome branching, post-purchase exclusion and winback splits. Verify current plan access, channel permission and suppression before execution. Define acceptance criteria before testing and report uncertainty; no vendor is presumed to win and these are not observed results.',
-  },
+    "question": "Which launch tests matter most?",
+    "answer": "Validate consent records, current stock and links, creative approval, frequency limits, local timing, purchase and opt-out cancellation, replay deduplication, reply routing and an operator-controlled pause. These are proposed checks, not measured supplier results."
+  }
 ];
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
   <section class="py-14 md:py-20">
     <div class="container">
-      <nav class="mb-8 text-sm">
-        <a class="link" href="/compare">Comparisons</a>
-        <span class="mx-2 text-cyan-100/90">/</span>
-        <span class="text-cyan-100/90">Attentive vs Mailchimp</span>
-      </nav>
-
+      <nav class="mb-8 text-sm"><a class="link" href="/compare">Comparisons</a></nav>
       <header class="max-w-4xl">
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Attentive vs Mailchimp for Shopify</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Consider three proposed scenarios: a hypothetical $240k/month skincare store assessing separate email and SMS ownership, a $52k/month candle shop comparing SMS investment with email capture work, and a footwear retailer reviewing cart recovery before adding another sender. No merchant was observed in this review. Verify current email and SMS products and account access for both vendors rather than assuming Attentive requires a separate email platform.
-        </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">Compare who will build, approve, send and support each message. Attentive offers both email and SMS, so consolidation belongs in the evaluation alongside keeping Mailchimp. The skincare, candle and footwear scenarios below are planning exercises for creative and service ownership, not observed merchant outcomes.</p>
       </header>
-
       <div class="mt-12 max-w-4xl">
-        <TldrBox
-          picks={[
-            { label: 'Enterprise SMS', tool: 'Attentive', reason: 'Personalization, compliance, and scale for text-first brands.' },
-            { label: 'Email familiarity', tool: 'Mailchimp', reason: 'Known editor, newsletters, and basic Customer Journeys.' },
-            { label: 'SMS revenue focus', tool: 'Attentive', reason: 'Built for operators who treat text as a primary channel.' },
-            { label: 'Early-stage email', tool: 'Mailchimp', reason: 'Low friction before lifecycle complexity arrives.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Email playbooks plus Postscript for SMS without enterprise minimums.' },
-          ]}
-        />
+        <TldrBox picks={[{"label": "Supported channel program", "tool": "Attentive", "reason": "Assess email and SMS together with the quoted onboarding and ongoing support scope."}, {"label": "Existing campaign team", "tool": "Mailchimp", "reason": "Evaluate its connected Shopify data and current automation alongside established audience and creative work."}, {"label": "Architecture", "tool": "Both", "reason": "Choose consolidation or a split only after mapping sender, approval and queue responsibility."}]} />
       </div>
-
-      <div class="mt-12 card overflow-x-auto">
-        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
-        <table class="data-table">
-          <thead>
-            <tr><th>Dimension</th><th>Attentive</th><th>Mailchimp</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Best for</td><td>Enterprise SMS-first DTC</td><td>Familiar email campaigns + light SMS</td></tr>
-            <tr><td>Starting price</td><td>Enterprise contracts</td><td>Free tier; paid from ~$13/mo</td></tr>
-            <tr><td>Billing model</td><td>Contract + usage tiers</td><td>Contacts + SMS credits</td></tr>
-            <tr><td>Email depth</td><td>Verify current email product and plan</td><td>Core product</td></tr>
-            <tr><td>SMS depth</td><td>Best-in-class at scale</td><td>Secondary add-on</td></tr>
-            <tr><td>Compliance</td><td>Enterprise audit and governance</td><td>Basic SMS compliance</td></tr>
-            <tr><td>Shopify fit</td><td>Strong — retail plus DTC</td><td>Integration — products, basic events</td></tr>
-            <tr><td>Typical role</td><td>SMS layer in combined stack</td><td>Primary ESP + optional SMS</td></tr>
-          </tbody>
-        </table>
-      </div>
-
       <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Merchants search "Attentive vs Mailchimp" when an agency pitches enterprise SMS or when a parent company standardizes on Attentive while the Shopify store still runs Mailchimp email. The decision is rarely either/or — it is whether SMS deserves Attentive on top of Mailchimp email, or whether Mailchimp's bundled SMS suffices until revenue justifies specialization. Attentive as your only marketing platform is a category error the candle shop learned when $2,800/mo in contract minimums produced SMS revenue that could not cover email gaps.
-        </p>
-        <p>
-          In the hypothetical skincare scenario, evaluate drop alerts, VIP early access and ingredient-question replies separately from education newsletters and post-purchase email. No 32% retention result is established. Define the required email and SMS workflows and verify current account capabilities before deciding whether a separate platform is needed; attributed revenue is not randomized causal lift.
-        </p>
-
-        <h2>Workflow test: abandoned cart via SMS</h2>
-        <p>
-          Propose cart recovery tests with illustrative 12-minute SMS and four-hour email delays, subject to applicable timing rules and channel eligibility. Compare ingredient-question reply routing, checkout links and product blocks using test records for $68 candle and $145 serum carts. Neither price point establishes urgency or a vendor advantage. Verify current product support and avoid presenting these proposed tests as observed sends or compliant outcomes.
-        </p>
-        <p>
-          For a proposed split stack, evaluate illustrative 15-minute SMS and 90-minute email delays without treating timing alone as coordination. Re-check purpose/channel permission and current purchase, subscription and suppression state before each send. Assign one sender and queue owner per flow, cancel outstanding work after purchase or opt-out, and replay events to verify deduplication. No two-week complaint history is established here.
-        </p>
-
-        <h2>Workflow test: flash sale broadcast</h2>
-        <p>
-          Attentive broadcast to 58k opted-in subscribers with segment by purchase recency, holdout testing, and legal review workflow before send. Bill for the drop: contract tier plus overage — painful but attributable revenue was $94k on a restock event. Mailchimp SMS broadcast to a subset of the same list felt operationally simpler but lacked Attentive's pre-send compliance audit that flagged a segment missing documented keyword opt-in from a 2023 list import.
-        </p>
-        <p>
-          In the hypothetical footwear scenario, evaluate email VIP access before adding another SMS sender. No 71% attribution result or causal absence of lift is established. Use a randomized holdout where feasible, report uncertainty, and compare contribution margin after matched all-in costs. Audit discount and suppression overlap before any live launch.
-        </p>
-
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          Mailchimp: contact pricing plus SMS credits — predictable platform cost until promotional SMS volume spikes. Attentive: annual minimums with CPM-style economics — better negotiated at high volume, expensive for brands that do not hit commit tiers. Stores under $3M annual revenue should model Attentive contract floor against actual SMS-attributable revenue, not projected optimism from a sales deck.
-        </p>
-        <p>
-          Stack economics for Mailchimp plus Attentive: $200–280/mo Mailchimp at 20k contacts plus $1,500–4,000/mo Attentive depending on package — often exceeding Klaviyo unified pricing for equivalent retention unless SMS ROI is exceptional. The candle shop's mistake was Attentive without email upgrade; the skincare brand's win was Attentive with a planned Klaviyo email migration running in parallel.
-        </p>
-
-        <h2>Shopify data depth in production</h2>
-        <p>
-          Map required product, order, checkout and browse events, lifecycle branches and reporting fields, then verify current connector support and plan access separately for each vendor. Do not infer a universal Mailchimp data limitation or exclude Attentive email from consideration by category. Test freshness and current permission, subscription, suppression and purchase state immediately before queued execution.
-        </p>
-        <p>
-          Evaluate the actual requirements for segmentation, signup capture, retail-to-mobile identity, approvals and audit access using the current proposed accounts. Enterprise positioning does not prove operational superiority. Test consent-record mapping across retail and Shopify, document ownership of each queue and sender, and verify cancellation and replay behavior before relying on a combined stack.
-        </p>
-
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Mailchimp (including light SMS) if:</strong></p>
-        <ul>
-          <li>Email newsletters and basic journeys cover current retention needs</li>
-          <li>SMS requirements and expected volume fit the verified plan</li>
-          <li>Team familiarity and low switching cost outweigh ecommerce depth</li>
-          <li>Enterprise SMS contract economics do not clear internal ROI thresholds</li>
-        </ul>
-        <p><strong>Choose Attentive (with Mailchimp, Klaviyo, or another ESP) if:</strong></p>
-        <ul>
-          <li>SMS is a dedicated revenue channel with its own owner and legal review</li>
-          <li>Drop alerts, VIP texts, and conversational recovery drive mobile-first catalogs</li>
-          <li>Enterprise compliance, audit trails, and multi-user governance are required</li>
-          <li>Contract minimums fit matched costs and incremental margin with uncertainty</li>
-        </ul>
-
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          A lean alternative stack: Sequenzy for email lifecycle playbooks with pay-per-email economics, Postscript for SMS specialization without Attentive contract floors. Mailchimp remains viable for teams that want one login for basic email, but stores pairing Mailchimp with Attentive often pay premium on both sides without unified reporting. Evaluate whether Sequenzy simplifies email strategy while Postscript covers SMS depth — or whether Klaviyo unified email-plus-SMS beats the split stack on TCO.
-        </p>
-
-        <h2>Verdict</h2>
-        <p>
-          Treat this as an account-specific workflow and cost evaluation. The candle, skincare and footwear scenarios are hypothetical, not observed wins or mistakes. Verify both vendors' current email and SMS products, required event inputs and workflow support. Map sender and queue ownership, current eligibility, cancellation and replay handling, then compare matched all-in costs and incremental contribution margin with uncertainty before choosing a consolidated or split stack.
-        </p>
+        <h2>Products and services are different commitments</h2>
+        <p><a href="https://www.attentive.com/email-marketing">Attentive’s email product</a> describes a no-code builder, shared audiences and coordinated cross-channel journeys, with migration and deliverability support. That makes replacing an existing email supplier a real option to assess. It does not establish that every landing page, template, service integration or workflow will transfer unchanged.</p>
+        <p><a href="https://www.attentive.com/pricing">Attentive’s pricing page</a> bases plans on message volume, subscribers, channels and selected AI products, and describes strategic support and a creative brand kit. Convert those descriptions into a written scope: who rebuilds each template, who edits weekly creative, who signs off, and what happens after onboarding. A dedicated contact is not automatically a full-service campaign production team.</p>
+        <p>Mailchimp’s <a href="https://mailchimp.com/help/mailchimp-shopify-syncing/">Shopify integration</a> supplies customer events for automation and syncs email/SMS activity back to the store. Its <a href="https://mailchimp.com/help/about-customer-journeys/">Marketing Automation Flows</a> include branching. An existing Mailchimp team can evaluate continued email and SMS ownership on these capabilities rather than being characterized as limited to simple newsletters.</p>
+        <h2>Skincare: turn the creative brief into an approval record</h2>
+        <p>For the hypothetical skincare store, separate ingredient education, launch announcements, VIP access and replies about product use. Give each campaign a brief with audience, promise, approved product claims, channel, destination and fallback. The merchandising owner verifies stock and variant availability; the brand owner approves copy; the program owner approves eligibility and scheduling.</p>
+        <p>Build the same serum education email and restock text in each proposed account. Test mobile layout, image alternatives, product links, unsubscribes and a sold-out destination. Ask the vendor or agency to demonstrate a requested revision and document whether it is included in the contract. Record the final creative version with its audience snapshot and approver so a later complaint can be traced.</p>
+        <p>Route ingredient questions to a trained service owner. Marketing replies must not become an unattended support inbox or unauthorized product advice. Establish an escalation path, coverage hours and a backlog review. Vendor messaging support and the merchant’s customer support are separate responsibilities even when both use the word service.</p>
+        <h2>Candle and serum carts: test cancellation, not a magic delay</h2>
+        <p>Use proposed $68 candle and $145 serum carts with actual checkout links and optional product blocks. Choose delays from customer needs, applicable timing rules and the demonstrated workflow. Price alone does not prove urgency. Test a purchase, changed cart, expired code, missing variant, refund and service complaint before dispatch.</p>
+        <p>For a split setup, assign one owner for each cart queue. Specify whether email or SMS takes priority, which event cancels the other reminder, and where the operator can see cancellation success. Re-check current permission, purchase and suppression state; test an opt-out after scheduling and a replayed checkout event. A contact sync or different delays cannot by itself prevent duplicates.</p>
+        <p>For consolidation in Attentive or Mailchimp, run the same checks across both channels. A shared builder can simplify editing, but the operator still needs to demonstrate how already queued work reacts to a changed condition. Preserve transactional order and shipping communications when marketing is paused.</p>
+        <h2>Footwear launch: a release queue with a stop button</h2>
+        <p>For a hypothetical footwear restock, prepare a broadcast to 30,000 eligible subscribers as a capacity and approval exercise. Do not import a larger historical audience simply to match a vendor sales example. Separate VIP eligibility, recent buyers, gifts, active service cases and customers whose size is unavailable. Confirm the opt-in source and scope for any retail-to-mobile records.</p>
+        <p>Before release, check destination stock, local timing, per-subscriber caps, overlapping email offers and the signed-off creative version. Designate a primary sender and a backup operator with authority to pause the remaining queue if inventory or eligibility changes. Test the stop procedure with controlled records before using live audiences.</p>
+        <p>Compare email-only VIP access with coordinated email/SMS using a feasible holdout. Keep the offer and eligible population comparable, report uncertainty and measure margin after discounts and all messaging costs. Attributed revenue and a large broadcast count do not demonstrate incremental lift or superior compliance.</p>
+        <h2>Quote the work as well as the messages</h2>
+        <p>Request comparable quotes for the candle store’s smaller program and the skincare store’s broader lifecycle scope. Include email subscribers and sends, SMS destinations, encoded segments, MMS/carrier charges, channel modules, minimum commitments, overages, setup and ongoing creative work. Attentive’s current modular pricing is not evidence of a universal annual floor; use the actual proposed agreement.</p>
+        <p>For Mailchimp, confirm the audience/contact billing definitions, selected plan, SMS access and usage estimate in the current account. For either supplier, name who pays for template rebuilds, integration repair, deliverability remediation and after-hours launch help. Read renewal, cancellation, data export and unspent-usage terms before comparing total cost.</p>
+        <p>Use a simple contribution worksheet rather than a revenue threshold: a $100 order minus $45 product cost and $10 variable fulfillment leaves $45. A $25 discount leaves $20 before marketing. Twenty incremental orders at $20 minus $300 messaging cost leave $100; twenty attributed orders are not necessarily twenty incremental orders. Add contract and operating costs that the worksheet has not included.</p>
+        <h2>Handoff checklist for a managed or internal team</h2>
+        <p>List every welcome, cart, post-purchase and winback message, its channel, permission basis, entry and exit rules, template version and queue owner. Test welcome branching by source, gift-buyer exclusions after purchase and engaged/inactive winback. A switch of creative agency must not silently change suppression rules or re-enable old flows.</p>
+        <p>Capture source, wording, timestamp, sender and purpose for checkout, popup and keyword permissions. Verify supported destinations, quiet hours, STOP/HELP handling and withdrawal against already queued work. Review the program’s applicable requirements with the responsible owner. Neither an approval screen nor vendor support supplies legal clearance.</p>
+        <p>Before cutover, preserve identities and suppressions, verify event freshness and replay deduplication, cancel old scheduled campaigns and confirm service-message continuity. Define rollback, template export and access removal for departing agencies. Keep an operator who can act if the managed-service contact is unavailable.</p>
+        <h2>Choose a maintainable ownership model</h2>
+        <p>Review reply backlog, delivery failures, opt-out spikes by flow and source, frequency-cap collisions and full-price repeat purchases each week. Revisit capture disclosures and live automation after material program changes. Use a replenishment reminder only when SKU usage supports its timing, and exclude subscription customers and recent purchasers where appropriate.</p>
+        <p>Keep Mailchimp when the team can maintain the required campaigns, branching and eligible SMS program with clear ownership. Choose Attentive when the demonstrated email/SMS experience and contracted support solve the actual creative and operational workload. A split can work when the queue and suppression handoffs are explicit; it also adds coordination work to price.</p>
+        <p>If another platform such as Sequenzy is shortlisted, compare its actual required email workflows, integration and service scope. No paired SMS supplier, parallel migration or universal graduation is required by this comparison. The decision is the working program and written scope the merchant can sustain.</p>
       </article>
-
       <div class="mt-10 max-w-4xl text-sm">
         <p class="font-black text-white">Related comparisons</p>
         <p class="mt-2">
@@ -175,42 +81,5 @@ const faqs = [
       </div>
     </div>
   </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>
-          Document purpose-, sender-, destination- and channel-specific permission requirements and the opt-in wording and source. Verify current subscription and suppression state and applicable timing rules before execution. Do not assume one universal consent standard or that vendor tooling establishes compliance. Obtain appropriate review of checkout, popup and keyword disclosures; this source provides no legal clearance.
-        </p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: weekly SMS caps per…</h2>
-      <p>For <strong>compare attentive vs mailchimp</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: STOP and HELP reply…</h2>
-      <p>For <strong>compare attentive vs mailchimp</strong>, STOP and HELP reply handling tested on real devices monthly is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
   <FaqSection faqs={faqs} title="Attentive vs Mailchimp FAQ" />
 </BaseLayout>
