@@ -3,158 +3,67 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
 import FaqSection from '../../components/FaqSection.astro';
-import { site, description, pageTitle } from '../../content';
+import { site } from '../../content';
 const path = '/compare/drip-vs-activecampaign';
 const title = 'Drip vs ActiveCampaign for Shopify Email: 2026 Comparison';
-const desc = 'Drip vs ActiveCampaign for Shopify — visual ecommerce workflows vs CRM automation depth, Shopify triggers, pricing, and team fit for retention operators.';
+const desc = "Compare Drip vs ActiveCampaign for Shopify email, data ownership, workflow acceptance and ongoing team responsibilities.";
 
 const faqs = [
   {
-    question: 'Is Drip or ActiveCampaign better for a Shopify store doing $70k/mo?',
-    answer: 'Revenue alone does not decide fit. Evaluate cart, post-purchase, and product-triggered branching for a DTC store; add CRM pipelines and lead scoring for wholesale or service upsells. Verify those capabilities in the current product, plan, and Shopify integration. Measure setup and edit time with the same proposed flows rather than promising faster revenue delivery.',
+    "question": "When does ActiveCampaign make sense alongside Shopify?",
+    "answer": "When named sales owners will use account and deal records for inquiries, quotes and follow-up. Validate plan access and the required Shopify data path rather than selecting by B2B revenue share alone."
   },
   {
-    question: 'How does Drip vs ActiveCampaign pricing compare at 12,000 contacts?',
-    answer: 'Drip at 12k people typically lands $120–200/mo. ActiveCampaign Plus at 12k often runs $140–220/mo depending on feature tier. Similar bands — differentiate on workflow fit, not sticker price. Both punish list bloat; sunset stale contacts before comparing quotes.',
+    "question": "When is Drip a good fit?",
+    "answer": "When a retention operator owns order-driven welcome, replenishment and winback journeys and the accepted workflow model meets the business need. A CRM is not a mandatory next stage."
   },
   {
-    question: 'Which has the better workflow builder?',
-    answer: 'Drip\'s canvas is clearer for ecommerce branching — cart value splits, product tags, order count. ActiveCampaign\'s automation builder is more powerful for CRM — deal stage changes, site tracking across non-Shopify pages, complex lead scoring. Choose Drip for DTC retention operators; ActiveCampaign for marketing-plus-sales automation.',
+    "question": "What belongs in a price comparison?",
+    "answer": "Use 12,000 and 18,000 contact workloads, current send allowances, CRM access, seats, support and integration labor. Verify billing treatment of inactive contacts rather than assuming a fixed saving."
   },
   {
-    question: 'Can ActiveCampaign replace Drip for Shopify cart recovery?',
-    answer: 'Evaluate replacement against the current integration and plan rather than assuming cart events or a launch deadline. Check event eligibility, purpose- and channel-specific permission, and current purchase, subscription, and suppression state before dispatch. Assign one sender and queue owner; cancel old queued recovery, prevent replay with stable deduplication keys, and verify rollback before enabling the replacement.',
-  },
-  {
-    question: 'Should I also consider Sequenzy instead of Drip or ActiveCampaign?',
-    answer: 'Sequenzy fits when lifecycle strategy speed beats canvas or CRM tinkering — guided playbooks with pay-per-email pricing. Drip wins visual workflow control for DTC. ActiveCampaign wins CRM automation breadth. Sequenzy helps teams who find Drip maintenance heavy and ActiveCampaign overwhelming for pure ecommerce.',
-  },
-  {
-    question: 'Which handles B2B wholesale better?',
-    answer: 'For a proposed meal-kit corporate gifting evaluation, test inquiry-to-order stages, sales handoffs, and lead scoring in the current plan. For a coffee subscription evaluation, test recurring-order branches and subscription-state changes. These are proposed decision criteria, not documented merchant choices; confirm pipeline and integration support before selecting either product.',
-  },
-  {
-    question: 'Which integrates with Shopify more natively?',
-    answer: 'Drip — built for ecommerce operators, product blocks, and order-triggered workflows are first-class. ActiveCampaign\'s Shopify integration is solid but feels like one connector among many — stronger when you also track WordPress blog engagement or non-Shopify lead sources.',
-  },
-  {
-    question: 'What workflow test should decide the winner?',
-    answer: 'Build welcome, cart, post-purchase, winback, and one CRM-triggered follow-up if applicable. Score time-to-live, Shopify trigger accuracy, and whether sales pipelines matter. Pure DTC lean Drip. Hybrid DTC-plus-B2B lean ActiveCampaign.',
-  },
+    "question": "How do we prevent sales and lifecycle collisions?",
+    "answer": "Assign one handoff rule for open opportunities, current purchase and subscription checks, channel suppression, rep ownership and delayed-message cancellation. Test stage changes while content waits and orders while tasks are open."
+  }
 ];
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="py-14 md:py-20">
-    <div class="container">
-      <nav class="mb-8 text-sm">
-        <a class="link" href="/compare">Comparisons</a>
-        <span class="mx-2 text-cyan-100/90">/</span>
-        <span class="text-cyan-100/90">Drip vs ActiveCampaign</span>
-      </nav>
-
-      <header class="max-w-4xl">
-        <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Drip vs ActiveCampaign for Shopify SMS</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Visual ecommerce workflows versus CRM automation powerhouse. Drip optimizes for DTC operators who design behavior-based retention on a canvas tuned for orders, tags, and product properties. ActiveCampaign optimizes for teams who need deal pipelines, lead scoring, and automations that span Shopify plus sales inbox plus content site. Use three proposed evaluation scenarios: a $68k/mo coffee subscription, a B2B supplement wholesaler, and a home fitness brand with a content blog driving leads. These are planning examples, not observed tests or merchant results; confirm current product, plan, and integration scope before scoring either platform.
-        </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
-      </header>
-
-      <div class="mt-12 max-w-4xl">
-        <TldrBox
-          picks={[
-            { label: 'Shopify DTC', tool: 'Drip', reason: 'Ecommerce canvas with order and product triggers.' },
-            { label: 'CRM automation', tool: 'ActiveCampaign', reason: 'Pipelines, lead scoring, and sales follow-up.' },
-            { label: 'Time to live', tool: 'Drip', reason: 'Cart and welcome presets for pure ecommerce.' },
-            { label: 'B2B + DTC hybrid', tool: 'ActiveCampaign', reason: 'Deal stages alongside marketing automation.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Guided playbooks if both feel like operator debt.' },
-          ]}
-        />
-      </div>
-
-      <div class="mt-12 card overflow-x-auto">
-        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
-        <table class="data-table">
-          <thead>
-            <tr><th>Dimension</th><th>Drip</th><th>ActiveCampaign</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Best for</td><td>Shopify DTC workflow operators</td><td>CRM + marketing automation</td></tr>
-            <tr><td>Starting price</td><td>From ~$39/mo</td><td>From ~$29/mo</td></tr>
-            <tr><td>Billing model</td><td>People in account</td><td>Contacts + feature tier</td></tr>
-            <tr><td>Shopify depth</td><td>Native — ecommerce-first</td><td>Good — one of many connectors</td></tr>
-            <tr><td>CRM pipelines</td><td>Limited</td><td>Core strength</td></tr>
-            <tr><td>Workflow UI</td><td>Visual ecommerce canvas</td><td>Automation builder + CRM</td></tr>
-            <tr><td>Lead scoring</td><td>Basic</td><td>Advanced</td></tr>
-            <tr><td>Learning curve</td><td>Moderate</td><td>Moderate–steep</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Drip and ActiveCampaign both offer visual automation beyond Mailchimp. The fork is whether your Shopify store is the entire business or one revenue line among CRM-tracked deals, blog leads, and sales follow-up. Drip assumes the operator thinks in orders and product tags. ActiveCampaign assumes marketing and sales share one contact graph with deal stages and site tracking.
-        </p>
-        <p>
-          The coffee subscription chose Drip — 94% revenue from Shopify recurring orders, retention owner who enjoyed canvas logic for irregular reorder branches. The supplement wholesaler chose ActiveCampaign — 40% revenue from B2B inquiries needing pipeline stages from sample request to PO. Same price band, different operating systems.
-        </p>
-
-        <h2>Merchant scenario: home fitness blog plus Shopify</h2>
-        <p>
-          In a proposed $52k/mo home fitness scenario, assume 30% of email signups come from WordPress workout guides rather than Shopify popups. Test whether the current integration can distinguish three-article readers from popup discount seekers, with appropriate tracking permission. Compare native events and tag-based alternatives, including any custom integration labor; no cross-site capability or merchant outcome is established here.
-        </p>
-        <p>
-          Time the same cart-recovery build in each evaluation environment and record operator experience, required integrations, and audit effort. Compare that with blog-to-buy nurture if it is the proposed growth constraint. No two-hour versus six-hour trial or merchant selection is verified here; prioritize the constraint demonstrated by your own evaluation.
-        </p>
-
-        <h2>Workflow test: welcome series</h2>
-        <p>
-          Propose a welcome test with popup, footer, and blog-referral branches. Evaluate whether current plan support allows lead-score thresholds so eligible high-intent readers can skip discount email two. Record build and review time rather than claiming an afternoon result. Use purpose- and channel-specific permission and current suppression checks; added branching is useful only if the scenario needs it.
-        </p>
-
-        <h2>Workflow test: abandoned cart</h2>
-        <p>
-          Propose an abandoned-cart test excluding wholesale-tagged customers from consumer promotions. Inspect branch visibility and audit effort in each current builder rather than claiming an observed winner. Recheck purchase, subscription, and suppression state at dispatch; designate one sender and queue owner, cancel stale queued messages, and deduplicate retries and replayed events. Compare attributed orders separately from causal lift: randomized eligible holdouts need uncertainty estimates and adequate samples.
-        </p>
-
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          At 18k contacts, both often land $180–300/mo. List hygiene matters equally — popup imports inflate bills. The coffee subscription sunset 4k stale leads quarterly; saved ~$40/mo on Drip. ActiveCampaign's sales seats add cost if CRM users need full licenses. Model total seats, not marketing contacts alone.
-        </p>
-
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Drip if:</strong></p>
-        <ul>
-          <li>Shopify DTC is 85%+ of revenue</li>
-          <li>Your retention owner thinks in workflows and product tags</li>
-          <li>CRM pipelines are handled in HubSpot or not at all</li>
-          <li>Cart, replenishment, and winback are primary KPIs</li>
-        </ul>
-        <p><strong>Choose ActiveCampaign if:</strong></p>
-        <ul>
-          <li>B2B wholesale or service upsells need deal pipelines</li>
-          <li>Blog, webinar, or non-Shopify leads feed the funnel</li>
-          <li>Sales and marketing share contact records and automation</li>
-          <li>Lead scoring drives nurture before first purchase</li>
-        </ul>
-
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          If Drip's canvas feels like maintenance debt and ActiveCampaign feels like CRM overkill for pure DTC, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing. It will not replace ActiveCampaign pipelines or Drip's visual experiments. It replaces the strategic blank page for teams who know they need welcome and winback but not another builder to babysit.
-        </p>
-
-        <h2>Verdict</h2>
-        <p>
-          Drip wins Shopify-first DTC operators who want ecommerce canvas control. ActiveCampaign wins hybrid marketing-plus-sales automation with CRM depth. Run the five-flow test on both trials against your revenue shape. The winner is whichever platform your marketer trusts to edit the night before a flash sale.
-        </p>
-      </article>
-
-      <div class="mt-10 max-w-4xl text-sm">
+  <section class="py-14 md:py-20"><div class="container">
+    <nav class="mb-8 text-sm"><a class="link" href="/compare">Comparisons</a> / Drip vs ActiveCampaign</nav>
+    <header class="max-w-4xl"><p class="badge">Head-to-head</p><h1 class="hero-title mt-5">Drip vs ActiveCampaign for Shopify Email</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">Compare ecommerce workflow ownership with account, deal and representative responsibilities before choosing a shared workspace. All merchant scenarios below are proposed exercises, not observed tests or results.</p></header>
+    <div class="mt-12 max-w-4xl"><TldrBox picks={[
+      {"label": "Order-driven retention", "tool": "Drip", "reason": "Evaluate explicit journeys owned by a retention operator."},
+      {"label": "Account and deal coordination", "tool": "ActiveCampaign", "reason": "Evaluate pipeline, stage and owner handoffs with sales."}
+    ]} /></div>
+    <article class="prose-shopify mt-14 max-w-4xl">
+      <h2>Choose who owns the next customer action</h2>
+      <p>Drip’s <a class="link" href="https://help.drip.com/hc/en-us/articles/4424702655501-Workflows-Triggers">documented workflow triggers</a> support an event-driven way to organize retention. ActiveCampaign’s <a class="link" href="https://help.activecampaign.com/hc/en-us/articles/360008034900-How-to-use-Accounts-in-ActiveCampaign">Accounts feature</a> represents businesses and their associated contacts; its <a class="link" href="https://help.activecampaign.com/hc/en-us/articles/360000028840-How-to-create-a-deal-in-ActiveCampaign">deals documentation</a> describes opportunities with pipeline, stage and owner. Availability depends on the plan. Drip is a positive fit when a retention operator owns order-driven education and repeat purchase. ActiveCampaign is a positive fit when marketers and sales representatives need to coordinate opportunities as well as individual contacts.</p>
+      <h2>A business account is not a consumer tag</h2>
+      <p>For a proposed B2B supplement wholesaler, create a company with a buyer and a purchasing approver, plus a separate consumer customer who uses a work email. Do not infer wholesale status from email domain alone. Record which company owns the inquiry, who may receive marketing, which contact gets a quote and who can approve an order. A contact property, an account field and a deal stage have different jobs. Specify the source of truth and update direction for each; verify available objects and permissions in the quoted plan.</p>
+      <h2>From sample request to purchase order</h2>
+      <p>Use sample requested, qualification, quote, approval and purchase order as proposed stages. Assign a representative and a due task at handoff. Test two simultaneous deals for the same company, a lost opportunity and an existing consumer customer requesting wholesale terms. A stage change should not silently overwrite every contact’s lifecycle state. Define what happens when the rep changes, the buyer leaves, a deal reopens or an order arrives outside Shopify. Test duplicate inquiry events before permitting automatic deal creation.</p>
+      <h2>Coffee subscription: retain an operator-owned alternative</h2>
+      <p>A $68,000-per-month coffee subscription is an illustrative workload, not a merchant selection. The former 94% Shopify revenue and 40% B2B shares can be useful scenario inputs, but neither chooses a product. For recurring orders, compare welcome, bag-size replenishment, post-purchase education and winback. Inspect order identifiers and subscription status rather than treating each renewal as a new acquisition. Drip can be the right choice when these explicit journeys meet the need; adding CRM objects is useful only when someone will maintain and act on them.</p>
+      <h2>Home fitness blog: source and intent are different</h2>
+      <p>In a proposed $52,000-per-month fitness store, assume 30% of email signups come from WordPress guides. Test three-article readers separately from popup discount seekers with appropriate tracking permission and actual available events. Preserve original acquisition source when later behavior changes. Popup, footer and blog-referral welcome branches need a fallback for missing history. If a lead-score threshold is proposed to skip discount email two, document its inputs, expiry and reset conditions; do not present a score as consent or a sales-ready guarantee.</p>
+      <h2>Rep outreach and lifecycle messaging need one handoff rule</h2>
+      <p>For an open wholesale quote, decide whether consumer cart promotions pause, which contact is affected and when education resumes. A rep’s personal follow-up and an automated marketing message can otherwise make conflicting promises. Test a stage change while a message waits, an order while a task is open, rep reassignment and a deal marked lost. Record sender, reply destination, queue owner, cancellation action and fallback owner. Closing a deal must not subscribe an unsubscribed contact. A separate CRM already in use may remain the sales source of truth if its connector and ownership pass these checks.</p>
+      <h2>Cart recovery: acceptance before replacement</h2>
+      <p>Build the same cart scenario in Drip and ActiveCampaign, excluding verified wholesale customers from consumer offers. Inspect the current Shopify integration for the required event, identity, product and order fields; do not infer connector coverage from a feature matrix. Recheck purchase, subscription and channel suppression at dispatch. Replay the same event, delay a purchase sync and update a wholesale flag after entry. Designate one sender, cancel the old queue and verify rollback. Time setup and review in your environment rather than claiming a two-hour or six-hour winner.</p>
+      <h2>Quote contacts, sales access and integration work together</h2>
+      <p>Use 12,000 and 18,000 contacts as current quote requests, not historical price bands. Include a scenario with 4,000 inactive leads, asking how suppression, archiving and stored contacts affect the actual bill. No $40 monthly saving is established. Itemize marketing send allowance, CRM feature access, required user seats, support, channel costs and connector work over twelve months. Preserve necessary permission and suppression records when cleaning lists. A DTC revenue percentage such as 85% is not a universal threshold for choosing either product.</p>
+      <h2>Five-flow review with a sales acceptance owner</h2>
+      <p>Evaluate welcome, cart, post-purchase, winback and one CRM-triggered follow-up only when the business needs it. Record trigger accuracy, branch visibility, safe edits and responsible operator. For sales acceptance, require a visible owner, next action and outcome; a new deal record alone is not a successful handoff. Reconcile order attribution separately from rep-assisted sales and avoid crediting both systems with the same full order. Use eligible randomized holdouts with uncertainty to evaluate incremental marketing effects, rather than treating dashboard revenue as lift.</p>
+      <h2>Decision: maintain the lifecycle you actually operate</h2>
+      <p>Choose Drip when order-driven retention and its ongoing workflow maintenance are the accepted operating model. Choose ActiveCampaign when account and deal coordination will be used by named sales owners as well as marketers. Neither a larger list nor a revenue milestone forces migration. Map contact/account/deal identifiers, fields, event history, permission, suppressions and queues before a move. Test ownership changes and duplicate imports alongside sending logic. Sequenzy or another email product merits evaluation only for a defined unmet task, with its own acceptance criteria; adding a sender does not resolve an unowned sales handoff.</p>
+      <h2>Channel permission, replies and contribution margin</h2>
+      <p>Before enabling an SMS route, verify current supplier, plan and destination support. Review live popup, checkout and keyword disclosures with the responsible reviewer; record source, wording, time, purpose, channel scope and withdrawal. Configure timezone and quiet-hour handling, frequency limits and a reply owner. Test STOP and HELP separately from email unsubscribe; do not assume a tag or CRM stage propagates suppression between senders.</p>
+      <p>For a proposed $100 order with $45 product cost and $10 fulfillment, contribution before marketing is $45. A 25% discount leaves $20 before platform fees, carrier fees and three proposed texts. The result is not automatically negative: calculate the actual fees, returns and incremental orders. Review weekly caps across broadcasts and automations, opt-outs by flow, reply backlog and full-price repeat quality. Coordinate offers across channels using the subscriber’s promise and actual collision rules rather than a universal twenty-four-hour rule.</p>
+      <ul><li>Check current purchase, subscription, channel permission and suppression before dispatch.</li><li>Assign one owner for sender selection, replies, queue cancellation and cross-system suppression tests.</li><li>Re-read live disclosures when forms or channel purposes change; retain an audit trail.</li><li>Measure cost per incremental order with an appropriate holdout, uncertainty and adequate samples.</li></ul>
+    </article>
+    <div class="mt-10 max-w-4xl text-sm">
         <p class="font-black text-white">Related comparisons</p>
         <p class="mt-2">
           <a class="link" href="/compare/activecampaign-vs-klaviyo">ActiveCampaign vs Klaviyo</a> ·
@@ -164,55 +73,6 @@ const faqs = [
           <a class="link" href="/use-cases/replenishment">Replenishment playbook</a>
         </p>
       </div>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: cost-per-message modeling including carrier…</h2>
-      <p>For <strong>compare drip vs activecampaign</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: email-SMS collision rules for…</h2>
-      <p>For <strong>compare drip vs activecampaign</strong>, email-SMS collision rules for cart recovery and product launches is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 3: weekly SMS caps per…</h2>
-      <p>For <strong>compare drip vs activecampaign</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
+  </div></section>
   <FaqSection faqs={faqs} title="Drip vs ActiveCampaign FAQ" />
 </BaseLayout>
