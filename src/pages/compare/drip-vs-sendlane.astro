@@ -3,166 +3,72 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
 import FaqSection from '../../components/FaqSection.astro';
-import { site, description, pageTitle } from '../../content';
+import { site } from '../../content';
 const path = '/compare/drip-vs-sendlane';
-const title = 'Drip vs Sendlane for Shopify Email: 2026 Comparison';
-const desc = 'Drip vs Sendlane for Shopify stores — self-serve visual workflow control vs guided ecommerce retention platform, migration support, pricing, and team fit.';
-
+const title = "Drip vs Sendlane for Shopify Email: 2026 Comparison";
+const desc = "Compare Drip workflow entry and history with Sendlane continuity, Privy service scope and queue handover.";
 const faqs = [
   {
-    question: 'Is Drip or Sendlane better for a Shopify store doing $120k/mo?',
-    answer: 'Drip wins when your team has a retention operator who enjoys building and maintaining visual workflows self-serve. Sendlane wins when order volume justifies guided migration, hands-on onboarding, and ecommerce-first templates without hiring an agency. At $120k/mo with one skilled operator, Drip competes on economics. At $120k/mo with a lean team exiting Klaviyo or Mailchimp, Sendlane\'s migration support can justify higher entry pricing.',
+    "question": "Does the Privy acquisition mean Sendlane is closed?",
+    "answer": "The acquisition announcement establishes ownership context, not closure of a particular account. Verify your current product, contract, integration and support path with the supplier."
   },
   {
-    question: 'How does Drip vs Sendlane pricing compare at 15,000 contacts?',
-    answer: 'Drip at 15k people typically lands $150–240/mo with transparent self-serve billing. Sendlane starts around $83+/mo with custom packages that scale with features and support level — often $200–400/mo all-in for brands using migration and deliverability consultation. Sendlane\'s premium includes human support; Drip\'s value is operator autonomy at lower TCO when the team can self-maintain.',
+    "question": "What should decide Drip versus a Sendlane/Privy proposal?",
+    "answer": "Compare the same entry, re-entry, delayed-send and history fixtures. Drip is a candidate for operator-maintained event workflows; contracted support can be useful when its deliverables match the work your team needs."
   },
   {
-    question: 'Which has better Shopify ecommerce automation?',
-    answer: 'Evaluate the same welcome, cart, post-purchase and winback journeys in each account. Confirm the current Shopify integration, event payloads, branching and support included in the proposed plan. Compare edit safety and your team\'s maintenance workload rather than assuming template availability or faster launch.',
+    "question": "Will importing history restart workflows?",
+    "answer": "Do not assume so. Drip documents forward-facing triggers. Distinguish imported attributes from events, decide how pending journeys continue and test replay and duplicate handling in the actual destination."
   },
   {
-    question: 'Can Sendlane help with migration from Drip or to Drip?',
-    answer: 'Confirm the current migration service and its written scope in each proposal. Inventory contacts, permission records, suppressions, event history and active journeys; establish which fields transfer and which flows require rebuilding. Schedule cutover from verified dependencies and acceptance checks rather than a fixed number of weeks. Assign one sender and queue owner per journey, cancel old queued messages, and test replay deduplication before activation.',
-  },
-  {
-    question: 'Should I also consider Sequenzy instead of Drip or Sendlane?',
-    answer: 'Sequenzy fits when strategy speed beats canvas tinkering or guided platform overhead — agent-first playbooks with pay-per-email pricing. Drip still wins for visual workflow purists who self-maintain. Sendlane still wins when migration complexity exceeds team capacity. Sequenzy helps teams who find Drip maintenance heavy and Sendlane pricing heavy.',
-  },
-  {
-    question: 'Which handles migration from Klaviyo better?',
-    answer: 'Compare the actual migration scope offered for your account: data mapping, flow recreation, sender authentication, suppression transfer, support and acceptance testing. Do not assume either supplier must be self-serve or that guided support guarantees a faster launch. Select the service your team can operate after handover, with explicit ownership of old and new queues.',
-  },
-  {
-    question: 'Does Drip\'s self-serve model matter vs Sendlane support?',
-    answer: 'Yes for team shape. Drip assumes one retention owner who edits workflows monthly and documents logic. Sendlane assumes you will use quarterly performance reviews and onboarding support — external eyes catch blind spots internal teams normalize. Stores that buy Sendlane but never use support pay premium without benefit; stores that buy Drip without operator bandwidth accumulate broken flows.',
-  },
-  {
-    question: 'What workflow test should decide the winner?',
-    answer: 'Propose four journeys: welcome by signup source, cart recovery, post-purchase cross-sell and winback by purchase history. Confirm current channel and plan scope, then check purpose-specific channel permission, suppression, purchase and subscription state again at dispatch. Define sender and queue ownership, cancellation and replay deduplication across journeys. Score setup effort, safe edits and ongoing maintenance. Dashboard attribution is not causal lift; a randomized holdout needs a defined eligible cohort and uncertainty reporting.',
-  },
+    "question": "How should migration and pricing be evaluated?",
+    "answer": "Use current quotes and an explicit inventory of records, permission, history and pending messages. Assign old and new queue owners, acceptance and rollback. The 15,000- and 18,000-contact fixtures are quote inputs, not prices or migration schedules."
+  }
 ];
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="py-14 md:py-20">
-    <div class="container">
-      <nav class="mb-8 text-sm">
-        <a class="link" href="/compare">Comparisons</a>
-        <span class="mx-2 text-cyan-100/90">/</span>
-        <span class="text-cyan-100/90">Drip vs Sendlane</span>
-      </nav>
-
-      <header class="max-w-4xl">
-        <p class="badge">Head-to-head</p>
-        <h1 class="hero-title mt-5">Drip vs Sendlane for Shopify SMS</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Compare workflow control and migration support against your own Shopify requirements. A home goods store rebuilding neglected Klaviyo journeys, a pet supplies brand designing replenishment by bag size, and an audio retailer with a long consideration cycle are proposed evaluation scenarios, not documented merchant results. Confirm current email and SMS availability, destinations, integration and plan scope before treating either product as a channel replacement; the SMS heading does not establish that capability.
-        </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
-      </header>
-
-      <div class="mt-12 max-w-4xl">
-        <TldrBox
-          picks={[
-            { label: 'Self-serve control', tool: 'Drip', reason: 'Visual canvas for operators who maintain workflows independently.' },
-            { label: 'Guided migration', tool: 'Sendlane', reason: 'White-glove onboarding and flow recreation for complex cutovers.' },
-            { label: 'Workflow transparency', tool: 'Drip', reason: 'Every branch visible for audit and sale-week edits.' },
-            { label: 'Retention investment', tool: 'Sendlane', reason: 'Human support when team bandwidth is the constraint.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Guided playbooks if Drip maintenance and Sendlane pricing both feel heavy.' },
-          ]}
-        />
-      </div>
-
-      <div class="mt-12 card overflow-x-auto">
-        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Comparison at a glance</h2>
-        <table class="data-table">
-          <thead>
-            <tr><th>Dimension</th><th>Drip</th><th>Sendlane</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Best for</td><td>Self-serve workflow operators</td><td>Guided DTC retention platform</td></tr>
-            <tr><td>Starting price</td><td>From ~$39/mo</td><td>From ~$83/mo</td></tr>
-            <tr><td>Billing model</td><td>People in account</td><td>Custom packages</td></tr>
-            <tr><td>Shopify depth</td><td>Native — orders, tags, products</td><td>Native — ecommerce-first</td></tr>
-            <tr><td>Workflow UI</td><td>Visual canvas</td><td>Journey builder + templates</td></tr>
-            <tr><td>Migration support</td><td>Self-serve</td><td>White-glove onboarding</td></tr>
-            <tr><td>SMS</td><td>Available</td><td>Email + SMS coordination</td></tr>
-            <tr><td>Learning curve</td><td>Moderate for builders</td><td>Moderate — guided ramp</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Use the home goods scenario to evaluate responsibility for implementing and maintaining journeys. Inventory the four core flows, event dependencies and existing queues before comparing a self-managed rebuild with contracted help. Ask each supplier to demonstrate the current tools and state which migration and deliverability tasks its proposed service includes. No nine-month maintenance lapse, two-week rebuild or merchant outcome is established here.
-        </p>
-        <p>
-          The pet supplies brand had the opposite profile: one retention owner who migrated from Mailchimp to Drip in twelve days, built replenishment branches by bag size on the canvas, and edits winback logic before every promo. Sendlane's premium would have bought support they would not use. Drip's economics and transparency matched their operator-first culture.
-        </p>
-
-        <h2>Workflow test: welcome series</h2>
-        <p>
-          Drip built welcome on canvas with explicit nodes for popup vs footer signup and first-category-viewed branch — one afternoon, fully auditable. Sendlane activated ecommerce welcome templates during guided onboarding, then customized exclusion for wholesale-tagged customers with onboarding specialist review — live in three days with fewer operator hours but higher platform cost. For teams with build capacity, Drip wins economics. For teams without, Sendlane wins time-to-revenue.
-        </p>
-        <p>
-          For the proposed audio retailer, evaluate a welcome sequence that explains warranty registration before cross-sell. Separate service information from promotional messages and verify the permission required for each purpose and channel. Ask both teams to build the same branches and document who maintains them; neither a supplier advantage nor a two-week implementation time has been measured.
-        </p>
-
-        <h2>Workflow test: abandoned cart</h2>
-        <p>
-          Both recovered carts effectively for $110–$175 AOV tests. Drip's cart workflow showed discount-sensitive branching with canvas clarity — the pet supplies operator A/B tested education vs 10% off with visible node paths. Sendlane cart templates shipped faster during migration with recommended three-step structure; customization for VIP exclusion required support ticket vs self-serve canvas edit depending on package level.
-        </p>
-        <p>
-          Evaluate cross-journey suppression explicitly rather than assuming setup solves it. At dispatch, recheck permission for the intended purpose and channel, current opt-out and suppression state, completed purchases and relevant subscriptions. Assign cart and winback sender and queue ownership, cancel stale scheduled messages and deduplicate replayed events. Compare sale-week edit safety and the review service actually included; no suppression audit outcome is documented here.
-        </p>
-
-        <h2>Pricing reality: autonomy vs support premium</h2>
-        <p>
-          At 18k contacts, Drip typically lands $180–280/mo — transparent, self-serve, no sales call required. Sendlane packages at similar list sizes often run $250–450/mo depending on support tier and SMS volume — premium priced for guided retention. TCO shifts when Sendlane migration prevents a bad October cutover or agency rebuild that costs $8k–15k. TCO also shifts when Drip self-serve works and Sendlane support sits unused.
-        </p>
-        <p>
-          The home goods store calculated Sendlane premium against avoided agency hours during Klaviyo exit — positive ROI in quarter one. The pet supplies brand calculated Sendlane premium against operator salary already sunk — negative ROI; Drip was the rational pick.
-        </p>
-
-        <h2>Shopify data depth in production</h2>
-        <p>
-          Check the actual Shopify payloads for cart, order, product and tag events in each proposed integration. Use the pet supplies scenario to test custom fields, bag-size replenishment and VIP exclusions; use the audio scenario to test a long consideration window. Verify current attribution and experiment features in the selected plan rather than inferring capability from a platform label. Attributed revenue does not establish incremental recovery.
-        </p>
-        <p>
-          A hypothetical 140-day audio purchase cycle can test whether educational messages and winback eligibility remain appropriate as customer state changes. Record how each account handles purchase suppression, late events and service-versus-marketing purpose. If testing reactivation, randomize an eligible holdout and report uncertainty alongside unsubscribes and completed orders; no stable reactivation rate, 18% unsubscribe reduction or identical supplier outcome has been observed.
-        </p>
-
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Drip if:</strong></p>
-        <ul>
-          <li>You have a retention operator who will maintain the canvas monthly</li>
-          <li>Your migration inventory and acceptance tests support a self-managed cutover</li>
-          <li>Transparent workflow logic matters more than white-glove onboarding</li>
-          <li>Budget favors lower platform TCO when operator bandwidth exists</li>
-        </ul>
-        <p><strong>Choose Sendlane if:</strong></p>
-        <ul>
-          <li>Journey complexity and maintenance needs justify the proposed support scope</li>
-          <li>Leaving Klaviyo or complex ESP because the team cannot maintain it alone</li>
-          <li>Migration complexity exceeds internal bandwidth — October cutover risk is real</li>
-          <li>You will use guided onboarding, deliverability review, and quarterly audits</li>
-        </ul>
-
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          If Drip's canvas feels like maintenance debt and Sendlane's package pricing feels heavy for your order volume, Sequenzy offers guided lifecycle playbooks with pay-per-email pricing and unlimited contacts. It will not replace Sendlane's white-glove migration or Drip's visual workflow purism. It can replace the strategic blank page and reduce rebuild tax for teams between self-serve and guided platform extremes.
-        </p>
-
-        <h2>Verdict</h2>
-        <p>
-          Drip wins when operator bandwidth exists and self-serve canvas control beats support premium. Sendlane wins when migration complexity, maintenance neglect, or retention investment justify guided platform economics. Run the four-flow test and honestly assess whether your team will maintain workflows monthly. The pet supplies brand thrived on Drip autonomy. The home goods store needed Sendlane's migration safety net. Pick the platform that matches team shape — not the one with the better sales demo.
-        </p>
-      </article>
-
+  <section class="py-14 md:py-20"><div class="container">
+    <nav class="mb-8 text-sm"><a class="link" href="/compare">Comparisons</a></nav>
+    <header class="max-w-4xl"><p class="badge">Head-to-head</p>
+<h1 class="hero-title mt-5">Drip vs Sendlane for Shopify Email: 2026 Comparison</h1>
+<p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">The useful decision is who will own lifecycle logic after setup: your operator, a contracted service team, or both. Evaluate Drip’s event-driven workflows against the actual Sendlane or Privy account and service being offered, with special attention to history, re-entry and pending messages during a handover.</p>
+<p class="mt-5 text-cyan-100/90">The scenarios are proposed evaluations, not observed merchant results. Product scope and service commitments need confirmation for the account being purchased.</p></header>
+<div class="mt-12 max-w-4xl"><TldrBox picks={[{"label": "Operator-owned logic", "tool": "Drip", "reason": "Evaluate workflow triggers, event dependencies and safe ongoing edits."}, {"label": "Service-led continuity", "tool": "Sendlane / Privy", "reason": "Verify the current account, contracted help and acceptance responsibilities."}, {"label": "Migration decision", "tool": "Inventory first", "reason": "Preserve history and resolve old queues before enabling replacements."}]} /></div>
+<div class="mt-12 card overflow-x-auto"><h2 class="px-5 py-4 font-serif text-2xl font-black text-white">What to compare</h2><table class="data-table"><thead><tr><th>Decision</th><th>Drip</th><th>Sendlane / Privy proposal</th></tr></thead><tbody>
+<tr><td>Entry behavior</td><td>Triggers apply to future actions; a person cannot enter while already in that workflow</td><td>Demonstrate entry and re-entry behavior in the proposed account</td></tr>
+<tr><td>History</td><td>Separate imported fields from triggering events</td><td>Confirm what history transfers and what needs reconstruction</td></tr>
+<tr><td>Support</td><td>Name the merchant operator and any contracted help</td><td>Name the migration, review and ongoing support deliverables</td></tr>
+<tr><td>Cost</td><td>Quote the required contacts, sends and work</td><td>Quote the actual product and service scope, not a historical package</td></tr>
+</tbody></table></div>
+<article class="prose-shopify mt-14 max-w-4xl">
+<h2>Sendlane continuity is part of the evaluation</h2>
+<p>Privy’s <a href="https://www.privy.com/blog/privy-acquires-sendlane">February 2, 2026 acquisition announcement</a> identifies Sendlane as an email and SMS platform with a service-first approach. Its <a href="https://www.privy.com/sendlane-acquisition">acquisition page</a> discusses email, SMS and onsite tools. This establishes a changed supplier context; it does not establish that a particular Sendlane account has closed or that every account has identical migration terms.</p>
+<p>For an existing Sendlane customer, ask which product, login, integration, contract and support team continue for that account. For a new proposal, ask which environment you would actually buy. Obtain written scope for data transfer, flow rebuilding, deliverability review, authentication and ongoing edits. Service can be a positive fit for a lean ecommerce team when deliverables and merchant responsibilities are explicit.</p>
+<h2>Drip: entry rules matter more than a canvas label</h2>
+<p>Drip’s <a href="https://help.drip.com/hc/en-us/articles/4424702655501-Workflows-Triggers">workflow trigger guide</a> describes event-based entry, forward-facing triggers and the restriction that a person cannot enter a workflow while already in it. That makes Drip a useful candidate for an operator who wants to maintain event-driven journeys. It does not prove that importing old orders automatically reenacts their workflows.</p>
+<p>Inventory the provider, event name, stable identifier, timestamp and fields required by each entry rule. Test one customer triggering again while waiting, then triggering after exit. Distinguish intended repeat entry from duplicate retries. Record the behavior in both candidate accounts rather than assuming they share the same semantics.</p>
+<h2>Home goods rebuild: preserve history without replaying everything</h2>
+<p>For a hypothetical home goods store leaving neglected Klaviyo journeys, inventory welcome, cart, post-purchase and winback before discussing implementation speed. Separate current profile attributes, historical orders, consent evidence, suppressions and messages already sent. A contact import does not preserve every event dependency or delay position.</p>
+<p>Choose explicitly whether a customer waiting in an old sequence finishes there, stops entirely or enters a specific replacement step. Keep a handover ledger with customer, journey, version, last completed step, pending job, sender and cancellation status. Verify old queue cancellation before the new owner enables the replacement; turning off entry may not cancel already scheduled work.</p>
+<p>Compare self-managed rebuilding with the contracted Sendlane/Privy service against this same inventory. Ask who resolves an unmapped field, who approves templates and who handles rollback. There is no documented two-week rebuild, avoided agency bill or positive ROI from this scenario.</p>
+<h2>Pet supplies: bag size, replenishment and re-entry</h2>
+<p>Use a pet supplies customer with purchases in two bag sizes. Build replenishment by the actual item, quantity and relevant usage assumptions; do not treat a fixed interval as established consumption. Check how a new order changes eligibility while a reminder waits. A canceled subscription and a skipped delivery need separate treatment if the subscription app supplies those states.</p>
+<p>Test source-specific welcome from popup and footer, a first-category preference and wholesale exclusions. Identify which values are current fields and which are historical events. Change a preference while the customer waits and record which value the next branch reads. An operator-owned Drip program can fit a team that wants to inspect and maintain these rules; supported implementation can fit a team that needs help maintaining them.</p>
+<p>Before a promotion, change one branch, inspect customers already in delays and roll back the version. Replay an order and retry a failed integration job. The acceptance result should show the intended replenishment entry once and no stale acquisition or winback discount after purchase. These are proposed tests, not supplier outcomes.</p>
+<h2>Audio welcome and cart: a long consideration window</h2>
+<p>For a hypothetical 140-day audio buying cycle, separate warranty or service information from marketing education and cross-sell. Establish purpose and permission for each message. Avoid labeling a customer dormant solely because a short default winback interval elapsed.</p>
+<p>Use illustrative carts from $110 to $175 to test multi-item rendering, variant images, stock changes and an optional 10% incentive against education. On a $110 eligible subtotal the incentive is $11; on $175 it is $17.50 before fees. Define subtotal basis, currency and stacking rather than claiming either platform recovered these carts.</p>
+<p>Keep VIP treatment separate from discount-seeking behavior and include recent purchasers and active service issues in review. At dispatch, verify current eligibility, opt-out, purchase and subscription state wherever the chosen design requires it. Trace late cart updates arriving after purchase. Include Shopify’s recovery sender and every external sender in the queue inventory; no supplier automatically guarantees suppression across all systems.</p>
+<h2>Service handover: acceptance has a named owner</h2>
+<p>Ask the proposed service team to demonstrate one completed flow, one failed event and one cancellation. Contracted help should specify whether it includes field mapping, creative revisions, suppression transfer, sender authentication, deliverability consultation and post-launch changes. Do not infer quarterly reviews or complete flow recreation from a general promise of support.</p>
+<p>Give the merchant pause authority and keep an escalation contact for integration failures. Record event time, ingestion time, queue time and dispatch time. Test missing timezone, changed phone number, unsubscribe while waiting, STOP/HELP and reply routing for supported SMS markets. A successful export does not establish that withdrawal reached the destination sender.</p>
+<p>Read live popup, checkout and keyword disclosures for the actual market and channels. Preserve source, wording, timestamp and withdrawal. Configure applicable quiet hours and frequency limits, audit disclosure changes against active journeys, and assign the reply inbox. This operational review does not establish legal or delivery clearance.</p>
+<h2>Quote ongoing work, not an assumed support premium</h2>
+<p>Retain 15,000 and 18,000 contacts as quote fixtures. Specify billable contacts, suppressed records, email sends, SMS destinations, onboarding and ongoing review. Compare current written terms, migration labor and operator time over the same period. Drip is not automatically cheaper, and Sendlane support is not automatically a premium or a substitute for merchant approval.</p>
+<p>For a proposed campaign, contribution per incremental order must cover platform allocation, message and carrier costs, discounts and operational work. Track opt-outs by flow and full-price repeat purchases. Use randomized eligible holdouts and uncertainty reporting when estimating incremental recovery rather than treating attributed revenue as causal lift.</p>
+<p>Choose Drip when the demonstrated workflow behavior and maintenance ownership suit your team. Retain or choose the offered Sendlane/Privy environment when continuity and contracted service meet the same acceptance tests. An alternative such as Sequenzy can be assessed against the inventory, but changing platforms is not a cure for unowned events, queues or approvals.</p>
+</article>
       <div class="mt-10 max-w-4xl text-sm">
         <p class="font-black text-white">Related comparisons</p>
         <p class="mt-2">
@@ -173,42 +79,7 @@ const faqs = [
           <a class="link" href="/alternatives/drip-alternative">Drip alternatives</a>
         </p>
       </div>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: inventory-aware cart SMS before…</h2>
-      <p>For <strong>compare drip vs sendlane</strong>, inventory-aware cart SMS before sending recovery texts is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
 
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: VIP segmentation separate from…</h2>
-      <p>For <strong>compare drip vs sendlane</strong>, VIP segmentation separate from discount-hunter segments is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
-  <FaqSection faqs={faqs} title="Drip vs Sendlane FAQ" />
+</div></section>
+<FaqSection faqs={faqs} title="Drip vs Sendlane FAQ" />
 </BaseLayout>
