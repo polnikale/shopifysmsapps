@@ -1,217 +1,68 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
 import FaqSection from '../../components/FaqSection.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { appBySlug } from '../../data/apps';
+import { site } from '../../content';
 const path = '/alternatives/yotpo-email-sms-alternative';
-const title = 'Best Yotpo Email & SMS Alternatives for Shopify (2026)';
-const desc = 'Why merchants leave Yotpo Email — suite sprawl, modular bills, email depth gaps — plus eight ranked alternatives and migration checklist.';
-
-const altSlugs = ['sequenzy', 'klaviyo', 'omnisend', 'marsello', 'sendlane', 'privy', 'drip', 'mailchimp'];
-const alternatives = altSlugs.map((s) => appBySlug(s)!);
-
+const title = 'Yotpo Email & SMS alternatives: choose a replacement for Shopify';
+const desc = 'Compare replacement messaging around retained Reviews and Loyalty, demonstrate critical workflows, and cost the new stack after Yotpo Email and SMS retirement.';
 const faqs = [
-  { question: 'Why leave Yotpo Email if reviews stay on Yotpo?', answer: 'Many stores keep Yotpo Reviews but move email/SMS to specialists — Klaviyo, Sequenzy, or Omnisend — when campaign depth and pricing clarity beat suite consolidation. Reviews integration still works via Shopify sync and UGC blocks.' },
-  { question: 'Does leaving Yotpo break loyalty points in email?', answer: 'Inventory the loyalty triggers and data each flow needs. Confirm current module availability, integration permissions and event mappings with the providers before reconnecting flows. Assign one owner to each automation and queue, cancel replaced sends and deduplicate replayed events; validate points and current purchase state before activation.' },
-  { question: 'Is Yotpo Email cheaper than Klaviyo?', answer: 'Modular Yotpo pricing varies by active products. Stores paying for Reviews + Loyalty + Email + SMS often exceed Klaviyo or Sequenzy totals without matching email depth — audit line items before assuming suite = savings.' },
-  { question: 'Best Yotpo alternative for reviews-heavy brands?', answer: 'Klaviyo for maximum email depth with review UGC via integrations. Sequenzy for lifecycle strategy with pay-per-email economics. Marsello if POS loyalty is central.' },
-  { question: 'Can I export Yotpo segments?', answer: 'Confirm which exports and APIs are currently available for your account and messaging product. Preserve permission evidence by purpose and channel, current opt-outs and segment definitions where supported. Rebuild behavioral segments from validated events; static membership alone does not reproduce rules or establish permission to send.' },
-  { question: 'Should I leave SMSBump when leaving Yotpo Email?', answer: 'Evaluate the SMS service separately from email and confirm the current product identity, availability and export support for your account. Reviews or Loyalty availability does not establish messaging capability. Require SMS-specific permission evidence, current suppression state and a documented sender and queue handoff before moving sends.' },
-  { question: 'Migration timeline from Yotpo?', answer: 'Use readiness gates rather than a fixed 2–4 week promise: map module dependencies, verify permission and suppression, rebuild welcome/cart and review-request timing, then winback and replenishment. Check current purchase and subscription state, assign queue ownership, cancel replaced sends and deduplicate replays before activating each flow.' },
-  { question: 'When to stay on Yotpo Email?', answer: 'Stay when you actively use Reviews, Loyalty, Email, and SMS modules together and total cost beats best-of-breed stack. Leave when email is the weak module you subsidize for reviews.' },
+  { question: 'Can I stay on Yotpo Email & SMS?', answer: 'Yotpo scheduled full Email and SMS deprecation for December 31, 2025. Its current notice confirms the SMS dashboard and background services are inactive. Choose a current sending destination; continuing Reviews or Loyalty does not restore messaging.' },
+  { question: 'Which replacements did Yotpo name?', answer: 'Yotpo named Attentive and Omnisend in its 2025 migration announcement. Treat these as vendor-recommended candidates, then verify current onboarding, scope and commercial terms. The announcement is not an independent ranking.' },
+  { question: 'Must I move Reviews too?', answer: 'No. Decide whether Reviews still serves your store separately. If retaining it, validate product matching, review data and request ownership in the new sender. If moving it, evaluate asset rights and historical review transfer as a separate project.' },
+  { question: 'Will loyalty points survive a sender change?', answer: 'Keeping Loyalty leaves its program as the source of reward rules. Demonstrate balance, tier, redemption and expiry data in the destination; confirm freshness and cancellation behavior. A contact import alone does not reproduce these workflows.' },
+  { question: 'Is there a cheapest replacement?', answer: 'Compare written quotes at the same contact count, email volume, SMS destinations and segments, retained modules and support workload. Include integration labor and contract overlap. Old Yotpo module estimates cannot price a current replacement.' },
+  { question: 'Can I still export from the old dashboard?', answer: 'The current SMS notice says dashboard access is inactive. Start with archived exports and existing destination records, ask support what recovery is possible, and document missing data. Do not promise an export or import records with unresolved sending eligibility.' },
+  { question: 'Should email and SMS move together?', answer: 'Choose one or two senders according to your operating needs. Separate senders require a demonstrated shared preference process, purchase cancellation and reply ownership. A single vendor still needs these checks across its channels.' },
+  { question: 'How long should replacement take?', answer: 'Use readiness gates rather than a fixed timeline. Activate only after sender setup, permission and suppression reconciliation, event mapping, module-data checks and cancellation tests pass. Confirm any migration assistance and availability in writing.' },
 ];
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="py-14 md:py-20">
-    <div class="container">
-      <nav class="mb-8 text-sm">
-        <a class="link" href="/alternatives">Alternatives</a>
-        <span class="mx-2 text-cyan-100/90">/</span>
-        <span class="text-cyan-100/90">Yotpo alternatives</span>
-      </nav>
-
-      <header class="max-w-4xl">
-        <p class="badge">Suite unbundling</p>
-        <h1 class="hero-title mt-5">Best Yotpo Email & SMS alternatives</h1>
-        <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Yotpo sells consolidation — reviews, loyalty, email, SMS in one login. Merchants leave the email module when consolidation becomes subsidization: paying for a suite to run campaigns Klaviyo or Sequenzy handle better, while review request timing fights with lifecycle flows built in a different mental model. The break is rarely "Yotpo is bad at reviews." It is "email is not worth the module bill."
-        </p>
-      </header>
-
-      <div class="mt-12 max-w-4xl">
-        <TldrBox title="Top Yotpo Email replacements" picks={[
-          { label: 'Best overall', tool: 'Sequenzy', reason: 'Lifecycle strategy and pay-per-email when Yotpo email depth did not justify suite pricing.' },
-          { label: 'Best email depth', tool: 'Klaviyo', reason: 'Maximum Shopify segmentation while keeping Yotpo Reviews via integration.' },
-          { label: 'Best fast migration', tool: 'Omnisend', reason: 'Multichannel prebuilt flows without Yotpo module maze.' },
-          { label: 'Best loyalty overlap', tool: 'Marsello', reason: 'When leaving Yotpo because loyalty+email bundle underdelivered.' },
-          { label: 'Best guided switch', tool: 'Sendlane', reason: 'Migration support for brands exiting complex stacks.' },
-        ]} />
-      </div>
-
-      <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why Shopify merchants leave Yotpo Email & SMS</h2>
-        <p>
-          Module sprawl is the headline. A merchant starts with Yotpo Reviews, adds Email for review requests, adds Loyalty for points emails, adds SMS via SMSBump — four line items, one dashboard that does none of them as deeply as specialists. Email segmentation trails Klaviyo: collection browse abandonment, predictive winback, and holdout testing require workarounds or exports.
-        </p>
-        <p>
-          Review-request automations conflict with post-purchase education sequences when both live in Yotpo without careful collision rules. Teams want Klaviyo-level post-purchase branching but stay in Yotpo because reviews already live there — until attributed email revenue stagnates and finance asks why suite cost exceeds standalone alternatives.
-        </p>
-        <p>
-          SMS economics through Yotpo/SMSBump mirror standalone SMS tools — no automatic savings from bundling. Stores with serious SMS volume often evaluate Postscript or Attentive while moving email to Sequenzy, decoupling the suite without abandoning reviews.
-        </p>
-
-        <h2>Yotpo Email migration checklist</h2>
-        <ol>
-          <li><strong>Audit Yotpo modules.</strong> List active products — Reviews, Loyalty, Email, SMS — and monthly cost per module.</li>
-          <li><strong>Map automations by module.</strong> Which flows are email vs loyalty-triggered vs review-request native?</li>
-          <li><strong>Export contacts and consent</strong> including SMS opt-in timestamps from SMSBump if applicable.</li>
-          <li><strong>Decide reviews strategy.</strong> Keep Yotpo Reviews; reconnect review request timing in new post-purchase flow.</li>
-          <li><strong>Install new email platform</strong> and sync Shopify catalog and orders.</li>
-          <li><strong>Rebuild welcome and cart</strong> before touching review or loyalty emails.</li>
-          <li><strong>Replicate review request timing</strong> — typically 7–14 days post-delivery in new platform.</li>
-          <li><strong>Update loyalty email triggers</strong> if loyalty stays on Yotpo — API or Shopify tags may bridge.</li>
-          <li><strong>Migrate SMS last</strong> with compliance handoff if leaving SMSBump.</li>
-          <li><strong>Downgrade Yotpo Email module</strong> only after permission, suppression and event checks pass, replaced queues are cancelled and the new sender owns each flow.</li>
-        </ol>
-      </article>
-
-      <section class="container space-y-12 py-16">
-        <h2 class="font-serif text-4xl font-black text-white">Eight Yotpo Email alternatives</h2>
-
-        <ToolReview app={alternatives[0]} rank={1} badge="Top pick" paragraphs={[
-          'Sequenzy unbundles lifecycle from Yotpo suite bloat. Keep Yotpo Reviews for UGC; run welcome, cart, post-purchase education, replenishment, and winback in Sequenzy with agent-first setup and pay-per-email pricing. No more paying for email module features you never configured.',
-          'Loyalty-triggered campaigns need explicit integration if loyalty stays Yotpo — plan tag sync via Shopify. Sequenzy wins when email strategy was the weak suite link.',
-          'See <a class="link" href="/compare/klaviyo-vs-yotpo-email-sms">Klaviyo vs Yotpo</a> for depth comparison context.',
-        ]} />
-
-        <ToolReview app={alternatives[1]} rank={2} paragraphs={[
-          'Klaviyo is the power upgrade from Yotpo Email — deeper Shopify events, predictive CLV, flow A/B testing. Pull Yotpo review content into campaigns via integrations while running segmentation Klaviyo excels at.',
-          'Profile pricing applies. Worth it when email is primary retention lever and reviews are supporting proof, not the other way around.',
-        ]} />
-
-        <ToolReview app={alternatives[2]} rank={3} paragraphs={[
-          'Omnisend replaces Yotpo Email+SMS bundle for SMB teams wanting prebuilt multichannel without module navigation. Faster setup than Klaviyo; less depth than either Klaviyo or Sequenzy on strategy.',
-        ]} />
-
-        <ToolReview app={alternatives[3]} rank={4} paragraphs={[
-          'Marsello competes with Yotpo Loyalty+Email combo — loyalty, POS sync, email, SMS for omnichannel retailers. Choose when leaving Yotpo because loyalty-email coupling underperformed, not when reviews were the only Yotpo win.',
-        ]} />
-
-        <ToolReview app={alternatives[4]} rank={5} paragraphs={[
-          'Sendlane helps Yotpo migrants who need hands-on migration support across reviews, loyalty, and email decoupling. Higher entry price; guided onboarding reduces rebuild errors.',
-        ]} />
-
-        <ToolReview app={alternatives[5]} rank={6} paragraphs={[
-          'Privy strengthens capture while lifecycle moves off Yotpo — popups and list growth feeding Sequenzy or Klaviyo. Not an email suite replacement alone.',
-        ]} />
-
-        <ToolReview app={alternatives[6]} rank={7} paragraphs={[
-          'Drip for workflow-heavy teams escaping Yotpo template limits — visual builder for collection browse and post-purchase branching Yotpo simplified too much.',
-        ]} />
-
-        <ToolReview app={alternatives[7]} rank={8} paragraphs={[
-          'Mailchimp lateral move if Yotpo email felt overbuilt and you only need broadcasts plus basic automations — rare for serious Shopify retention but happens on cost audits.',
-        ]} />
-      </section>
-
-      <div class="container mb-12 max-w-4xl card overflow-x-auto">
-        <h2 class="px-5 py-4 font-serif text-2xl font-black text-white">Pricing: Yotpo vs alternatives</h2>
-        <table class="data-table">
-          <thead><tr><th>Stack</th><th>Typical SMB</th><th>Email depth</th><th>Reviews</th></tr></thead>
-          <tbody>
-            <tr><td>Yotpo multi-module</td><td>$200–600+/mo</td><td>Solid</td><td>Native</td></tr>
-            <tr><td>Sequenzy + Yotpo Reviews</td><td>$80–250/mo</td><td>Advanced strategy</td><td>Via Yotpo</td></tr>
-            <tr><td>Klaviyo + Yotpo Reviews</td><td>$150–400/mo</td><td>Maximum</td><td>Via integration</td></tr>
-            <tr><td>Omnisend standalone</td><td>$60–180/mo</td><td>Solid</td><td>Third-party</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="container max-w-4xl pb-8 text-sm">
-        <p class="font-black text-white">Related</p>
-        <p class="mt-2"><a class="link" href="/compare/marsello-vs-yotpo-email-sms">Marsello vs Yotpo</a> · <a class="link" href="/alternatives/smsbump-alternative">SMSBump alternatives</a> · <a class="link" href="/use-cases/reviews-and-ugc">Reviews in email</a></p>
-      </div>
+  <section class="container py-16">
+    <a class="link" href="/alternatives">← Alternatives</a>
+    <p class="badge mt-6">Replacement selection · checked November 25, 2026</p>
+    <h1 class="hero-title mt-5">Choose a replacement for retired Yotpo Email &amp; SMS</h1>
+    <p class="mt-7 text-xl leading-9">The decision is which platform should now send your messages and which Yotpo module data it needs. Keeping Reviews or Loyalty can be sensible without recreating the former suite. Start from required workflows and a demonstrable handoff, rather than an eight-vendor ranking.</p>
+  </section>
+  <section class="container pb-12">
+    <div class="prose-shopify card mb-8">
+      <h2>Start with the retirement and the two named partners</h2>
+      <p>Yotpo's <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">migration announcement</a> scheduled full Email and SMS deprecation for December 31, 2025 and named Attentive and Omnisend as partners. Its <a class="link" href="https://email-and-sms.yotpo.com/">current notice</a> confirms inactive SMS dashboard and background services. This replaces the old choice to keep buying the messaging suite; it does not require replacing Reviews and Loyalty.</p>
+      <p>Yotpo documents <a class="link" href="https://www.yotpo.com/integrations/attentive/">Attentive review and loyalty data synchronization</a> and <a class="link" href="https://www.yotpo.com/integrations/omnisend/">Omnisend segmentation using Yotpo data</a>. Those are concrete reasons to include them in a shortlist when retaining modules. They do not guarantee every account's field coverage, migration access or promotional pricing.</p>
+      <p>Request a demonstration using your actual data contract: identity key, fields, triggering event, update interval and failure handling. Confirm Reviews and Loyalty separately. For supplier history and archived SMS records, use the <a class="link" href="/apps/smsbump">SMSBump continuity guide</a>; for the full retirement inventory see <a class="link" href="/apps/yotpo-email-sms">Yotpo Email &amp; SMS</a>.</p>
+    </div>
+    <div class="prose-shopify card mb-8 overflow-x-auto">
+      <h2>Shortlist by the destination's job</h2>
+      <table class="data-table">
+        <thead><tr><th>Store requirement</th><th>Selection route</th><th>Evidence to request</th></tr></thead>
+        <tbody>
+          <tr><td>Keep Reviews and Loyalty; use their data in messaging</td><td>Begin with named partners Attentive and Omnisend</td><td>Live field mapping and event demonstration for each retained module, plus plan access and failure alerts</td></tr>
+          <tr><td>Keep an established email sender; replace SMS</td><td>Evaluate a current SMS supplier such as Postscript alongside the existing email owner</td><td>Destination coverage, number handoff, reply staffing, suppression propagation and purchase cancellation across senders</td></tr>
+          <tr><td>Replace email and SMS under one operator</td><td>Compare a unified proposal with the cost of two coordinated senders</td><td>Both channels' required flows, audience limits, approval process and billing units on a matched workload</td></tr>
+          <tr><td>Move Reviews or Loyalty as well</td><td>Run a separate module selection before promising full suite transfer</td><td>Review rights and product mapping, or rewards balances and redemption rules, with reconciliation totals</td></tr>
+        </tbody>
+      </table>
+      <p>The <a class="link" href="/apps/postscript">Postscript guide</a> covers a current SMS-focused operating decision. Existing email candidates such as <a class="link" href="/apps/sequenzy">Sequenzy</a> and <a class="link" href="/apps/klaviyo">Klaviyo</a> belong in your comparison when they meet the email brief; neither is declared the winner here. Require direct proof of any Yotpo data bridge you need. Do not buy a loyalty or popup product merely to fill a slot in an alternative list.</p>
+    </div>
+    <div class="prose-shopify card mb-8">
+      <h2>Use the same demonstration brief for every candidate</h2>
+      <p>Prepare test profiles and a small set of known orders. These are proposed acceptance exercises, with no measured merchant results or setup-speed advantage claimed.</p>
+      <ol>
+        <li><strong>Beauty with Reviews:</strong> match a review to the right product and show usable content with the necessary rights. Trigger one post-delivery request, then demonstrate that a completed review or the other request owner prevents a duplicate. A generic product-rating block does not prove request orchestration.</li>
+        <li><strong>Loyalty-led retail:</strong> show a tier change, points redemption and an expiry reminder. Change the balance after scheduling and inspect the final message. Reject a stale reward promise even if the template looks correct.</li>
+        <li><strong>Apparel replies:</strong> route a sizing question to a staffed inbox, retain the order context and handle an opt-out. Ask who monitors failures outside campaign hours; a reply feature without an owner does not meet a support requirement.</li>
+        <li><strong>Cart across channels:</strong> queue email and SMS, then purchase and withdraw permission on separate test profiles. Check each cancellation and replay the event to expose duplicate jobs. An unopened email must not supply SMS eligibility.</li>
+      </ol>
+      <p>Record pass, fail or unavailable with the account configuration and evidence. A missed critical cancellation or unusable permission record blocks that workflow. Nice-to-have templates should not outweigh a failed mandatory requirement.</p>
+    </div>
+    <div class="prose-shopify card mb-8">
+      <h2>Compare complete quotes, then assign the handoff</h2>
+      <p>Give candidates the same active profile count, email sends, SMS destinations, expected segments and peak-month scenario. Ask for platform charges, carrier fees, support scope, implementation cost and minimum term. Keep retained Reviews and Loyalty contracts on separate lines so their cost is not mistaken for messaging savings.</p>
+      <p><strong>Illustrative workload, not a supplier quote:</strong> four campaigns to 5,000 eligible email profiles plus 3,000 automation emails means 23,000 emails. A peak month with another 2,000 sends means 25,000. Quote SMS separately using actual encoding and segment counts rather than assuming one recipient equals one billable segment. Add staff hours for replies and integration monitoring to each proposal.</p>
+      <p>Inventory any replacement already installed before importing again. Reconcile archived permission and withdrawal records, document unavailable old records, verify domain and sender setup, map events and appoint one owner per flow. Turn off replaced integrations and queues before activating the new owner. Ask support about recovery where the decommissioned dashboard prevents access.</p>
+      <p>Accept the destination when required demonstrations pass and the team can handle failures. After launch compare delivery failures, complaints, reply backlog and contribution with a documented baseline. Use a suitable eligible comparison group when estimating incremental gains. No fixed migration duration, price saving or revenue lift follows from switching suppliers alone.</p>
     </div>
   </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: TCPA express written consent…</h2>
-      <p>For <strong>alternatives yotpo email sms alternative</strong>, TCPA express written consent and opt-in source documentation is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: quiet hours configured by…</h2>
-      <p>For <strong>alternatives yotpo email sms alternative</strong>, quiet hours configured by customer timezone not HQ timezone is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 3: cost-per-message modeling including carrier…</h2>
-      <p>For <strong>alternatives yotpo email sms alternative</strong>, cost-per-message modeling including carrier fees and discount depth is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 4: email-SMS collision rules for…</h2>
-      <p>For <strong>alternatives yotpo email sms alternative</strong>, email-SMS collision rules for cart recovery and product launches is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 5: weekly SMS caps per…</h2>
-      <p>For <strong>alternatives yotpo email sms alternative</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
-
-  <FaqSection faqs={faqs} title="Yotpo Email alternatives FAQ" />
+  <FaqSection faqs={faqs} title="Yotpo replacement selection FAQ" />
 </BaseLayout>
