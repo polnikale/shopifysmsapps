@@ -1,221 +1,50 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import { site, description, pageTitle } from '../../content';
-import { appBySlug } from '../../data/apps';
-
-const app = appBySlug('activecampaign')!;
+import { site } from '../../content';
 const path = '/apps/activecampaign';
-const title = pageTitle(site, 'apps/activecampaign');
-const desc = description(site, 'apps/activecampaign');
-
+const title = 'ActiveCampaign for Shopify: connect orders to sales follow-up';
+const desc = 'Evaluate Shopify purchase sync, quote pipelines, wholesale handoffs and ActiveCampaign add-on costs.';
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
-      <p class="badge mt-6">Automation + CRM · Rank #20</p>
-      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        ActiveCampaign is what happens when Shopify ecommerce overlaps with sales follow-up — high-ticket furniture quotes, wholesale inquiries, B2B portal orders, or consultative beauty routines requiring human touch. Powerful conditional automations, built-in CRM pipelines, lead scoring, and site tracking live in one platform. Pure catalog DTC without sales motion usually overpays for complexity Sequenzy or Klaviyo handles with less operator burden.
-      </p>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        The scenarios below are evaluation proposals for furniture quotes, hybrid wholesale and standard apparel DTC; they are not observed merchant tests. Verify current account features and integration behavior before using them. Automation depth: {app.automationDepth}.
-      </p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="/apps/klaviyo">Klaviyo review</a>
-        <a class="btn btn-secondary" href="/apps/drip">Drip review</a>
-        <a class="btn btn-secondary" href="/for/high-aov">High-AOV stores</a>
-      </div>
-    </div>
+  <section class="container py-16">
+    <a class="link" href="/apps">← All app reviews</a>
+    <p class="badge mt-6">Shopify operations · checked November 25, 2026</p>
+    <h1 class="hero-title mt-5">ActiveCampaign for Shopify: connect orders to sales follow-up</h1>
+    <p class="mt-7 text-xl leading-9">ActiveCampaign is a candidate when an order is the end of a conversation: furniture swatches, negotiated wholesale terms or a consultation. Its value is connecting marketing with a maintained sales process. A store using only newsletters and cart reminders should compare that smaller workload before buying pipeline capabilities.</p>
   </section>
-
   <section class="container pb-12">
-    <TldrBox
-      title="Verdict: ActiveCampaign for Shopify"
-      picks={[
-        { label: 'Sweet spot', tool: 'CRM + ecommerce', reason: 'Pipelines and automations when sales follow-up matters alongside orders.' },
-        { label: 'Logic', tool: 'Conditional depth', reason: 'Branching automations beyond template-only ecommerce tools.' },
-        { label: 'Pricing', tool: 'Per contact', reason: 'CRM features push tier cost — audit unused seats and contacts.' },
-        { label: 'Gap', tool: 'Shopify-native depth', reason: 'Browse and predictive ecommerce trails Klaviyo specialists.' },
-        { label: 'Best for', tool: 'High-ticket + sales', reason: 'Quote flows, wholesale, consultative purchase journeys.' },
-      ]}
-    />
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">When ActiveCampaign beats ecommerce-native ESPs</h2>
-      <p>
-        A customer submits a "request quote" form for a custom sofa configuration. Shopify captures the order when they eventually buy — but between form submit and purchase, a sales rep sends swatches, adjusts pricing, and schedules delivery consultation. ActiveCampaign tracks that deal in a pipeline, scores engagement from email opens and site visits, and triggers follow-up tasks when the lead goes cold 14 days. Klaviyo sees none of that pre-purchase consultative motion unless you force custom events.
-      </p>
-      <p>
-        Wholesale hybrid merchants face the same pattern: retail buyer opens B2B account, sales approves terms, first bulk order lands in Shopify with net-30 tags. ActiveCampaign automations welcome the buyer, educate on reorder process, and alert sales when order frequency drops — while still running post-purchase email for DTC segment separately. One database, two motions.
-      </p>
-      <p>
-        Standard apparel DTC at $85 AOV without sales team? ActiveCampaign becomes expensive shelfware. Conditional automation trees grow unmaintained; CRM stages stay empty; per-contact bill rivals Klaviyo without predictive ecommerce depth. Match platform to operating model, not feature checklist envy.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Separate purchase sync from the sales process</h2>
+      <p>The <a class="link" href="https://help.activecampaign.com/hc/en-us/articles/360012461919-Get-started-with-the-ActiveCampaign-Shopify-integration">Shopify integration guide</a> describes purchase and abandoned-cart data for guests and logged-in customers, with ecommerce segments and automation triggers. This supports follow-up tied to shopping activity; it does not by itself define a quote pipeline or identify which open deal an order should close.</p>
+      <p>For a custom sofa inquiry, document the contact identifier, quote ID, configuration, assigned rep and expected next step. Decide which form or integration creates the deal. Keep the eventual Shopify order ID on the same record. If one buyer has two quotes, email equality alone cannot safely choose the winning deal. Route ambiguous matches to the rep instead of closing both.</p>
+      <p>The <a class="link" href="https://www.activecampaign.com/pricing">current plan matrix</a> lists enhanced CRM through Pipelines and Sales Engagement add-ons; SMS is also an add-on. Lead scoring and deal records should therefore be included explicitly in a quote, rather than assumed to come with every marketing plan. Site tracking and purchased data serve different purposes: verify each required signal before creating a branch.</p>
     </div>
-
-    <div class="card mb-12">
-      <p class="badge">Shopify integration depth</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Deep sync with operator-heavy setup</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        ActiveCampaign's Shopify integration syncs customers, orders, products, tags, and custom fields into contact records. Automations trigger on order placed, tag added, cart abandoned (with site tracking), and custom events from forms or third-party apps. CRM deals link to contacts for sales visibility alongside marketing automation history.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Standout capabilities:</strong> Conditional automation with nested if/then logic, lead scoring from email and site behavior, CRM pipelines with task assignment, split testing inside automations, site tracking for page visit triggers, deep integration marketplace (Zapier, Calendly, Typeform), sales email sequences tied to deal stage changes.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Gaps vs Klaviyo/Sequenzy:</strong> Browse abandonment less native — requires site tracking discipline. No predictive CLV out of box. Product recommendation blocks less polished for dynamic catalog email. Revenue attribution by flow less ecommerce-granular. Implementation is operator-heavy — no guided ecommerce playbook like Sequenzy or Omnisend prebuilds.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Maintenance warning:</strong> Automations become spaghetti without documentation. For a proposed audit, inventory every active automation, identify duplicate cart logic and examine why a flow has not triggered. No merchant audit is evidenced here. Assign an owner to each queue, cancel obsolete scheduled messages and deduplicate replayed events before cutover.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Four proposed acceptance exercises</h2>
+      <p>These exercises have not been run on merchant accounts. Save expected branches, actual records and unresolved mappings. No conversion lift, setup-time advantage or migration outcome is established here.</p>
+      <p><strong>Furniture quote:</strong> use a hypothetical $2,800 quote with fabric and dimension choices. Create one deal, assign a rep and schedule a swatch guide. An illustrative 48-hour follow-up should create a task only if the rep has not already replied. Place a matching order, then an unrelated order from the same buyer; verify that only the intended quote closes. Cancel pending quote reminders after closure.</p>
+      <p><strong>Jewelry cart:</strong> use an illustrative $890 cart to compare a standard reminder with a rep-assisted path. Select the routing value from staffing capacity and expected contribution, rather than treating $500 as a universal cutoff. Check that the account exposes the cart fields your rule uses. Place an order during the delay and withdraw marketing permission in another case; neither should leave an obsolete promotional reminder in the queue.</p>
+      <p><strong>Wholesale reorder:</strong> a hypothetical buyer is at day 75 against a usual 45-day order cycle. Validate that cadence against this account, not all wholesale customers. Separate company terms, buyer permission and rep ownership. A new purchase cancels the nudge; changed payment terms should send the case to the account owner rather than a DTC discount branch.</p>
+      <p><strong>Apparel welcome:</strong> build the actual welcome journey without unused deal stages or scoring. Compare editing, reporting and maintenance with the same journey in an alternative. Record operator time instead of claiming triple setup time or identical outcomes. Keeping ActiveCampaign can be reasonable if an existing team already maintains it; a low AOV alone is not a migration rule.</p>
     </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
-      <p>
-        ActiveCampaign pricing: {app.priceDetail}. Entry from {app.pricing}; CRM and sales features require higher tiers.
-      </p>
-      <p>
-        <strong>Scenario A — 4,000 contacts, CRM unused, basic ecommerce only.</strong> ~$90–130/mo — poor value vs Sequenzy $40–60 for same sends. Wrong tool choice; migrate unless CRM need imminent.
-      </p>
-      <p>
-        <strong>Scenario B — 8,000 contacts, 3 sales seats, quote pipeline active.</strong> ~$250–380/mo — justified when average deal size $2,400 and pipeline converts 18% from quote to order. Sales team lives in CRM daily; marketing automations feed leads.
-      </p>
-      <p>
-        <strong>Scenario C — 15,000 contacts, hybrid wholesale + DTC.</strong> ~$320–480/mo. Replaces separate CRM ($50–100/seat elsewhere) plus ESP. Total stack cost competitive if both motions genuinely used — wasteful if wholesale is 5% of revenue.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Quote three distinct operating workloads</h2>
+      <p>For 4,000 contacts and no sales users, request the marketing plan and send allowance needed by the welcome and cart journeys. For 8,000 contacts and three sales users, add the exact pipeline and sales-engagement entitlements used by the quote desk. For 15,000 contacts split between DTC and wholesale, include both groups and any additional integration work. These are quote inputs, not verified monthly prices.</p>
+      <p>Capture currency, billing term, contact definition, email allowance, user access, add-ons and overage treatment. Four full-list campaigns to 4,000 recipients require 16,000 email sends before automations. Quote SMS destinations and usage separately if needed. Compare total annual spend plus setup and ongoing rep/automation work with the systems actually being replaced; do not assume a separate CRM disappears.</p>
+      <p>A sales pipeline earns its place when reps use the shared history to act on real opportunities. Measure eligible quote progression and contribution with staff effort, discounts and refunds included. An attributed order or a hypothetical 18% close rate cannot establish payback.</p>
     </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
-
-      <h3 class="font-serif text-2xl font-black text-white">1. Quote request — form to pipeline to order</h3>
-      <p>
-        <strong>Scenario:</strong> Custom furniture; $2,800 average quote. Customer submits fabric and dimension form. <strong>ActiveCampaign setup:</strong> Create deal in "Quote sent" stage; automation sends swatch guide; task assigned to sales rep at 48 hours no reply; move to "Negotiation" on rep manual update; Shopify order tag closes deal.
-      </p>
-      <p>
-        <strong>Proposed evaluation:</strong> Check form-to-deal linkage, rep task ownership and order closure using controlled records. Measure quote-to-order conversion with comparable cohorts; no conversion result or comparative platform limitation has been established here.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">2. High-AOV cart abandonment — sales alert plus email</h3>
-      <p>
-        <strong>Scenario:</strong> Jewelry store; $890 cart abandoned. <strong>ActiveCampaign setup:</strong> Email sequence plus internal notification to sales if cart value exceeds $500 and contact has open deal or prior purchase over $400.
-      </p>
-      <p>
-        <strong>Proposed evaluation:</strong> Verify that outreach is permitted for the purpose and channel before assigning a call or email. Recheck current suppression, purchase and subscription state at dispatch. Compare eligible cohorts against a suitable holdout and include staff time, discounts and all messaging costs; attributed recoveries do not prove causal profit.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">3. Wholesale reorder nudge — net-30 account lapsing</h3>
-      <p>
-        <strong>Scenario:</strong> Hybrid merchant; B2B buyer last ordered 75 days ago, typical cycle 45 days. <strong>ActiveCampaign setup:</strong> Segment on wholesale tag plus days since order; email rep and buyer; create follow-up task.
-      </p>
-      <p>
-        <strong>Proposed evaluation:</strong> Confirm buyer eligibility, rep ownership and cancellation when an order arrives. Check replay deduplication and changes to account terms or subscription status. Record incremental reorder contribution with comparable controls; no measured reorder outcome is evidenced here.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">4. Standard apparel welcome — overbuilt failure case</h3>
-      <p>
-        <strong>Scenario:</strong> $95 AOV apparel; no sales team. <strong>ActiveCampaign setup:</strong> Three-email welcome with unnecessary lead scoring and empty CRM stages.
-      </p>
-      <p>
-        <strong>Result:</strong> Same outcomes as Omnisend prebuild in triple setup time. $180/mo vs $65/mo Omnisend. Correct recommendation: migrate to Sequenzy or Omnisend — ActiveCampaign misfit.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Govern the handoff between marketing and sales</h2>
+      <p>Keep an automation registry with trigger, data source, owner, cancellation event and review date. Separate wholesale education from consumer offers using a documented segment rule. Choose the authority for each field; Shopify need not be the source for rep notes or negotiated terms, and a marketing tag is not proof of a credit agreement.</p>
+      <p>Review stalled deals with the assigned rep before automating another reminder. Test reassignment, duplicate form submissions and order updates. If the team stops using the pipeline, inventory the flows and records that depend on it before changing plans; there is no automatic 90-day exit deadline.</p>
+      <p>If SMS enters the quote workflow, confirm current channel permission, sender availability and reply ownership. A rep task is not authorization to text. Prove how an opt-out and a completed purchase affect waiting messages across every sender used.</p>
     </div>
-
-    <div class="grid gap-8 lg:grid-cols-2 mb-12">
-      <div class="card">
-        <p class="badge">Pros</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
-        </ul>
-      </div>
-      <div class="card">
-        <p class="badge">Cons</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
-        </ul>
-      </div>
-    </div>
-
-    <div class="grid gap-8 lg:grid-cols-2 mb-12">
-      <div class="card">
-        <p class="badge">Who should buy</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>High-AOV with quote or consultation flows</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Hybrid wholesale and DTC on one Shopify store</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Sales team needs pipeline alongside marketing automation</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Complex conditional logic across non-Shopify touchpoints</li>
-        </ul>
-      </div>
-      <div class="card">
-        <p class="badge">Who should skip</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Standard catalog DTC — Sequenzy or Omnisend</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>No sales team and no CRM use case</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Predictive ecommerce depth priority — Klaviyo</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Want fastest prebuilt journeys without configuration tax</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">ActiveCampaign governance on Shopify</h2>
-      <p>
-        Maintain an automation registry: name, trigger, owner, last reviewed date. Quarterly audit delete duplicates and never-triggered flows. CRM stages must match how sales actually works — empty stages mean you bought CRM theater.
-      </p>
-      <p>
-        Separate DTC and wholesale automations visually in naming convention. Tag collision between motions causes embarrassing emails — wholesale net-30 buyer should not get DTC 20% off winback. Shopify tags are source of truth; ActiveCampaign segments derive from them, not vice versa.
-      </p>
-      <p>
-        If CRM adoption fails after 90 days, migrate ecommerce flows to Sequenzy and downgrade ActiveCampaign to marketing-only tier or exit entirely. Sunk cost in configuration is smaller than ongoing per-contact waste.
-      </p>
-    </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with ActiveCampaign</h2>
-      <p>
-        <strong>Custom furniture quote-to-order:</strong> ActiveCampaign CRM pipeline plus Shopify order sync. Sales rep owns deal stages; marketing automations feed education content between quote and close. Klaviyo would miss pre-purchase consultative motion entirely.
-      </p>
-      <p>
-        <strong>Hybrid wholesale Shopify:</strong> DTC segment runs standard welcome in ActiveCampaign branch; wholesale segment triggers rep task on first bulk order below historical frequency. One platform replaces Mailchimp plus spreadsheet pipeline.
-      </p>
-      <p>
-        <strong>Illustrative apparel evaluation:</strong> For a $95 AOV store without a sales team, compare the workflows actually used against account-specific alternatives. Match contacts, sends, destinations, seats, add-ons, carrier charges, discounts, integration and operator labor. No merchant migration, quoted rate or readiness timeline is established by this example.
-      </p>
-    </div>
-
-    <div class="card mb-12">
-      <p class="badge">Compare alternatives</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">ActiveCampaign vs other Shopify SMS apps</h2>
-      <ul class="mt-6 space-y-3 text-lg font-bold">
-        <li><a class="link" href="/apps/klaviyo">Klaviyo review</a> — ecommerce data depth benchmark</li>
-        <li><a class="link" href="/apps/drip">Drip review</a> — ecommerce-first workflow control</li>
-        <li><a class="link" href="/apps/sequenzy">Sequenzy review</a> — guided lifecycle without CRM complexity</li>
-        <li><a class="link" href="/compare/drip-vs-mailchimp">Drip vs Mailchimp</a> — automation depth comparison axis</li>
-      </ul>
+    <div class="prose-shopify card mb-8">
+      <h2>Compare the job, not a ranking</h2>
+      <p>The <a class="link" href="/apps/klaviyo">Klaviyo review</a> examines product events, predictive coverage and profile billing. Use that comparison when merchandising decisions depend on buyer and variant history. Here the central question is which rep owns a quote and how a purchase resolves it; neither platform should be declared unable to support a custom process without evaluating the required integration.</p>
+      <p>Compare the <a class="link" href="/apps/drip">Drip review</a> for an ecommerce automation candidate and the <a class="link" href="/apps/sequenzy">Sequenzy review</a> for another lifecycle option using the same forms, sends and ownership requirements. ActiveCampaign is compelling when shared sales context changes the work. If the CRM would stay empty, compare a simpler implementation on actual cost and maintenance rather than assumed vendor speed.</p>
     </div>
   </section>
-
-  <section class="container pb-8">
-    <div class="flex flex-wrap gap-4 text-sm font-bold">
-      <a class="link" href="/apps">All Shopify SMS apps →</a>
-      <a class="link" href="/for/high-aov">High-AOV guide →</a>
-      <a class="link" href="/use-cases/segmentation">Segmentation →</a>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>For SMS, verify the applicable sender, destination, purpose and channel permission before activation; an email opt-in or purchase alone is not an SMS permission record. Preserve the disclosure and opt-in evidence, current exclusions and recipient-local timing controls. Confirm the current account tooling rather than assuming a vendor handles every requirement; legal and provider-specific details remain publication holds.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-
-
-
 </BaseLayout>
