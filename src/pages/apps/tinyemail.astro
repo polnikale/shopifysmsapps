@@ -1,221 +1,51 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import { site, description, pageTitle } from '../../content';
-import { appBySlug } from '../../data/apps';
-
-const app = appBySlug('tinyemail')!;
+import { site } from '../../content';
 const path = '/apps/tinyemail';
-const title = pageTitle(site, 'apps/tinyemail');
-const desc = description(site, 'apps/tinyemail');
-
+const title = 'tinyEmail for Shopify: email workflows before an SMS pairing';
+const desc = 'Evaluate tinyEmail Shopify email, segmentation, AI drafts, workflow acceptance and channel coordination with current supplier sources.';
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
-      <p class="badge mt-6">AI starter email · Rank #21</p>
-      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        tinyEmail is the on-ramp — AI-assisted copy, simple Shopify sync, template library, and basic automations at pricing young stores can afford. Get first sale campaign out in an hour without Klaviyo certification. Not battle-tested for complex lifecycle programs; lighter segmentation and automation depth by design. Start here or Shopify Email; graduate to Sequenzy when retention revenue justifies real infrastructure.
-      </p>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        We tested tinyEmail on a new candle shop at 40 orders/mo, a side-project apparel brand, and a store that migrated to Sequenzy at 180 orders/mo. First campaign speed impressed; segmentation ceiling appeared month four. Entry: {app.pricing}.
-      </p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="/compare/sequenzy-vs-shopify-email">Sequenzy vs Shopify Email</a>
-        <a class="btn btn-secondary" href="/apps/shopify-email">Shopify Email review</a>
-        <a class="btn btn-secondary" href="/apps/sequenzy">Graduate to Sequenzy</a>
-      </div>
-    </div>
+  <section class="container py-16">
+    <a class="link" href="/apps">← App reviews</a>
+    <p class="badge mt-6">Shopify operations · checked November 25, 2026</p>
+    <h1 class="hero-title mt-5">tinyEmail for Shopify: email workflows before an SMS pairing</h1>
+    <p class="mt-7 text-xl leading-9">tinyEmail deserves evaluation as an email platform for a Shopify campaign and automation program. An order count does not determine when to replace it. Start with the catalog, audience and flows your team needs, then verify them in your account. The candle and apparel cases below are proposed acceptance fixtures; they are not merchant tests or measured results.</p>
   </section>
-
   <section class="container pb-12">
-    <TldrBox
-      title="Verdict: tinyEmail for Shopify"
-      picks={[
-        { label: 'Role', tool: 'Starter ESP', reason: 'Fast AI-assisted campaigns for young stores — not lifecycle platform.' },
-        { label: 'Speed', tool: 'First campaign fast', reason: 'Live in hour one without flow architecture paralysis.' },
-        { label: 'Pricing', tool: 'From ~$15/mo', reason: 'Accessible entry; watch subscriber tier jumps.' },
-        { label: 'Gap', tool: 'Automation depth', reason: 'Winback, replenishment, collision control trail specialists.' },
-        { label: 'Graduate to', tool: 'Sequenzy', reason: 'When orders exceed ~150/mo and lifecycle becomes KPI.' },
-      ]}
-    />
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">The starter ESP graduation curve</h2>
-      <p>
-        Every Shopify store starts somewhere. Shopify Email inside Admin, tinyEmail with AI copy assist, or Mailchimp free tier — pick speed over sophistication when order one through fifty matters more than winback boolean logic. tinyEmail's wedge is AI reducing blank-page paralysis: describe sale, pick products, edit draft, send. Side-project founders and first-time merchants ship campaigns they'd procrastinate on with enterprise ESPs.
-      </p>
-      <p>
-        Graduation curve is predictable. Month one: sale blast works. Month three: welcome series exists. Month four: cart recovery runs but nobody measures incremental lift. Month six: repeat purchase flatlines because post-purchase and winback don't exist or run too generic. That inflection — typically 150–300 orders/mo — is Sequenzy or Omnisend territory, not tinyEmail upgrade path within same tool.
-      </p>
-      <p>
-        tinyEmail honestly marketed as starter tool serves merchants well. tinyEmail oversold as Klaviyo alternative creates migration pain and wasted year. Set graduation trigger at signup: when orders hit X or email revenue exceeds Y%, budget Sequenzy migration same quarter.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>What the current email offer actually covers</h2>
+      <p><a class="link" href="https://www.tinyemail.com/shopify-email-marketing">The Shopify product page</a> describes customer, product and order synchronization, signup forms, segmentation, templates and prebuilt welcome, abandoned-cart, post-purchase and winback email workflows. These are useful ingredients for maintaining a program beyond a first newsletter. Product blocks reduce repeated catalog entry; prebuilt flows give an operator a starting structure to inspect.</p>
+      <p><a class="link" href="https://www.tinyemail.com/faqs">The current FAQ</a> advertises a Shopify plan with unlimited contacts and up to one million emails monthly. It separately lists paid sending plans for other users and optional Identity Resolution and List Cleaning add-ons. Confirm the connected store qualifies, which add-ons are enabled and the terms above the allowance. Do not use the old $15 starting-price assumption or a subscriber-based price ladder for this decision.</p>
+      <p>The Shopify page also advertises automated A/B testing, AI Summary and Enterprise MCP access. The former blanket claim that tinyEmail has no agent workflows is therefore unsuitable. AI can help draft and inspect a campaign, but the operator must approve product facts, offer terms and the selected audience. Confirm entitlement and permissions before relying on an advertised control.</p>
+      <p>This review concerns documented email capabilities. It does not establish a tinyEmail promotional SMS sender or an automatic connection to another SMS app. If text messaging is required, verify that separate channel and any integration with the selected provider; an email subscription or synced phone number is not SMS marketing permission.</p>
     </div>
-
-    <div class="card mb-12">
-      <p class="badge">Shopify integration depth</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Basic sync adequate for starter workflows</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        tinyEmail connects to Shopify for product sync, customer lists, and order triggers supporting basic automations. Product email blocks pull catalog imagery for promotional templates. AI copy generation uses product titles and descriptions as context — edit output before sending on regulated categories.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Standout capabilities:</strong> AI copy generation for subjects and body, fast campaign creation, template library, basic automations (welcome, cart), Shopify product blocks, campaign scheduling, accessible pricing and free tier.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Gaps:</strong> Limited segmentation — no RFM, no browse depth, no predictive anything. Automation logic shallow vs Omnisend prebuilds. No SMS. No MCP/agent workflows. Revenue reporting basic. Per-subscriber pricing can surprise as list grows from first popup.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Deliverability:</strong> Authenticate domain before scaling beyond test sends. Starter tools attract starter mistakes — importing purchased lists, no sunset policy — hurts sender reputation fast.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Candle launch: make a reusable catalog campaign</h2>
+      <p>For an illustrative 800-contact candle list, draft a holiday collection email with an AI-assisted subject and body. Give the draft the real offer end date, excluded products and delivery cutoff. Have the merchandising owner approve the final claims, and have the email operator approve the recipient selection. Avoid turning a convenient draft into an unreviewed discount promise.</p>
+      <p>Create test products for an available candle, a sold-out variant and a renamed gift set. Preview their product blocks and destination links after changing the catalog. Record whether the draft refreshes or needs manual correction. Acceptance means the final email has the intended price, stock treatment, alt text, links and mobile layout; elapsed setup time is not a proven supplier advantage.</p>
+      <p>Schedule only after domain setup and a designated-recipient test. Check an unsubscribed address, a duplicate import and an existing customer who has not subscribed. Save the actual eligible count and exclusion reasons. Count four campaigns to 800 recipients as 3,200 emails, then add automated messages to the workload. Free sending still has creative and review costs.</p>
     </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
-      <p>
-        tinyEmail pricing: {app.priceDetail}. Free tier; paid from {app.pricing}.
-      </p>
-      <p>
-        <strong>Scenario A — 800 subscribers, 3,000 emails/mo.</strong> New candle shop ~$0–15/mo. Shopify Email also viable at this volume — tinyEmail wins on AI templates and slightly richer automations.
-      </p>
-      <p>
-        <strong>Scenario B — 4,500 subscribers, 12,000 emails/mo.</strong> Side-project apparel ~$35–55/mo. Sequenzy similar sends ~$40–55/mo with unlimited contacts and lifecycle playbooks — migration crossover point approaches.
-      </p>
-      <p>
-        <strong>Scenario C — 180 orders/mo, migrated to Sequenzy.</strong> tinyEmail $48/mo at 6k subscribers; winback manual and cart recovery unmeasured. Sequenzy $52/mo with playbook winback and attributed cart reporting — paid $4 more, gained lifecycle infrastructure.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Apparel welcome and recovery: prove the event path</h2>
+      <p>For welcome, use a popup subscriber, a footer subscriber and an already-subscribed buyer. Inspect the available trigger and source fields before designing branches. Resubmit a form and correct an address. Expect one intended entry, the right offer and no incentive for a profile excluded by your offer policy. Unlimited custom segments do not prove that every desired event field is available.</p>
+      <p>For cart recovery, distinguish a cart from a completed checkout and inspect the template entry conditions. Use one $80 basket, complete the purchase while its reminder waits, then replay the original event. The email owner must verify cancellation and duplicate prevention using the checkout identity and flow version. Keep older Shopify recovery or other app queues disabled for this same purpose during acceptance.</p>
+      <p>Withdraw email permission during a wait and change the basket before dispatch. Inspect what the actual product reevaluates at send time. If a needed cancellation or stock check cannot be implemented, record that concrete gap and keep that flow inactive while choosing a workable design. Do not claim a flow failed merely because a hypothetical scenario was written down.</p>
     </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
-
-      <h3 class="font-serif text-2xl font-black text-white">1. First sale campaign — AI draft to send in 45 minutes</h3>
-      <p>
-        <strong>Scenario:</strong> Illustrative new candle shop; first BFCM participation; founder non-marketer. <strong>Proposed tinyEmail setup:</strong> AI prompt "20% off holiday candle sale"; verify current Shopify product-block support; manually review tone and offer terms. Recheck purpose-specific email permission and suppression before sending.
-      </p>
-      <p>
-        <strong>Result:</strong> Proposed evaluation: time the draft, review, and launch process for an illustrative 800-contact list. Record clicks and purchases separately from privacy-affected opens; no campaign or merchant result has been verified here.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">2. Basic welcome — three emails, AI-assisted</h3>
-      <p>
-        <strong>Scenario:</strong> Illustrative apparel side project; popup signup. <strong>Proposed tinyEmail setup:</strong> Verify welcome template support, review AI body copy, and test a 10% offer in email two. Preserve signup purpose and source; recheck current subscription, suppression, and purchase state before each queued message.
-      </p>
-      <p>
-        <strong>Result:</strong> Proposed evaluation: compare footer and popup signup journeys, verifying any available source branching in the current product. Measure clicks and purchases with a randomized eligible holdout and uncertainty; do not assume the welcome series caused attributed purchases.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">3. Simple cart reminder — single email</h3>
-      <p>
-        <strong>Scenario:</strong> Illustrative 40 orders/mo candle shop; basic cart automation. <strong>Proposed tinyEmail setup:</strong> Verify cart-trigger support, then evaluate one reminder four hours after abandonment with cart products. Assign one sender and queue owner; cancel on purchase or withdrawal, recheck current eligibility at dispatch, and deduplicate replayed events using a stable cart/message key.
-      </p>
-      <p>
-        <strong>Result:</strong> Proposed evaluation: use a randomized eligible holdout to estimate incremental orders and contribution margin, reporting uncertainty at this low volume. Dashboard recovery attribution alone cannot establish lift; no recovery percentage is verified here.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">4. Graduation trigger — winback attempt hits wall</h3>
-      <p>
-        <strong>Scenario:</strong> Apparel at 180 orders/mo; wanted discount-sensitive vs loyalist winback split. <strong>tinyEmail setup:</strong> Attempted tag-based split — brittle, unreliable segmentation.
-      </p>
-      <p>
-        <strong>Result:</strong> Migrated to Sequenzy winback playbook in nine days; 4.8% full-price reactivation path impossible in tinyEmail. Clear graduation moment.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Winback and optional SMS: choose a useful next action</h2>
+      <p>For apparel, compare customers who bought once, bought repeatedly, returned their latest item or have an unresolved sizing ticket. Build the intended winback segments with the current account fields and verify membership against designated records. Full-price styling content and a separately eligible offer are distinct messages; neither requires an automatic migration at 150 orders a month.</p>
+      <p>Where an SMS provider is separately configured, write a shared journey record: customer identity, purpose, cart or order key, channel eligibility, pending message, sender and cancellation reason. The email operator owns tinyEmail queues; the SMS operator owns text queues. A shared integration must actually propagate purchase and withdrawal state. Without that capability, choose one channel for the recovery job instead of assuming two independent systems coordinate themselves.</p>
+      <p>A text about a time-sensitive event and an email containing product care can serve different purposes. Set contact policy from the promised frequency and customer journey, then test collisions. A universal 24-hour ban is not a substitute for checking message purpose, current state and channel permission. Assign replies to a staffed inbox with an escalation path for service questions.</p>
     </div>
-
-    <div class="grid gap-8 lg:grid-cols-2 mb-12">
-      <div class="card">
-        <p class="badge">Pros</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
-        </ul>
-      </div>
-      <div class="card">
-        <p class="badge">Cons</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
-        </ul>
-      </div>
-    </div>
-
-    <div class="grid gap-8 lg:grid-cols-2 mb-12">
-      <div class="card">
-        <p class="badge">Who should buy</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Brand new Shopify stores under 100 orders/mo</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Founders needing first campaign without ESP learning curve</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>AI copy assist reduces blank-page paralysis</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Budget under $20/mo for email tooling</li>
-        </ul>
-      </div>
-      <div class="card">
-        <p class="badge">Who should skip</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>150+ orders/mo — start Sequenzy or Omnisend</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Lifecycle revenue already strategic priority</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Need SMS, push, or multichannel day one</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Already on capable ESP — no downgrade</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">tinyEmail to Sequenzy graduation checklist</h2>
-      <p>
-        Trigger migration when any two hit: 150+ orders/mo sustained, cart recovery unmeasured, winback manual or nonexistent, subscriber bill approaching Sequenzy send-equivalent cost, repeat purchase rate flat quarter over quarter.
-      </p>
-      <p>
-        Export contacts with consent dates. Launch Sequenzy welcome first; pause tinyEmail automations before enabling cart to prevent duplicates. First month on Sequenzy: measure cart recovery with holdout — baseline tinyEmail never provided.
-      </p>
-      <p>
-        Keep tinyEmail account one month parallel for broadcast transition if nervous — then cancel. Do not maintain dual automation stacks beyond overlap window.
-      </p>
-    </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Real merchant stack patterns with tinyEmail</h2>
-      <p>
-        <strong>New candle shop:</strong> tinyEmail AI sale campaign live in 45 minutes — first BFCM participation without hiring freelancer. Graduation trigger documented at 150 orders/mo toward Sequenzy.
-      </p>
-      <p>
-        <strong>Side-project apparel:</strong> Months 1–4 on tinyEmail adequate. Month 5 winback split attempt failed — Sequenzy migration in nine days with measurable cart holdout finally available.
-      </p>
-      <p>
-        <strong>vs Shopify Email:</strong> Founders choosing between Admin-native Shopify Email and tinyEmail — pick tinyEmail when AI copy and basic automations matter; pick Shopify Email when absolute zero extra apps matters.
-      </p>
-    </div>
-
-    <div class="card mb-12">
-      <p class="badge">Compare alternatives</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">tinyEmail vs other Shopify starter options</h2>
-      <ul class="mt-6 space-y-3 text-lg font-bold">
-        <li><a class="link" href="/apps/shopify-email">Shopify Email review</a> — Admin-native zero friction</li>
-        <li><a class="link" href="/compare/sequenzy-vs-shopify-email">Sequenzy vs Shopify Email</a> — lifecycle vs starter broadcast</li>
-        <li><a class="link" href="/apps/sequenzy">Sequenzy review</a> — graduation destination</li>
-        <li><a class="link" href="/compare/omnisend-vs-shopify-email">Omnisend vs Shopify Email</a> — multichannel upgrade path</li>
-      </ul>
+    <div class="prose-shopify card mb-8">
+      <h2>Evaluate contribution and keep a working platform</h2>
+      <p>Illustrative fixed-cost economics: an $80 basket with 25% off collects $60. Subtract $28 goods cost, $7 fulfillment and payment cost, $3 expected returns cost and $1 messaging cost: contribution is $21. With $48 goods cost instead, the same calculation leaves $1. Goods cost does not shrink with the discount. The discount percentage alone cannot determine whether a basket loses money.</p>
+      <p>To assess incremental effect, compare eligible randomized groups over the same purchase and returns window where volume permits. Subtract campaign operating cost and account for purchases that would have occurred anyway. Dashboard attribution and opens can diagnose a journey, but neither proves the program created profit. At low volume, report counts and uncertainty instead of manufacturing a reactivation percentage.</p>
+      <p>Keep tinyEmail when the required catalog work, audience definitions, flows and ownership pass acceptance. Consider a change for a demonstrated missing event, approval control, channel or service requirement. Preserve consent evidence, suppression history, segment definitions and flow state before switching; cancel old queued messages before enabling their replacements. A parallel account can preserve data without leaving duplicate journeys active.</p>
+      <p>The <a class="link" href="/apps/shopify-email">Shopify Messaging review</a> follows native admin and Flow configuration; this page follows a separate email workspace, catalog drafts and segment acceptance. The <a class="link" href="/alternatives/aftership-email-alternative">AfterShip replacement guide</a> addresses retaining shipment and return operations during a marketing change. Existing <a class="link" href="/compare/omnisend-vs-shopify-email">comparison routes</a> offer further questions, not a required upgrade ladder.</p>
     </div>
   </section>
-
-  <section class="container pb-8">
-    <div class="flex flex-wrap gap-4 text-sm font-bold">
-      <a class="link" href="/apps">All Shopify SMS apps →</a>
-      <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
-      <a class="link" href="/guides/pricing">Budget SMS pricing →</a>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify requires a separate purpose and channel eligibility assessment; a purchase or email signup does not establish SMS marketing permission. Document opt-in source, scope, timestamp, and withdrawals, and assess applicable jurisdiction, message purpose, quiet hours, and sender requirements before launch. Verify current vendor controls rather than treating tooling as legal clearance; compare platform fees, carrier surcharges, message segments, discounts, and operating costs on matched volumes.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-
-
-
 </BaseLayout>
