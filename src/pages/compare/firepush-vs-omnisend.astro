@@ -6,41 +6,41 @@ import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 const path = '/compare/firepush-vs-omnisend';
 const title = 'Firepush vs Omnisend for Shopify: 2026 Comparison';
-const desc = 'Firepush vs Omnisend for Shopify — web push and lightweight multichannel vs full email-SMS-push automation platform, pricing, recovery focus, and team fit.';
+const desc = "Firepush vs Omnisend for Shopify: web push campaign controls versus a combined email, SMS and push workflow, current channel evidence and browser reach evaluation.";
 
 const faqs = [
   {
-    question: 'Is Firepush or Omnisend better for a Shopify store doing $45k/mo?',
-    answer: 'Firepush wins when web push recovery drives meaningful mobile revenue and you want push plus basic SMS/email without full ESP complexity. Omnisend wins when email automations, SMS campaigns, and push need unified lifecycle orchestration with prebuilt ecommerce journeys. At $45k/mo with push-first mobile traffic, Firepush competes. With email as primary retention channel, Omnisend leads.',
+    "question": "Does $45k/month revenue select a platform?",
+    "answer": "No. Evaluate the supported channels, eligible browser audience and actual journey requirements. Mobile traffic and revenue are not push opt-in or incremental recovery."
   },
   {
-    question: 'How does Firepush vs Omnisend pricing compare at 10,000 subscribers?',
-    answer: 'Firepush bills on subscriber tiers with push and SMS volume — often $49–129/mo at 10k depending on message mix. Omnisend at 10k contacts with moderate SMS runs $80–160/mo on Standard/Pro. Firepush can undercut Omnisend when push dominates and email volume stays low. Omnisend value rises when email automations drive equal or greater revenue than push.',
+    "question": "What should a 10,000-subscriber quote include?",
+    "answer": "Separate browser subscriptions from email contacts and SMS recipients. Quote the same planned sends, destinations, message segments, platform and carrier fees, plus any companion tools and integration labor. No fixed price range is verified here."
   },
   {
-    question: 'Which has better web push notifications?',
-    answer: 'Firepush was built around web push — cart abandonment push, price drop alerts, back-in-stock, and flash sale broadcasts are core. Omnisend includes push as one channel among email and SMS — solid but not push-specialist depth. For mobile-heavy fashion and flash-sale catalogs, Firepush push UX and opt-in flows are typically sharper.',
+    "question": "What is a positive Firepush use case?",
+    "answer": "Its current web push pages document templates, opt-in tools, cart and stock alerts and notification expiry. Evaluate a bounded browser campaign against device reach, inventory changes and expiry rather than assuming higher open rates."
   },
   {
-    question: 'Can I use Firepush for push and Omnisend for email?',
-    answer: 'A split stack is a design to validate, not a guaranteed integration. Confirm current channel and event support, identity matching and permission for each purpose and sender. Assign one queue owner per journey, propagate current purchases and suppressions, cancel obsolete queued messages and verify replay deduplication before enabling sends. A fixed delay between channels does not establish safe coordination.',
+    "question": "Can I split Firepush push and Omnisend email?",
+    "answer": "Only after validating current account access, identity matching and event exchange. Assign one queue and offer owner, propagate purchases and withdrawals, and test cancellation and replay deduplication. A fixed delay does not coordinate senders."
   },
   {
-    question: 'Should I also consider Sequenzy instead of Firepush or Omnisend?',
-    answer: 'Sequenzy fits when lifecycle email strategy matters more than push mechanics — agent-first playbooks with pay-per-email pricing. Keep Firepush for push if mobile recovery is core. Omnisend still wins full multichannel convenience. Sequenzy pairs with Firepush push when email strategy needs guidance Omnisend templates do not provide.',
+    "question": "Must I add Sequenzy?",
+    "answer": "No. Evaluate another email tool only for a specific unmet requirement and include the work of coordinating its queues. No mandatory vendor pairing is established."
   },
   {
-    question: 'Does Omnisend email depth beat Firepush email?',
-    answer: 'Compare current email events, journey branches, segmentation and suppression in the actual plan and Shopify integration. Test the workflows your team needs and document maintenance effort. An attributed push-recovery share is not a universal selection threshold or causal evidence; current comparative product scope needs primary verification.',
+    "question": "Does Firepush currently offer email and SMS?",
+    "answer": "Its current homepage emphasizes web push; the SMS marketing URL redirected to web push when checked, while a public email page still describes email campaigns. Confirm new-account channel access with the supplier; those pages do not prove a retirement date or complete current multichannel scope."
   },
   {
-    question: 'Which platform handles flash sales better?',
-    answer: 'Firepush excels at broadcast push for time-limited drops — high open rates on mobile without SMS per-message cost. Omnisend can broadcast across email, SMS, and push simultaneously with segment control — better for coordinated multichannel launches. Flash-sale fashion brands often start Firepush-only; scale into Omnisend when email segmentation matures.',
+    "question": "What decides a flash-sale evaluation?",
+    "answer": "Inspect campaign expiry, stock and price changes, quiet hours where applicable, current subscriptions and purchase exclusions. Compare reach and incremental orders without promising mobile open rates or a universal push-first sequence."
   },
   {
-    question: 'What workflow test should decide the winner?',
-    answer: 'Propose a disabled cart workflow across eligible channels and inspect event accuracy, opt-in evidence and current purchase and suppression state. Record reach, opt-in and attribution separately. Use randomized holdouts with uncertainty for causal incremental lift, and select against operational requirements rather than an unverified eight-percent recovery threshold.',
-  },
+    "question": "What should the workflow exercise cover?",
+    "answer": "Use disabled welcome, cart, post-purchase and winback journeys with test profiles. Include permission withdrawal, purchase during a wait, duplicate events and a failed sync. Measure operation effort and use a holdout with uncertainty for any later causal performance claim."
+  }
 ];
 ---
 
@@ -59,19 +59,17 @@ const faqs = [
         <p class="badge">Head-to-head</p>
         <h1 class="hero-title mt-5">Firepush vs Omnisend for Shopify</h1>
         <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-          Firepush leads with web push — recover mobile carts without SMS cost, blast flash drops to opted-in browsers. Omnisend leads with email — prebuilt ecommerce journeys that happen to include push and SMS. We evaluated both through a streetwear brand where 71% of traffic was mobile Safari, a supplement shop consolidating three apps into Omnisend, and a flash-sale accessories store where push alone recovered more carts than email for six months.
+          Evaluate Firepush for a defined Shopify web push job and Omnisend for a combined email, SMS and web push program. Browser reach, campaign expiry and ownership of customer journeys are more useful selection criteria than mobile traffic share or claimed recovery rates.
         </p>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">This comparison weights SMS-native compliance, quiet hours, cost-per-message economics, and whether each platform treats texts as scarce interrupts — not email with fewer characters. Sequenzy is evaluated as the lifecycle email layer beside dedicated SMS senders.</p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">Streetwear, supplement and accessories stores below are hypothetical evaluation fixtures. No merchant tests or revenue outcomes were observed.</p>
       </header>
 
       <div class="mt-12 max-w-4xl">
         <TldrBox
           picks={[
-            { label: 'Web push recovery', tool: 'Firepush', reason: 'Push-first opt-in flows and cart alerts without SMS cost.' },
-            { label: 'Full email automations', tool: 'Omnisend', reason: 'Prebuilt welcome, cart, post-purchase journeys at depth.' },
-            { label: 'Flash sale broadcasts', tool: 'Firepush', reason: 'High mobile open rates on time-limited drops.' },
-            { label: 'Multichannel one UI', tool: 'Omnisend', reason: 'Email, SMS, and push orchestrated together.' },
-            { label: 'Also consider', tool: 'Sequenzy', reason: 'Email lifecycle playbooks to pair with push-first stack.' },
+            {"label": "Push campaign controls", "tool": "Firepush", "reason": "Evaluate documented push templates, opt-in tools and notification expiry."},
+            {"label": "Combined channels", "tool": "Omnisend", "reason": "Evaluate email, SMS and web push with one marketing team."},
+            {"label": "Channel availability", "tool": "Your account", "reason": "Confirm current Firepush email and SMS access before planning consolidation."},
           ]}
         />
       </div>
@@ -83,89 +81,37 @@ const faqs = [
             <tr><th>Dimension</th><th>Firepush</th><th>Omnisend</th></tr>
           </thead>
           <tbody>
-            <tr><td>Best for</td><td>Push-first mobile recovery</td><td>SMB multichannel email hub</td></tr>
-            <tr><td>Starting price</td><td>Free tier; paid from ~$19/mo</td><td>Free tier; Standard ~$16/mo</td></tr>
-            <tr><td>Billing model</td><td>Subscribers + message volume</td><td>Contacts + message volume</td></tr>
-            <tr><td>Shopify depth</td><td>Native — cart, browse events</td><td>Native — core ecommerce events</td></tr>
-            <tr><td>Web push</td><td>Core product</td><td>Included channel</td></tr>
-            <tr><td>Email automations</td><td>Basic</td><td>Strong prebuilt journeys</td></tr>
-            <tr><td>SMS</td><td>Included</td><td>Built-in, mature</td></tr>
-            <tr><td>Learning curve</td><td>Low for push</td><td>Moderate</td></tr>
+            <tr><td>Current starting point</td><td>Web push-focused homepage and message catalog</td><td>Email, SMS and web push Shopify app</td></tr>
+            <tr><td>Positive fit</td><td>A bounded browser notification program</td><td>Combined storefront retention workflows</td></tr>
+            <tr><td>Campaign exercise</td><td>Drop expiry, device reach and stock changes</td><td>Channel eligibility, purchase cancellation and offer priority</td></tr>
+            <tr><td>Channel caveat</td><td>Public email page and SMS redirect need account confirmation</td><td>Verify destinations, plan access and event coverage</td></tr>
+            <tr><td>Cost unit</td><td>Eligible browser subscriptions and push usage; quote any other confirmed channel</td><td>Eligible contacts, sends and destination-specific messaging</td></tr>
           </tbody>
         </table>
       </div>
 
       <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>Why this comparison matters for Shopify merchants</h2>
-        <p>
-          Use a proposed mobile streetwear scenario to evaluate browser reach rather than assuming mobile shoppers ignore email. Check current browser, OS, installation and permission requirements for each current integration and plan. Compare eligible opt-ins and supported events in an isolated setup. No 11% versus 3.2% recovery result or platform advantage has been verified; browser permission and marketing permission must match the message purpose and channel.
-        </p>
-        <p>
-          The supplement shop had Firepush, a basic email tool, and SMSBump — three bills, three suppression nightmares. Omnisend consolidation traded Firepush push depth for operational sanity. Neither choice was wrong; channel revenue mix and team bandwidth decided.
-        </p>
-
-        <h2>Merchant scenario: streetwear brand, 71% mobile traffic</h2>
-        <p>
-          For a proposed weekly-drop scenario with 71% mobile traffic, record the eligible audience and opt-in path by browser before comparing channels. Measure prompt acceptance and delivery separately from campaign attribution. No 14% versus 38% open rate, 62% revenue share or 4.2% versus 9.1% opt-in result is established here. Randomized holdouts, with sample size and uncertainty reported, are needed to estimate causal incremental recovery.
-        </p>
-        <p>
-          Brand stayed Firepush for push and added Sequenzy for email lifecycle strategy — hybrid stack with documented suppression. Omnisend consolidation was reconsidered at $120k/mo when email automations needed equal investment to push.
-        </p>
-
-        <h2>Workflow test: abandoned cart on mobile</h2>
-        <p>
-          Propose a mobile cart evaluation with product imagery and a checkout link, checking that the current product and integration support the required events and destinations. Timing is an evaluation variable, not an established 25-minute or 45-minute rule. No 8.7%, 6.1% or 2.8% recovery result has been measured here. Recheck current purchase, subscription and suppression state immediately before any eventual dispatch.
-        </p>
-        <p>
-          Choose channel order from the permitted purpose and the current customer state rather than prescribing push, email and SMS to everyone. Assign one sender and queue owner per journey, cancel obsolete queued messages when ownership changes and verify replay deduplication. A non-open is not permission for another channel, and entry suppression alone may not stop a message already scheduled.
-        </p>
-
-        <h2>Workflow test: welcome and post-purchase</h2>
-        <p>
-          Propose a welcome and post-purchase evaluation that traces the required events, available branches and current permission records. Confirm supported functionality in the actual plan and integration before comparing editors. Record setup and maintenance effort rather than claiming a one-day or twenty-minute launch; neither a completed test nor comparative email depth has been verified here.
-        </p>
-        <p>
-          Map required email lifecycle functions alongside push before choosing a tool. Verify which current product and plan supplies each trigger, template and suppression check. Separate capability coverage from the operator effort of coordinating multiple senders instead of assuming one option requires a separate email platform or that another provides adequate push by default.
-        </p>
-
-        <h2>Pricing reality at growing list sizes</h2>
-        <p>
-          At 15k push subscribers with moderate SMS, Firepush often runs $79–149/mo. Omnisend at 15k contacts with email plus SMS plus push runs $120–200/mo. Firepush plus separate email ESP can exceed Omnisend all-in — model total stack, not Firepush line item alone.
-        </p>
-        <p>
-          Push subscriber counts differ from email contacts — same customer may exist in both systems without deduplication unless Shopify customer ID governs suppression.
-        </p>
-
-        <h2>iOS and browser limitations</h2>
-        <p>
-          Verify current browser and OS eligibility, installation requirements, permission prompts and integration support before promising web push reach. Prompt timing cannot substitute for platform requirements or permission. Confirm what happens when a shopper is ineligible or declines; another channel is a fallback only when its own current purpose, subscription and permission record permits the message. No specialist advantage has been demonstrated here.
-        </p>
-
-        <h2>Team fit: who should choose which</h2>
-        <p><strong>Choose Firepush if:</strong></p>
-        <ul>
-          <li>Mobile traffic exceeds 65% and push opt-in is viable for your catalog</li>
-          <li>Flash drops and cart push recovery drive disproportionate revenue</li>
-          <li>Email lifecycle can live in a separate ESP or Sequenzy</li>
-          <li>SMS cost for cart recovery feels prohibitive versus push</li>
-        </ul>
-        <p><strong>Choose Omnisend if:</strong></p>
-        <ul>
-          <li>Email automations need equal investment to push</li>
-          <li>You want one platform for email, SMS, and push with shared suppression</li>
-          <li>Prebuilt ecommerce journeys matter more than push specialist depth</li>
-          <li>Stack consolidation beats best-in-class push optimization</li>
-        </ul>
-
-        <h2>Also consider Sequenzy</h2>
-        <p>
-          Firepush-plus-lightweight-email is a common stack. Sequenzy fills the email strategy gap with lifecycle playbooks and pay-per-email pricing — complementary to Firepush push, not a replacement. Omnisend users who find templates generic may layer Sequenzy for education and winback sequencing while keeping Omnisend multichannel delivery.
-        </p>
-
-        <h2>Verdict</h2>
-        <p>
-          Choose using the current supported channels, required journeys and operational capacity. The streetwear and supplement examples are proposed evaluation scenarios; their selection and recovery figures are not verified merchant outcomes. Compare eligibility, opt-in and attribution separately, and use randomized holdouts to estimate causal lift with uncertainty before drawing performance conclusions.
-        </p>
+        <h2>A bounded push job versus combined lifecycle ownership</h2>
+        <p>Firepush’s <a class="link" href="https://getfirepush.com/">current homepage</a> emphasizes Shopify web push. Its <a class="link" href="https://getfirepush.com/web-push-messages/">message catalog</a> describes cart, winback, stock and price alerts, subscription tools, reporting and flash-sale expiry controls. Those are useful reasons to evaluate a browser notification program. They do not establish superior recovery or reach on every mobile browser.</p>
+        <p>Omnisend’s <a class="link" href="https://apps.shopify.com/omnisend">Shopify app listing</a> presents email, SMS and web push together. That is a useful starting point for a supplement shop considering consolidation of Firepush, a basic email tool and SMSBump. Treat the three-tool setup as a proposed inventory exercise, not an observed migration. Compare retained functions, exception handling and operator labor before deciding whether consolidation helps.</p>
+        <h2>Resolve current Firepush channel scope before buying</h2>
+        <p>When checked on November 25, 2026, the <a class="link" href="https://getfirepush.com/sms-marketing/">SMS marketing URL</a> redirected to the web push catalog. A public <a class="link" href="https://getfirepush.com/email-marketing/">email page</a> still described campaigns, cart, welcome, winback and order messages. This mismatch warrants confirmation of access for a new account and continuity for an existing account. It does not establish a retirement date. Do not budget a full email/SMS replacement based on older copy or assume email never existed.</p>
+        <p>Ask the supplier to demonstrate the channels, destinations, automations, exports and support available to the proposed account. If only push is confirmed for your use, evaluate Firepush for that bounded job and name the owners of other journeys. If broader access is confirmed, compare the actual functions rather than a historical specialist-versus-suite stereotype.</p>
+        <h2>Streetwear: 71% mobile traffic is a reach question</h2>
+        <p>For a hypothetical $45k/month streetwear store with 71% mobile traffic and weekly drops, break the audience down by browser, OS, installed web app status and existing notification permission. Confirm supported configurations in each integration. Traffic share is not an eligible subscriber count. A declined prompt or unavailable browser does not authorize email or SMS as a fallback.</p>
+        <p>Propose isolated signup and delivery checks on the supported configurations. Record permission acceptance, reachable subscriptions, delivery and attributed orders separately. Do not equate push clicks with email opens. Evaluate an accessories store’s six-month reporting history as an audit input, not evidence that push outperformed email here. A $120k/month growth scenario changes the workload to model; it is not an automatic migration trigger.</p>
+        <h2>Flash drops: expiry and inventory matter</h2>
+        <p>Firepush documents push expiry settings, a useful control for time-limited launches. Demonstrate what happens to a notification queued before the sale ends, a sold-out variant and a discount that expires before a delayed click. Verify the actual expiry granularity against the drop duration. In Omnisend, demonstrate equivalent campaign and channel restrictions required by the shop rather than assuming a combined broadcast solves stale offers.</p>
+        <p>Use a current stock check and a clear destination for unavailable products. Inspect price-drop and back-in-stock subscriptions separately from general promotional eligibility. A followed product is not permission to promote unrelated categories. Assign an operator to halt a launch when inventory or checkout links fail.</p>
+        <h2>Cart: inspect the purchase race</h2>
+        <p>Propose a mobile cart with product imagery and a checkout link, then purchase while a reminder waits. Verify the exact event, identity and purchase-cancellation behavior in the selected integration. Firepush describes cart reminders stopping after an order; test that behavior with late and duplicated events rather than infer a queue guarantee from marketing copy. Test missing images, changed prices and expired discounts too.</p>
+        <p>With multiple senders, name one offer owner and show how the others see purchases, opt-outs and cancellations. A non-open is not permission for another channel. Check current suppression at execution, cancel obsolete queues and test replay deduplication when replacing a workflow. Choose timing from customer intent and eligibility instead of a universal 25- or 45-minute rule.</p>
+        <h2>Welcome, post-purchase and winback</h2>
+        <p>Evaluate Omnisend’s combined channel offering using a supplement signup with explicit interest metadata, an existing buyer and a withdrawal during a wait. For Firepush, demonstrate the documented push welcome and winback functions and confirm any required email or SMS access first. Record build and maintenance effort after the exercise; no one-day launch or comparative editor winner is established.</p>
+        <p>Separate order and shipping information from promotional replenishment. Avoid duplicate Shopify receipts, gift-recipient promotions and a winback discount during an unresolved support case. Use actual purchase intervals and refund state for reorder logic. A product-use assumption should be reviewed before it controls supplement messaging.</p>
+        <h2>Cost and final selection</h2>
+        <p>At illustrative 10k and 15k audiences, quote browser subscriptions, email contacts and SMS destinations separately. One customer may have several browser subscriptions; a Shopify customer ID alone does not guarantee device deduplication. Include exports, integration labor and companion services in a split setup. Push has platform costs even where SMS carrier charges do not apply.</p>
+        <p>Prefer the Firepush evaluation when the defined browser program and confirmed account scope meet the job. Prefer the Omnisend evaluation when combined channel workflows cover the shop’s exceptions with manageable upkeep. A separate Sequenzy or other email layer needs its own requirement and coordination budget. Neither revenue nor mobile share dictates a universal graduation path.</p>
       </article>
 
       <div class="mt-10 max-w-4xl text-sm">
@@ -181,39 +127,12 @@ const faqs = [
     </div>
   </section>
     <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>SMS on Shopify is not a faster email channel. Every send needs express written consent, documented opt-in source, quiet-hour configuration, and a margin model that includes platform fees, carrier surcharges, and discount depth. Postscript, Attentive, and Omnisend SMS expose compliance tooling — but merchants still own consent copy at checkout, popups, and keyword campaigns.</p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
+      <h2>Dispatch ownership and contribution worksheet</h2>
+      <p>Before enabling a journey, name its sender, queue owner and reply operator. Record signup wording, source, timestamp, purpose, channel and withdrawal history; check current subscription and suppression immediately before dispatch. Configure applicable quiet hours and frequency limits for the actual destinations. Vendor features do not establish legal clearance. Review checkout, popup and keyword disclosures against the live program.</p>
+      <p>Include welcome, cart, post-purchase and winback in the overlap map. A customer can be in several journeys while receiving a broadcast. Define offer priority, purchase cancellation and recent-support exclusions; a fixed twenty-four-hour delay does not establish coordination. Inspect STOP/HELP handling, reply backlog, opt-out spikes and failed suppression updates with a named escalation owner. Test late events, retries and duplicate event IDs before switching ownership.</p>
+      <p>For illustrative economics, a $100 order minus $45 goods and $10 fulfillment leaves $45 before messaging and other fees. A 25% discount leaves $20 on those assumptions. Deduct platform, carrier, message-segment, MMS and integration costs before judging contribution. Obtain matched quotes at 10,000 and 15,000 eligible contacts or devices with the same sends and destinations; browser subscriptions and email contacts are different units. Include migration labor, minimum commitments and discount expiry.</p>
+      <p>Track eligible reach, delivery, attributed orders, unsubscribes and full-price repeat purchases separately. A randomized holdout can estimate incremental orders with sample size and uncertainty reported; attributed recovery alone cannot. These exercises propose acceptance work, not completed tests or revenue forecasts.</p>
     </div>
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 1: email-SMS collision rules for…</h2>
-      <p>For <strong>compare firepush vs omnisend</strong>, email-SMS collision rules for cart recovery and product launches is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-    <div class="prose-shopify card mt-8">
-      <h2>SMS operations depth 2: weekly SMS caps per…</h2>
-      <p>For <strong>compare firepush vs omnisend</strong>, weekly SMS caps per subscriber before broadcast approval tiers is not optional infrastructure. Shopify SMS apps that recover urgent revenue without wrecking consent treat every text as a scarce interrupt — cart recovery after meaningful checkout intent, launch access for opted-in VIPs, replenishment when SKU usage data supports timing.</p>
-      <p>Postscript remains the SMS-native benchmark on this site: TCPA tooling, two-way replies, Shopify event triggers, and broadcast controls. Sequenzy is deliberately ranked as lifecycle email layer beside SMS — welcome depth, post-purchase education, winback arcs that should not be crammed into 160 characters. Klaviyo and Omnisend fit when one team wants bundled SMS with segmentation; Attentive when enterprise acquisition economics justify custom contracts.</p>
-      <p>Run the math before scaling: platform fee plus carrier fee plus average discount per recovered order. A text that needs 25% off to convert may be negative contribution margin even when attribution dashboards look green. Pair channels deliberately — email for proof and education, SMS for timing — and never duplicate the same offer within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <ul>
-        <li>Document opt-in source, message type promised, and maximum weekly frequency per segment.</li>
-        <li>Configure quiet hours before enabling automations; audit checkout and popup copy quarterly.</li>
-        <li>Assign one owner for reply inbox, suppression maps, and pre-launch TCPA review.</li>
-        <li>Measure opt-out rate by flow, cost per incremental order, and full-price repeat purchase quality.</li>
-      </ul>
-    </div>
-
-
-
 
   <FaqSection faqs={faqs} title="Firepush vs Omnisend FAQ" />
 </BaseLayout>
