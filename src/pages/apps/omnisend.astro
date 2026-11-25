@@ -1,220 +1,63 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import { site, description, pageTitle } from '../../content';
-import { appBySlug } from '../../data/apps';
-
-const app = appBySlug('omnisend')!;
+import { site } from '../../content';
 const path = '/apps/omnisend';
-const title = pageTitle(site, 'apps/omnisend');
-const desc = description(site, 'apps/omnisend');
-
+const title = 'Omnisend for Shopify: capture and channel ownership';
+const desc = 'Evaluate Omnisend Shopify forms, contact sync, channel ownership and current SMS plan scope using proposed store workflows.';
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/apps" class="text-sm font-bold text-cyan-300 hover:text-white">← All app reviews</a>
-      <p class="badge mt-6">SMB multichannel · Rank #6</p>
-      <h1 class="hero-title mt-5 max-w-5xl">{app.name} review for Shopify stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-cyan-100">
-        Omnisend is the practical shortcut when a Shopify team needs welcome, cart recovery, post-purchase, and SMS live this week — not next quarter. One-click install, prebuilt ecommerce journeys, and email + SMS + push in one builder reduce tool sprawl for boutiques without a retention specialist. It ranks third here because Klaviyo and Sequenzy eventually outpace it on data depth and strategy guidance — but Omnisend wins the first 12–18 months for many SMB merchants.
-      </p>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-cyan-100/90">
-        Proposed evaluations cover an illustrative 320-order/mo candle shop, a pet products store, and a fashion boutique considering a move from Shopify Email; no observed tests are established here. Automation: {app.automationDepth}.
-      </p>
-      <div class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a>
-        <a class="btn btn-secondary" href="/use-cases/abandoned-cart">Cart recovery guide</a>
-      </div>
-    </div>
+  <section class="container py-16">
+    <a class="link" href="/apps">← All app reviews</a>
+    <p class="badge mt-6">Shopify workflow evaluation · checked November 25, 2026</p>
+    <h1 class="hero-title mt-5">Omnisend for Shopify: capture and channel ownership</h1>
+    <p class="mt-7 text-xl leading-9">Omnisend offers a combined email, SMS and web-push operating environment for Shopify. Its appeal is keeping acquisition and follow-up work together when that matches your team. Evaluate the complete path from signup to cancellation and replies; there is no evidence here of a rank, a launch deadline or an inevitable need to graduate to another platform.</p>
   </section>
-
   <section class="container pb-12">
-    <TldrBox
-      title="Verdict: Omnisend for Shopify"
-      picks={[
-        { label: 'Best for', tool: 'SMB speed', reason: 'Prebuilt journeys live in days — ideal for 100–800 orders/mo.' },
-        { label: 'Multichannel', tool: 'Email + SMS + push', reason: 'One builder, shared suppression — simpler than bolt-on SMS apps.' },
-        { label: 'Pricing', tool: 'Contact-based', reason: 'Competitive entry; SMS overages need weekly monitoring on sale weeks.' },
-        { label: 'Ceiling', tool: 'Segment limits', reason: 'Complex catalogs and predictive needs push stores to Klaviyo or Sequenzy.' },
-        { label: 'Pair with', tool: 'Privy capture', reason: 'Omnisend executes lifecycle; Privy fills top-of-funnel gaps.' },
-      ]}
-    />
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">The Omnisend value proposition on Shopify</h2>
-      <p>
-        Omnisend exists because most Shopify merchants do not need a blank canvas — they need cart recovery working before weekend traffic spikes. The app ships with ecommerce automations pre-wired: welcome, cart abandonment, browse abandonment, post-purchase, customer reactivation. Product picker blocks pull catalog items without custom HTML. SMS and push sit beside email in the same workflow, which matters when you want VIP early access via text without exporting segments to Postscript.
-      </p>
-      <p>
-        Revenue per message reporting is practical for weekly campaign decisions — not enterprise BI, but enough for a founder optimizing send time. Campaign presets accelerate seasonal sales. Gamified signup forms reduce the need for a separate popup app at very early stage, though Privy still wins capture depth at scale.
-      </p>
-      <p>
-        The ceiling arrives when boolean segmentation across dozens of collections, predictive CLV routing, and agent-first strategy layers become daily requirements. That is when merchants in our cohort migrated to Sequenzy (guidance + pay-per-email) or Klaviyo (data maximums). Omnisend is a bridge platform — and a good one.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>What the combined platform buys you</h2>
+      <p>The <a class="link" href="https://www.omnisend.com/pricing/">current platform and pricing page</a> presents email, SMS, web push, signup capture, automation and AI features. A shared workspace can reduce handoffs between the people building forms and the people operating journeys. That is a practical benefit to demonstrate, not a guarantee that permission or suppression is automatically shared correctly.</p>
+      <p>Evaluate the built-in capture path before adding Privy or Justuno. Define the missing job first: a specific form interaction, placement, experiment or source field. A separate capture app adds a field mapping and an operational owner. No 500-order threshold establishes that it is necessary, and no supplier wins every capture requirement.</p>
+      <p>Omnisend also markets AI capabilities, so the old claim that agent assistance belongs exclusively to Sequenzy is not a sound distinction. Compare the exact operation you need. Sequenzy deserves a separate evaluation for an API/MCP maintenance workflow; Omnisend deserves one for the combined signup, audience and channel job.</p>
     </div>
-
-    <div class="card mb-12">
-      <p class="badge">Shopify integration depth</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Native sync, prebuilt triggers, and gaps</h2>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        Omnisend is a native Shopify app with real-time audience sync, product catalog import, and standard ecommerce events: placed order, added to cart, started checkout, viewed product, subscribed via form. Prebuilt automation templates map directly to these triggers — minimal custom wiring for welcome and cart flows.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Strengths:</strong> Fast install, collection-based product blocks, SMS opt-in tied to Shopify checkout where configured, push notifications for browse/cart on mobile web, revenue attribution at campaign and workflow level, international SMS support in major markets.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Gaps vs Klaviyo:</strong> Less flexible custom property logic, no predictive CLV out of the box, thinner browse history for pre-signup stitching, fewer agency-maintained recipes for exotic verticals. <strong>Gaps vs Sequenzy:</strong> No agent-first playbook generation or pay-per-email unlimited contacts; template editing instead of outcome-described sequences.
-      </p>
-      <p class="mt-4 text-[17px] leading-8 text-cyan-100">
-        <strong>Watch SMS costs:</strong> Promotional SMS during BFCM can exceed email plan cost if uncapped. Model per-message fees before scaling text recovery to full list.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Shopify sync: understand direction and identity</h2>
+      <p>The <a class="link" href="https://support.omnisend.com/en/articles/3175406-connect-your-shopify-store-to-omnisend">Shopify connection guide</a> describes initial historical sync taking up to 24 hours. Behavioral tracking depends on customer identification through the documented cookie or logged-in paths. Do not promise complete anonymous browsing history or immediate readiness after installation.</p>
+      <p>The <a class="link" href="https://support.omnisend.com/en/articles/2970778-understand-shopify-contact-data-sync">contact sync guide</a> says only Omnisend signup-form subscribers sync back to Shopify; manually uploaded contacts do not follow that route. SMS subscription status does not sync from Omnisend to Shopify. This distinction matters if another app reads Shopify as its preference source.</p>
+      <p>Create a field map with source, destination, customer identifier and update direction. Include email status, SMS status, form source, pet preference, order history and any tags used by a flow. For a withdrawal, inspect every sender that relies on the record. A matching phone number or a successfully copied tag does not prove the SMS preference reached another platform.</p>
+      <p>During import, sample a new subscriber, an existing customer, an unsubscribed person and a duplicate address. Keep imported permission evidence with its original date. Document what happens when the same person enters a different phone number or checks out with another email. Resolve profile ambiguity before using purchase history to personalize an offer.</p>
     </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Pricing breakdown with merchant math</h2>
-      <p>Omnisend: {app.priceDetail}. Plans from {app.pricing}.</p>
-      <p>
-        <strong>Scenario A — 4,000 contacts, 15,000 emails, 600 SMS/mo.</strong> Standard plan roughly $40–65/mo all-in if SMS within allowance. Good fit for candle shop doing $45k/mo — email drove 18% of revenue within 90 days of install.
-      </p>
-      <p>
-        <strong>Scenario B — 11,000 contacts, BFCM week with 3,500 promotional SMS.</strong> Base plan $90–110/mo + SMS overage $45–80. Total November ~$180 vs normal $100. Still below Klaviyo at same contacts if SMS modest — but requires monitoring.
-      </p>
-      <p>
-        <strong>Scenario C — 25,000 contacts, low SMS, heavy email automations.</strong> Pro tier $160–200/mo. Sequenzy pay-per-send may undercut if list is wide but engagement concentrated. Klaviyo $350+ at 25k profiles — Omnisend middle ground until complexity forces migration.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Four proposed store demonstrations</h2>
+      <p>These candle, pet and fashion contexts are evaluation exercises. No observed merchant launch times, revenue shares or migration stories are established.</p>
+      <ol>
+        <li><strong>Pet-type welcome:</strong> submit a form selecting large dog, then inspect the saved property and resulting branch. Repeat with no answer and an existing buyer. Confirm an appropriate fallback rather than sending large-breed advice to everyone. Measure confirmed eligible signup completion before calling a form an improvement.</li>
+        <li><strong>Candle cart:</strong> queue an illustrative $58 bundle reminder. Choose email or SMS using current channel eligibility and the message purpose, rather than assuming a non-open means the person should receive a text. Purchase during the delay, then replay the event. Check cancellation across every active cart sender and the actual link and offer expiry.</li>
+        <li><strong>Delivery and cross-sell:</strong> identify the event that confirms a candle order was delivered. If only fulfillment is available, document that limitation rather than calling day five delivery. Assign review-request ownership between the review app and Omnisend; suppress duplicates and inspect whether a return should cancel a diffuser recommendation.</li>
+        <li><strong>Fashion sale winback:</strong> build a proposed 120-day lapsed audience from complete history. Preview email and push with the sale end time, stock and subscriber timezone. Exercise an expired sale and a purchase before the delayed reminder. Browser permission and current eligibility determine push reach; installed email software does not establish universal mobile reach.</li>
+      </ol>
+      <p>Keep expected output, actual event record, decision and responsible operator for each exercise. If evaluating performance later, define eligible groups and an appropriate comparison in advance. Report attributed orders separately from incremental contribution; account for discounts, goods, fulfillment and message costs.</p>
     </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Four workflow tests on Shopify</h2>
-
-      <h3 class="font-serif text-2xl font-black text-white">1. Welcome — pet store popup with pet type quiz answer</h3>
-      <p>
-        <strong>Scenario:</strong> A subscriber selects "large dog" in a pet-type form. <strong>Proposed setup:</strong> Validate that the field reaches welcome branching, feature large-breed products and place tips in email two. <strong>Evaluation:</strong> Recheck current email permission, suppression and purchase state before dispatch, cancel obsolete acquisition offers and assign queue ownership. Measure eligible first purchases with a randomized holdout and uncertainty; no three-day launch or 16% result is established.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">2. Cart — $58 candle bundle, SMS on email two only</h3>
-      <p>
-        <strong>Scenario:</strong> An illustrative $58 candle bundle is abandoned. <strong>Proposed setup:</strong> Evaluate an email reminder, a purpose-eligible SMS and a free-shipping-threshold email. <strong>Evaluation:</strong> An unopened email is not permission or reliable attention evidence. Recheck current channel permission, suppression and purchase state at dispatch; cancel obsolete recovery and deduplicate retries with one owner per step. Report attributed orders separately from randomized causal lift and uncertainty; no 14% recovery or 40% SMS share is established.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">3. Post-purchase — review request + cross-sell diffuser after candle order</h3>
-      <p>
-        <strong>Scenario:</strong> A candle order has confirmed delivery. <strong>Proposed setup:</strong> Evaluate a review request and complementary diffuser block using actual delivery events rather than assuming day five. <strong>Evaluation:</strong> Check purpose/channel permission, suppression, purchase and subscription state; assign queue ownership and deduplicate repeated delivery events. Record clicks and attributed revenue separately from randomized incremental contribution and uncertainty; no $1.85 RPR or 9% click result is established.
-      </p>
-
-      <h3 class="font-serif text-2xl font-black text-white">4. Winback — 120-day lapsed with push + email for flash sale</h3>
-      <p>
-        <strong>Scenario:</strong> One-time buyers have no order in an illustrative 120-day window. <strong>Proposed setup:</strong> Evaluate email and a push reminder for a limited sale only where current purpose/channel permission allows. <strong>Evaluation:</strong> Recheck suppression, purchase and subscription state before dispatch, cancel obsolete winback and deduplicate replayed events under explicit queue ownership. Compare randomized eligible groups and uncertainty; attributed push revenue does not establish causal lift, and no 5.1% reactivation or 28% share is established.
-      </p>
+    <div class="prose-shopify card mb-8">
+      <h2>Current SMS plan scope before you budget</h2>
+      <p>The <a class="link" href="https://support.omnisend.com/en/articles/1832295-manage-your-omnisend-sms-credits-subscription">SMS credits guide</a> distinguishes legacy accounts from current pricing after May 4, 2026. Current SMS access requires Pro with an SMS subscription; legacy arrangements have different conditions. Do not assume a new Standard account includes SMS or that Pro automatically includes the old credit allowance.</p>
+      <p>Omnisend advertises rates as low as $0.007 per SMS, but its <a class="link" href="https://support.omnisend.com/en/articles/2747083-get-started-with-sms-channel">SMS setup guide</a> describes country and volume dependence. A headline minimum is not an all-in rate for your audience. Confirm the account regime, destination mix, message segments, MMS, carrier charges and recurring credit amount in the actual quote. Number verification also affects launch readiness.</p>
+      <p>Retain three quote workloads: 4,000 contacts with 15,000 emails and 600 SMS; 11,000 contacts with a sale-week peak of 3,500 SMS; and 25,000 contacts with heavy email but little SMS. Specify total monthly email volume for the last two before requesting prices. These are planning inputs, not the former $40–65, $180 or $160–200 merchant bills.</p>
+      <p>Use ordinary and peak quotes with the same recipients and channels across vendors. Include the email allowance, billed contact definition, upgrade behavior, SMS subscription, unused credit treatment, setup and staff time. If the internal budget covers 600 single-segment texts, a two-segment version doubles the segment workload to 1,200; verify how the account bills it before approving the creative.</p>
     </div>
-
-    <div class="grid gap-8 lg:grid-cols-2 mb-12">
-      <div class="card">
-        <p class="badge">Pros</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          {app.strengths.map((s) => <li class="flex gap-2"><span class="text-cyan-300">+</span>{s}</li>)}
-        </ul>
-      </div>
-      <div class="card">
-        <p class="badge">Cons</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          {app.limits.map((l) => <li class="flex gap-2"><span class="text-cyan-300">−</span>{l}</li>)}
-        </ul>
-      </div>
+    <div class="prose-shopify card mb-8">
+      <h2>One workspace still needs named channel owners</h2>
+      <p>Write down who approves forms, edits journeys, handles replies and changes budgets. For each flow, choose its primary channel and define when a second channel is justified. Keep product education in a format with enough room, and reserve time-sensitive reminders for recipients eligible for that channel. A universal twenty-four-hour rule cannot replace a store-specific frequency and purpose policy.</p>
+      <p>If retaining another email sender, including Sequenzy, identify exactly which platform owns welcome, carts and winback. Disable overlapping steps and prove that a purchase or withdrawal cancels pending work in both. The combined-platform benefit disappears when staff cannot explain which system will send next.</p>
+      <p>Before a sale, preview final copy and links, inspect stock-sensitive recommendations, check SMS budget behavior and confirm inbox coverage. Define who can pause a failing workflow and how to restart without replaying completed steps. Preserve permission records and current withdrawals rather than treating email signup, purchase or a stored number as SMS authorization.</p>
+      <p>Weekly review should include form completion, unknown source fields, event delays, cancellation failures, withdrawals by flow, reply backlog and contribution. Investigate changes against the prior configuration. Authenticate email senders before scaling and monitor complaints alongside attributed revenue.</p>
     </div>
-
-    <div class="grid gap-8 lg:grid-cols-2 mb-12">
-      <div class="card">
-        <p class="badge">Who should buy</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>100–800 orders/mo needing multichannel fast</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Graduating from Shopify Email within 6 months</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Teams wanting SMS + push without Postscript bolt-on</li>
-        </ul>
-      </div>
-      <div class="card">
-        <p class="badge">Who should skip</p>
-        <ul class="mt-4 space-y-3 text-cyan-100">
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Predictive CLV drives every send — Klaviyo</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Want pay-per-email + agent playbooks — Sequenzy</li>
-          <li class="flex gap-2"><span class="text-cyan-300">→</span>Capture-only problem — Privy first</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Getting maximum value before you outgrow Omnisend</h2>
-      <p>
-        Evaluate available welcome and cart templates against actual event mapping before enabling them, then customize product blocks for the top three SKUs. Readiness depends on validated permission and suppression, purchase and subscription checks, explicit queue ownership, cancellation and replay deduplication rather than a fourteen-day deadline. Cap spending during sale weeks, and compare matched all-in costs including destinations, segments, carrier fees, modules, discounts and operating labor.
-      </p>
-      <p>
-        Push notifications deserve a one-page policy: when they fire (browse abandon yes, every campaign no), who receives them (engaged subscribers only), and how they suppress if email already sent. Push is free relative to SMS but trains ignore behavior faster when overused.
-      </p>
-      <p>
-        Plan your graduation trigger now. When collection count exceeds comfortable boolean logic, when replenishment requires custom metafields, or when pay-per-email economics beat contact pricing above 15k subscribers — evaluate Sequenzy or Klaviyo. Migrating at 800 orders/mo with documented flows beats emergency migration at 2,000 orders/mo during Q4.
-      </p>
-      <p>
-        Capture remains separate. Omnisend forms work for early stage; at 500+ orders/mo most merchants add Privy or Justuno for exit intent depth and feed Omnisend segments via tags. Tag handoff at opt-in — popup source, collection interest, discount sensitivity — determines welcome performance more than template aesthetics.
-      </p>
-    </div>
-
-    <div class="prose-shopify mb-12">
-      <h2 class="font-serif text-4xl font-black text-white">Omnisend merchant scenarios we see repeatedly</h2>
-      <p>
-        <strong>Candle / home fragrance SMB:</strong> Omnisend from Shopify Email graduation at 280 orders/mo. Prebuilt cart recovery paid for annual plan in six weeks. Stayed on Omnisend 14 months until catalog hit 400 SKUs and collection segmentation became weekly ops — migrated to Sequenzy for pay-per-send and playbook speed.
-      </p>
-      <p>
-        <strong>Pet DTC with SMS:</strong> Proposed evaluation: compare eligible cart SMS plus email against email alone using randomized groups and uncertainty. Do not assume pet owners read texts faster or that a fixed two/four-message cap establishes permission. Verify current purpose/channel eligibility and suppression at dispatch, cancel after purchase and deduplicate queues. Evaluate push opt-in and contribution without claiming a three-week observed outcome.
-      </p>
-      <p>
-        <strong>Fashion boutique bridge:</strong> Omnisend live before spring drop; Privy added for exit intent on collection landing pages. Tags passed at integration. Omnisend sufficient until second seasonal clearance when winback complexity pushed evaluation of Sequenzy vs Klaviyo — chose Sequenzy on economics.
-      </p>
-      <p>
-        Measure Omnisend success on revenue per message and recovery rate trends, not template aesthetics. When boolean segment limits frustrate weekly — usually 12–18 months in — graduation is feature not failure.
-      </p>
-      <p>
-        Support response times may matter during setup. Evaluate current support availability and document answers about the intended message purpose, destination and sender in an internal wiki; no observed one-session resolution or legal clearance is established here.
-      </p>
-      <p>
-        Deliverability prep mirrors any ESP: authenticate domain before scaling automations, warm new flows gradually, and keep complaint rates visible in weekly ops review alongside revenue per message.
-      </p>
-      <p>
-        See our <a class="link" href="/use-cases/abandoned-cart">abandoned cart guide</a> for suppression patterns that pair well with Omnisend prebuilt flows.
-      </p>
-    </div>
-
-    <div class="card mb-12">
-      <p class="badge">Compare alternatives</p>
-      <h2 class="mt-3 font-serif text-3xl font-black text-white">Omnisend vs other Shopify SMS apps</h2>
-      <ul class="mt-6 space-y-3 text-lg font-bold">
-        <li><a class="link" href="/compare/klaviyo-vs-omnisend">Klaviyo vs Omnisend</a></li>
-        <li><a class="link" href="/compare/sequenzy-vs-omnisend">Sequenzy vs Omnisend</a></li>
-        <li><a class="link" href="/compare/omnisend-vs-shopify-email">Omnisend vs Shopify Email</a></li>
-        <li><a class="link" href="/compare/omnisend-vs-privy">Omnisend vs Privy</a></li>
-      </ul>
+    <div class="prose-shopify card mb-8">
+      <h2>Keep it while it covers the job</h2>
+      <p>Omnisend can remain an appropriate operating system when its demonstrated forms, data and channels cover the workload at an acceptable total cost. Neither 800 orders, 400 SKUs nor eighteen months forces migration. Record a concrete missing field, unsupported event or recurring manual task before deciding a different tool would solve it.</p>
+      <p>For an unmet capture requirement, compare <a class="link" href="/compare/omnisend-vs-privy">Omnisend and Privy</a> on that interaction. For event or audience requirements, evaluate <a class="link" href="/compare/klaviyo-vs-omnisend">Klaviyo and Omnisend</a> with your real payloads. For programmable lifecycle upkeep, read the <a class="link" href="/apps/sequenzy">Sequenzy review</a> without assuming a winner on price or strategy.</p>
+      <p>The <a class="link" href="/use-cases/abandoned-cart">cart recovery guide</a> can help define acceptance work. Keep the decision grounded in the complete customer path: valid signup, correct identity, appropriate message, current eligibility, cancellation and an accountable response. No candle-store payback, fashion migration or fixed revenue-share result is evidenced here.</p>
     </div>
   </section>
-
-  <section class="container pb-8">
-    <div class="flex flex-wrap gap-4 text-sm font-bold">
-      <a class="link" href="/apps">All Shopify SMS apps →</a>
-      <a class="link" href="/apps/sequenzy">Sequenzy review →</a>
-    </div>
-  </section>
-    <div class="prose-shopify card mt-12">
-      <h2>TCPA, consent, and cost-per-message discipline</h2>
-      <p>
-        Establish requirements for the message purpose, channel, destination and sender before enabling sends. Preserve permission evidence and withdrawal history, verify current vendor controls, and recheck suppression, purchase and subscription state at dispatch. A purchase, email signup or imported phone number alone does not establish promotional SMS permission; assign checkout, popup, keyword and reply handling owners.
-      </p>
-      <p>Model cost per delivered message before scaling broadcasts. A recovered cart that required 25% off plus three texts is often negative contribution margin even when attribution dashboards look green. Pair urgent SMS with Sequenzy email when the message needs education, social proof, or multi-product context — never duplicate the same offer on both channels within twenty-four hours unless the subscriber opted into high-frequency updates.</p>
-      <p>Weekly ops: audit STOP/HELP handling, reply inbox backlog, opt-out spikes by flow, and suppression overlap with email cart recovery. Quarterly: re-read popup and checkout consent language against live automations. TCPA litigation and carrier filtering both punish stores that treat SMS like promotional email with shorter copy.</p>
-    </div>
-
-
-
 </BaseLayout>
